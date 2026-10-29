@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Detalle de Producto</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#f7faf5",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e0e3de",
+            "on-error": "#ffffff",
+            "on-secondary-fixed": "#00210a",
+            "outline": "#6f7a71",
+            "on-surface-variant": "#3f4941",
+            "secondary-container": "#92f5a4",
+            "surface-tint": "#066c41",
+            "on-error-container": "#93000a",
+            "surface-container": "#ecefe9",
+            "on-surface": "#191d19",
+            "background": "#f7faf5",
+            "on-background": "#191d19",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-container-low": "#f1f4ef",
+            "tertiary": "#48564f",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-secondary-container": "#007233",
+            "on-secondary-fixed-variant": "#005323",
+            "tertiary-fixed": "#d7e6dd",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#95f8a7",
+            "inverse-primary": "#82d8a3",
+            "primary-fixed-dim": "#82d8a3",
+            "primary": "#006038",
+            "primary-container": "#1f7a4d",
+            "outline-variant": "#bec9bf",
+            "secondary": "#006d30",
+            "surface-container-highest": "#e0e3de",
+            "surface": "#f7faf5",
+            "primary-fixed": "#9ef5be",
+            "secondary-fixed-dim": "#79db8d",
+            "surface-dim": "#d8dbd6",
+            "on-primary-container": "#aeffca",
+            "on-tertiary-fixed": "#111e19",
+            "on-primary-fixed-variant": "#00522f",
+            "inverse-on-surface": "#eff2ec",
+            "inverse-surface": "#2d312e",
+            "surface-container-high": "#e6e9e4",
+            "tertiary-container": "#606e67",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed": "#002110",
+            "on-tertiary-fixed-variant": "#3c4a43"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1rem",
+            "margin": "1rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "caption": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "caption-bold": ["Inter"],
+            "body-md": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md-bold": ["Inter"]
+          },
+          "fontSize": {
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+    
+    .shimmer-active {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shimmer-active::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      animation: shimmer 1.75s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes toastSlideUp {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, 20px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+      }
+    }
+
+    .toast-animate {
+      animation: toastSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Mobile Viewport Canvas Container (Max 480px) -->
+<div class="w-full max-w-[480px] min-h-screen bg-surface flex flex-col relative shadow-xl overflow-x-hidden pb-28">
+<!-- 1. Native Mobile Status Bar -->
+<header class="w-full px-space-lg pt-2 pb-1.5 flex justify-between items-center bg-surface sticky top-0 z-50 select-none">
+<div class="font-caption-bold text-caption-bold text-on-surface font-semibold tracking-tight">09:41</div>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[17px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[17px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[19px]" data-icon="battery_full" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+</header>
+<!-- 2. Sticky Header / Top App Bar (Task Sub-page style with Back + Skeletons) -->
+<nav class="sticky top-7 z-40 bg-surface/95 backdrop-blur-md px-margin py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+<button aria-label="Volver" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:opacity-75 transition-colors focus:outline-none">
+<span class="material-symbols-outlined text-headline-sm" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Title Skeleton -->
+<div class="flex flex-col items-center">
+<div class="w-32 h-4 bg-surface-container-high rounded-full shimmer-active"></div>
+<span class="text-[11px] text-outline font-caption mt-0.5 tracking-tight">Cargando precios...</span>
+</div>
+<!-- Action buttons -->
+<div class="flex items-center space-x-1 -mr-1">
+<div class="w-9 h-9 rounded-full bg-surface-container shimmer-active flex items-center justify-center text-outline/40">
+<span class="material-symbols-outlined text-[20px]" data-icon="share">share</span>
+</div>
+<div class="w-9 h-9 rounded-full bg-surface-container shimmer-active flex items-center justify-center text-outline/40">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas (Skeletons Hierarchy) -->
+<main class="px-margin pt-3 flex flex-col space-y-4 flex-1">
+<!-- Product Image Banner Skeleton (Large Square / Aspect ratio) -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 shadow-sm flex flex-col items-center justify-center relative overflow-hidden">
+<div class="w-full h-52 bg-surface-container-low rounded-lg shimmer-active flex items-center justify-center relative">
+<!-- Subtle iconic watermark in shimmer -->
+<span class="material-symbols-outlined text-outline-variant/40 text-5xl select-none" data-icon="inventory_2">inventory_2</span>
+<!-- Corner badge shimmer -->
+<div class="absolute top-2.5 left-2.5 w-16 h-5 bg-surface-container-highest rounded-full shimmer-active"></div>
+</div>
+</section>
+<!-- Product Info Hierarchy Block -->
+<section class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 shadow-sm space-y-3">
+<!-- Category & Brand Pill -->
+<div class="flex items-center space-x-2">
+<div class="w-20 h-5 bg-surface-container rounded-full shimmer-active"></div>
+<div class="w-12 h-5 bg-surface-container-low rounded-full shimmer-active"></div>
+</div>
+<!-- Product Name (2 Lines Skeleton) -->
+<div class="space-y-2 pt-1">
+<div class="w-11/12 h-6 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-3/5 h-6 bg-surface-container rounded-md shimmer-active"></div>
+</div>
+<!-- Presentation Volume / SKU -->
+<div class="pt-1 flex items-center space-x-3">
+<div class="w-28 h-4 bg-surface-container-low rounded shimmer-active"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant/50"></div>
+<div class="w-32 h-4 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</section>
+<!-- Best Price Callout (Card Ahorro Recomendado en Shimmer) -->
+<section class="bg-surface-container-lowest rounded-xl p-4 border-2 border-primary-fixed bg-gradient-to-r from-surface-container-lowest to-surface-container-low/40 shadow-sm space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px] text-on-secondary-container" data-icon="savings" data-weight="fill">savings</span>
+</span>
+<div class="w-32 h-4 bg-secondary-container/40 rounded-full shimmer-active"></div>
+</div>
+<div class="w-16 h-5 bg-secondary-container/30 rounded-full shimmer-active"></div>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<div class="space-y-1.5">
+<div class="w-36 h-7 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-24 h-3.5 bg-surface-container rounded shimmer-active"></div>
+</div>
+<div class="w-20 h-4 bg-surface-container-high rounded shimmer-active"></div>
+</div>
+</section>
+<!-- Supermarket Comparison Section Headline -->
+<section class="space-y-3 pt-1">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center space-x-2">
+<div class="w-36 h-5 bg-surface-container-high rounded-md shimmer-active"></div>
+<span class="w-5 h-5 rounded-full bg-surface-container text-[11px] font-caption font-semibold flex items-center justify-center text-outline">6</span>
+</div>
+<div class="w-20 h-4 bg-surface-container rounded shimmer-active"></div>
+</div>
+<!-- 6 Supermarket Rows Skeleton List -->
+<div class="space-y-2.5">
+<!-- Row 1: ChangoMás -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 flex items-center justify-between shadow-sm">
+<div class="flex items-center space-x-3">
+<!-- Supermarket Dot / Identity Placeholder -->
+<div class="w-9 h-9 rounded-full bg-[#1F7A4D]/15 flex items-center justify-center relative flex-shrink-0">
+<span class="w-2.5 h-2.5 rounded-full bg-[#1F7A4D]"></span>
+</div>
+<div class="space-y-1.5">
+<div class="w-24 h-4 bg-surface-container-high rounded shimmer-active"></div>
+<div class="w-32 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-1.5">
+<div class="w-20 h-5 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-14 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</article>
+<!-- Row 2: Vea -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 flex items-center justify-between shadow-sm">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-[#B4604A]/15 flex items-center justify-center relative flex-shrink-0">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]"></span>
+</div>
+<div class="space-y-1.5">
+<div class="w-20 h-4 bg-surface-container-high rounded shimmer-active"></div>
+<div class="w-28 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-1.5">
+<div class="w-20 h-5 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-12 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</article>
+<!-- Row 3: Carrefour -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 flex items-center justify-between shadow-sm">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-[#4E6A8C]/15 flex items-center justify-center relative flex-shrink-0">
+<span class="w-2.5 h-2.5 rounded-full bg-[#4E6A8C]"></span>
+</div>
+<div class="space-y-1.5">
+<div class="w-28 h-4 bg-surface-container-high rounded shimmer-active"></div>
+<div class="w-36 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-1.5">
+<div class="w-20 h-5 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-16 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</article>
+<!-- Row 4: Jumbo -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 flex items-center justify-between shadow-sm">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-secondary/15 flex items-center justify-center relative flex-shrink-0">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<div class="space-y-1.5">
+<div class="w-20 h-4 bg-surface-container-high rounded shimmer-active"></div>
+<div class="w-24 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-1.5">
+<div class="w-20 h-5 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-12 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</article>
+<!-- Row 5: Comodín -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 flex items-center justify-between shadow-sm">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-amber-600/15 flex items-center justify-center relative flex-shrink-0">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+</div>
+<div class="space-y-1.5">
+<div class="w-24 h-4 bg-surface-container-high rounded shimmer-active"></div>
+<div class="w-32 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-1.5">
+<div class="w-20 h-5 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-14 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</article>
+<!-- Row 6: La Anónima -->
+<article class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 flex items-center justify-between shadow-sm">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-rose-600/15 flex items-center justify-center relative flex-shrink-0">
+<span class="w-2.5 h-2.5 rounded-full bg-rose-600"></span>
+</div>
+<div class="space-y-1.5">
+<div class="w-24 h-4 bg-surface-container-high rounded shimmer-active"></div>
+<div class="w-28 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-1.5">
+<div class="w-20 h-5 bg-surface-container-high rounded-md shimmer-active"></div>
+<div class="w-16 h-3 bg-surface-container-low rounded shimmer-active"></div>
+</div>
+</article>
+</div>
+</section>
+<!-- Neighborhood Alert/Transparency note Skeleton -->
+<footer class="pt-2 pb-6 px-1 flex items-center justify-center space-x-2 text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-caption font-caption text-outline">Precios relevados en San Miguel de Tucumán</span>
+</footer>
+</main>
+<!-- 3. FLOATING TOAST NOTIFICATION: 'Precios actualizados' -->
+<aside class="fixed bottom-24 left-1/2 -translate-x-1/2 w-[92%] max-w-[420px] z-50 toast-animate" id="toast-notification">
+<div class="bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-2xl shadow-xl flex items-center justify-between border border-outline-variant/20 backdrop-blur-md">
+<div class="flex items-center space-x-3 mr-2">
+<!-- Animated pulse ring with checkmark -->
+<div class="relative flex-shrink-0">
+<span class="material-symbols-outlined text-[#34d399] text-2xl select-none" data-icon="check_circle" data-weight="fill">check_circle</span>
+</div>
+<!-- Toast textual body -->
+<div class="flex flex-col">
+<span class="text-body-md-bold font-body-md-bold text-white tracking-tight">Precios actualizados</span>
+<span class="text-[12px] leading-tight text-surface-variant font-caption">Relevamiento fresco sincronizado con SEPA y webs</span>
+</div>
+</div>
+<!-- Micro dismiss button -->
+<button aria-label="Cerrar notificación" class="w-7 h-7 rounded-full hover:bg-white/10 active:opacity-75 flex items-center justify-center text-outline-variant transition-colors flex-shrink-0 focus:outline-none" onclick="document.getElementById('toast-notification').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px] text-surface-variant" data-icon="close">close</span>
+</button>
+</div>
+</aside>
+<!-- 4. Fixed Bottom Action Bar (Capped at 480px, Elevation 3) -->
+<div class="fixed bottom-0 left-0 right-0 w-full max-w-[480px] mx-auto z-40 bg-surface-container-lowest/95 backdrop-blur-lg px-margin py-3 border-t border-outline-variant/30 flex items-center space-x-3">
+<!-- Stepper Placeholder -->
+<div class="w-28 h-12 rounded-xl bg-surface-container-low border border-outline-variant/40 flex items-center justify-between px-3 flex-shrink-0">
+<span class="text-outline-variant font-bold text-lg select-none">−</span>
+<div class="w-5 h-4 bg-surface-container rounded shimmer-active"></div>
+<span class="text-outline-variant font-bold text-lg select-none">+</span>
+</div>
+<!-- Main Action Skeleton Button -->
+<div class="flex-1 h-12 bg-primary-container/85 rounded-xl flex items-center justify-center space-x-2 text-on-primary font-headline-sm text-sm relative overflow-hidden shimmer-active opacity-90 cursor-wait">
+<span class="material-symbols-outlined text-[20px] text-on-primary-container" data-icon="shopping_basket">shopping_basket</span>
+<div class="w-32 h-4 bg-on-primary/40 rounded-full"></div>
+</div>
+</div>
+</div>
+</body></html>

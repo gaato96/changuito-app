@@ -1,0 +1,36 @@
+# Mantenimiento diario: historial > 60 días, tamaño de la base, frescos y keep-alive del cron (PLAN.md §7).
+name: maintenance
+
+on:
+  schedule:
+    - cron: '0 7 * * *'    # 04:00 ART
+  workflow_dispatch:
+
+permissions:
+  contents: write          # para el commit mensual de status.json
+
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Mantenimiento
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: node ingest/maintenance/run.ts
+      - name: Commit mensual de status.json
+        # GitHub desactiva los cron de repos públicos tras 60 días sin actividad
+        run: |
+          if [ "$(date -u +%d)" = "01" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            git config user.name "changuito-bot"
+            git config user.email "changuito-bot@users.noreply.github.com"
+            git add status.json
+            git diff --cached --quiet || git commit -m "chore: status.json $(date -u +%F)"
+            git push
+          fi

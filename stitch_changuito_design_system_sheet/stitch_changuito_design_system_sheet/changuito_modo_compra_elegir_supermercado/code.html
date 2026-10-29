@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Changuito — Modo compra</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "surface-container": "#ecefe9",
+            "on-secondary-fixed": "#00210a",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "secondary-container": "#92f5a4",
+            "primary-container": "#1f7a4d",
+            "tertiary-fixed": "#d7e6dd",
+            "background": "#f7faf5",
+            "on-secondary-container": "#007233",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e6e9e4",
+            "outline": "#6f7a71",
+            "surface-container-low": "#f1f4ef",
+            "on-tertiary-fixed": "#111e19",
+            "surface": "#f7faf5",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#bbcac1",
+            "outline-variant": "#bec9bf",
+            "inverse-on-surface": "#eff2ec",
+            "primary-fixed-dim": "#82d8a3",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#e0e3de",
+            "on-surface-variant": "#3f4941",
+            "on-secondary-fixed-variant": "#005323",
+            "primary-fixed": "#9ef5be",
+            "surface-tint": "#066c41",
+            "tertiary": "#48564f",
+            "secondary-fixed": "#95f8a7",
+            "on-secondary": "#ffffff",
+            "on-background": "#191d19",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2d312e",
+            "on-primary-container": "#aeffca",
+            "on-surface": "#191d19",
+            "tertiary-container": "#606e67",
+            "surface-bright": "#f7faf5",
+            "on-tertiary-container": "#e1f0e7",
+            "secondary-fixed-dim": "#79db8d",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00522f",
+            "primary": "#006038",
+            "inverse-primary": "#82d8a3",
+            "error": "#ba1a1a",
+            "surface-dim": "#d8dbd6",
+            "secondary": "#006d30",
+            "surface-container-highest": "#e0e3de",
+            "on-primary-fixed": "#002110"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "margin-tablet": "1.5rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "1.5rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "price-md": ["Inter"],
+            "price-lg": ["Inter"],
+            "caption-bold": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "caption": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Smooth transitions for interactive selection */
+    .store-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen flex flex-col items-center justify-start selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Mobile PWA Frame Container (max-w-[480px]) -->
+<div class="w-full max-w-[480px] bg-background min-h-screen flex flex-col relative shadow-sm">
+<!-- 1. Top App Bar (Task-Focused: Exit Shopping Mode) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 px-margin h-14 flex items-center justify-between transition-colors">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Cerrar modo compra" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Modo compra</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-caption-bold text-primary bg-secondary-container/40">
+          Tucumán
+        </span>
+</div>
+</header>
+<!-- Main Content Canvas (Scrollable) -->
+<main class="flex-1 px-margin pt-space-lg pb-36 flex flex-col gap-space-lg">
+<!-- 2. Header Section -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-caption-bold text-caption">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Paso 1 de 2 · Preparar recorrido
+          </span>
+<span class="text-caption text-outline font-caption">En la sucursal</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1">
+          ¿En qué súper estás?
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Seleccioná la sucursal donde vas a comprar para ordenar los productos por góndola y tildar lo que cargás al changuito.
+        </p>
+<!-- Current Cart Summary Pill -->
+<div class="mt-2 inline-flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-outline-variant/40">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined fill-icon text-[20px]" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div>
+<p class="font-body-md-bold text-body-md-bold text-on-surface leading-tight">Compra del mes</p>
+<p class="font-caption text-caption text-on-surface-variant">24 productos presupuestados</p>
+</div>
+</div>
+<span class="font-caption-bold text-caption text-primary flex items-center gap-0.5">
+            Ver lista
+            <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</span>
+</div>
+</section>
+<!-- 3. Supermarket Selection Section -->
+<section class="flex flex-col gap-3" id="stores-selection-group">
+<!-- CARD 1: ChangoMás (SELECTED BY DEFAULT) -->
+<label class="store-card relative flex flex-col p-4 rounded-xl bg-surface-container-lowest border-2 border-primary shadow-sm cursor-pointer select-none ring-2 ring-primary/10" for="store-changomas">
+<input checked="" class="sr-only" id="store-changomas" name="selected_supermarket" type="radio" value="changomas"/>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<!-- Supermarket Indicator Dot (Orange/Yellow for ChangoMás) -->
+<div class="mt-1 flex-shrink-0">
+<div class="w-3 h-3 rounded-full bg-[#E06D12] ring-4 ring-[#E06D12]/20"></div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface">ChangoMás</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] font-caption-bold text-[12px]">
+<span class="material-symbols-outlined text-[13px] fill-icon" data-icon="star">star</span>
+                    Recomendado
+                  </span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="store">store</span>
+                  Sucursal Av. Jujuy 2600 · <span class="font-caption-bold text-on-surface">A 8 min</span>
+</p>
+</div>
+</div>
+<!-- Radio Button Indicator Selected -->
+<div class="w-6 h-6 rounded-full border-2 border-primary bg-primary flex items-center justify-center text-on-primary flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
+</div>
+</div>
+<!-- Bottom Card Data Row -->
+<div class="mt-3 pt-3 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px] text-[#15803D] fill-icon" data-icon="check_circle">check_circle</span>
+<span>Tiene <strong class="text-on-surface font-caption-bold">23 de 24</strong> productos</span>
+</div>
+<div class="text-right">
+<p class="font-price-lg text-price-lg text-on-surface font-bold tracking-tight leading-none">$ 186.430</p>
+<span class="text-[11px] font-caption-bold text-[#15803D]">Mejor precio total</span>
+</div>
+</div>
+</label>
+<!-- CARD 2: Split Option Card ("Usar combinación recomendada") -->
+<label class="store-card relative flex flex-col p-4 rounded-xl bg-gradient-to-br from-surface-container-lowest to-[#f1f8f3] border-2 border-dashed border-primary/40 hover:border-primary/70 shadow-sm cursor-pointer select-none" for="store-split">
+<input class="sr-only" id="store-split" name="selected_supermarket" type="radio" value="split_combo"/>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<!-- Dual color accents for combination -->
+<div class="mt-1 flex-shrink-0 flex -space-x-1">
+<div class="w-3 h-3 rounded-full bg-[#E06D12] ring-2 ring-surface"></div>
+<div class="w-3 h-3 rounded-full bg-[#B4604A] ring-2 ring-surface"></div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface">Combinación ChangoMás + Vea</span>
+</div>
+<div class="mt-1 flex items-center gap-1.5 flex-wrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] font-caption-bold text-[12px]">
+<span class="material-symbols-outlined text-[13px] fill-icon" data-icon="savings">savings</span>
+                    Ahorro máximo · −$ 6.570
+                  </span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="alt_route">alt_route</span>
+                  ChangoMás Av. Jujuy + Vea Laprida
+                </p>
+</div>
+</div>
+<!-- Radio Button Indicator Unchecked -->
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline-variant bg-surface-container-lowest flex items-center justify-center flex-shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 transition-opacity"></div>
+</div>
+</div>
+<!-- Bottom Card Data Row -->
+<div class="mt-3 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-caption text-caption">
+<span class="material-symbols-outlined text-[16px] text-[#15803D] fill-icon" data-icon="verified">verified</span>
+<span><strong class="text-on-surface font-caption-bold">24 de 24</strong> productos (100%)</span>
+</div>
+<p class="text-[11px] font-caption text-outline mt-0.5">Modo compra dividido en 2 etapas guiadas</p>
+</div>
+<div class="text-right">
+<p class="font-price-lg text-price-lg text-primary font-bold tracking-tight leading-none">$ 179.860</p>
+<span class="text-[11px] font-caption-bold text-outline">Total combinado</span>
+</div>
+</div>
+</label>
+<!-- CARD 3: Comodín -->
+<label class="store-card relative flex flex-col p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-outline shadow-sm cursor-pointer select-none" for="store-comodin">
+<input class="sr-only" id="store-comodin" name="selected_supermarket" type="radio" value="comodin"/>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="mt-1 flex-shrink-0">
+<div class="w-3 h-3 rounded-full bg-[#E65100]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Comodín</span>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="store">store</span>
+                  Sucursal Av. Roca 3450
+                </p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline-variant bg-surface-container-lowest flex items-center justify-center flex-shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 transition-opacity"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span>Tiene <strong class="text-on-surface font-caption-bold">23 de 24</strong> productos</span>
+</div>
+<div class="text-right">
+<p class="font-price-md text-price-md text-on-surface font-bold tracking-tight leading-none">$ 191.120</p>
+<span class="text-[11px] font-caption text-outline">+ $ 4.690 vs. ChangoMás</span>
+</div>
+</div>
+</label>
+<!-- CARD 4: Carrefour -->
+<label class="store-card relative flex flex-col p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-outline shadow-sm cursor-pointer select-none" for="store-carrefour">
+<input class="sr-only" id="store-carrefour" name="selected_supermarket" type="radio" value="carrefour"/>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="mt-1 flex-shrink-0">
+<div class="w-3 h-3 rounded-full bg-[#1E5C9A]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Carrefour</span>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="store">store</span>
+                  Sucursal 24 de Septiembre
+                </p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline-variant bg-surface-container-lowest flex items-center justify-center flex-shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 transition-opacity"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span>Tiene <strong class="text-on-surface font-caption-bold">22 de 24</strong> productos</span>
+</div>
+<div class="text-right">
+<p class="font-price-md text-price-md text-on-surface font-bold tracking-tight leading-none">$ 194.850</p>
+<span class="text-[11px] font-caption text-outline">+ $ 8.420</span>
+</div>
+</div>
+</label>
+<!-- CARD 5: Vea -->
+<label class="store-card relative flex flex-col p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-outline shadow-sm cursor-pointer select-none" for="store-vea">
+<input class="sr-only" id="store-vea" name="selected_supermarket" type="radio" value="vea"/>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="mt-1 flex-shrink-0">
+<div class="w-3 h-3 rounded-full bg-[#B4604A]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Vea</span>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="store">store</span>
+                  Sucursal Yerba Buena (Av. Aconquija)
+                </p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline-variant bg-surface-container-lowest flex items-center justify-center flex-shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 transition-opacity"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span>Tiene <strong class="text-on-surface font-caption-bold">21 de 24</strong> productos</span>
+</div>
+<div class="text-right">
+<p class="font-price-md text-price-md text-on-surface font-bold tracking-tight leading-none">$ 196.200</p>
+<span class="text-[11px] font-caption text-outline">+ $ 9.770</span>
+</div>
+</div>
+</label>
+<!-- CARD 6: Jumbo -->
+<label class="store-card relative flex flex-col p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-outline shadow-sm cursor-pointer select-none" for="store-jumbo">
+<input class="sr-only" id="store-jumbo" name="selected_supermarket" type="radio" value="jumbo"/>
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="mt-1 flex-shrink-0">
+<div class="w-3 h-3 rounded-full bg-[#2F7E43]"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Jumbo</span>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline" data-icon="store">store</span>
+                  Sucursal Portal Tucumán
+                </p>
+</div>
+</div>
+<div class="radio-indicator w-6 h-6 rounded-full border-2 border-outline-variant bg-surface-container-lowest flex items-center justify-center flex-shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 transition-opacity"></div>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-caption text-caption">
+<span>Tiene <strong class="text-on-surface font-caption-bold">20 de 24</strong> productos</span>
+</div>
+<div class="text-right">
+<p class="font-price-md text-price-md text-on-surface font-bold tracking-tight leading-none">$ 214.300</p>
+<span class="text-[11px] font-caption text-outline">+ $ 27.870</span>
+</div>
+</div>
+</label>
+</section>
+<!-- 4. Civic Helper Footnote -->
+<div class="mt-2 p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0" data-icon="offline_bolt">offline_bolt</span>
+<p class="font-caption text-caption text-on-surface-variant leading-snug">
+          Podés activar el modo compra sin conexión: funciona con los datos guardados en tu teléfono si la señal falla dentro del salón.
+        </p>
+</div>
+</main>
+<!-- 5. Sticky Bottom Action Bar (Docked at bottom, absolutely NO BottomNavBar) -->
+<div class="fixed bottom-0 left-0 right-0 w-full max-w-[480px] mx-auto z-50 bg-surface/95 backdrop-blur-md border-t border-outline-variant/30 px-margin pt-3 pb-6 flex flex-col gap-1.5 shadow-[0_-4px_16px_rgba(22,26,23,0.06)]">
+<!-- Primary Action Button -->
+<button class="w-full h-12 bg-primary hover:bg-[#17603C] active:scale-[0.98] text-on-primary rounded-xl font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-sm transition-all duration-150" id="btn-start-shopping" type="button">
+<span>Empezar</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Contextual Action Caption -->
+<p class="text-center font-caption text-caption text-on-surface-variant" id="action-caption">
+        Inicia el recorrido en góndola en <strong class="text-on-surface font-caption-bold">ChangoMás</strong>
+</p>
+</div>
+</div>
+<!-- Interactive Radio Behavior Micro-script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const radioInputs = document.querySelectorAll('input[name="selected_supermarket"]');
+      const actionCaption = document.getElementById('action-caption');
+
+      const storeNames = {
+        'changomas': 'ChangoMás (Av. Jujuy)',
+        'split_combo': 'ChangoMás + Vea (2 etapas)',
+        'comodin': 'Comodín (Av. Roca)',
+        'carrefour': 'Carrefour (24 de Septiembre)',
+        'vea': 'Vea (Yerba Buena)',
+        'jumbo': 'Jumbo (Portal Tucumán)'
+      };
+
+      function updateCardStyles() {
+        radioInputs.forEach(radio => {
+          const card = radio.closest('.store-card');
+          const isSelected = radio.checked;
+          const indicator = card.querySelector('.radio-indicator');
+
+          if (isSelected) {
+            // Apply selected state
+            card.classList.add('border-primary', 'border-2', 'ring-2', 'ring-primary/10');
+            card.classList.remove('border-outline-variant/40', 'border-primary/40');
+            
+            if (indicator) {
+              indicator.classList.add('border-primary', 'bg-primary');
+              indicator.innerHTML = '<span class="material-symbols-outlined text-[16px] text-white font-bold" data-icon="check">check</span>';
+            }
+
+            // Update action bar helper label
+            if (actionCaption && storeNames[radio.value]) {
+              actionCaption.innerHTML = `Inicia el recorrido en góndola en <strong class="text-on-surface font-caption-bold">${storeNames[radio.value]}</strong>`;
+            }
+          } else {
+            // Reset to unselected styling
+            if (card.getAttribute('for') === 'store-split') {
+              card.classList.remove('border-primary', 'ring-2', 'ring-primary/10');
+              card.classList.add('border-primary/40');
+            } else {
+              card.classList.remove('border-primary', 'border-2', 'ring-2', 'ring-primary/10');
+              card.classList.add('border-outline-variant/40');
+            }
+
+            if (indicator) {
+              indicator.classList.remove('border-primary', 'bg-primary');
+              indicator.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 transition-opacity"></div>';
+            }
+          }
+        });
+      }
+
+      radioInputs.forEach(input => {
+        input.addEventListener('change', updateCardStyles);
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Buscar</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#82d8a3",
+            "surface-bright": "#f7faf5",
+            "primary": "#006038",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "error-container": "#ffdad6",
+            "outline": "#6f7a71",
+            "secondary-fixed": "#95f8a7",
+            "surface-dim": "#d8dbd6",
+            "on-surface": "#191d19",
+            "on-error-container": "#93000a",
+            "background": "#f7faf5",
+            "inverse-surface": "#2d312e",
+            "on-primary-container": "#aeffca",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#00210a",
+            "surface-tint": "#066c41",
+            "primary-container": "#1f7a4d",
+            "inverse-on-surface": "#eff2ec",
+            "on-background": "#191d19",
+            "secondary-fixed-dim": "#79db8d",
+            "surface-container-high": "#e6e9e4",
+            "tertiary": "#48564f",
+            "surface-container-low": "#f1f4ef",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-container-highest": "#e0e3de",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#606e67",
+            "on-primary-fixed": "#002110",
+            "outline-variant": "#bec9bf",
+            "tertiary-fixed": "#d7e6dd",
+            "primary-fixed-dim": "#82d8a3",
+            "surface-container": "#ecefe9",
+            "secondary-container": "#92f5a4",
+            "on-secondary-fixed-variant": "#005323",
+            "surface": "#f7faf5",
+            "secondary": "#006d30",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed": "#111e19",
+            "on-surface-variant": "#3f4941",
+            "on-primary-fixed-variant": "#00522f",
+            "on-secondary-container": "#007233",
+            "primary-fixed": "#9ef5be",
+            "on-error": "#ffffff",
+            "surface-variant": "#e0e3de",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "0.75rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-mobile": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "caption": ["Inter"],
+            "caption-bold": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "price-md": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md-bold": ["Inter"]
+          },
+          "fontSize": {
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbar for category pills row */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased font-body-md text-body-md min-h-screen flex justify-center">
+<!-- Mobile Shell (Target 390px, max 480px) -->
+<div class="w-full max-w-[480px] min-h-screen bg-surface flex flex-col relative pb-24 shadow-sm border-x border-outline-variant/20">
+<!-- Top App Bar (Shared Component Manifest) -->
+<header class="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-space-lg h-14 max-w-[480px] mx-auto right-0 bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 dark:border-outline-variant/10 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-headline-md font-headline-lg font-bold text-primary dark:text-inverse-primary tracking-tight">Changuito</span>
+</div>
+<button class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:bg-surface-container dark:hover:bg-surface-container-high px-2.5 py-1 rounded transition-colors duration-150" type="button">
+        Saltar
+      </button>
+</header>
+<!-- Content Spacer for Fixed TopAppBar -->
+<div class="h-14 w-full"></div>
+<!-- Main Search Interface -->
+<main class="flex-1 px-margin pt-4 flex flex-col gap-6">
+<!-- 1. Search Bar & Coverage Metadata -->
+<section class="flex flex-col gap-2.5">
+<div class="relative flex items-center w-full">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]" data-icon="search">search</span>
+</div>
+<input autofocus="" class="w-full h-12 pl-11 pr-24 bg-surface-container-low focus:bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/70 text-body-md font-body-md rounded-xl border border-outline-variant/40 focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all duration-150" placeholder="Buscá un producto o marca (ej. leche, yerba)" type="text"/>
+<!-- Action buttons inside input: Barcode camera & voice search -->
+<div class="absolute right-1.5 flex items-center space-x-0.5">
+<button aria-label="Escanear código de barras" class="w-9 h-9 flex items-center justify-center text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[21px]" data-icon="barcode_scanner">barcode_scanner</span>
+</button>
+<button aria-label="Búsqueda por voz" class="w-9 h-9 flex items-center justify-center text-on-surface-variant hover:text-primary rounded-lg hover:bg-surface-container active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[21px]" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+<!-- Real-time Municipal Coverage Subtitle Chip -->
+<div class="flex items-center gap-2 px-1">
+<div class="flex items-center gap-1.5 text-caption font-caption text-on-surface-variant">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>Comparando en <strong>6 supermercados</strong> de Gran Tucumán</span>
+</div>
+<span class="text-caption font-caption text-outline-variant">•</span>
+<span class="text-caption font-caption text-primary hover:underline cursor-pointer">Cambiar zona</span>
+</div>
+</section>
+<!-- 2. Búsquedas recientes -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-space-md shadow-[0_1px_3px_rgba(22,26,23,0.04)]">
+<div class="flex items-center justify-between pb-2 mb-1 border-b border-outline-variant/20">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="history">history</span>
+<h2 class="text-body-md-bold font-body-md-bold text-on-surface">Búsquedas recientes</h2>
+</div>
+<button class="text-caption-bold font-caption-bold text-primary hover:text-primary-container active:opacity-75 transition-colors py-1 px-1.5" id="clear-all-btn" onclick="clearAllHistory()" type="button">
+            Borrar historial
+          </button>
+</div>
+<!-- Recent Search Items List -->
+<ul class="divide-y divide-outline-variant/15" id="recent-search-list">
+<!-- Item 1 -->
+<li class="flex items-center justify-between py-2.5 group hover:bg-surface-container-low -mx-1 px-2 rounded-lg transition-colors">
+<button class="flex items-center gap-3 text-left flex-1 min-w-0" type="button">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="schedule">schedule</span>
+<span class="text-body-md font-body-md text-on-surface truncate">leche entera la serenísima</span>
+</button>
+<button aria-label="Quitar de recientes" class="w-8 h-8 flex items-center justify-center text-outline hover:text-error rounded-full hover:bg-surface-container-high transition" onclick="this.closest('li').remove()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</li>
+<!-- Item 2 -->
+<li class="flex items-center justify-between py-2.5 group hover:bg-surface-container-low -mx-1 px-2 rounded-lg transition-colors">
+<button class="flex items-center gap-3 text-left flex-1 min-w-0" type="button">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="schedule">schedule</span>
+<span class="text-body-md font-body-md text-on-surface truncate">yerba playadito 1 kg</span>
+</button>
+<button aria-label="Quitar de recientes" class="w-8 h-8 flex items-center justify-center text-outline hover:text-error rounded-full hover:bg-surface-container-high transition" onclick="this.closest('li').remove()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</li>
+<!-- Item 3 -->
+<li class="flex items-center justify-between py-2.5 group hover:bg-surface-container-low -mx-1 px-2 rounded-lg transition-colors">
+<button class="flex items-center gap-3 text-left flex-1 min-w-0" type="button">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="schedule">schedule</span>
+<span class="text-body-md font-body-md text-on-surface truncate">aceite girasol natura 1.5 l</span>
+</button>
+<button aria-label="Quitar de recientes" class="w-8 h-8 flex items-center justify-center text-outline hover:text-error rounded-full hover:bg-surface-container-high transition" onclick="this.closest('li').remove()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</li>
+<!-- Item 4 -->
+<li class="flex items-center justify-between py-2.5 group hover:bg-surface-container-low -mx-1 px-2 rounded-lg transition-colors">
+<button class="flex items-center gap-3 text-left flex-1 min-w-0" type="button">
+<span class="material-symbols-outlined text-[20px] text-outline" data-icon="schedule">schedule</span>
+<span class="text-body-md font-body-md text-on-surface truncate">asado de novillo</span>
+</button>
+<button aria-label="Quitar de recientes" class="w-8 h-8 flex items-center justify-center text-outline hover:text-error rounded-full hover:bg-surface-container-high transition" onclick="this.closest('li').remove()" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</li>
+</ul>
+</section>
+<!-- 3. Lo más buscado en Tucumán (Trending Chips) -->
+<section class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="trending_up">trending_up</span>
+<h2 class="text-body-md-bold font-body-md-bold text-on-surface">Lo más buscado en Tucumán</h2>
+</div>
+<span class="text-caption font-caption text-on-surface-variant">Hoy</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<!-- Chip 1: Aceite -->
+<button class="inline-flex items-center gap-1 px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-full text-body-md font-body-md text-on-surface hover:bg-surface-container-low active:scale-95 transition shadow-sm" type="button">
+<span class="text-sm">🔥</span>
+<span>Aceite</span>
+<span class="text-[11px] font-caption-bold text-secondary ml-1 bg-secondary-fixed/50 px-1 rounded-full">-22%</span>
+</button>
+<!-- Chip 2: Yerba -->
+<button class="inline-flex items-center px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-full text-body-md font-body-md text-on-surface hover:bg-surface-container-low active:scale-95 transition shadow-sm" type="button">
+<span>Yerba</span>
+</button>
+<!-- Chip 3: Pañales -->
+<button class="inline-flex items-center px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-full text-body-md font-body-md text-on-surface hover:bg-surface-container-low active:scale-95 transition shadow-sm" type="button">
+<span>Pañales</span>
+</button>
+<!-- Chip 4: Nalga -->
+<button class="inline-flex items-center px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-full text-body-md font-body-md text-on-surface hover:bg-surface-container-low active:scale-95 transition shadow-sm" type="button">
+<span>Nalga</span>
+</button>
+<!-- Chip 5: Coca-Cola 2,25 L -->
+<button class="inline-flex items-center px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-full text-body-md font-body-md text-on-surface hover:bg-surface-container-low active:scale-95 transition shadow-sm" type="button">
+<span>Coca-Cola 2,25 L</span>
+</button>
+<!-- Chip 6: Arroz -->
+<button class="inline-flex items-center px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-full text-body-md font-body-md text-on-surface hover:bg-surface-container-low active:scale-95 transition shadow-sm" type="button">
+<span>Arroz</span>
+</button>
+<!-- Chip 7: Azúcar Ledesma -->
+<button class="inline-flex items-center px-3 py-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-full text-body-md font-body-md text-on-surface hover:bg-surface-container-low active:scale-95 transition shadow-sm" type="button">
+<span>Azúcar Ledesma</span>
+</button>
+</div>
+</section>
+<!-- 4. Quick Shortcuts / Category Quick-jump (Bento-style Cards) -->
+<section class="flex flex-col gap-2.5">
+<div class="px-1 flex items-center justify-between">
+<h2 class="text-body-md-bold font-body-md-bold text-on-surface">Accesos directos de ahorro</h2>
+<span class="text-caption font-caption text-on-surface-variant">Filtros rápidos</span>
+</div>
+<div class="grid grid-cols-3 gap-2.5">
+<!-- Shortcut 1: Canasta básica -->
+<a class="flex flex-col justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-primary-container shadow-[0_1px_3px_rgba(22,26,23,0.04)] active:scale-95 transition min-h-[96px]" href="#">
+<div class="w-7 h-7 rounded-lg bg-primary-fixed/60 flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div>
+<p class="text-caption-bold font-caption-bold text-on-surface leading-tight">Canasta básica</p>
+<p class="text-[11px] font-caption text-on-surface-variant mt-0.5">32 productos</p>
+</div>
+</a>
+<!-- Shortcut 2: Ofertas 2da al 70% -->
+<a class="flex flex-col justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-primary-container shadow-[0_1px_3px_rgba(22,26,23,0.04)] active:scale-95 transition min-h-[96px]" href="#">
+<div class="w-7 h-7 rounded-lg bg-secondary-container/60 flex items-center justify-center text-secondary mb-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="percent">percent</span>
+</div>
+<div>
+<p class="text-caption-bold font-caption-bold text-on-surface leading-tight">Ofertas 2da al 70%</p>
+<p class="text-[11px] font-caption text-secondary font-semibold mt-0.5">Vea &amp; ChangoMás</p>
+</div>
+</a>
+<!-- Shortcut 3: Carnes y verduras al peso -->
+<a class="flex flex-col justify-between p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/40 hover:border-primary-container shadow-[0_1px_3px_rgba(22,26,23,0.04)] active:scale-95 transition min-h-[96px]" href="#">
+<div class="w-7 h-7 rounded-lg bg-tertiary-fixed/60 flex items-center justify-center text-tertiary mb-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="scale">scale</span>
+</div>
+<div>
+<p class="text-caption-bold font-caption-bold text-on-surface leading-tight">Carnes y verduras</p>
+<p class="text-[11px] font-caption text-on-surface-variant mt-0.5">Precios al peso</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Neighborhood solidarity tip card ("Voz vecina") -->
+<div class="mt-1 p-3.5 bg-surface-container-low rounded-xl border border-outline-variant/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" data-icon="tips_and_updates">tips_and_updates</span>
+<div class="text-caption font-caption text-on-surface-variant">
+<strong class="font-caption-bold text-on-surface">Consejo de barrio:</strong> Si vas a comprar en cantidad, fijate en Vea de Av. Sarmiento que actualizan precios los miércoles a la mañana.
+        </div>
+</div>
+</main>
+<!-- 5. Persistent Bottom Navigation Bar (Mobile PWA Shell) -->
+<!-- Fixed within the 480px frame constraint, with elevation 3 styling and no top border per guidelines -->
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-[480px] mx-auto bg-surface-container-lowest h-16 px-4 flex items-center justify-around z-50 shadow-[0_-4px_16px_rgba(22,26,23,0.06)] border-t border-outline-variant/30">
+<!-- Tab 1: Inicio -->
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-on-surface-variant hover:text-primary transition group" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="home">home</span>
+<span class="text-[11px] font-caption font-medium tracking-tight mt-0.5">Inicio</span>
+</a>
+<!-- Tab 2: Buscar (ACTIVE in Verde Changuito #1F7A4D) -->
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-primary-container relative" href="#">
+<div class="w-10 h-6 rounded-full bg-primary-fixed/50 flex items-center justify-center mb-0.5">
+<span class="material-symbols-outlined text-[20px] fill text-primary" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+</div>
+<span class="text-[11px] font-caption-bold font-semibold tracking-tight text-primary">Buscar</span>
+<span class="w-1 h-1 rounded-full bg-primary-container absolute bottom-1"></span>
+</a>
+<!-- Tab 3: Listas (With numeric badge '2') -->
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-on-surface-variant hover:text-primary transition group relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span class="absolute -top-1 -right-2 bg-primary-container text-on-primary text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center leading-none shadow-sm">2</span>
+</div>
+<span class="text-[11px] font-caption font-medium tracking-tight mt-0.5">Listas</span>
+</a>
+<!-- Tab 4: Ajustes -->
+<a class="flex flex-col items-center justify-center flex-1 h-full py-1 text-on-surface-variant hover:text-primary transition group" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings">settings</span>
+<span class="text-[11px] font-caption font-medium tracking-tight mt-0.5">Ajustes</span>
+</a>
+</nav>
+</div>
+<script>
+    function clearAllHistory() {
+      const list = document.getElementById('recent-search-list');
+      if (list) {
+        list.innerHTML = `
+          <li class="py-4 text-center text-caption font-caption text-on-surface-variant">
+            No tenés búsquedas recientes
+          </li>
+        `;
+        const btn = document.getElementById('clear-all-btn');
+        if (btn) btn.style.display = 'none';
+      }
+    }
+  </script>
+</body></html>

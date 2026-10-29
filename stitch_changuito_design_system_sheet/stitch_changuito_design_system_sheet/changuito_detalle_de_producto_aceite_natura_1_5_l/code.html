@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Changuito - Detalle de Producto</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#d8dbd6",
+            "on-surface-variant": "#3f4941",
+            "secondary": "#006d30",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#007233",
+            "inverse-surface": "#2d312e",
+            "on-primary-container": "#aeffca",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-highest": "#e0e3de",
+            "surface-container": "#ecefe9",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#92f5a4",
+            "tertiary": "#48564f",
+            "primary-fixed-dim": "#82d8a3",
+            "surface-container-high": "#e6e9e4",
+            "surface-variant": "#e0e3de",
+            "tertiary-container": "#606e67",
+            "on-secondary-fixed": "#00210a",
+            "inverse-primary": "#82d8a3",
+            "on-primary-fixed-variant": "#00522f",
+            "tertiary-fixed-dim": "#bbcac1",
+            "surface-container-low": "#f1f4ef",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "surface-bright": "#f7faf5",
+            "primary-container": "#1f7a4d",
+            "on-secondary-fixed-variant": "#005323",
+            "on-tertiary-container": "#e1f0e7",
+            "primary-fixed": "#9ef5be",
+            "outline": "#6f7a71",
+            "surface": "#f7faf5",
+            "on-secondary": "#ffffff",
+            "on-background": "#191d19",
+            "inverse-on-surface": "#eff2ec",
+            "secondary-fixed-dim": "#79db8d",
+            "background": "#f7faf5",
+            "outline-variant": "#bec9bf",
+            "on-primary-fixed": "#002110",
+            "on-surface": "#191d19",
+            "tertiary-fixed": "#d7e6dd",
+            "secondary-fixed": "#95f8a7",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#111e19",
+            "error-container": "#ffdad6",
+            "primary": "#006038",
+            "surface-tint": "#066c41"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem"
+          },
+          "fontFamily": {
+            "caption": ["Inter"],
+            "price-md": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "caption-bold": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"]
+          },
+          "fontSize": {
+            "caption": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "price-md": ["17px", {"lineHeight": "22px", "fontWeight": "700"}],
+            "display-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-lg": ["17px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-md": ["20px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "body-md": ["15px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "caption-bold": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "body-md-bold": ["15px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "headline-lg": ["24px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "price-lg": ["22px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-28">
+<!-- Mobile Viewport Shell (Max 480px) -->
+<div class="max-w-[480px] mx-auto min-h-screen bg-background relative shadow-sm">
+<!-- Top App Bar (Task-focused Detail Navigation) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-space-lg h-14 flex items-center justify-between border-b border-outline-variant/30">
+<button aria-label="Volver atrás" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate px-2 font-semibold">Detalle de producto</span>
+<div class="flex items-center gap-1 -mr-2">
+<button aria-label="Compartir precio" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">share</span>
+</button>
+<button aria-label="Guardar en favoritos" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" id="favorite-btn" type="button">
+<span class="material-symbols-outlined text-[22px]" id="favorite-icon">bookmark</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="px-margin space-y-space-lg pt-space-md">
+<!-- Product Showcase Card -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-space-lg shadow-sm">
+<div class="w-full h-44 flex items-center justify-center bg-white rounded-lg mb-space-md overflow-hidden relative">
+<img alt="Aceite de girasol Natura 1,5 L botella transparente" class="h-40 w-auto object-contain transition-transform duration-300 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoMYhTedc9AYYZ839li9oheLkJ1AxTtM2Wo_ES4H_rdLuOcyN31BCaHR9brpjSgeErz-LXt3otbU_gCzSVTHi-sBfYe7VKRkru3eMMCyWHxW6rc-GPeXfB88iENPokORdBjkqFbE2a2gqRrC_JncJ0kI8-jTnMsvdMqDrIMIBEhcFQ05hgY812lxanMXTfqTFYTdyilsbTnwpQjysf-2PNaTFiXBWMTqAUoE6W2zc"/>
+<span class="absolute top-2 left-2 bg-surface-container text-on-surface-variant text-[11px] font-caption-bold font-semibold px-2 py-0.5 rounded-full border border-outline-variant/40">
+            Comestibles
+          </span>
+</div>
+<div class="space-y-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-snug">
+            Aceite de girasol Natura 1,5 L
+          </h1>
+<p class="font-caption text-caption text-on-surface-variant flex items-center gap-1.5">
+<span>Natura</span>
+<span class="inline-block w-1 h-1 rounded-full bg-outline"></span>
+<span>EAN 7790060023172</span>
+</p>
+</div>
+</section>
+<!-- Best Price Summary Hero Card -->
+<section class="bg-secondary-container/25 rounded-xl border border-secondary/30 p-space-lg shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-2">
+<div class="inline-flex items-center gap-2 bg-surface-container-lowest/90 px-2.5 py-1 rounded-full border border-secondary/20 shadow-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[#E65100]"></span>
+<span class="font-caption-bold text-caption text-on-surface font-semibold">Más barato en ChangoMás</span>
+</div>
+<span class="font-caption text-caption text-secondary font-medium">Gran Tucumán</span>
+</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-mobile text-display-mobile font-extrabold text-primary tracking-tight">
+            $ 3.249
+          </span>
+<span class="font-body-md text-body-md text-on-surface-variant">
+            ($ 2.166 / L)
+          </span>
+</div>
+<div class="mt-3 pt-3 border-t border-secondary/20 flex items-center justify-between">
+<div class="inline-flex items-center gap-1.5 bg-[#DCFCE7] text-[#15803D] px-2.5 py-1 rounded-full text-caption font-caption-bold">
+<span class="material-symbols-outlined text-[16px]">savings</span>
+<span>Ahorrás hasta $ 1.110 vs. Jumbo</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Hace 2 h</span>
+</div>
+</section>
+<!-- Promo Suggestion Callout -->
+<section class="bg-[#FFFBEB] rounded-xl border border-[#FCD34D] p-space-md shadow-xs flex items-start gap-3">
+<div class="w-9 h-9 rounded-full bg-[#FDE68A] text-[#92400E] flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">lightbulb</span>
+</div>
+<div class="space-y-1">
+<h2 class="font-body-md-bold text-body-md text-[#92400E]">
+            ¡Tip de ahorro en cantidad!
+          </h2>
+<p class="font-body-md text-caption text-[#78350F] leading-relaxed">
+            En <strong>Comodín</strong>, si llevás 2 pagás <strong>$ 4.407</strong> ($ 2.204 c/u) con la promo <em>2da al 70%</em>. Ahorrás $ 2.373 en total.
+          </p>
+</div>
+</section>
+<!-- Price Comparison Table: Precios en tu zona -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between pt-1">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Precios en tu zona</h2>
+<p class="font-caption text-caption text-on-surface-variant">6 sucursales relevadas hoy</p>
+</div>
+<button class="font-caption-bold text-caption text-primary flex items-center gap-0.5 hover:underline" type="button">
+<span>Gran Tucumán</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 divide-y divide-surface-container overflow-hidden shadow-sm">
+<!-- 1. ChangoMás -->
+<article class="p-space-md bg-secondary-container/10 flex items-center justify-between gap-2">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#E65100] shrink-0"></span>
+<span class="font-body-md-bold text-body-md text-on-surface font-semibold truncate">ChangoMás</span>
+<span class="bg-[#DCFCE7] text-[#15803D] text-[11px] font-caption-bold font-bold px-2 py-0.5 rounded-full shrink-0">
+                  Más barato
+                </span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">
+                $ 2.166 / L · Actualizado hace 2 h
+              </p>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md font-bold text-primary block">$ 3.249</span>
+<span class="font-caption text-[11px] text-secondary font-medium">Mejor precio</span>
+</div>
+</article>
+<!-- 2. Comodín -->
+<article class="p-space-md flex items-center justify-between gap-2">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#1565C0] shrink-0"></span>
+<span class="font-body-md-bold text-body-md text-on-surface font-semibold truncate">Comodín</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[11px] font-caption-bold px-1.5 py-0.5 rounded-md border border-outline-variant/30">
+                  2da al 70%
+                </span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">
+                $ 2.260 / L · Actualizado hace 3 h
+              </p>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md font-bold text-on-surface block">$ 3.390</span>
+<span class="font-caption text-[12px] text-on-surface-variant">+$ 141</span>
+</div>
+</article>
+<!-- 3. Carrefour -->
+<article class="p-space-md flex items-center justify-between gap-2">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#004691] shrink-0"></span>
+<span class="font-body-md-bold text-body-md text-on-surface font-semibold truncate">Carrefour</span>
+<span class="bg-[#EFF6FF] text-[#1D4ED8] text-[11px] font-caption-bold px-1.5 py-0.5 rounded-md">
+                  -10%
+                </span>
+</div>
+<div class="flex items-center gap-1.5 font-caption text-caption text-on-surface-variant">
+<span class="line-through text-outline">$ 3.890</span>
+<span>· $ 2.333 / L</span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md font-bold text-on-surface block">$ 3.499</span>
+<span class="font-caption text-[12px] text-on-surface-variant">+$ 250</span>
+</div>
+</article>
+<!-- 4. Vea -->
+<article class="p-space-md flex items-center justify-between gap-2">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A] shrink-0"></span>
+<span class="font-body-md-bold text-body-md text-on-surface font-semibold truncate">Vea (Yerba Buena)</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">
+                $ 2.433 / L · Actualizado hace 1 día
+              </p>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md font-bold text-on-surface block">$ 3.650</span>
+<span class="font-caption text-[12px] text-on-surface-variant">+$ 401</span>
+</div>
+</article>
+<!-- 5. La Anónima -->
+<article class="p-space-md flex items-center justify-between gap-2">
+<div class="space-y-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#7D6B5A] shrink-0"></span>
+<span class="font-body-md-bold text-body-md text-on-surface font-semibold truncate">La Anónima (Norte)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="bg-[#FEF3C7] text-[#92400E] text-[11px] font-caption font-medium px-2 py-0.5 rounded">
+                  Precio de hace 4 días
+                </span>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md font-bold text-on-surface block">$ 3.799</span>
+<span class="font-caption text-[12px] text-on-surface-variant">+$ 550</span>
+</div>
+</article>
+<!-- 6. Jumbo (Sin dato) -->
+<article class="p-space-md flex items-center justify-between gap-2 opacity-60 border-t border-dashed border-outline-variant">
+<div class="space-y-0.5 min-w-0">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#5A5E9A] shrink-0"></span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Jumbo (Portal Tucumán)</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant italic">
+                Agotado online en sucursal
+              </p>
+</div>
+<div class="text-right shrink-0">
+<span class="font-caption-bold text-caption text-outline italic">Sin dato</span>
+</div>
+</article>
+</div>
+</section>
+<!-- 60-Day Price Trend History Section -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Historial de 60 días</h2>
+<p class="font-caption text-caption text-on-surface-variant">Evolución en góndolas tucumanas</p>
+</div>
+<span class="text-[12px] font-caption-bold text-primary bg-secondary-container/20 px-2 py-0.5 rounded-full">
+            Tendencia estable
+          </span>
+</div>
+<!-- Supermarket Legend Filters -->
+<div class="flex flex-wrap items-center gap-2 pt-1 text-[12px] font-caption">
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-[#E65100]"></span>
+            ChangoMás
+          </button>
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-[#1565C0]"></span>
+            Comodín
+          </button>
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-[#004691]"></span>
+            Carrefour
+          </button>
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface font-medium">
+<span class="w-2 h-2 rounded-full bg-[#B4604A]"></span>
+            Vea
+          </button>
+</div>
+<!-- Chart Graphic Container -->
+<div class="w-full bg-surface-bright rounded-lg p-2 border border-outline-variant/30">
+<svg aria-label="Gráfico de evolución de precios" class="w-full h-36 overflow-visible" viewbox="0 0 340 150">
+<!-- Grid Lines Y -->
+<line stroke="#e0e3de" stroke-dasharray="3,3" stroke-width="1" x1="35" x2="330" y1="20" y2="20"></line>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="end" x="30" y="23">$4.0k</text>
+<line stroke="#e0e3de" stroke-dasharray="3,3" stroke-width="1" x1="35" x2="330" y1="55" y2="55"></line>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="end" x="30" y="58">$3.6k</text>
+<line stroke="#e0e3de" stroke-dasharray="3,3" stroke-width="1" x1="35" x2="330" y1="90" y2="90"></line>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="end" x="30" y="93">$3.3k</text>
+<line stroke="#e0e3de" stroke-width="1" x1="35" x2="330" y1="125" y2="125"></line>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="end" x="30" y="128">$3.0k</text>
+<!-- Line: Vea (Terracota) -->
+<path d="M 45 68 Q 110 65, 175 60 T 255 52 T 325 50" fill="none" stroke="#B4604A" stroke-linecap="round" stroke-width="2"></path>
+<!-- Line: Carrefour (Azul) -->
+<path d="M 45 80 Q 115 75, 180 72 T 260 68 T 325 64" fill="none" stroke="#004691" stroke-linecap="round" stroke-width="2"></path>
+<!-- Line: Comodín (Violeta/Azul) -->
+<path d="M 45 92 Q 110 88, 175 85 T 250 82 T 325 76" fill="none" stroke="#1565C0" stroke-linecap="round" stroke-width="2"></path>
+<!-- Line: ChangoMás (Naranja - Protagonista más bajo) -->
+<path d="M 45 105 Q 115 110, 180 115 T 250 118 T 325 98" fill="none" stroke="#E65100" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Punto destacado del precio mínimo (12/10 en ChangoMás) -->
+<circle cx="250" cy="118" fill="#E65100" r="4.5" stroke="#FFFFFF" stroke-width="1.5"></circle>
+<!-- Axis X labels -->
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="middle" x="45" y="142">30/08</text>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="middle" x="115" y="142">15/09</text>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="middle" x="180" y="142">30/09</text>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="middle" x="250" y="142">15/10</text>
+<text fill="#6f7a71" font-family="Inter" font-size="9" text-anchor="middle" x="325" y="142">29/10</text>
+</svg>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/30 text-caption">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0">trending_down</span>
+<p class="text-on-surface text-[12px] leading-snug">
+<strong>Precio más bajo en 60 días:</strong> $ 3.099 registrado en ChangoMás el 12/10.
+          </p>
+</div>
+</section>
+<!-- Cheaper Alternative Card (Swap Callout) -->
+<section class="bg-surface-container-lowest rounded-xl border border-secondary/30 p-space-md shadow-sm">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-full bg-secondary-container/40 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+</div>
+<div>
+<span class="text-[11px] font-caption-bold text-secondary uppercase tracking-wider block">Alternativa más barata</span>
+<p class="font-body-md text-body-md text-on-surface font-semibold mt-0.5">
+                Aceite de girasol Cocinero 1,5 L
+              </p>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">
+                En ChangoMás cuesta <strong class="text-on-surface">$ 2.890</strong> ($ 1.927 / L)
+              </p>
+</div>
+</div>
+<button class="shrink-0 mt-2 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-caption-bold text-caption flex items-center gap-1 transition-colors" type="button">
+<span>Ver</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Legal Disclosure / Civic Transparency Footer -->
+<footer class="pt-2 pb-6 px-1">
+<p class="font-caption text-[11px] text-on-surface-variant/80 text-center leading-relaxed">
+          Precios relevados de las plataformas públicas del Sistema Electrónico de Publicidad de Precios Argentinos (SEPA) y webs oficiales el 29/10/2026. Pueden variar según stock y promociones vigentes en cada sucursal de Gran San Miguel de Tucumán.
+        </p>
+</footer>
+</main>
+<!-- Sticky Bottom Bar (Physical Touch Controls for Basket) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/40 shadow-lg">
+<div class="max-w-[480px] mx-auto px-margin py-3 flex items-center justify-between gap-3">
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-container rounded-xl border border-outline-variant/40 p-1 shrink-0">
+<button aria-label="Disminuir cantidad" class="w-10 h-10 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-lg active:scale-95 transition-all disabled:opacity-40" id="btn-decrement" type="button">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="w-9 text-center font-price-md text-price-md font-bold text-on-surface select-none" id="qty-value">
+            1
+          </span>
+<button aria-label="Aumentar cantidad" class="w-10 h-10 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center font-bold text-lg active:scale-95 transition-all" id="btn-increment" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Primary CTA: Agregar a lista -->
+<button class="flex-1 h-12 rounded-xl bg-primary-container hover:bg-[#17603C] active:bg-[#124d30] text-on-primary font-body-md-bold text-body-md flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.98]" id="btn-add-list" type="button">
+<span class="material-symbols-outlined text-[22px]">shopping_cart</span>
+<span id="cta-label">Agregar a lista</span>
+</button>
+</div>
+</div>
+<!-- Micro-interaction Toast Feedback -->
+<div class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 transform -translate-y-2 text-caption" id="toast">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed">check_circle</span>
+<span id="toast-text">Producto agregado a tu changuito</span>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Stepper Logic
+      const btnDecrement = document.getElementById('btn-decrement');
+      const btnIncrement = document.getElementById('btn-increment');
+      const qtyValue = document.getElementById('qty-value');
+      let count = 1;
+
+      btnDecrement.addEventListener('click', () => {
+        if (count > 1) {
+          count--;
+          qtyValue.textContent = count;
+        }
+        btnDecrement.disabled = count <= 1;
+      });
+
+      btnIncrement.addEventListener('click', () => {
+        count++;
+        qtyValue.textContent = count;
+        btnDecrement.disabled = false;
+      });
+
+      // Favorite toggle
+      const favoriteBtn = document.getElementById('favorite-btn');
+      const favoriteIcon = document.getElementById('favorite-icon');
+      let isFav = false;
+
+      favoriteBtn.addEventListener('click', () => {
+        isFav = !isFav;
+        if (isFav) {
+          favoriteIcon.textContent = 'bookmark';
+          favoriteIcon.style.fontVariationSettings = "'FILL' 1";
+          favoriteBtn.classList.add('text-primary');
+          showToast('Guardado en tus favoritos');
+        } else {
+          favoriteIcon.style.fontVariationSettings = "'FILL' 0";
+          favoriteBtn.classList.remove('text-primary');
+          showToast('Eliminado de favoritos');
+        }
+      });
+
+      // Add to list CTA
+      const btnAddList = document.getElementById('btn-add-list');
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+
+      function showToast(message) {
+        toastText.textContent = message;
+        toast.classList.remove('opacity-0', '-translate-y-2', 'pointer-events-none');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        
+        setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', '-translate-y-2', 'pointer-events-none');
+        }, 2200);
+      }
+
+      btnAddList.addEventListener('click', () => {
+        showToast(`Agregaste ${count} unid. al changuito`);
+      });
+    });
+  </script>
+</body></html>

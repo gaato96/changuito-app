@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Tus sucursales</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#005323",
+            "on-primary-container": "#aeffca",
+            "secondary-container": "#92f5a4",
+            "outline": "#6f7a71",
+            "on-error-container": "#93000a",
+            "tertiary": "#48564f",
+            "tertiary-container": "#606e67",
+            "inverse-on-surface": "#eff2ec",
+            "on-secondary-fixed": "#00210a",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-container-low": "#f1f4ef",
+            "inverse-surface": "#2d312e",
+            "on-primary-fixed-variant": "#00522f",
+            "surface-container": "#ecefe9",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#d7e6dd",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#d8dbd6",
+            "on-surface": "#191d19",
+            "secondary": "#006d30",
+            "on-secondary-container": "#007233",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#82d8a3",
+            "on-background": "#191d19",
+            "surface-container-highest": "#e0e3de",
+            "on-surface-variant": "#3f4941",
+            "primary": "#006038",
+            "primary-container": "#1f7a4d",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-primary-fixed": "#002110",
+            "tertiary-fixed-dim": "#bbcac1",
+            "surface-bright": "#f7faf5",
+            "primary-fixed-dim": "#82d8a3",
+            "secondary-fixed-dim": "#79db8d",
+            "outline-variant": "#bec9bf",
+            "surface-tint": "#066c41",
+            "on-primary": "#ffffff",
+            "surface": "#f7faf5",
+            "on-tertiary-fixed": "#111e19",
+            "on-tertiary": "#ffffff",
+            "background": "#f7faf5",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#95f8a7",
+            "surface-container-high": "#e6e9e4",
+            "surface-variant": "#e0e3de",
+            "primary-fixed": "#9ef5be"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xl": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "caption": ["Inter"],
+            "price-lg": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-md-bold": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "caption-bold": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen flex justify-center selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Mobile Shell (Capped at 480px) -->
+<div class="w-full max-w-[480px] bg-background min-h-screen flex flex-col relative shadow-sm">
+<!-- Top Bar Navigation (Onboarding Header) -->
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur px-margin h-14 flex items-center justify-between">
+<!-- Back Action -->
+<button aria-label="Volver al paso anterior" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-headline-sm" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Step Indicator Dots -->
+<div aria-label="Progreso del onboarding: Paso 3 de 3" class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container" title="Paso 1 completo"></span>
+<span class="w-2 h-2 rounded-full bg-primary-container" title="Paso 2 completo"></span>
+<span class="w-6 h-2 rounded-full bg-primary-container transition-all duration-300" title="Paso 3 activo"></span>
+</div>
+<!-- Skip Action (from Shared TopAppBar contract) -->
+<button class="text-body-md font-body-md text-on-surface-variant hover:text-on-surface px-space-xs py-1 rounded transition-colors active:opacity-80" type="button">
+        Saltar
+      </button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-margin pt-space-xs pb-32 flex flex-col">
+<!-- Eyebrow / Step Pill -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-low text-primary-container w-fit mb-space-sm border border-outline-variant/40">
+<span class="material-symbols-outlined text-[16px]" data-icon="storefront">storefront</span>
+<span class="font-caption-bold text-caption tracking-wider uppercase">PASO 3 DE 3 • TUS SUCURSALES</span>
+</div>
+<!-- Headline & Neighborhood Context -->
+<h1 class="font-headline-lg-mobile text-headline-lg text-on-surface tracking-tight mb-space-xs">
+        Estas son tus sucursales
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-xl leading-relaxed">
+        Vea y La Anónima tienen precios distintos según la sucursal. Te sugerimos las más cercanas a Yerba Buena.
+      </p>
+<!-- Multi-Branch Cards Section -->
+<section aria-label="Sucursales sugeridas" class="space-y-3.5 mb-space-xl">
+<!-- Vea Card -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-space-lg transition-colors hover:border-outline">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full inline-block shrink-0" style="background-color: #B4604A;"></span>
+<span class="font-body-md-bold text-body-md text-on-surface">Vea</span>
+</div>
+<div class="flex items-center gap-2.5">
+<span class="font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">1,2 km</span>
+<button class="text-primary-container hover:text-primary font-body-md-bold text-caption flex items-center gap-0.5 active:opacity-75 transition-opacity" type="button">
+<span>Cambiar</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-body-md-bold text-body-md text-on-surface mb-0.5">Vea Yerba Buena</p>
+<p class="font-caption text-caption text-on-surface-variant">Av. Aconquija 1500</p>
+</div>
+<span class="inline-flex items-center gap-1 font-caption-bold text-[12px] bg-secondary-container/40 text-on-secondary-fixed-variant px-2 py-0.5 rounded-full mt-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="check_circle">check_circle</span>
+              Sugerida por tu zona
+            </span>
+</div>
+</article>
+<!-- La Anónima Card -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-space-lg transition-colors hover:border-outline">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full inline-block shrink-0" style="background-color: #7D6B5A;"></span>
+<span class="font-body-md-bold text-body-md text-on-surface">La Anónima</span>
+</div>
+<div class="flex items-center gap-2.5">
+<span class="font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">3,8 km</span>
+<button class="text-primary-container hover:text-primary font-body-md-bold text-caption flex items-center gap-0.5 active:opacity-75 transition-opacity" type="button">
+<span>Cambiar</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-body-md-bold text-body-md text-on-surface mb-0.5">La Anónima Zona Norte</p>
+<p class="font-caption text-caption text-on-surface-variant">Av. Ejército del Norte 2450</p>
+</div>
+<span class="inline-flex items-center gap-1 font-caption-bold text-[12px] bg-secondary-container/40 text-on-secondary-fixed-variant px-2 py-0.5 rounded-full mt-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="check_circle">check_circle</span>
+              Sugerida por tu zona
+            </span>
+</div>
+</article>
+<!-- Jumbo Card -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-space-lg">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full inline-block shrink-0" style="background-color: #5A5E9A;"></span>
+<span class="font-body-md-bold text-body-md text-on-surface">Jumbo</span>
+</div>
+<span class="font-caption-bold text-[12px] bg-surface-container text-on-surface-variant px-2 py-0.5 rounded-full">
+              Única sucursal
+            </span>
+</div>
+<div>
+<p class="font-body-md-bold text-body-md text-on-surface mb-0.5">Jumbo Portal Tucumán</p>
+<p class="font-caption text-caption text-on-surface-variant">Fermín Cariola 42, Yerba Buena</p>
+</div>
+</article>
+</section>
+<!-- Single-Price Regional Chains Info Box -->
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-space-lg mb-space-lg">
+<div class="flex gap-2.5 mb-2">
+<span class="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5" data-icon="info">info</span>
+<div>
+<p class="font-body-md-bold text-caption text-on-surface mb-1">
+              Carrefour, ChangoMás y Comodín tienen un único precio para Tucumán.
+            </p>
+<p class="font-caption text-[13px] text-on-surface-variant leading-relaxed mb-3">
+              Comparamos siempre el catálogo completo de estas cadenas.
+            </p>
+</div>
+</div>
+<!-- Supermarket Token Chips -->
+<div class="flex flex-wrap gap-2 pt-1 border-t border-outline-variant/30">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full" style="background-color: #4E6A8C;"></span>
+<span class="font-caption-bold text-caption text-on-surface">Carrefour</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full" style="background-color: #B07D2B;"></span>
+<span class="font-caption-bold text-caption text-on-surface">ChangoMás</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-lowest border border-outline-variant/40">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full" style="background-color: #85587F;"></span>
+<span class="font-caption-bold text-caption text-on-surface">Comodín</span>
+</div>
+</div>
+</div>
+<!-- Settings reassurance caption -->
+<div class="flex items-center justify-center gap-1.5 text-on-surface-variant mb-space-lg">
+<span class="material-symbols-outlined text-[17px] text-tertiary" data-icon="tune">tune</span>
+<span class="font-caption text-caption text-center">Podés cambiarlas cuando quieras en Ajustes.</span>
+</div>
+</main>
+<!-- Sticky Bottom Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 max-w-[480px] mx-auto bg-surface/95 backdrop-blur border-t border-outline-variant/40 px-margin py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-4px_16px_rgba(22,26,23,0.06)]">
+<div class="flex items-center justify-between mb-2 px-1">
+<span class="font-caption-bold text-caption text-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]" data-icon="verified">verified</span>
+          3 de 3 sucursales configuradas
+        </span>
+<span class="font-caption text-caption text-on-surface-variant">Gran Tucumán</span>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full h-12 bg-primary-container text-on-primary rounded-xl font-body-md-bold text-body-md flex items-center justify-center gap-2 active:bg-primary transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2" type="button">
+<span>Listo, empezar</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

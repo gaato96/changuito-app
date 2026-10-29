@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Changuito Admin</title>
+<!--
+  Diseño del panel de administración de Changuito (/admin).
+  Sigue el sistema de diseño exportado de Stitch (stitch_changuito_design_system_sheet/.../changuito/DESIGN.md):
+  mismos tokens de color, Plus Jakarta Sans + Inter con números tabulares, cards blancas con borde 1px,
+  radios 16/12/pill y puntos de 10px por cadena. Es web (1280px) con sidebar, y responsive a mobile.
+  Pantallas: Ingreso (magic link), Estado, Frescos pendientes, Búsquedas sin resultado.
+  Navegación de la maqueta por hash: #login, #login-enviado, #login-error, #estado, #frescos, #busquedas.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com/3.4.16?plugins=forms"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#FAFAF7', card: '#FFFFFF', subtle: '#F1F2EE', line: '#E3E5DF',
+          ink: '#161A17', ink2: '#5B625D', muted: '#8A918C',
+          primary: '#1F7A4D', 'primary-press': '#17603C', 'primary-tint': '#E3F2E9',
+          save: '#15803D', 'save-bg': '#DCFCE7',
+          promo: '#B45309', 'promo-bg': '#FEF3C7',
+          warn: '#C2410C', 'warn-bg': '#FFEDD5',
+          err: '#B91C1C', 'err-bg': '#FEE2E2',
+          carrefour: '#4E6A8C', changomas: '#B07D2B', comodin: '#85587F',
+          vea: '#B4604A', jumbo: '#5A5E9A', anonima: '#7D6B5A',
+        },
+        fontFamily: { head: ['Plus Jakarta Sans', 'sans-serif'], sans: ['Inter', 'sans-serif'] },
+        borderRadius: { card: '16px', ctl: '12px' },
+      },
+    },
+  };
+</script>
+<style>
+  body { font-feature-settings: "tnum" 1; }
+  .num { font-variant-numeric: tabular-nums; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; font-size: 22px; line-height: 1; vertical-align: middle; }
+  .dot { width: 10px; height: 10px; border-radius: 9999px; display: inline-block; flex: none; }
+  .screen { display: none; }
+  .screen.on { display: block; }
+  .card { background: #fff; border: 1px solid #E3E5DF; border-radius: 16px; box-shadow: 0 1px 3px rgba(22,26,23,.04); }
+  .chip { display: inline-flex; align-items: center; gap: 4px; border-radius: 9999px; padding: 2px 10px; font-size: 13px; font-weight: 600; line-height: 20px; white-space: nowrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 12px; font-weight: 600; font-size: 15px; }
+  .btn-primary { background: #1F7A4D; color: #fff; } .btn-primary:hover { background: #17603C; }
+  .btn-outline { background: #fff; border: 1px solid #E3E5DF; color: #161A17; } .btn-outline:hover { background: #F1F2EE; }
+  .btn-ghost { color: #1F7A4D; } .btn-ghost:hover { background: #E3F2E9; }
+  .nav a.active { background: #E3F2E9; color: #1F7A4D; }
+  td, th { white-space: nowrap; }
+  td.wrap { white-space: normal; }
+  th { font-weight: 600; font-size: 13px; color: #5B625D; text-align: left; }
+  input[type=number]::-webkit-inner-spin-button { opacity: 1; }
+</style>
+</head>
+<body class="bg-bg text-ink font-sans antialiased">
+
+<!-- ============================ INGRESO ============================ -->
+<section id="s-login" class="screen min-h-screen">
+  <div class="min-h-screen flex items-center justify-center px-4 py-10">
+    <div class="w-full max-w-[420px]">
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-1.5 font-head font-extrabold text-[28px] text-primary tracking-tight">
+          <span class="material-symbols-outlined" style="font-size:28px">shopping_cart</span>changuito
+        </div>
+        <p class="text-ink2 text-[15px] mt-1">Panel de administración</p>
+      </div>
+
+      <!-- Estado 1: pedir email -->
+      <div class="card p-6" data-state="login">
+        <h1 class="font-head font-bold text-[22px]">Ingresá al panel</h1>
+        <p class="text-ink2 text-[15px] mt-1">Te mandamos un link de acceso. No hace falta contraseña.</p>
+        <label class="block mt-5 text-[13px] font-semibold text-ink2" for="email">Tu email</label>
+        <input id="email" type="email" placeholder="nombre@ejemplo.com" class="mt-1.5 w-full h-12 rounded-ctl border-0 bg-subtle px-4 text-[17px] focus:bg-white focus:ring-[1.5px] focus:ring-primary"/>
+        <a href="#login-enviado" class="btn btn-primary w-full mt-4 h-12">Enviarme el link de acceso</a>
+        <p class="text-muted text-[13px] mt-4 flex gap-1.5"><span class="material-symbols-outlined" style="font-size:18px">lock</span>Solo los emails autorizados pueden entrar.</p>
+      </div>
+
+      <!-- Estado 2: link enviado -->
+      <div class="card p-6 text-center" data-state="login-enviado">
+        <div class="mx-auto w-14 h-14 rounded-full bg-primary-tint text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined" style="font-size:30px">mark_email_read</span>
+        </div>
+        <h1 class="font-head font-bold text-[22px] mt-4">Revisá tu correo</h1>
+        <p class="text-ink2 text-[15px] mt-2">Te mandamos un link a <b class="text-ink">ag***@gmail.com</b>. Abrilo desde este dispositivo. Vence en 1 hora.</p>
+        <a href="#login" class="btn btn-ghost mt-4">Reenviar el link</a>
+        <a href="#estado" class="block text-[13px] text-muted mt-2 underline">(maqueta: simular que abrí el link)</a>
+      </div>
+
+      <!-- Estado 3: email sin acceso -->
+      <div class="card p-6" data-state="login-error">
+        <h1 class="font-head font-bold text-[22px]">Ingresá al panel</h1>
+        <label class="block mt-5 text-[13px] font-semibold text-ink2" for="email2">Tu email</label>
+        <input id="email2" type="email" value="otra.persona@gmail.com" class="mt-1.5 w-full h-12 rounded-ctl border-0 bg-white px-4 text-[17px] ring-[1.5px] ring-err"/>
+        <div class="mt-3 rounded-ctl bg-err-bg text-err text-[15px] p-3 flex gap-2">
+          <span class="material-symbols-outlined">block</span>
+          <span>Este email no tiene acceso al panel.</span>
+        </div>
+        <a href="#login-enviado" class="btn btn-primary w-full mt-4 h-12">Enviarme el link de acceso</a>
+      </div>
+
+      <p class="text-center text-muted text-[13px] mt-6">changuito-tuc.vercel.app/admin</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ APP CON SIDEBAR ============================ -->
+<div id="app" class="screen">
+  <!-- Barra superior mobile -->
+  <header class="lg:hidden sticky top-0 z-20 bg-white border-b border-line">
+    <div class="flex items-center justify-between h-14 px-4">
+      <div class="flex items-center gap-1.5 font-head font-extrabold text-[20px] text-primary">
+        <span class="material-symbols-outlined">shopping_cart</span>changuito <span class="chip bg-subtle text-ink2 ml-1">Admin</span>
+      </div>
+      <a href="#login" class="btn btn-ghost px-2" aria-label="Salir"><span class="material-symbols-outlined">logout</span></a>
+    </div>
+    <nav class="nav flex gap-1 px-2 pb-2 overflow-x-auto text-[15px] font-semibold text-ink2">
+      <a href="#estado" data-nav="estado" class="px-3 h-10 rounded-ctl flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined">monitor_heart</span>Estado</a>
+      <a href="#frescos" data-nav="frescos" class="px-3 h-10 rounded-ctl flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined">nutrition</span>Frescos <span class="chip bg-promo-bg text-promo">37</span></a>
+      <a href="#busquedas" data-nav="busquedas" class="px-3 h-10 rounded-ctl flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined">search_off</span>Búsquedas</a>
+    </nav>
+  </header>
+
+  <div class="flex">
+    <!-- Sidebar desktop -->
+    <aside class="hidden lg:flex flex-col w-[264px] h-screen sticky top-0 bg-white border-r border-line p-4">
+      <div class="flex items-center gap-1.5 font-head font-extrabold text-[22px] text-primary px-2 h-12">
+        <span class="material-symbols-outlined" style="font-size:24px">shopping_cart</span>changuito
+      </div>
+      <p class="px-2 text-[13px] text-muted -mt-1 mb-4">Panel de administración</p>
+      <nav class="nav flex flex-col gap-1 text-[15px] font-semibold text-ink2">
+        <a href="#estado" data-nav="estado" class="px-3 h-11 rounded-ctl flex items-center gap-2.5 hover:bg-subtle"><span class="material-symbols-outlined">monitor_heart</span>Estado</a>
+        <a href="#frescos" data-nav="frescos" class="px-3 h-11 rounded-ctl flex items-center gap-2.5 hover:bg-subtle"><span class="material-symbols-outlined">nutrition</span>Frescos<span class="chip bg-promo-bg text-promo ml-auto">37</span></a>
+        <a href="#busquedas" data-nav="busquedas" class="px-3 h-11 rounded-ctl flex items-center gap-2.5 hover:bg-subtle"><span class="material-symbols-outlined">search_off</span>Búsquedas</a>
+      </nav>
+      <div class="mt-auto">
+        <div class="rounded-ctl bg-subtle p-3 text-[13px] text-ink2">
+          <div class="flex items-center gap-1.5 font-semibold text-ink"><span class="dot bg-save"></span>Todo al día salvo 1 fuente</div>
+          <div class="mt-1">Próxima corrida: ingest-sepa, 14:00</div>
+        </div>
+        <div class="flex items-center gap-2 mt-3 px-1">
+          <div class="w-9 h-9 rounded-full bg-primary-tint text-primary flex items-center justify-center font-semibold">A</div>
+          <div class="text-[13px] leading-tight min-w-0"><div class="font-semibold truncate">ag***@gmail.com</div><div class="text-muted">Administrador</div></div>
+          <a href="#login" class="ml-auto btn btn-ghost px-2" aria-label="Salir"><span class="material-symbols-outlined">logout</span></a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 min-w-0 px-4 lg:px-8 py-6 lg:py-8 max-w-[1200px]">
+
+      <!-- ============================ ESTADO ============================ -->
+      <section id="s-estado" class="screen">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h1 class="font-head font-bold text-[24px] leading-[30px]">Estado</h1>
+            <p class="text-ink2 text-[15px] mt-0.5">Jueves 29/10/2026 · actualizado hace 3 min</p>
+          </div>
+          <div class="flex gap-2">
+            <a class="btn btn-outline" href="#"><span class="material-symbols-outlined">open_in_new</span>Ver en GitHub Actions</a>
+            <a class="btn btn-primary" href="#"><span class="material-symbols-outlined">refresh</span>Actualizar</a>
+          </div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="grid grid-cols-2 xl:grid-cols-4 gap-3 lg:gap-4 mt-6">
+          <div class="card p-4">
+            <div class="text-[13px] text-ink2 font-semibold">Productos en catálogo</div>
+            <div class="num font-bold text-[28px] leading-9 mt-1">22.169</div>
+            <div class="text-[13px] text-muted">EAN universales, 6 cadenas</div>
+          </div>
+          <div class="card p-4">
+            <div class="text-[13px] text-ink2 font-semibold">Precios actuales</div>
+            <div class="num font-bold text-[28px] leading-9 mt-1">44.410</div>
+            <div class="text-[13px] text-muted"><span class="text-save font-semibold">3.120</span> cambiaron hoy</div>
+          </div>
+          <div class="card p-4">
+            <div class="text-[13px] text-ink2 font-semibold">Frescos aprobados</div>
+            <div class="num font-bold text-[28px] leading-9 mt-1">152 <span class="text-[17px] text-muted font-semibold">/ 200</span></div>
+            <div class="text-[13px] text-muted">en 3 o más supers · meta 150 <span class="material-symbols-outlined text-save" style="font-size:16px">check_circle</span></div>
+          </div>
+          <div class="card p-4">
+            <div class="flex items-center justify-between">
+              <div class="text-[13px] text-ink2 font-semibold">Tamaño de la base</div>
+              <span class="chip bg-save-bg text-save">OK</span>
+            </div>
+            <div class="num font-bold text-[28px] leading-9 mt-1">86 <span class="text-[17px] text-muted font-semibold">MB / 500</span></div>
+            <div class="relative h-2 rounded-full bg-subtle mt-2">
+              <div class="absolute inset-y-0 left-0 rounded-full bg-primary" style="width:17.2%"></div>
+              <div class="absolute -top-1 -bottom-1 w-0.5 bg-warn" style="left:80%" title="Alerta 400 MB"></div>
+            </div>
+            <div class="text-[13px] text-muted mt-1.5">Alerta al llegar a 400 MB</div>
+          </div>
+        </div>
+
+        <!-- Alerta -->
+        <div class="mt-4 rounded-card border border-[#FED7AA] bg-warn-bg p-4 flex gap-3">
+          <span class="material-symbols-outlined text-warn">warning</span>
+          <div class="text-[15px]">
+            <div class="font-semibold text-warn">La Anónima no actualiza hace 3 días</div>
+            <div class="text-ink2">SEPA no trae archivo nuevo desde el 26/10. La app ya muestra "Precios de hace 3 días" y no la usa para comparar. Se activó el respaldo web para los productos en listas.</div>
+          </div>
+        </div>
+
+        <!-- Fuentes -->
+        <div class="card mt-6 overflow-hidden">
+          <div class="flex items-center justify-between px-4 lg:px-5 py-4 border-b border-line">
+            <h2 class="font-head font-semibold text-[18px]">Fuentes</h2>
+            <span class="text-[13px] text-muted">6 cadenas · 3 web (VTEX) + 3 SEPA</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[920px] text-[15px]">
+              <thead class="bg-subtle">
+                <tr><th class="px-5 py-2.5">Super</th><th class="px-3">Fuente</th><th class="px-3">Última corrida</th><th class="px-3 text-right">Duración</th><th class="px-3 text-right">Leídos</th><th class="px-3 text-right">Escritos</th><th class="px-3">Verificación</th><th class="px-3">Estado</th><th class="px-5">Próxima</th></tr>
+              </thead>
+              <tbody class="divide-y divide-line num">
+                <tr>
+                  <td class="px-5 py-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-carrefour"></span>Carrefour</span></td>
+                  <td class="px-3 text-ink2">Web · catálogo + carrito</td><td class="px-3">Hoy 09:52</td><td class="px-3 text-right">52 min</td><td class="px-3 text-right">10.881</td><td class="px-3 text-right">10.874</td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save"><span class="material-symbols-outlined" style="font-size:16px">check</span>3/3 EAN</span></td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save">Ok</span></td><td class="px-5 text-ink2">Hoy 18:00</td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-changomas"></span>ChangoMás</span><span class="text-[13px] text-muted pl-[18px]">Hiper Camino del Perú</span></td>
+                  <td class="px-3 text-ink2">Web · catálogo + carrito</td><td class="px-3">Hoy 09:31</td><td class="px-3 text-right">31 min</td><td class="px-3 text-right">8.706</td><td class="px-3 text-right">8.701</td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save"><span class="material-symbols-outlined" style="font-size:16px">check</span>3/3 EAN</span></td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save">Ok</span></td><td class="px-5 text-ink2">Hoy 18:00</td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-comodin"></span>Comodín</span></td>
+                  <td class="px-3 text-ink2">Web · catálogo + carrito</td><td class="px-3">Hoy 09:14</td><td class="px-3 text-right">14 min</td><td class="px-3 text-right">5.180</td><td class="px-3 text-right">5.176</td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save"><span class="material-symbols-outlined" style="font-size:16px">check</span>3/3 EAN</span></td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save">Ok</span></td><td class="px-5 text-ink2">Hoy 18:00</td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-vea"></span>Vea</span><span class="text-[13px] text-muted pl-[18px]">8 sucursales · 1 zona</span></td>
+                  <td class="px-3 text-ink2">SEPA</td><td class="px-3">Ayer 20:02</td><td class="px-3 text-right">3 min</td><td class="px-3 text-right">5.852</td><td class="px-3 text-right">5.852</td>
+                  <td class="px-3 text-muted">—</td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save">Ok</span></td><td class="px-5 text-ink2">Hoy 14:00</td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-jumbo"></span>Jumbo</span></td>
+                  <td class="px-3 text-ink2">SEPA</td><td class="px-3">Ayer 20:02</td><td class="px-3 text-right">3 min</td><td class="px-3 text-right">6.856</td><td class="px-3 text-right">6.856</td>
+                  <td class="px-3 text-muted">—</td>
+                  <td class="px-3"><span class="chip bg-save-bg text-save">Ok</span></td><td class="px-5 text-ink2">Hoy 14:00</td>
+                </tr>
+                <tr class="bg-[#FFFBF5]">
+                  <td class="px-5 py-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-anonima"></span>La Anónima</span><span class="text-[13px] text-muted pl-[18px]">2 sucursales · 1 zona</span></td>
+                  <td class="px-3 text-ink2">SEPA <span class="text-[13px] text-warn">+ respaldo web</span></td><td class="px-3">26/10 20:01</td><td class="px-3 text-right">3 min</td><td class="px-3 text-right">7.455</td><td class="px-3 text-right">0</td>
+                  <td class="px-3 text-muted">—</td>
+                  <td class="px-3"><span class="chip bg-warn-bg text-warn"><span class="material-symbols-outlined" style="font-size:16px">schedule</span>Atrasada 3 días</span></td><td class="px-5 text-ink2">Hoy 14:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-4 lg:gap-6 mt-6">
+          <!-- Últimas corridas -->
+          <div class="card lg:col-span-2 overflow-hidden">
+            <div class="flex items-center justify-between px-4 lg:px-5 py-4 border-b border-line">
+              <h2 class="font-head font-semibold text-[18px]">Últimas corridas</h2>
+              <a href="#" class="btn btn-ghost text-[13px] min-h-0 h-8">Ver todas</a>
+            </div>
+            <ul class="divide-y divide-line text-[15px]">
+              <li class="px-4 lg:px-5 py-3 flex items-center gap-3">
+                <span class="material-symbols-outlined text-save">check_circle</span>
+                <div class="min-w-0 flex-1"><div class="font-semibold">ingest-vtex · Carrefour</div><div class="text-[13px] text-muted num">Hoy 09:00 → 09:52 · 10.874 precios · 412 cambios</div></div>
+              </li>
+              <li class="px-4 lg:px-5 py-3 flex items-center gap-3">
+                <span class="material-symbols-outlined text-save">check_circle</span>
+                <div class="min-w-0 flex-1"><div class="font-semibold">ingest-vtex · ChangoMás</div><div class="text-[13px] text-muted num">Hoy 09:00 → 09:31 · 8.701 precios · 1.203 cambios · 174 promos detectadas</div></div>
+              </li>
+              <li class="px-4 lg:px-5 py-3">
+                <details>
+                  <summary class="flex items-center gap-3 cursor-pointer list-none">
+                    <span class="material-symbols-outlined text-err">cancel</span>
+                    <div class="min-w-0 flex-1"><div class="font-semibold">ingest-vtex · Comodín <span class="chip bg-err-bg text-err ml-1">Falló</span></div><div class="text-[13px] text-muted num">Ayer 18:00 → 18:03 · reintentada hoy 09:00 con éxito</div></div>
+                    <span class="material-symbols-outlined text-muted">expand_more</span>
+                  </summary>
+                  <pre class="mt-3 ml-9 rounded-ctl bg-subtle p-3 text-[13px] text-ink2 whitespace-pre-wrap font-mono">Verificación de región: el precio no coincide
+EAN 7790070012050  catálogo $ 3.567,19  carrito CP 4000 $ 3.749,00
+Se descartó la corrida y se mantuvieron los precios anteriores.</pre>
+                </details>
+              </li>
+              <li class="px-4 lg:px-5 py-3 flex items-center gap-3">
+                <span class="material-symbols-outlined text-muted">do_not_disturb_on</span>
+                <div class="min-w-0 flex-1"><div class="font-semibold">ingest-sepa</div><div class="text-[13px] text-muted num">Ayer 20:00 · sin archivo nuevo de La Anónima · 1 ZIP interno vacío salteado</div></div>
+              </li>
+              <li class="px-4 lg:px-5 py-3 flex items-center gap-3">
+                <span class="material-symbols-outlined text-save">check_circle</span>
+                <div class="min-w-0 flex-1"><div class="font-semibold">maintenance</div><div class="text-[13px] text-muted num">Hoy 04:00 · borró 8.210 filas de historial · 14 sugerencias de frescos nuevas</div></div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Detalle de la base -->
+          <div class="card p-4 lg:p-5">
+            <h2 class="font-head font-semibold text-[18px]">Base de datos</h2>
+            <dl class="mt-3 text-[15px] divide-y divide-line num">
+              <div class="flex justify-between py-2"><dt class="text-ink2">price_history</dt><dd class="font-semibold">41 MB</dd></div>
+              <div class="flex justify-between py-2"><dt class="text-ink2">prices_current</dt><dd class="font-semibold">18 MB</dd></div>
+              <div class="flex justify-between py-2"><dt class="text-ink2">products</dt><dd class="font-semibold">14 MB</dd></div>
+              <div class="flex justify-between py-2"><dt class="text-ink2">chain_products</dt><dd class="font-semibold">9 MB</dd></div>
+              <div class="flex justify-between py-2"><dt class="text-ink2">Otras</dt><dd class="font-semibold">4 MB</dd></div>
+            </dl>
+            <p class="text-[13px] text-muted mt-3">Historial de 60 días. Al pasar 400 MB te llega un mail y la ingesta agrupa más.</p>
+            <div class="mt-4 rounded-ctl bg-subtle p-3 text-[13px] text-ink2 flex gap-2">
+              <span class="material-symbols-outlined" style="font-size:18px">commit</span>
+              <span>Último commit de <b>status.json</b>: 01/10. El próximo es el 01/11 (mantiene vivo el cron de GitHub).</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ FRESCOS PENDIENTES ============================ -->
+      <section id="s-frescos" class="screen">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h1 class="font-head font-bold text-[24px] leading-[30px]">Frescos pendientes</h1>
+            <p class="text-ink2 text-[15px] mt-0.5">37 sugerencias para revisar · solo se usan las equivalencias aprobadas</p>
+          </div>
+          <a class="btn btn-outline" href="#"><span class="material-symbols-outlined">add</span>Nuevo genérico</a>
+        </div>
+
+        <!-- Pestañas + filtros -->
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <div class="inline-flex max-w-full overflow-x-auto rounded-ctl bg-subtle p-1 text-[15px] font-semibold">
+            <a class="px-3 sm:px-4 h-9 rounded-[9px] bg-white shadow-sm flex items-center gap-1.5" href="#">Pendientes <span class="chip bg-promo-bg text-promo">37</span></a>
+            <a class="px-3 sm:px-4 h-9 rounded-[9px] text-ink2 flex items-center" href="#">Aprobadas</a>
+            <a class="px-3 sm:px-4 h-9 rounded-[9px] text-ink2 flex items-center" href="#">Rechazadas</a>
+          </div>
+          <div class="relative flex-1 min-w-[220px] max-w-[360px]">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted">search</span>
+            <input class="w-full h-10 rounded-ctl border-0 bg-subtle pl-10 pr-3 text-[15px] focus:bg-white focus:ring-[1.5px] focus:ring-primary" placeholder="Buscar genérico"/>
+          </div>
+          <select class="h-10 rounded-ctl border-line text-[15px] pr-9"><option>Super: Todos</option><option>Carrefour</option><option>ChangoMás</option><option>Comodín</option><option>Vea</option><option>Jumbo</option><option>La Anónima</option></select>
+          <select class="h-10 rounded-ctl border-line text-[15px] pr-9"><option>Categoría: Todas</option><option>Verdulería</option><option>Carnes</option><option>Fiambrería</option><option>Panadería</option></select>
+        </div>
+
+        <!-- Grupo: Tomate redondo -->
+        <div class="card mt-5 overflow-hidden">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 lg:px-5 py-4 border-b border-line">
+            <span class="w-10 h-10 rounded-ctl bg-primary-tint text-primary flex items-center justify-center"><span class="material-symbols-outlined">nutrition</span></span>
+            <div>
+              <h2 class="font-head font-semibold text-[18px] leading-6">Tomate redondo</h2>
+              <div class="text-[13px] text-ink2">Por kg · Verdulería</div>
+            </div>
+            <div class="ml-auto flex items-center gap-2 text-[13px]">
+              <span class="text-ink2">Aprobado en</span>
+              <span class="flex gap-1"><span class="dot bg-carrefour"></span><span class="dot bg-changomas"></span><span class="dot bg-comodin"></span></span>
+              <span class="chip bg-save-bg text-save">3 de 6</span>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[900px] text-[15px]">
+              <thead class="bg-subtle"><tr><th class="pl-5 pr-2 py-2.5 w-8"><input type="checkbox" class="rounded border-line text-primary"/></th><th class="px-3">Super</th><th class="px-3">Producto del super</th><th class="px-3 text-right">Precio</th><th class="px-3">Factor a kg</th><th class="px-3 text-right">= Precio por kg</th><th class="px-3">Coincidencia</th><th class="px-5 text-right">Acción</th></tr></thead>
+              <tbody class="divide-y divide-line num">
+                <tr>
+                  <td class="pl-5 pr-2 py-3"><input type="checkbox" checked class="rounded border-line text-primary"/></td>
+                  <td class="px-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-anonima"></span>La Anónima</span></td>
+                  <td class="px-3"><div>TOMATE REDONDO X KG</div><div class="text-[13px] text-muted">SEPA · id 2000000041203</div></td>
+                  <td class="px-3 text-right">$ 2.890</td>
+                  <td class="px-3"><input type="number" step="0.05" value="1" class="w-20 h-9 rounded-lg border-line text-[15px] text-right"/></td>
+                  <td class="px-3 text-right font-semibold">$ 2.890 / kg</td>
+                  <td class="px-3"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-subtle"><div class="h-full rounded-full bg-primary" style="width:94%"></div></div><span class="text-[13px] text-ink2">94%</span></div></td>
+                  <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Rechazar</button><button class="btn btn-primary min-h-0 h-9">Aprobar</button></div></td>
+                </tr>
+                <tr>
+                  <td class="pl-5 pr-2 py-3"><input type="checkbox" checked class="rounded border-line text-primary"/></td>
+                  <td class="px-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-carrefour"></span>Carrefour</span></td>
+                  <td class="px-3"><div>Tomate perita bandeja 0,4 kg</div><div class="text-[13px] text-muted">Web · sku 682113</div></td>
+                  <td class="px-3 text-right">$ 1.290</td>
+                  <td class="px-3"><input type="number" step="0.05" value="0.4" class="w-20 h-9 rounded-lg border-line text-[15px] text-right"/></td>
+                  <td class="px-3 text-right font-semibold">$ 3.225 / kg</td>
+                  <td class="px-3"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-subtle"><div class="h-full rounded-full bg-primary" style="width:71%"></div></div><span class="text-[13px] text-ink2">71%</span></div>
+                    <div class="text-[13px] text-promo mt-0.5">¿Perita en vez de redondo?</div></td>
+                  <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Rechazar</button><button class="btn btn-primary min-h-0 h-9">Aprobar</button></div></td>
+                </tr>
+                <tr class="bg-[#FFFBF5]">
+                  <td class="pl-5 pr-2 py-3"><input type="checkbox" checked class="rounded border-line text-primary"/></td>
+                  <td class="px-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-jumbo"></span>Jumbo</span></td>
+                  <td class="px-3"><div>tomate perita ARCOR Cubeteado LAT-400-gr.</div><div class="text-[13px] text-muted">SEPA · EAN 7790580…</div></td>
+                  <td class="px-3 text-right">$ 1.700</td>
+                  <td class="px-3"><input type="number" step="0.05" value="0.4" class="w-20 h-9 rounded-lg border-line text-[15px] text-right"/></td>
+                  <td class="px-3 text-right font-semibold">$ 4.250 / kg</td>
+                  <td class="px-3"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-subtle"><div class="h-full rounded-full bg-warn" style="width:38%"></div></div><span class="text-[13px] text-ink2">38%</span></div>
+                    <div class="text-[13px] text-warn mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:16px">warning</span>Es envasado, no fresco</div></td>
+                  <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Rechazar</button><button class="btn btn-primary min-h-0 h-9">Aprobar</button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Grupo: Nalga -->
+        <div class="card mt-4 overflow-hidden">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 px-4 lg:px-5 py-4 border-b border-line">
+            <span class="w-10 h-10 rounded-ctl bg-primary-tint text-primary flex items-center justify-center"><span class="material-symbols-outlined">set_meal</span></span>
+            <div>
+              <h2 class="font-head font-semibold text-[18px] leading-6">Nalga</h2>
+              <div class="text-[13px] text-ink2">Por kg · Carnes</div>
+            </div>
+            <div class="ml-auto flex items-center gap-2 text-[13px]">
+              <span class="text-ink2">Aprobado en</span>
+              <span class="flex gap-1"><span class="dot bg-changomas"></span><span class="dot bg-carrefour"></span><span class="dot bg-vea"></span><span class="dot bg-comodin"></span></span>
+              <span class="chip bg-save-bg text-save">4 de 6</span>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[900px] text-[15px]">
+              <tbody class="divide-y divide-line num">
+                <tr class="bg-[#FFFBF5]">
+                  <td class="pl-5 pr-2 py-3 w-8"><input type="checkbox" class="rounded border-line text-primary"/></td>
+                  <td class="px-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-anonima"></span>La Anónima</span></td>
+                  <td class="px-3"><div>NALGA S/TAPA FETEADA **, FB MEATS, 1 kgr</div><div class="text-[13px] text-muted">SEPA</div></td>
+                  <td class="px-3 text-right">$ 14.790</td>
+                  <td class="px-3"><input type="number" step="0.05" value="1" class="w-20 h-9 rounded-lg border-line text-[15px] text-right"/></td>
+                  <td class="px-3 text-right font-semibold">$ 14.790 / kg</td>
+                  <td class="px-3"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-subtle"><div class="h-full rounded-full bg-primary" style="width:88%"></div></div><span class="text-[13px] text-ink2">88%</span></div>
+                    <div class="text-[13px] text-warn mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined" style="font-size:16px">trending_up</span>23% arriba del promedio</div></td>
+                  <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Rechazar</button><button class="btn btn-primary min-h-0 h-9">Aprobar</button></div></td>
+                </tr>
+                <tr>
+                  <td class="pl-5 pr-2 py-3"><input type="checkbox" class="rounded border-line text-primary"/></td>
+                  <td class="px-3"><span class="flex items-center gap-2 font-semibold"><span class="dot bg-jumbo"></span>Jumbo</span></td>
+                  <td class="px-3"><div>TAPA DE NALGA NOVILLITO BJA-1-Kg</div><div class="text-[13px] text-muted">SEPA</div></td>
+                  <td class="px-3 text-right">$ 14.999</td>
+                  <td class="px-3"><input type="number" step="0.05" value="1" class="w-20 h-9 rounded-lg border-line text-[15px] text-right"/></td>
+                  <td class="px-3 text-right font-semibold">$ 14.999 / kg</td>
+                  <td class="px-3"><div class="flex items-center gap-2"><div class="w-20 h-1.5 rounded-full bg-subtle"><div class="h-full rounded-full bg-primary" style="width:63%"></div></div><span class="text-[13px] text-ink2">63%</span></div>
+                    <div class="text-[13px] text-promo mt-0.5">"Tapa de nalga" es otro corte</div></td>
+                  <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Rechazar</button><button class="btn btn-primary min-h-0 h-9">Aprobar</button></div></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Barra de acción masiva -->
+        <div class="sticky bottom-4 mt-6 flex justify-center">
+          <div class="flex flex-wrap items-center gap-3 rounded-card bg-ink text-white px-4 py-3 shadow-[0_-4px_16px_rgba(22,26,23,0.12)]">
+            <span class="font-semibold text-[15px]">3 seleccionadas</span>
+            <button class="btn min-h-0 h-9 bg-white/10 hover:bg-white/20 text-white">Rechazar</button>
+            <button class="btn min-h-0 h-9 bg-primary hover:bg-primary-press text-white">Aprobar las 3</button>
+            <button class="btn min-h-0 h-9 text-white/70 px-2" aria-label="Deseleccionar"><span class="material-symbols-outlined">close</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ BÚSQUEDAS SIN RESULTADO ============================ -->
+      <section id="s-busquedas" class="screen">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h1 class="font-head font-bold text-[24px] leading-[30px]">Búsquedas sin resultado</h1>
+            <p class="text-ink2 text-[15px] mt-0.5">Lo que la gente busca y no encuentra. Se guarda sin IP ni datos personales.</p>
+          </div>
+          <div class="inline-flex rounded-ctl bg-subtle p-1 text-[15px] font-semibold">
+            <a class="px-4 h-9 rounded-[9px] bg-white shadow-sm flex items-center" href="#">Últimos 7 días</a>
+            <a class="px-4 h-9 rounded-[9px] text-ink2 flex items-center" href="#">30 días</a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 lg:gap-4 mt-6">
+          <div class="card p-4"><div class="text-[13px] text-ink2 font-semibold">Búsquedas</div><div class="num font-bold text-[28px] leading-9 mt-1">1.284</div></div>
+          <div class="card p-4"><div class="text-[13px] text-ink2 font-semibold">Sin resultado</div><div class="num font-bold text-[28px] leading-9 mt-1">96 <span class="text-[17px] text-muted font-semibold">7,5%</span></div></div>
+          <div class="card p-4"><div class="text-[13px] text-ink2 font-semibold">Términos distintos</div><div class="num font-bold text-[28px] leading-9 mt-1">41</div></div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-4 lg:gap-6 mt-6">
+          <div class="card lg:col-span-2 overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full min-w-[640px] text-[15px]">
+                <thead class="bg-subtle"><tr><th class="px-5 py-2.5">Término buscado</th><th class="px-3 text-right">Veces</th><th class="px-3">Última vez</th><th class="px-5 text-right">Acción</th></tr></thead>
+                <tbody class="divide-y divide-line num">
+                  <tr><td class="px-5 py-3 font-semibold">nalga feteada</td><td class="px-3 text-right">14</td><td class="px-3 text-ink2">Hoy 11:42</td>
+                    <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-primary min-h-0 h-9">Asignar a fresco</button><button class="btn btn-ghost min-h-0 h-9">Ignorar</button></div></td></tr>
+                  <tr><td class="px-5 py-3 font-semibold">fernet branca 2 l</td><td class="px-3 text-right">9</td><td class="px-3 text-ink2">Hoy 10:05</td>
+                    <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Crear sinónimo</button><button class="btn btn-ghost min-h-0 h-9">Ignorar</button></div></td></tr>
+                  <tr><td class="px-5 py-3 font-semibold">pañales pampers xg</td><td class="px-3 text-right">7</td><td class="px-3 text-ink2">Ayer 21:18</td>
+                    <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Crear sinónimo</button><button class="btn btn-ghost min-h-0 h-9">Ignorar</button></div></td></tr>
+                  <tr><td class="px-5 py-3 font-semibold">pan frances</td><td class="px-3 text-right">6</td><td class="px-3 text-ink2">Ayer 08:30</td>
+                    <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-primary min-h-0 h-9">Asignar a fresco</button><button class="btn btn-ghost min-h-0 h-9">Ignorar</button></div></td></tr>
+                  <tr><td class="px-5 py-3 font-semibold">coca 2.25</td><td class="px-3 text-right">5</td><td class="px-3 text-ink2">27/10 19:44</td>
+                    <td class="px-5"><div class="flex justify-end gap-2"><button class="btn btn-outline min-h-0 h-9">Crear sinónimo</button><button class="btn btn-ghost min-h-0 h-9">Ignorar</button></div></td></tr>
+                  <tr><td class="px-5 py-3 font-semibold">gomez pardo</td><td class="px-3 text-right">4</td><td class="px-3 text-ink2">27/10 12:10</td>
+                    <td class="px-5"><div class="flex justify-end gap-2"><span class="chip bg-subtle text-ink2">Super sin datos</span><button class="btn btn-ghost min-h-0 h-9">Ignorar</button></div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card p-4 lg:p-5">
+            <h2 class="font-head font-semibold text-[18px]">Lo más buscado</h2>
+            <p class="text-[13px] text-muted">Con resultados, últimos 7 días</p>
+            <ol class="mt-3 space-y-2 text-[15px] num">
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">1</span><span class="flex-1">yerba</span><span class="font-semibold">88</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">2</span><span class="flex-1">aceite</span><span class="font-semibold">71</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">3</span><span class="flex-1">leche</span><span class="font-semibold">64</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">4</span><span class="flex-1">pañales</span><span class="font-semibold">40</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">5</span><span class="flex-1">nalga</span><span class="font-semibold">37</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">6</span><span class="flex-1">coca cola</span><span class="font-semibold">33</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">7</span><span class="flex-1">azúcar</span><span class="font-semibold">29</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">8</span><span class="flex-1">detergente</span><span class="font-semibold">24</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">9</span><span class="flex-1">tomate</span><span class="font-semibold">22</span></li>
+              <li class="flex items-center gap-3"><span class="w-6 text-muted">10</span><span class="flex-1">café</span><span class="font-semibold">19</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Diálogo: crear sinónimo (abierto como ejemplo) -->
+        <div class="card mt-6 p-5 max-w-[560px]">
+          <div class="text-[13px] font-semibold text-ink2 uppercase tracking-wide">Ejemplo: Crear sinónimo</div>
+          <h2 class="font-head font-semibold text-[18px] mt-1">"fernet branca 2 l" → ¿qué producto es?</h2>
+          <div class="relative mt-3">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted">search</span>
+            <input value="fernet branca" class="w-full h-11 rounded-ctl border-0 bg-white pl-10 pr-3 text-[15px] ring-[1.5px] ring-primary"/>
+          </div>
+          <ul class="mt-2 divide-y divide-line rounded-ctl border border-line text-[15px]">
+            <li class="flex items-center gap-3 px-3 py-2.5 bg-primary-tint"><span class="material-symbols-outlined text-primary">radio_button_checked</span>Fernet Branca 1 L<span class="ml-auto text-[13px] text-ink2">6 supers</span></li>
+            <li class="flex items-center gap-3 px-3 py-2.5"><span class="material-symbols-outlined text-muted">radio_button_unchecked</span>Fernet Branca 750 ml<span class="ml-auto text-[13px] text-ink2">6 supers</span></li>
+          </ul>
+          <p class="text-[13px] text-muted mt-2">No existe Fernet Branca de 2 L en ningún super. El sinónimo lleva la búsqueda al producto elegido.</p>
+          <div class="flex justify-end gap-2 mt-4"><button class="btn btn-outline">Cancelar</button><button class="btn btn-primary">Guardar sinónimo</button></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+  // Navegación de la maqueta por hash
+  function show() {
+    const h = (location.hash || '#estado').slice(1);
+    const isLogin = h.startsWith('login');
+    document.getElementById('s-login').classList.toggle('on', isLogin);
+    document.getElementById('app').classList.toggle('on', !isLogin);
+    document.querySelectorAll('[data-state]').forEach(el => { el.style.display = el.dataset.state === h ? '' : 'none'; });
+    ['estado', 'frescos', 'busquedas'].forEach(s => document.getElementById('s-' + s).classList.toggle('on', s === h));
+    document.querySelectorAll('[data-nav]').forEach(a => a.classList.toggle('active', a.dataset.nav === h));
+    window.scrollTo(0, 0);
+  }
+  addEventListener('hashchange', show);
+  show();
+</script>
+</body>
+</html>

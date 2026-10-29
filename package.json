@@ -1,0 +1,29 @@
+{
+  "name": "changuito",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "ingest:vtex": "node ingest/vtex/run.ts",
+    "ingest:sepa": "node ingest/sepa/run.ts",
+    "maintenance": "node ingest/maintenance/run.ts",
+    "db:migrate": "node scripts/migrate.ts",
+    "db:local": "node scripts/local-db.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"ingest/**/*.test.ts\""
+  },
+  "dependencies": {
+    "csv-parse": "^7.0.3",
+    "postgres": "^3.4.9",
+    "yauzl": "^3.4.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.13",
+    "@electric-sql/pglite-socket": "^0.2.16",
+    "@types/node": "^26.6.6",
+    "@types/yauzl": "^3.4.0",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito — Agregar a Lista</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#191d19",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#9ef5be",
+            "surface-container": "#ecefe9",
+            "on-surface-variant": "#3f4941",
+            "tertiary-fixed-dim": "#bbcac1",
+            "surface-container-low": "#f1f4ef",
+            "on-primary-fixed-variant": "#00522f",
+            "inverse-on-surface": "#eff2ec",
+            "surface": "#f7faf5",
+            "outline-variant": "#bec9bf",
+            "secondary": "#006d30",
+            "on-primary-container": "#aeffca",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-secondary-container": "#007233",
+            "primary": "#006038",
+            "on-error-container": "#93000a",
+            "surface-dim": "#d8dbd6",
+            "error": "#ba1a1a",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#606e67",
+            "secondary-fixed": "#95f8a7",
+            "primary-fixed-dim": "#82d8a3",
+            "tertiary": "#48564f",
+            "primary-container": "#1f7a4d",
+            "inverse-primary": "#82d8a3",
+            "on-primary-fixed": "#002110",
+            "inverse-surface": "#2d312e",
+            "on-secondary-fixed": "#00210a",
+            "surface-tint": "#066c41",
+            "outline": "#6f7a71",
+            "secondary-fixed-dim": "#79db8d",
+            "surface-bright": "#f7faf5",
+            "on-secondary": "#ffffff",
+            "on-background": "#191d19",
+            "on-error": "#ffffff",
+            "surface-container-highest": "#e0e3de",
+            "on-primary": "#ffffff",
+            "on-tertiary-container": "#e1f0e7",
+            "on-secondary-fixed-variant": "#005323",
+            "on-tertiary-fixed": "#111e19",
+            "tertiary-fixed": "#d7e6dd",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#e6e9e4",
+            "secondary-container": "#92f5a4",
+            "background": "#f7faf5",
+            "surface-variant": "#e0e3de"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem",
+            "gutter": "1rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "caption-bold": ["Inter"],
+            "caption": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "price-md": ["Inter"],
+            "price-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#121613] text-on-surface antialiased font-body-md flex justify-center items-end min-h-screen select-none overflow-x-hidden">
+<!-- ========================================== -->
+<!-- MOBILE VIEWPORT CONTAINER (Max 480px)      -->
+<!-- ========================================== -->
+<div class="relative w-full max-w-[480px] h-screen bg-background overflow-hidden flex flex-col justify-end shadow-2xl">
+<!-- ========================================== -->
+<!-- BACKGROUND SCREEN: PRODUCT DETAIL (DIMMED) -->
+<!-- ========================================== -->
+<div aria-hidden="true" class="absolute inset-0 bg-background overflow-y-auto pointer-events-none select-none">
+<!-- Dimmed Top Bar -->
+<div class="px-space-lg h-14 flex items-center justify-between border-b border-outline-variant/30">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-on-surface">Detalle de producto</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<!-- Dimmed Product Showcase -->
+<div class="p-space-lg flex flex-col items-center">
+<div class="w-56 h-56 bg-surface-container-lowest rounded-2xl p-4 flex items-center justify-center border border-outline-variant/40 shadow-sm mb-4">
+<img alt="Aceite Natura Girasol 1,5 L" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WUslkjPJw6DavvNCIPSrLS2CdG-jlZGQzyAjUxSvOohujEToIa376NgFzr7TWD3LVVkCG8vNDaRdk1eEi261hozVcgEJExrvhIyCcQz1TuqdveHYWUKcAfFKZ8j9VBLJsgaPYp9P7lUxx675NUekbMGwm37zRrNNc-0N5WnC2CUn3_ajjMdf2_DG7F3AEQHP7tW5O7XCLUpt091XiQIU1zREysqDjfNt30MEnJ0NEs"/>
+</div>
+<div class="w-full">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#dcfce7] text-[#15803d] font-caption-bold text-caption-bold mb-2">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">trending_down</span>
+<span>$ 3.249 en ChangoMás</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-1">Aceite de girasol Natura 1,5 L</h1>
+<p class="font-caption text-caption text-on-surface-variant mb-4">Gran San Miguel de Tucumán · Actualizado hace 2 horas</p>
+<!-- Mock Comparison List -->
+<div class="space-y-2 mt-2">
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/30 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#1F7A4D]"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">ChangoMás</span>
+</div>
+<span class="font-price-md text-price-md text-[#15803d]">$ 3.249</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl border border-outline-variant/30 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]"></span>
+<span class="font-body-md text-body-md text-on-surface">Vea Hiper</span>
+</div>
+<span class="font-price-md text-price-md text-on-surface">$ 3.480</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- BACKDROP DIM OVERLAY (rgba(0,0,0,0.60))    -->
+<!-- ========================================== -->
+<div class="absolute inset-0 bg-black/60 backdrop-blur-[1.5px] z-20 transition-opacity duration-200" onclick="window.history.back()"></div>
+<!-- ========================================== -->
+<!-- BOTTOM SHEET COMPONENT                     -->
+<!-- ========================================== -->
+<section aria-label="Agregar producto a una lista" class="relative z-30 w-full bg-surface-container-lowest rounded-t-[28px] border-t border-outline-variant/40 shadow-2xl flex flex-col max-h-[92vh] animate-slide-up pb-6" style="box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.22);">
+<!-- Grabber Drag Pill Indicator -->
+<div aria-hidden="true" class="w-full flex justify-center pt-3 pb-1">
+<div class="w-12 h-1.5 bg-[#D2D7D1] rounded-full"></div>
+</div>
+<!-- Sheet Header Bar -->
+<div class="px-space-lg pt-1 pb-3 flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight">Agregar a lista</h2>
+<p class="font-caption text-caption text-on-surface-variant">Fijate dónde te conviene comprar hoy</p>
+</div>
+<button aria-label="Cerrar modal" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors active:scale-95" onclick="console.log('Cerrar bottom sheet')" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<!-- Sheet Scrollable Content -->
+<div class="px-space-lg overflow-y-auto space-y-4 pt-1">
+<!-- Product Quick Preview Row -->
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-2xl border border-outline-variant/30">
+<div class="w-12 h-12 bg-surface-container-lowest rounded-xl p-1 flex items-center justify-center border border-outline-variant/30 flex-shrink-0 shadow-xs">
+<img alt="Aceite Natura 1,5 L" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WUslkjPJw6DavvNCIPSrLS2CdG-jlZGQzyAjUxSvOohujEToIa376NgFzr7TWD3LVVkCG8vNDaRdk1eEi261hozVcgEJExrvhIyCcQz1TuqdveHYWUKcAfFKZ8j9VBLJsgaPYp9P7lUxx675NUekbMGwm37zRrNNc-0N5WnC2CUn3_ajjMdf2_DG7F3AEQHP7tW5O7XCLUpt091XiQIU1zREysqDjfNt30MEnJ0NEs"/>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Aceite de girasol Natura 1,5 L</h3>
+<p class="font-caption text-caption text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span>Natura</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>1,5 L</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span class="text-primary font-caption-bold">Desde $ 3.249</span>
+</p>
+</div>
+</div>
+<!-- Quantity Stepper Section -->
+<div class="bg-surface rounded-2xl p-3.5 border border-outline-variant/30 space-y-3">
+<div class="flex items-center justify-between">
+<label class="font-caption-bold text-caption-bold text-on-surface" for="quantity-counter">Cantidad de unidades</label>
+<span class="font-caption text-caption text-on-surface-variant">Ajustá tu changuito</span>
+</div>
+<!-- Tactile Stepper Control -->
+<div class="flex items-center justify-between bg-surface-container-lowest rounded-xl p-1.5 border border-outline-variant/40 shadow-xs">
+<!-- Minus Button -->
+<button aria-label="Restar una unidad" class="w-12 h-11 flex items-center justify-center rounded-lg bg-surface-container hover:bg-surface-container-high active:bg-surface-container-highest text-on-surface transition-all active:scale-95" id="btn-minus" type="button">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<!-- Value Display -->
+<div aria-live="polite" class="flex flex-col items-center justify-center px-4" id="quantity-counter">
+<span class="font-headline-lg text-headline-lg text-on-surface font-extrabold leading-none" id="quantity-value">2</span>
+<span class="font-caption text-[11px] text-on-surface-variant font-medium mt-0.5">botellas (3,0 L)</span>
+</div>
+<!-- Plus Button -->
+<button aria-label="Sumar una unidad" class="w-12 h-11 flex items-center justify-center rounded-lg bg-primary-container text-on-primary hover:bg-[#17603C] active:bg-[#124b2f] transition-all shadow-sm active:scale-95" id="btn-plus" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Smart Tucumán Savings Helper Callout -->
+<div class="bg-[#FFFBEB] border border-[#FDE68A] text-[#78350F] px-3 py-2 rounded-xl flex items-start gap-2 text-left">
+<span class="material-symbols-outlined text-[#B45309] text-[18px] mt-0.5 flex-shrink-0" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<div class="font-caption leading-tight">
+<span class="font-caption-bold text-[#92400E]">¡Buena jugada vecina!</span>
+              Llevando 2 en Comodín: 2da al 70% de ahorro (<span class="font-semibold">$ 2.204 c/u</span>).
+            </div>
+</div>
+</div>
+<!-- Choose List Section -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-caption-bold text-caption-bold text-on-surface">Elegí la lista</h4>
+<span class="font-caption text-caption text-on-surface-variant">Listas guardadas</span>
+</div>
+<div aria-label="Seleccionar lista para el producto" class="space-y-2.5" role="radiogroup">
+<!-- Option 1: Selected (Compra del mes) -->
+<label class="relative flex items-center justify-between p-3.5 rounded-2xl border-2 border-primary bg-[#F0FDF4] cursor-pointer transition-all shadow-xs">
+<div class="flex items-center gap-3">
+<!-- Custom Radio Indicator -->
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center bg-white flex-shrink-0">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Compra del mes</span>
+<span class="bg-[#DCFCE7] text-[#15803D] font-caption-bold text-[11px] px-2 py-0.5 rounded-full">Principal</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">24 productos agregados</p>
+</div>
+</div>
+<input checked="" class="sr-only" name="target_list" type="radio" value="Compra del mes"/>
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</label>
+<!-- Option 2: Asado del domingo -->
+<label class="relative flex items-center justify-between p-3.5 rounded-2xl border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container-low cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-full border-2 border-outline flex items-center justify-center bg-white flex-shrink-0"></div>
+<div>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Asado del domingo</span>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">9 productos · Presupuesto $ 24.500</p>
+</div>
+</div>
+<input class="sr-only" name="target_list" type="radio" value="Asado del domingo"/>
+<span class="material-symbols-outlined text-outline-variant text-[20px]">outdoor_grill</span>
+</label>
+<!-- Option 3: Create New List Action (Collapsible / inline input ready) -->
+<div class="border border-dashed border-outline-variant hover:border-primary/60 rounded-2xl p-3 bg-surface-container-low/50 transition-colors">
+<button class="w-full flex items-center justify-between text-left group" id="toggle-new-list-btn" type="button">
+<div class="flex items-center gap-2.5 text-primary">
+<span class="material-symbols-outlined text-[20px] bg-primary/10 p-1 rounded-lg">add</span>
+<span class="font-body-md-bold text-body-md-bold text-primary">Crear lista nueva</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">keyboard_arrow_down</span>
+</button>
+<!-- Subtle quick creator input box -->
+<div class="mt-2.5 pt-2.5 border-t border-outline-variant/30 flex items-center gap-2" id="new-list-input-container">
+<div class="relative flex-1">
+<input class="w-full h-10 px-3 text-sm bg-surface-container-lowest rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline text-on-surface" placeholder="Ej. Cumpleaños de Lucas" type="text"/>
+</div>
+<button class="h-10 px-3.5 bg-surface-container hover:bg-surface-container-high rounded-xl text-xs font-semibold text-on-surface-variant transition-colors flex items-center justify-center" type="button">
+                  Crear
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- STICKY ACTION BUTTON FOOTER                -->
+<!-- ========================================== -->
+<div class="px-space-lg pt-4 pb-2 bg-surface-container-lowest border-t border-outline-variant/20 mt-2">
+<button class="w-full h-12 bg-primary-container hover:bg-[#17603C] active:bg-[#124b2f] text-on-primary font-headline-sm text-headline-sm rounded-xl shadow-md transition-all flex items-center justify-center gap-2 active:scale-[0.99]" id="confirm-button" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">shopping_cart_checkout</span>
+<span>Agregar a Compra del mes</span>
+</button>
+<p class="text-center font-caption text-[11px] text-on-surface-variant mt-2">
+          Te avisaremos si el precio baja en tu barrio
+        </p>
+</div>
+</section>
+</div>
+<!-- Inline Interaction Logic -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let quantity = 2;
+      const quantityEl = document.getElementById('quantity-value');
+      const btnMinus = document.getElementById('btn-minus');
+      const btnPlus = document.getElementById('btn-plus');
+      const confirmButton = document.getElementById('confirm-button');
+      const listRadios = document.querySelectorAll('input[name="target_list"]');
+
+      // Stepper logic
+      btnMinus.addEventListener('click', () => {
+        if (quantity > 1) {
+          quantity--;
+          quantityEl.textContent = quantity;
+        }
+      });
+
+      btnPlus.addEventListener('click', () => {
+        quantity++;
+        quantityEl.textContent = quantity;
+      });
+
+      // Radio Selection Update
+      listRadios.forEach(radio => {
+        radio.closest('label').addEventListener('click', () => {
+          confirmButton.innerHTML = `
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">shopping_cart_checkout</span>
+            <span>Agregar a ${radio.value}</span>
+          `;
+        });
+      });
+
+      // Quick visual feedback on add
+      confirmButton.addEventListener('click', () => {
+        confirmButton.innerHTML = `
+          <span class="material-symbols-outlined text-[20px]">check</span>
+          <span>¡Agregado con éxito!</span>
+        `;
+        confirmButton.classList.replace('bg-primary-container', 'bg-secondary');
+        setTimeout(() => {
+          confirmButton.classList.replace('bg-secondary', 'bg-primary-container');
+          confirmButton.innerHTML = `
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">shopping_cart_checkout</span>
+            <span>Agregar a Compra del mes</span>
+          `;
+        }, 1500);
+      });
+    });
+  </script>
+</body></html>

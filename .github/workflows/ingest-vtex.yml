@@ -1,0 +1,55 @@
+# Precios de Carrefour, ChangoMás y Comodín (webs VTEX, región Tucumán).
+# 09:00 ART: catálogo completo + precios. 18:00 ART: solo precios de productos conocidos.
+name: ingest-vtex
+
+on:
+  schedule:
+    - cron: '0 12 * * *'   # 09:00 ART (UTC-3)
+    - cron: '0 21 * * *'   # 18:00 ART
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'full o prices'
+        default: 'full'
+      chain:
+        description: 'una cadena (vacío = las tres)'
+        default: ''
+
+concurrency:
+  group: ingest-vtex
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        chain: [carrefour, changomas, comodin]
+    steps:
+      - name: Saltear cadenas no pedidas
+        id: pick
+        run: |
+          want="${{ github.event.inputs.chain }}"
+          if [ -n "$want" ] && [ "$want" != "${{ matrix.chain }}" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.pick.outputs.skip != 'true'
+      - uses: actions/setup-node@v4
+        if: steps.pick.outputs.skip != 'true'
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+        if: steps.pick.outputs.skip != 'true'
+      - name: Ingesta
+        if: steps.pick.outputs.skip != 'true'
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          mode="${{ github.event.inputs.mode }}"
+          if [ -z "$mode" ]; then
+            # El cron de la mañana hace el recorrido completo; el de la tarde, solo precios
+            if [ "${{ github.event.schedule }}" = "0 21 * * *" ]; then mode=prices; else mode=full; fi
+          fi
+          node ingest/vtex/run.ts --chain=${{ matrix.chain }} --mode=$mode --validate=20

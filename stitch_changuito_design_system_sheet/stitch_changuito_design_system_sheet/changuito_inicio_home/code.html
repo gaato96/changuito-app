@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Comparador de Precios</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f7faf5",
+            "secondary-container": "#92f5a4",
+            "secondary-fixed": "#95f8a7",
+            "inverse-on-surface": "#eff2ec",
+            "tertiary": "#48564f",
+            "surface-container-high": "#e6e9e4",
+            "on-tertiary-container": "#e1f0e7",
+            "on-error": "#ffffff",
+            "surface-container": "#ecefe9",
+            "inverse-primary": "#82d8a3",
+            "on-primary-fixed": "#002110",
+            "on-background": "#191d19",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "outline-variant": "#bec9bf",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#9ef5be",
+            "on-primary-container": "#aeffca",
+            "on-surface": "#191d19",
+            "secondary-fixed-dim": "#79db8d",
+            "surface-container-highest": "#e0e3de",
+            "on-primary-fixed-variant": "#00522f",
+            "surface-bright": "#f7faf5",
+            "on-secondary-fixed-variant": "#005323",
+            "tertiary-fixed": "#d7e6dd",
+            "on-error-container": "#93000a",
+            "secondary": "#006d30",
+            "on-secondary-container": "#007233",
+            "error-container": "#ffdad6",
+            "primary": "#006038",
+            "inverse-surface": "#2d312e",
+            "background": "#f7faf5",
+            "surface-container-low": "#f1f4ef",
+            "tertiary-container": "#606e67",
+            "on-tertiary-fixed": "#111e19",
+            "on-secondary-fixed": "#00210a",
+            "primary-fixed-dim": "#82d8a3",
+            "on-tertiary": "#ffffff",
+            "surface-variant": "#e0e3de",
+            "on-surface-variant": "#3f4941",
+            "surface-tint": "#066c41",
+            "primary-container": "#1f7a4d",
+            "surface-dim": "#d8dbd6",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#6f7a71"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "margin-tablet": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-md-bold": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "caption": ["Inter"],
+            "price-md": ["Inter"],
+            "caption-bold": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "price-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Estilos de scroll horizontal limpio */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col justify-between items-center selection:bg-secondary-container">
+<!-- Mobile Shell (Max 480px, ideal 390px) -->
+<div class="w-full max-w-[480px] min-h-screen bg-surface flex flex-col relative pb-24 shadow-sm border-x border-outline-variant/20">
+<!-- 1. Header / TopAppBar -->
+<header class="sticky top-0 left-0 w-full z-40 bg-surface/95 backdrop-blur-md px-margin h-14 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined fill-icon text-primary-container text-[24px]">shopping_cart</span>
+<span class="font-display font-extrabold text-[22px] tracking-tight text-primary-container leading-none">changuito</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/30">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-caption-bold text-caption-bold text-on-surface-variant text-[12px]">Precios al día</span>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex-1 px-margin pt-3 flex flex-col gap-6">
+<!-- 2. Saludo / Titulo principal -->
+<section class="flex flex-col gap-1">
+<h1 class="font-display-mobile text-display-mobile text-on-surface tracking-tight">
+          ¿Qué necesitás hoy?
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Fijate dónde te conviene comprar hoy en tu zona.
+        </p>
+</section>
+<!-- 3. Buscador principal -->
+<section class="relative">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline pointer-events-none">search</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low hover:bg-surface-container rounded-xl border border-outline-variant/40 focus:bg-surface-container-lowest focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface placeholder:text-outline font-body-md text-body-md transition-all outline-none" placeholder="Buscá un producto o marca" type="text"/>
+</div>
+</section>
+<!-- 4. Sección "Mis listas" -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Mis listas</h2>
+<a class="font-caption-bold text-caption-bold text-primary-container hover:underline flex items-center gap-0.5" href="#">
+            Ver todas
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+<!-- Carrusel / Scroll Horizontal -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar -mx-margin px-margin pb-1 pt-0.5">
+<!-- Tarjeta 1: Compra del mes -->
+<div class="min-w-[230px] max-w-[240px] bg-surface-container-lowest p-3.5 rounded-2xl border border-outline-variant/30 flex flex-col justify-between shadow-sm flex-shrink-0">
+<div>
+<div class="flex items-start justify-between mb-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">Compra del mes</span>
+<span class="material-symbols-outlined text-outline text-[18px]">more_horiz</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">24 productos</p>
+</div>
+<div class="mt-4 pt-2.5 border-t border-outline-variant/20 flex flex-col gap-1.5">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-[#DCFCE7] text-[#15803D] self-start">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+<span class="font-caption-bold text-[12px] leading-tight">Ahorrás $ 8.420</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-caption text-caption">
+<span class="w-2 h-2 rounded-full bg-[#D97706]"></span>
+<span>Mejor total: <strong class="font-caption-bold text-on-surface">ChangoMás</strong></span>
+</div>
+</div>
+</div>
+<!-- Tarjeta 2: Asado del domingo -->
+<div class="min-w-[230px] max-w-[240px] bg-surface-container-lowest p-3.5 rounded-2xl border border-outline-variant/30 flex flex-col justify-between shadow-sm flex-shrink-0">
+<div>
+<div class="flex items-start justify-between mb-1">
+<span class="font-headline-sm text-headline-sm text-on-surface">Asado del domingo</span>
+<span class="material-symbols-outlined text-outline text-[18px]">more_horiz</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant">9 productos</p>
+</div>
+<div class="mt-4 pt-2.5 border-t border-outline-variant/20 flex flex-col gap-1.5">
+<div class="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-surface-container text-on-surface-variant self-start">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B4604A]"></span>
+<span class="font-caption-bold text-[12px] leading-tight">Mejor: Vea</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-caption text-caption">
+<span class="w-2 h-2 rounded-full bg-[#4E6A8C]"></span>
+<span>Faltan 2 en Carrefour</span>
+</div>
+</div>
+</div>
+<!-- Tarjeta 3: Nueva Lista (Dashed) -->
+<button class="min-w-[150px] bg-surface-container-low/60 hover:bg-surface-container-low rounded-2xl border-2 border-dashed border-outline-variant/60 flex flex-col items-center justify-center p-4 gap-2 text-primary-container active:scale-[0.98] transition-all flex-shrink-0" type="button">
+<div class="w-10 h-10 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</div>
+<span class="font-body-md-bold text-body-md-bold text-on-surface text-center">Nueva lista</span>
+</button>
+</div>
+</section>
+<!-- 5. Sección "Categorías" -->
+<section class="flex flex-col gap-3">
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Categorías</h2>
+<p class="font-caption text-caption text-on-surface-variant">Compará precios agrupados por rubro</p>
+</div>
+<!-- Grilla de categorías (2 columnas en móvil) -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- 1. Almacén -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-[#E3F2E9] text-primary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Almacén</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Arroz, fideos, café</span>
+</div>
+</a>
+<!-- 2. Lácteos -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Lácteos</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Leches, yogur</span>
+</div>
+</a>
+<!-- 3. Carnes -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Carnes</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Vacuna, pollo, cerdo</span>
+</div>
+</a>
+<!-- 4. Verdulería -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Verdulería</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Frutas y verduras</span>
+</div>
+</a>
+<!-- 5. Fiambrería -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">lunch_dining</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Fiambrería</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Quesos y fiambres</span>
+</div>
+</a>
+<!-- 6. Panadería -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">bakery_dining</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Panadería</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Panes y galletas</span>
+</div>
+</a>
+<!-- 7. Bebidas -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">local_bar</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Bebidas</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Aguas, gaseosas, vinos</span>
+</div>
+</a>
+<!-- 8. Limpieza -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">clean_hands</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Limpieza</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Hogar y ropa</span>
+</div>
+</a>
+<!-- 9. Perfumería -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">spa</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Perfumería</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Cuidado personal</span>
+</div>
+</a>
+<!-- 10. Bebés y Mascotas -->
+<a class="bg-surface-container-lowest hover:bg-surface-container-low/50 active:bg-surface-container p-3 rounded-2xl border border-outline-variant/30 flex items-center gap-3 shadow-sm transition-colors" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">pets</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-bold text-body-md-bold text-on-surface truncate">Bebés y Mascotas</span>
+<span class="font-caption text-[11px] text-on-surface-variant truncate">Pañales, alimento</span>
+</div>
+</a>
+</div>
+</section>
+<!-- 6. Sección destacada: "Frescos por kilo" -->
+<section class="mt-1">
+<div class="bg-[#E3F2E9] rounded-2xl p-4 border border-primary-container/20 flex items-center justify-between gap-3 shadow-sm">
+<div class="flex flex-col gap-1">
+<span class="inline-flex items-center gap-1 font-caption-bold text-caption-bold text-primary-container">
+<span class="material-symbols-outlined text-[16px]">scale</span>
+              Nueva herramienta
+            </span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-snug">
+              Compará carne, verdura y fiambre al peso
+            </h3>
+<p class="font-caption text-caption text-on-surface-variant">
+              Normalizamos el precio por kilo para que elijas sin engaños.
+            </p>
+<div class="mt-1">
+<a class="inline-flex items-center gap-1 font-body-md-bold text-body-md-bold text-primary-container hover:underline" href="#">
+                Ver frescos
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Pie legal informativo -->
+<footer class="pt-2 pb-6 px-1 flex flex-col items-center text-center">
+<p class="font-caption text-[11px] leading-relaxed text-outline max-w-[340px]">
+          Precios tomados de las webs oficiales y de datos públicos (SEPA) el 29/10/2026. Pueden diferir en el local.
+        </p>
+</footer>
+</main>
+<!-- 8. Barra de navegación inferior fija (Bottom Navigation Bar) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-surface-container-lowest border-t border-outline-variant/30 h-16 px-4 flex items-center justify-around z-50">
+<!-- Inicio (ACTIVA) -->
+<a class="flex flex-col items-center justify-center gap-1 text-primary-container flex-1 h-full py-1" href="#">
+<span class="material-symbols-outlined fill-icon text-[24px]">home</span>
+<span class="font-caption-bold text-caption-bold text-[12px] leading-none">Inicio</span>
+</a>
+<!-- Buscar (INACTIVA) -->
+<a class="flex flex-col items-center justify-center gap-1 text-outline hover:text-on-surface transition-colors flex-1 h-full py-1" href="#">
+<span class="material-symbols-outlined text-[24px]">search</span>
+<span class="font-caption text-caption text-[12px] leading-none">Buscar</span>
+</a>
+<!-- Listas (INACTIVA con badge) -->
+<a class="flex flex-col items-center justify-center gap-1 text-outline hover:text-on-surface transition-colors flex-1 h-full py-1 relative" href="#">
+<div class="relative inline-flex items-center">
+<span class="material-symbols-outlined text-[24px]">format_list_bulleted</span>
+<span class="absolute -top-1 -right-2 bg-primary-container text-white text-[10px] font-caption-bold w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</div>
+<span class="font-caption text-caption text-[12px] leading-none">Listas</span>
+</a>
+<!-- Ajustes (INACTIVA) -->
+<a class="flex flex-col items-center justify-center gap-1 text-outline hover:text-on-surface transition-colors flex-1 h-full py-1" href="#">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="font-caption text-caption text-[12px] leading-none">Ajustes</span>
+</a>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - ¡Listo! Resumen de compra</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#2d312e",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#005323",
+            "surface-bright": "#f7faf5",
+            "secondary-fixed-dim": "#79db8d",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#95f8a7",
+            "surface": "#f7faf5",
+            "on-primary-fixed": "#002110",
+            "on-tertiary-fixed": "#111e19",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#eff2ec",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#82d8a3",
+            "on-primary-fixed-variant": "#00522f",
+            "primary": "#006038",
+            "surface-tint": "#066c41",
+            "surface-container-low": "#f1f4ef",
+            "on-secondary-container": "#007233",
+            "surface-container-high": "#e6e9e4",
+            "surface-container-highest": "#e0e3de",
+            "surface-container": "#ecefe9",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#aeffca",
+            "on-tertiary-container": "#e1f0e7",
+            "secondary": "#006d30",
+            "tertiary-fixed": "#d7e6dd",
+            "tertiary-container": "#606e67",
+            "inverse-primary": "#82d8a3",
+            "on-surface": "#191d19",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#1f7a4d",
+            "tertiary": "#48564f",
+            "outline-variant": "#bec9bf",
+            "background": "#f7faf5",
+            "primary-fixed": "#9ef5be",
+            "on-background": "#191d19",
+            "surface-variant": "#e0e3de",
+            "secondary-container": "#92f5a4",
+            "on-surface-variant": "#3f4941",
+            "outline": "#6f7a71",
+            "on-secondary-fixed": "#00210a",
+            "error-container": "#ffdad6",
+            "surface-dim": "#d8dbd6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "caption-bold": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "caption": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md-bold": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop-in {
+      animation: popIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Mobile Container Shell (Max 480px, base 390px) -->
+<main class="w-full max-w-[480px] bg-background min-h-screen flex flex-col relative pb-8 shadow-sm">
+<!-- Header Navigation (Sub-page linear completion: Back to lists, title, dismiss) -->
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur-md px-margin h-14 flex items-center justify-between">
+<button aria-label="Volver a listas" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Resumen de compra</span>
+<button aria-label="Cerrar resumen" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<div class="px-margin flex flex-col gap-5 pt-2 animate-pop-in">
+<!-- Hero Celebration Section -->
+<section class="flex flex-col items-center text-center pt-2 pb-1">
+<!-- Visual badge / celebration focal anchor -->
+<div class="relative mb-3 flex items-center justify-center">
+<!-- Ambient pulse ring -->
+<div class="absolute w-20 h-20 rounded-full bg-secondary-fixed/50 animate-ping opacity-30"></div>
+<div class="w-20 h-20 rounded-full bg-secondary-container flex items-center justify-center shadow-sm relative">
+<span class="material-symbols-outlined text-primary text-[42px] material-symbols-filled">shopping_cart</span>
+<div class="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center border-2 border-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+</div>
+<!-- Confetti / sparkle decorative icons -->
+<div class="absolute -left-4 top-2 text-primary font-caption-bold text-caption-bold">✨</div>
+<div class="absolute -right-4 -bottom-1 text-primary-container font-caption-bold text-caption-bold">🎉</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary-container tracking-tight">
+          ¡Listo! Changuito completo
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5 max-w-[320px]">
+          Completaste 23 de 23 productos disponibles en <span class="font-body-md-bold text-body-md-bold text-on-surface">ChangoMás (Av. Jujuy)</span>.
+        </p>
+</section>
+<!-- Key Figures Bento Card: Savings & Totals -->
+<section class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/40 shadow-sm flex flex-col gap-4">
+<!-- Total Spent -->
+<div class="flex items-baseline justify-between border-b border-surface-container pb-4">
+<div>
+<span class="font-caption text-caption text-on-surface-variant block">Gastaste aprox.</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant font-medium">$</span>
+<span class="font-display-mobile text-display-mobile text-on-surface tracking-tight">186.430</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-tertiary font-caption-bold text-caption-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">storefront</span>
+            ChangoMás
+          </span>
+</div>
+<!-- High-Impact Savings Callout Box -->
+<div class="bg-secondary-container/30 rounded-lg p-3.5 border border-secondary-container flex flex-col gap-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px] material-symbols-filled">savings</span>
+<span class="font-body-md-bold text-body-md-bold text-primary">Ahorraste fuerte hoy en el chango</span>
+</div>
+<!-- Savings comparison rows -->
+<div class="space-y-1.5 pt-0.5">
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#15803D]"></span>
+<span class="font-caption text-caption text-on-surface">Comparado con <strong class="font-caption-bold">Jumbo</strong></span>
+</div>
+<span class="font-body-md-bold text-body-md-bold text-primary">-$ 27.870</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]"></span>
+<span class="font-caption text-caption text-on-surface">Comparado con <strong class="font-caption-bold">Vea</strong></span>
+</div>
+<span class="font-body-md-bold text-body-md-bold text-primary">-$ 9.770</span>
+</div>
+</div>
+</div>
+<!-- Metric Chips (Pills cluster) -->
+<div class="flex flex-wrap gap-2 pt-1">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface font-caption-bold text-caption-bold">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+            23 productos tildados
+          </div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface font-caption-bold text-caption-bold">
+<span class="material-symbols-outlined text-tertiary text-[16px]">schedule</span>
+            28 min en sucursal
+          </div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-on-surface font-caption-bold text-caption-bold">
+<span class="material-symbols-outlined text-outline text-[16px]">info</span>
+            1 faltante registrado
+          </div>
+</div>
+</section>
+<!-- Missing Items Reminder Card (Soft Warm / Neutral Tone) -->
+<section class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/30 flex flex-col gap-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">assignment_late</span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">1 producto pendiente para otra compra</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-3 border border-outline-variant/20 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">egg_alt</span>
+</div>
+<div>
+<p class="font-body-md-bold text-body-md-bold text-on-surface leading-tight">Queso cremoso Punta del Agua</p>
+<p class="font-caption text-caption text-on-surface-variant">Fraccionado 1 kg</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-caption-bold text-caption-bold text-secondary block">$ 7.890</span>
+<span class="font-caption text-caption text-on-surface-variant">en Vea</span>
+</div>
+</div>
+</section>
+<!-- Feedback / Community Crowdsource Micro-Card -->
+<section class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/40 shadow-sm flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<div>
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface">¿Hubo algún precio distinto en la caja?</h2>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-snug">
+              Ayudá a la comunidad vecinal de Tucumán subiendo una foto rápida del ticket. Es totalmente opcional.
+            </p>
+</div>
+<button class="self-start inline-flex items-center gap-1.5 text-primary font-caption-bold text-caption-bold hover:underline py-1" type="button">
+<span class="material-symbols-outlined text-[17px]">photo_camera</span>
+            Subir foto de ticket
+          </button>
+</div>
+</section>
+<!-- Action Button Stack (Sticky/Flow footer anchor) -->
+<div class="flex flex-col gap-3 pt-2">
+<!-- Primary Action -->
+<button class="w-full h-12 bg-primary-container hover:bg-primary active:scale-[0.99] text-on-primary rounded-xl font-body-md-bold text-body-md-bold flex items-center justify-center gap-2 shadow-sm transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+          Volver a mis listas
+        </button>
+<!-- Secondary Outline Action -->
+<button class="w-full h-12 bg-surface-container-lowest hover:bg-surface-container active:scale-[0.99] text-on-surface border border-outline-variant/50 rounded-xl font-body-md-bold text-body-md-bold flex items-center justify-center gap-2 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[19px] text-on-surface-variant">restart_alt</span>
+          Desmarcar todo para la próxima
+        </button>
+<!-- Viral / Social Utility Link -->
+<div class="flex justify-center pt-1">
+<button class="inline-flex items-center gap-2 text-primary font-caption-bold text-caption-bold py-2 px-3 hover:bg-surface-container rounded-full transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+            Compartir ticket estimado por WhatsApp
+          </button>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Lightweight tactile micro-interactions
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (navigator.vibrate) {
+          navigator.vibrate(20);
+        }
+      });
+    });
+  </script>
+</body></html>

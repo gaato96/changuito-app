@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Cambiar sucursal de Vea</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS Play CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#005323",
+            "on-primary-container": "#aeffca",
+            "secondary-container": "#92f5a4",
+            "outline": "#6f7a71",
+            "on-error-container": "#93000a",
+            "tertiary": "#48564f",
+            "tertiary-container": "#606e67",
+            "inverse-on-surface": "#eff2ec",
+            "on-secondary-fixed": "#00210a",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-container-low": "#f1f4ef",
+            "inverse-surface": "#2d312e",
+            "on-primary-fixed-variant": "#00522f",
+            "surface-container": "#ecefe9",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#d7e6dd",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#d8dbd6",
+            "on-surface": "#191d19",
+            "secondary": "#006d30",
+            "on-secondary-container": "#007233",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#82d8a3",
+            "on-background": "#191d19",
+            "surface-container-highest": "#e0e3de",
+            "on-surface-variant": "#3f4941",
+            "primary": "#006038",
+            "primary-container": "#1f7a4d",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-primary-fixed": "#002110",
+            "tertiary-fixed-dim": "#bbcac1",
+            "surface-bright": "#f7faf5",
+            "primary-fixed-dim": "#82d8a3",
+            "secondary-fixed-dim": "#79db8d",
+            "outline-variant": "#bec9bf",
+            "surface-tint": "#066c41",
+            "on-primary": "#ffffff",
+            "surface": "#f7faf5",
+            "on-tertiary-fixed": "#111e19",
+            "on-tertiary": "#ffffff",
+            "background": "#f7faf5",
+            "error-container": "#ffdad6",
+            "secondary-fixed": "#95f8a7",
+            "surface-container-high": "#e6e9e4",
+            "surface-variant": "#e0e3de",
+            "primary-fixed": "#9ef5be",
+            "vea-dot": "#B4604A",
+            "carrefour-dot": "#4E6A8C",
+            "jumbo-dot": "#E24A32"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-xl": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "price-lg": ["Inter", "sans-serif"],
+            "display-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md-bold": ["Inter", "sans-serif"],
+            "body-lg": ["Inter", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "caption-bold": ["Inter", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "price-md": ["Inter", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+    }
+    
+    /* Touch optimization */
+    .touch-target {
+      min-width: 48px;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex justify-center items-start min-h-screen selection:bg-secondary-container">
+<!-- Mobile Screen Container (390px baseline shell) -->
+<div class="relative w-full max-w-[480px] h-screen overflow-hidden bg-background flex flex-col shadow-2xl">
+<!-- ========================================================
+         BACKGROUND LAYER (Step 3 darkened / blurred content)
+         ======================================================== -->
+<div class="absolute inset-0 flex flex-col overflow-y-auto pointer-events-none select-none filter blur-[1.5px] opacity-60">
+<!-- TopAppBar (From Shared Component JSON Anchor) -->
+<header class="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-space-lg h-14 max-w-[480px] mx-auto right-0 bg-surface dark:bg-inverse-surface border-b border-outline-variant/30 dark:border-outline-variant/10 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-headline-md font-headline-lg font-bold text-primary dark:text-inverse-primary tracking-tight">Changuito</span>
+</div>
+<button class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:bg-surface-container dark:hover:bg-surface-container-high transition-colors duration-150 active:opacity-80 px-2 py-1 rounded" type="button">
+          Saltar
+        </button>
+</header>
+<!-- Step 3 Inactive Canvas Content -->
+<div class="pt-16 px-margin pb-10 flex flex-col gap-5">
+<!-- Progress Indicator -->
+<div class="flex items-center gap-2 mt-2">
+<span class="text-caption font-caption text-primary font-semibold">Paso 3 de 3</span>
+<div class="flex-1 flex gap-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-full bg-primary-container rounded-full"></div>
+</div>
+</div>
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface">Configurá tus sucursales habituales</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Elegí las bocas de expendio más cercanas a tu domicilio en Tucumán para que los precios sean reales.</p>
+</div>
+<!-- Supermarket Setup Cards (Mock Background) -->
+<div class="space-y-3 mt-1">
+<!-- Carrefour Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-carrefour-dot"></span>
+<div>
+<p class="text-body-md-bold font-body-md-bold text-on-surface">Carrefour Hiper</p>
+<p class="text-caption font-caption text-on-surface-variant">Av. Mitre y 24 de Septiembre</p>
+</div>
+</div>
+<span class="text-caption font-caption text-primary font-medium">Cambiar</span>
+</div>
+<!-- Vea Card (The one being edited) -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border-2 border-primary-container flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-vea-dot"></span>
+<div>
+<p class="text-body-md-bold font-body-md-bold text-on-surface">Vea Yerba Buena</p>
+<p class="text-caption font-caption text-on-surface-variant">Av. Aconquija 1500</p>
+</div>
+</div>
+<span class="text-caption font-caption text-primary font-medium">Editar</span>
+</div>
+<!-- Gomez Pardo Card -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+<div>
+<p class="text-body-md-bold font-body-md-bold text-on-surface">Gómez Pardo Diagonal</p>
+<p class="text-caption font-caption text-on-surface-variant">Diagonal Raúl Lechesi km 3</p>
+</div>
+</div>
+<span class="text-caption font-caption text-primary font-medium">Cambiar</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================
+         DIMMED BACKDROP OVERLAY
+         ======================================================== -->
+<div aria-hidden="true" class="absolute inset-0 bg-black/45 z-40 transition-opacity duration-300"></div>
+<!-- ========================================================
+         BOTTOM SHEET MODAL (~75% Height)
+         ======================================================== -->
+<section aria-labelledby="sheet-title" aria-modal="true" class="absolute bottom-0 inset-x-0 z-50 h-[78%] bg-surface-container-lowest rounded-t-3xl border-t border-outline-variant/30 flex flex-col shadow-[0_-4px_24px_rgba(22,26,23,0.14)] overflow-hidden" role="dialog">
+<!-- 1. Drag Grabber Handle -->
+<div class="pt-3 pb-1.5 flex justify-center items-center w-full touch-none cursor-grab">
+<div class="w-9 h-1 rounded-full bg-surface-dim"></div>
+</div>
+<!-- 2. Sheet Header with Title & Dismiss Action -->
+<div class="px-space-lg pt-1 pb-3 flex flex-col gap-1 border-b border-surface-container-high">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- Brand Dot (10x10px solid node per Style Guidance) -->
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-vea-dot flex-shrink-0"></span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight" id="sheet-title">
+              Vea — Elegí tu sucursal
+            </h2>
+</div>
+<!-- Close 'X' Button with 48x48 touch boundary -->
+<button aria-label="Cerrar ventana de selección" class="touch-target -mr-2 text-on-surface-variant hover:text-on-surface rounded-full transition-colors active:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant pr-4 leading-snug">
+          Los precios de Vea varían según la boca de expendio. Elegí la que te quede más cómoda.
+        </p>
+<!-- Search Input inside sheet -->
+<div class="mt-3 relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant text-[20px] pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-12 pl-10 pr-10 bg-surface-container-low border border-outline-variant/50 rounded-xl font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/70 focus:bg-surface-container-lowest focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all" placeholder="Buscá por calle o barrio..." type="text"/>
+<button aria-label="Limpiar búsqueda" class="absolute right-1 touch-target text-outline hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
+</button>
+</div>
+</div>
+<!-- 3. Scrollable Branch List (Gran San Miguel de Tucumán) -->
+<div aria-label="Sucursales disponibles en Tucumán" class="flex-1 overflow-y-auto px-space-lg py-3 space-y-2.5 divide-y-0" role="radiogroup">
+<!-- BRANCH 1 (SELECTED: Vea Yerba Buena) -->
+<label class="group relative flex items-start p-3.5 rounded-xl border-2 border-primary-container bg-surface-container-low/40 shadow-sm cursor-pointer transition-all hover:bg-surface-container-low">
+<!-- Radio Button: Checked state -->
+<div class="pt-0.5 mr-3 flex-shrink-0">
+<input checked="" class="sr-only" name="sucursal-vea" type="radio" value="yerba-buena"/>
+<div class="w-5 h-5 rounded-full border-2 border-primary-container flex items-center justify-center bg-primary-container text-surface-container-lowest">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Content Cluster -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 flex-wrap">
+<span class="font-body-md-bold text-body-md-bold text-on-surface">
+                Vea Yerba Buena
+              </span>
+<!-- Savings / Distance Badge (Ahorro chip style) -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-caption-bold text-[11px] bg-[#DCFCE7] text-[#15803D]">
+                Más cercana • 1,2 km
+              </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-0.5">
+              Av. Aconquija 1500
+            </p>
+<div class="flex items-center gap-1.5 mt-1 text-caption font-caption text-secondary">
+<span class="material-symbols-outlined text-[15px]" data-icon="schedule">schedule</span>
+<span>Abierto hasta 22:00</span>
+</div>
+</div>
+</label>
+<!-- BRANCH 2 (UNSELECTED: Vea Barrio Norte) -->
+<label class="group relative flex items-start p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline-variant hover:bg-surface-container-low/30 cursor-pointer transition-all">
+<!-- Radio Button: Unchecked -->
+<div class="pt-0.5 mr-3 flex-shrink-0">
+<input class="sr-only" name="sucursal-vea" type="radio" value="barrio-norte"/>
+<div class="w-5 h-5 rounded-full border border-outline flex items-center justify-center bg-transparent group-hover:border-primary-container transition-colors"></div>
+</div>
+<!-- Content Cluster -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-md-bold text-body-md-bold text-on-surface">
+                Vea Barrio Norte
+              </span>
+<!-- Neutral Distance Chip -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-caption text-[11px] bg-surface-container text-on-surface-variant">
+                4,5 km
+              </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-0.5">
+              25 de Mayo 780, San Miguel de Tucumán
+            </p>
+</div>
+</label>
+<!-- BRANCH 3 (UNSELECTED: Vea Centro / San Martín) -->
+<label class="group relative flex items-start p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline-variant hover:bg-surface-container-low/30 cursor-pointer transition-all">
+<!-- Radio Button: Unchecked -->
+<div class="pt-0.5 mr-3 flex-shrink-0">
+<input class="sr-only" name="sucursal-vea" type="radio" value="centro"/>
+<div class="w-5 h-5 rounded-full border border-outline flex items-center justify-center bg-transparent group-hover:border-primary-container transition-colors"></div>
+</div>
+<!-- Content Cluster -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-md-bold text-body-md-bold text-on-surface">
+                Vea Centro / San Martín
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-caption text-[11px] bg-surface-container text-on-surface-variant">
+                5,1 km
+              </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-0.5">
+              San Martín 650, San Miguel de Tucumán
+            </p>
+</div>
+</label>
+<!-- BRANCH 4 (UNSELECTED: Vea Concepción / Plazoleta) -->
+<label class="group relative flex items-start p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline-variant hover:bg-surface-container-low/30 cursor-pointer transition-all">
+<!-- Radio Button: Unchecked -->
+<div class="pt-0.5 mr-3 flex-shrink-0">
+<input class="sr-only" name="sucursal-vea" type="radio" value="plazoleta"/>
+<div class="w-5 h-5 rounded-full border border-outline flex items-center justify-center bg-transparent group-hover:border-primary-container transition-colors"></div>
+</div>
+<!-- Content Cluster -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-md-bold text-body-md-bold text-on-surface">
+                Vea Concepción / Plazoleta
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-caption text-[11px] bg-surface-container text-on-surface-variant">
+                6,2 km
+              </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-0.5">
+              Av. Mate de Luna 2820
+            </p>
+</div>
+</label>
+</div>
+<!-- 4. Info Note & Confirmation Action (Sticky at bottom of modal) -->
+<div class="p-space-lg pt-2 pb-5 bg-surface-container-lowest border-t border-surface-container-high flex flex-col gap-3">
+<!-- Civic Transparency Note -->
+<div class="flex items-start gap-2 bg-surface-container-low p-2.5 rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-primary mt-0.5 flex-shrink-0" data-icon="info">info</span>
+<p class="font-caption text-caption text-on-surface-variant leading-snug">
+            Los precios que veas en las comparativas serán exactamente los de esta sucursal.
+          </p>
+</div>
+<!-- Primary Action CTA Button (Design System: 48px height, 12px radius, #1F7A4D) -->
+<button class="w-full h-12 bg-primary-container hover:bg-primary active:bg-on-secondary-fixed-variant text-on-primary font-body-md-bold text-body-md-bold rounded-xl flex items-center justify-center gap-2 shadow-sm transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="store">store</span>
+<span>Confirmar sucursal</span>
+</button>
+</div>
+</section>
+</div>
+</body></html>

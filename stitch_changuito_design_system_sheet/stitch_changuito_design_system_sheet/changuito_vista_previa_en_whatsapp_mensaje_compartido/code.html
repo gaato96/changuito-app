@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Changuito - Compartir por WhatsApp</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#005323",
+            "inverse-on-surface": "#eff2ec",
+            "outline": "#6f7a71",
+            "surface": "#f7faf5",
+            "primary-container": "#1f7a4d",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#111e19",
+            "secondary-fixed-dim": "#79db8d",
+            "secondary-fixed": "#95f8a7",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#e0e3de",
+            "surface-container-low": "#f1f4ef",
+            "primary": "#006038",
+            "outline-variant": "#bec9bf",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#e1f0e7",
+            "tertiary-fixed": "#d7e6dd",
+            "tertiary": "#48564f",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "inverse-surface": "#2d312e",
+            "surface-container": "#ecefe9",
+            "surface-container-high": "#e6e9e4",
+            "on-primary-fixed-variant": "#00522f",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#002110",
+            "on-surface-variant": "#3f4941",
+            "on-background": "#191d19",
+            "tertiary-fixed-dim": "#bbcac1",
+            "inverse-primary": "#82d8a3",
+            "on-primary-container": "#aeffca",
+            "on-error-container": "#93000a",
+            "secondary-container": "#92f5a4",
+            "surface-tint": "#066c41",
+            "on-secondary-fixed": "#00210a",
+            "surface-bright": "#f7faf5",
+            "primary-fixed": "#9ef5be",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#606e67",
+            "background": "#f7faf5",
+            "on-surface": "#191d19",
+            "primary-fixed-dim": "#82d8a3",
+            "surface-dim": "#d8dbd6",
+            "on-secondary-container": "#007233",
+            "surface-variant": "#e0e3de",
+            "secondary": "#006d30"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "price-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "caption-bold": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "caption": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"]
+          },
+          "fontSize": {
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* WhatsApp Chat Subtle Wallpaper Pattern */
+    .wa-chat-bg {
+      background-color: #EFEAE2;
+      background-image: 
+        radial-gradient(#d3cbbe 0.75px, transparent 0.75px),
+        radial-gradient(#d3cbbe 0.75px, #EFEAE2 0.75px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    /* Outgoing bubble tail */
+    .bubble-outgoing-tail {
+      position: relative;
+    }
+    .bubble-outgoing-tail::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -8px;
+      width: 0;
+      height: 0;
+      border-top: 0px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 10px solid #DCF8C6;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex justify-center items-center p-0 sm:py-6 selection:bg-primary selection:text-on-primary">
+<!-- Mobile Frame Container (Simulated Phone 390px baseline) -->
+<div class="w-full max-w-[390px] h-[884px] sm:h-[844px] bg-surface flex flex-col overflow-hidden sm:rounded-[40px] shadow-2xl relative border-0 sm:border sm:border-outline-variant/30">
+<!-- Phone Status Bar Simulation -->
+<header class="bg-[#005E54] text-white px-5 pt-3 pb-1 flex justify-between items-center text-xs tracking-tight shrink-0 select-none z-30">
+<span class="font-semibold tracking-normal">11:42</span>
+<div class="flex items-center space-x-1.5 opacity-90">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- WhatsApp Simulated Top App Bar -->
+<nav class="bg-[#075E54] text-white px-2 py-2 flex items-center justify-between shrink-0 shadow-sm z-30">
+<div class="flex items-center space-x-1 min-w-0">
+<button class="p-1 rounded-full hover:bg-white/10 active:opacity-80 transition-colors flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Contact Avatar -->
+<div class="relative shrink-0 ml-0.5">
+<div class="w-9 h-9 rounded-full bg-[#128C7E] flex items-center justify-center text-white font-headline-sm text-sm font-semibold border border-white/20">
+            JP
+          </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[#25D366] border-2 border-[#075E54] rounded-full"></span>
+</div>
+<!-- Contact Name & Status -->
+<div class="ml-2 flex flex-col justify-center min-w-0">
+<h1 class="font-headline-sm text-body-md-bold leading-tight truncate text-white">Juan Pérez</h1>
+<p class="font-caption text-caption text-white/80 leading-none truncate">en línea</p>
+</div>
+</div>
+<!-- Action Icons -->
+<div class="flex items-center space-x-1 shrink-0 text-white/95">
+<button aria-label="Videollamada" class="p-2 rounded-full hover:bg-white/10 active:opacity-80" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="videocam">videocam</span>
+</button>
+<button aria-label="Llamada de voz" class="p-2 rounded-full hover:bg-white/10 active:opacity-80" type="button">
+<span class="material-symbols-outlined text-[19px]" data-icon="call">call</span>
+</button>
+<button aria-label="Más opciones" class="p-1.5 rounded-full hover:bg-white/10 active:opacity-80" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</nav>
+<!-- WhatsApp Chat Canvas Area -->
+<main class="flex-1 wa-chat-bg overflow-y-auto px-space-md py-space-md flex flex-col space-y-3 relative">
+<!-- Date Pill -->
+<div class="flex justify-center my-1">
+<span class="bg-white/90 text-on-surface-variant font-caption text-[11px] font-semibold px-2.5 py-0.5 rounded-md shadow-sm border border-outline-variant/20 tracking-wide uppercase">
+          Hoy
+        </span>
+</div>
+<!-- Outgoing WhatsApp Chat Bubble with Rich Link Preview -->
+<div class="flex justify-end pl-6">
+<div class="bg-[#DCF8C6] text-[#111B21] rounded-2xl rounded-tr-none p-1.5 max-w-full shadow-sm bubble-outgoing-tail border border-[#d2edbc]">
+<!-- Rich Link Preview Card (Changuito Open Graph Preview) -->
+<article class="bg-[#F0F7EE] rounded-xl overflow-hidden border border-[#CDE5C8] shadow-xs mb-1.5">
+<!-- Header Banner / Image of the shared list -->
+<div class="relative bg-surface-container-lowest p-3 border-b border-[#CDE5C8]">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary shadow-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div>
+<span class="font-headline-sm text-caption-bold text-primary block leading-tight">Changuito Tucumán</span>
+<span class="font-caption text-[11px] text-outline block leading-tight">changuito-tuc.vercel.app</span>
+</div>
+</div>
+<span class="bg-[#DCFCE7] text-[#15803D] font-caption-bold text-[11px] px-2 py-0.5 rounded-full flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#15803D]"></span>
+<span>Ahorrás $ 7.350</span>
+</span>
+</div>
+<!-- Product List Snippet Preview -->
+<div class="mt-2.5">
+<h2 class="font-headline-md text-headline-sm text-on-background leading-snug">
+                  Asado del domingo · 9 productos
+                </h2>
+<p class="font-body-md text-caption text-on-surface-variant mt-0.5">
+                  Comparador vecinal en tiempo real para Gran Tucumán.
+                </p>
+</div>
+<!-- Compact Price Comparison Grid in Link Preview -->
+<div class="mt-2.5 grid grid-cols-2 gap-1.5 bg-surface-container-low p-2 rounded-lg border border-outline-variant/30 text-xs">
+<div>
+<div class="flex items-center space-x-1">
+<span class="w-2 h-2 rounded-full bg-[#B4604A]"></span>
+<span class="font-caption-bold text-caption text-on-surface">Vea (El Bajo)</span>
+</div>
+<div class="font-price-md text-body-md-bold text-primary mt-0.5">$ 98.450</div>
+<span class="font-caption text-[10px] text-[#15803D] font-semibold">Mejor precio hoy</span>
+</div>
+<div class="border-l border-outline-variant/30 pl-2">
+<div class="flex items-center space-x-1">
+<span class="w-2 h-2 rounded-full bg-[#4E6A8C]"></span>
+<span class="font-caption text-caption text-on-surface-variant">Carrefour (24 de Sept.)</span>
+</div>
+<div class="font-price-md text-body-md text-on-surface-variant mt-0.5 line-through opacity-80">$ 105.800</div>
+<span class="font-caption text-[10px] text-error font-medium">+$ 7.350 más caro</span>
+</div>
+</div>
+</div>
+<!-- Footer summary text in OG preview -->
+<div class="px-2.5 py-1.5 bg-[#E7F3E5] flex items-center justify-between text-[11px] text-on-surface-variant">
+<span class="flex items-center space-x-1 font-body-md truncate">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="check_circle">check_circle</span>
+<span>Precios actualizados hoy a las 09:30</span>
+</span>
+<span class="font-body-md-bold text-primary shrink-0 ml-1">Ver lista</span>
+</div>
+</article>
+<!-- WhatsApp Text Message Body -->
+<div class="px-1 text-[#111B21] text-[13.5px] leading-relaxed">
+<p>Te paso mi lista <span class="font-semibold">'Asado del domingo'</span> en Changuito 🛒</p>
+<p class="mt-0.5">Son 9 productos. En Vea sale <span class="font-semibold text-primary">$ 98.450</span> hoy en Tucumán.</p>
+<p class="mt-1">
+<a class="text-[#027EB5] hover:underline break-all font-body-md" href="#">
+                https://changuito-tuc.vercel.app/l#asado-domingo-9p
+              </a>
+</p>
+</div>
+<!-- Timestamp and Double Blue Check -->
+<div class="flex items-center justify-end space-x-1 mt-1 px-1">
+<span class="text-[11px] text-[#667781] font-caption leading-none">11:42</span>
+<span class="material-symbols-outlined text-[16px] text-[#53bdeb] leading-none" data-icon="done_all" data-weight="fill" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+</div>
+<!-- Neighborly Context Card (Explanatory Callout) -->
+<section class="mt-2 bg-surface-container-lowest rounded-2xl p-3.5 border border-outline-variant/40 shadow-sm mx-1">
+<div class="flex items-start space-x-3">
+<div class="w-8 h-8 rounded-full bg-[#E3F2E9] text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock_open">lock_open</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-caption-bold text-on-surface">
+              Enlace directo sin servidor ni registros
+            </h3>
+<p class="font-body-md text-caption text-on-surface-variant mt-1 leading-relaxed">
+              El link guarda la lista comprimida en la URL (hash <code class="bg-surface-container px-1 py-0.5 rounded text-[11px] font-mono">#</code>), por lo que nadie necesita crear cuenta ni iniciar sesión para verla o editarla.
+            </p>
+</div>
+</div>
+<!-- Simulated Transition Button -->
+<div class="mt-3 pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1.5 text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="cloud_off">cloud_off</span>
+<span>Funciona offline en Tucumán</span>
+</div>
+<a class="inline-flex items-center space-x-1 bg-primary text-on-primary font-body-md-bold text-caption px-3 py-2 rounded-xl hover:bg-primary-container active:scale-95 transition shadow-xs" href="#">
+<span>Abrir en navegador</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</section>
+<!-- Mini Received Reaction Simulation -->
+<div class="flex justify-start pr-12 mt-1">
+<div class="bg-white text-[#111B21] rounded-2xl rounded-tl-none px-3 py-2 max-w-full shadow-xs border border-outline-variant/20 relative">
+<p class="text-[13.5px] leading-snug font-body-md">
+            ¡Uf qué golazo de ahorro! Lo abro ya para ver si compramos la carne ahí 👏🥩
+          </p>
+<div class="flex items-center justify-end mt-0.5 text-right">
+<span class="text-[10px] text-[#667781] font-caption">11:43</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Simulated WhatsApp Bottom Composer Bar -->
+<footer class="bg-[#F0F2F5] px-2 py-2 flex items-center space-x-1.5 shrink-0 z-30 border-t border-outline-variant/20">
+<!-- Text Input Pill -->
+<div class="flex-1 bg-white rounded-full flex items-center px-3 py-1.5 shadow-xs border border-outline-variant/20 min-h-[44px]">
+<button aria-label="Emojis" class="text-[#8696A0] hover:text-[#54656F] p-0.5" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+</button>
+<input class="flex-1 bg-transparent border-none text-[14px] text-on-surface placeholder-[#8696A0] focus:ring-0 px-2 py-0 truncate" placeholder="Escribe un mensaje" readonly="" type="text"/>
+<button aria-label="Adjuntar archivo" class="text-[#8696A0] hover:text-[#54656F] p-0.5 ml-1" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="attach_file">attach_file</span>
+</button>
+<button aria-label="Cámara" class="text-[#8696A0] hover:text-[#54656F] p-0.5 ml-1" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<!-- WhatsApp Audio / Send Button -->
+<button aria-label="Grabar mensaje de voz" class="w-11 h-11 rounded-full bg-[#00A884] text-white flex items-center justify-center shadow-md active:scale-95 transition-transform shrink-0" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</footer>
+<!-- Safe area gesture bar indicator (iOS home indicator) -->
+<div class="h-1.5 bg-[#F0F2F5] flex justify-center items-center pb-2 shrink-0">
+<div class="w-32 h-1 bg-on-surface/20 rounded-full"></div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lácteos - Changuito Tucumán</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00522f",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#007233",
+            "on-error": "#ffffff",
+            "surface-dim": "#d8dbd6",
+            "inverse-primary": "#82d8a3",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-tint": "#066c41",
+            "on-secondary": "#ffffff",
+            "tertiary": "#48564f",
+            "on-primary-container": "#aeffca",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "inverse-surface": "#2d312e",
+            "primary": "#006038",
+            "outline": "#6f7a71",
+            "surface": "#f7faf5",
+            "surface-variant": "#e0e3de",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e0e3de",
+            "surface-container-high": "#e6e9e4",
+            "on-surface": "#191d19",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-secondary-fixed": "#00210a",
+            "primary-fixed": "#9ef5be",
+            "on-surface-variant": "#3f4941",
+            "surface-bright": "#f7faf5",
+            "on-secondary-fixed-variant": "#005323",
+            "on-primary": "#ffffff",
+            "outline-variant": "#bec9bf",
+            "primary-fixed-dim": "#82d8a3",
+            "secondary-container": "#92f5a4",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#79db8d",
+            "tertiary-container": "#606e67",
+            "tertiary-fixed": "#d7e6dd",
+            "background": "#f7faf5",
+            "surface-container-low": "#f1f4ef",
+            "primary-container": "#1f7a4d",
+            "secondary": "#006d30",
+            "on-tertiary-fixed": "#111e19",
+            "secondary-fixed": "#95f8a7",
+            "surface-container": "#ecefe9",
+            "inverse-on-surface": "#eff2ec",
+            "on-primary-fixed": "#002110",
+            "on-background": "#191d19"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-tablet": "1.5rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem",
+            "space-lg": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md-bold": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "caption": ["Inter"],
+            "price-md": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "caption-bold": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbars for clean chip scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-full bg-surface text-on-surface antialiased flex justify-center selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- Mobile Screen Container (Centered Shell for Desktop preview, 480px max) -->
+<div class="w-full max-w-[480px] min-h-screen bg-surface flex flex-col relative pb-28 shadow-sm">
+<!-- Top Status Bar (Mobile Native Simulation) -->
+<header class="w-full pt-3 px-5 pb-2 flex items-center justify-between text-on-surface select-none z-30">
+<span class="font-body-md-bold text-caption-bold text-on-surface tracking-tight">09:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[17px]" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- App Bar -->
+<div class="sticky top-0 bg-surface/95 backdrop-blur-md z-30 px-margin py-space-sm flex items-center justify-between border-b border-outline-variant/30">
+<div class="flex items-center space-x-space-sm">
+<button aria-label="Volver" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-on-surface" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-lg text-headline-md font-bold text-on-surface tracking-tight">Lácteos</h1>
+<p class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container inline-block"></span> Gran San Miguel de Tucumán
+          </p>
+</div>
+</div>
+<div class="flex items-center space-x-1">
+<button aria-label="Buscar en lácteos" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container active:scale-95 transition-all text-on-surface" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="search">search</span>
+</button>
+</div>
+</div>
+<!-- Subcategories Horizontal Scroll -->
+<nav class="py-space-sm px-margin overflow-x-auto no-scrollbar flex items-center space-x-space-sm z-20">
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-body-md-bold text-caption-bold shadow-sm transition-transform active:scale-95" type="button">
+        Todos
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant/60 font-body-md text-caption hover:bg-surface-container transition-colors" type="button">
+        Leches
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant/60 font-body-md text-caption hover:bg-surface-container transition-colors" type="button">
+        Yogures
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant/60 font-body-md text-caption hover:bg-surface-container transition-colors" type="button">
+        Quesos
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant/60 font-body-md text-caption hover:bg-surface-container transition-colors" type="button">
+        Manteca y crema
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant/60 font-body-md text-caption hover:bg-surface-container transition-colors" type="button">
+        Postres
+      </button>
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant border border-outline-variant/60 font-body-md text-caption hover:bg-surface-container transition-colors" type="button">
+        Dulce de leche
+      </button>
+</nav>
+<!-- Toolbar: Results Counter + Filters -->
+<div class="px-margin pt-1 pb-space-sm flex items-center justify-between">
+<span class="font-body-md text-caption text-on-surface-variant">
+<strong class="font-body-md-bold text-on-surface">342</strong> productos en Gran Tucumán
+      </span>
+<div class="flex items-center space-x-2">
+<button class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 text-on-surface font-body-md-bold text-caption active:bg-surface-container transition-colors" type="button">
+<span>Ordenar</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-surface-container-lowest border border-outline-variant/50 text-on-surface font-body-md-bold text-caption active:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface" data-icon="tune">tune</span>
+<span>Filtrar</span>
+<span class="w-4 h-4 rounded-full bg-primary-container text-on-primary font-caption-bold text-[10px] flex items-center justify-center">2</span>
+</button>
+</div>
+</div>
+<!-- Main Product Grid (2 Columns Bento-inspired Mobile Grid) -->
+<main class="px-margin grid grid-cols-2 gap-3 pt-1">
+<!-- Card 1: Leche La Serenísima -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-2.5 flex flex-col justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] relative group hover:border-outline-variant transition-all">
+<div>
+<!-- Thumbnail Container -->
+<div class="w-full aspect-square bg-surface-container-low rounded-lg mb-2 relative overflow-hidden flex items-center justify-center p-2 border border-outline-variant/20">
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-secondary-container/90 text-on-secondary-container font-caption-bold text-[10px] tracking-tight">
+              Ahorro
+            </span>
+<img class="w-full h-full object-contain mix-blend-multiply" data-alt="A clean studio product shot of an Argentine fresh whole milk carton packaged in an iconic red sachet, set against a pristine, soft neutral backdrop. Natural morning daylight creates gentle highlights and subtle soft shadows, emphasizing the chilled freshness of the dairy product. The colors are crisp whites, vivid brand red, and quiet neutral accents, perfectly suited for an everyday grocery comparison app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCLbBgSLLGvSbKR4D0qKBPm2ZCbrITBObawlqVIaifSwk5ckU5XXKgNe-US5nSpQptu-zW8fSTaDawjCkkAjrzZm2WIyFZ5u1EGbTgNRSFvp2HC6M54_buELrahXHJxuYD2kGLwLu6b2DdTnL-D9PGDJqSP1OKzyEhIUkfwXcBN_nqtDrncjgnvJbxdPNu8iOTBGsnS2l5hs_2l-ek3bXLmPiiEVYV6UMRlZnvJPA"/>
+</div>
+<h2 class="font-body-md-bold text-caption-bold text-on-surface line-clamp-2 h-9 mb-1" title="Leche entera La Serenísima 1 L">
+            Leche entera La Serenísima 1 L
+          </h2>
+<div class="mt-0.5">
+<p class="font-headline-sm text-price-md font-bold text-on-surface tracking-tight">
+              desde $ 1.150
+            </p>
+<p class="font-caption text-[11px] text-on-surface-variant">
+              $ 1.150 / L
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate pr-1">
+<span class="w-2 h-2 rounded-full bg-[#E05206] shrink-0" title="ChangoMás"></span>
+<span class="font-caption-bold text-[11px] text-on-surface truncate">ChangoMás</span>
+</div>
+<button aria-label="Agregar a la lista" class="w-8 h-8 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary text-on-surface flex items-center justify-center shrink-0 active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Yogur Ilolay -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-2.5 flex flex-col justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] relative group hover:border-outline-variant transition-all">
+<div>
+<div class="w-full aspect-square bg-surface-container-low rounded-lg mb-2 relative overflow-hidden flex items-center justify-center p-2 border border-outline-variant/20">
+<!-- Promo Chip -->
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded-full bg-[#FFF3DC] text-[#9A5B00] border border-[#F5D899] font-caption-bold text-[10px]">
+              3x2
+            </span>
+<img class="w-full h-full object-contain mix-blend-multiply" data-alt="Commercial studio still of a 1 kilogram bottle of strawberry drinking yogurt Ilolay, with fresh pink branding and condensation droplets, on a bright clean off-white platform. Soft directional daylight illuminates the glossy plastic label and rich fruit tones. The composition is minimal, balanced, and modern with warm creamy highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD107dMOW_9HX-XmJ0SXCle5wNduWwNkfpEQyEpJWNgkLybpXbo00S3aXM2V3n34Kwg2EfV1Z1XVF-bU6l6XSviBBp2m-At7N_NfpfYV870WiQrN9t_c8Nin0sBt8S0W9GxZDYEb6_fwGKPRz5fLOZ0AdmYTNma6uPSs6_oiYdYuPTBqssNLpyPeWs4qMaCefSK9PPwqhA_OO7WL87bzKUwGtkwEXmbxQtDF02S5A"/>
+</div>
+<h2 class="font-body-md-bold text-caption-bold text-on-surface line-clamp-2 h-9 mb-1" title="Yogur bebible Ilolay Frutilla 1 kg">
+            Yogur bebible Ilolay Frutilla 1 kg
+          </h2>
+<div class="mt-0.5">
+<p class="font-headline-sm text-price-md font-bold text-on-surface tracking-tight">
+              desde $ 1.890
+            </p>
+<p class="font-caption text-[11px] text-on-surface-variant">
+              $ 1.890 / kg
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate pr-1">
+<span class="w-2 h-2 rounded-full bg-[#B4604A] shrink-0" title="Vea"></span>
+<span class="font-caption-bold text-[11px] text-on-surface truncate">Vea</span>
+</div>
+<button aria-label="Agregar a la lista" class="w-8 h-8 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary text-on-surface flex items-center justify-center shrink-0 active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Queso Cremoso La Paulina -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-2.5 flex flex-col justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] relative group hover:border-outline-variant transition-all">
+<div>
+<div class="w-full aspect-square bg-surface-container-low rounded-lg mb-2 relative overflow-hidden flex items-center justify-center p-2 border border-outline-variant/20">
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-caption-bold text-[10px]">
+              Precio x Kg
+            </span>
+<img class="w-full h-full object-contain mix-blend-multiply" data-alt="Packaged artisan cut of classic Argentine soft Cremoso cheese with subtle moisture and vacuum seal wrapping placed against an organic warm linen surface. Minimal studio lighting creates realistic reflections along the cheese rind. The visual tone is warm, culinary, and grounded in authentic everyday family pantry essentials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpWgwvvCS237RC3lRP4fUB8KI-FUumFlGn_97gk46J9lFUn07UyE5mWnFFUIs3thM2ZHanydjpMXzKx_oqEM4RAJB3g3GRTohfVw3DaV69uVPSgSeaLWkzN6xuYwBUoIyx7wJ_DIV38QWDmWwqs7wke_oFhfJLTFrfdmpRkSaiD6IMmLh5ZKYBRTdw_0hq8yd9ETeJRiGJksght1FQ2l6KvPkHhkhHjGNLdp_aKCo"/>
+</div>
+<h2 class="font-body-md-bold text-caption-bold text-on-surface line-clamp-2 h-9 mb-1" title="Queso Cremoso La Paulina por trozo">
+            Queso Cremoso La Paulina por trozo
+          </h2>
+<div class="mt-0.5">
+<p class="font-headline-sm text-price-md font-bold text-on-surface tracking-tight">
+              desde $ 3.245
+            </p>
+<p class="font-caption text-[11px] text-primary font-semibold">
+              $ 6.490 / kg <span class="font-normal text-on-surface-variant font-caption">(500g aprox)</span>
+</p>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate pr-1">
+<span class="w-2 h-2 rounded-full bg-[#185A9D] shrink-0" title="Comodín"></span>
+<span class="font-caption-bold text-[11px] text-on-surface truncate">Comodín</span>
+</div>
+<button aria-label="Agregar a la lista" class="w-8 h-8 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary text-on-surface flex items-center justify-center shrink-0 active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Manteca La Serenísima -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-2.5 flex flex-col justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] relative group hover:border-outline-variant transition-all">
+<div>
+<div class="w-full aspect-square bg-surface-container-low rounded-lg mb-2 relative overflow-hidden flex items-center justify-center p-2 border border-outline-variant/20">
+<img class="w-full h-full object-contain mix-blend-multiply" data-alt="High quality studio photography of wrapped block of 200g butter in classic golden aluminum foil wrapping resting on a crisp white ceramic platter. High-key soft ambient light illuminates the edges and creases of the butter packet. Clean, modern, editorial food packaging aesthetic with bright natural reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGJPlQuGtR-KlIT_gnkz0MVIYUe-mYp6N-YQ0fCvdsQiavxoefS-5MtqEQefGNdiiEZurZiZJZ5Ddy_NEZ4B9pImfKKnJyXUdr6qA5lwdsofi5ZJwfQtl2SORMcdA_stWGUU4_mitopYR6uE_eBqKznk_ViYKDcCqgvtoqyQYd7IOX3-2LOqrnfBoycUGHQLyr_JkX_m5lOGPXRFYcrgiIJ7bvgT1PgZP85w35U9s"/>
+</div>
+<h2 class="font-body-md-bold text-caption-bold text-on-surface line-clamp-2 h-9 mb-1" title="Manteca La Serenísima extra 200 g">
+            Manteca La Serenísima extra 200 g
+          </h2>
+<div class="mt-0.5">
+<p class="font-headline-sm text-price-md font-bold text-on-surface tracking-tight">
+              desde $ 2.190
+            </p>
+<p class="font-caption text-[11px] text-on-surface-variant">
+              $ 10.950 / kg
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate pr-1">
+<span class="w-2 h-2 rounded-full bg-[#4E6A8C] shrink-0" title="Carrefour"></span>
+<span class="font-caption-bold text-[11px] text-on-surface truncate">Carrefour</span>
+</div>
+<button aria-label="Agregar a la lista" class="w-8 h-8 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary text-on-surface flex items-center justify-center shrink-0 active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Card 5: Leche descremada Sancor Tetra -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-2.5 flex flex-col justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] relative group hover:border-outline-variant transition-all">
+<div>
+<div class="w-full aspect-square bg-surface-container-low rounded-lg mb-2 relative overflow-hidden flex items-center justify-center p-2 border border-outline-variant/20">
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-secondary-container/90 text-on-secondary-container font-caption-bold text-[10px]">
+              El más barato
+            </span>
+<img class="w-full h-full object-contain mix-blend-multiply" data-alt="Realistic product image of a one liter Tetra Brik aseptic carton of skimmed blue milk Sancor standing upright in clean studio illumination. Pristine light gray surface, sharp edges, readable typography on carton, professional grocery catalog presentation with natural shadow base." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhkbCaVpuSKThqidWAQSALY7CFJi6UGmVG6z4Tyx-i8W_KDA-tLT-fnx-nqc1d6Cyqu48M4DtlSg0IIID6JfoTJSso8xnaioSjKXO4eXE3QDuyTFaR63xtAgNutW8-3-kJ0H3jYmIk-shmP4dNT66Nq2UrAQfpzUo_K8-eiooaV6Av2KhcISTEq2UUfWZR-Gn4AJOKO6jlXzCz2LavB2IviLx2XHmOdYxgtJ0G_hs"/>
+</div>
+<h2 class="font-body-md-bold text-caption-bold text-on-surface line-clamp-2 h-9 mb-1" title="Leche descremada Sancor 1 L Tetra">
+            Leche descremada Sancor 1 L Tetra
+          </h2>
+<div class="mt-0.5">
+<p class="font-headline-sm text-price-md font-bold text-on-surface tracking-tight">
+              desde $ 1.090
+            </p>
+<p class="font-caption text-[11px] text-on-surface-variant">
+              $ 1.090 / L
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate pr-1">
+<span class="w-2 h-2 rounded-full bg-[#E05206] shrink-0" title="ChangoMás"></span>
+<span class="font-caption-bold text-[11px] text-on-surface truncate">ChangoMás</span>
+</div>
+<button aria-label="Agregar a la lista" class="w-8 h-8 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary text-on-surface flex items-center justify-center shrink-0 active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Card 6: Dulce de Leche Colonial -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 p-2.5 flex flex-col justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] relative group hover:border-outline-variant transition-all">
+<div>
+<div class="w-full aspect-square bg-surface-container-low rounded-lg mb-2 relative overflow-hidden flex items-center justify-center p-2 border border-outline-variant/20">
+<!-- Promo Chip -->
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded-full bg-[#FCECE3] text-[#A63C1E] border border-[#F3C4B3] font-caption-bold text-[10px]">
+              2da al 70%
+            </span>
+<img class="w-full h-full object-contain mix-blend-multiply" data-alt="Packaged traditional Argentine dulce de leche tub with vintage colonial label, resting on an immaculate warm off-white surface under soft studio lighting. Rich caramel tones and authentic packaging details convey quality and local Argentine pantry tradition, framed in a clean commercial layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPOyL0mFo4H21BnMRxOl9MSK0EyJfQSTPvTUzUAXnsO-hD4iK4wJqPM18itvugMuN0sXhnzzY1kfLdHtd0oK6DECuYXzJw5TfRRsI-lc9RdL2fE_6gN-uxLz3CjMHl-SkO_RDSxts_lyRm0sjZ42UJTgNb_Rtj_bYLUcKhgQ2Pw-zOV3NKpV871vRhL_z4r4-3gLDgVQr3pkga3EdcQSDnMWhtHoV1J6OMi0aDvN0"/>
+</div>
+<h2 class="font-body-md-bold text-caption-bold text-on-surface line-clamp-2 h-9 mb-1" title="Dulce de Leche Colonial La Serenísima 400 g">
+            Dulce de Leche Colonial La Serenísima 400 g
+          </h2>
+<div class="mt-0.5">
+<p class="font-headline-sm text-price-md font-bold text-on-surface tracking-tight">
+              desde $ 2.450
+            </p>
+<p class="font-caption text-[11px] text-on-surface-variant">
+              $ 6.125 / kg
+            </p>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate pr-1">
+<span class="w-2 h-2 rounded-full bg-[#1F7A4D] shrink-0" title="Jumbo"></span>
+<span class="font-caption-bold text-[11px] text-on-surface truncate">Jumbo</span>
+</div>
+<button aria-label="Agregar a la lista" class="w-8 h-8 rounded-full bg-surface-container hover:bg-primary-container hover:text-on-primary text-on-surface flex items-center justify-center shrink-0 active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</article>
+</main>
+<!-- Neighborhood Savings Tip Banner -->
+<aside class="px-margin mt-4 mb-2">
+<div class="bg-surface-container-low border border-outline-variant/40 rounded-xl p-3 flex items-start space-x-2.5">
+<span class="text-base select-none mt-0.5">💡</span>
+<p class="font-caption text-caption text-on-surface-variant leading-snug">
+<strong class="font-caption-bold text-on-surface">Consejo de chango:</strong> Compará siempre el precio por litro o kilo para ahorrar de verdad en lácteos.
+        </p>
+</div>
+</aside>
+<!-- Bottom Navigation Bar (Persistent 64px, Active: Inicio) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-surface-container-lowest border-t border-outline-variant/30 px-4 h-16 flex items-center justify-around z-50 shadow-[0_-4px_16px_rgba(22,26,23,0.06)]">
+<!-- Tab 1: Inicio (ACTIVE) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-primary-container group active:scale-95 transition-transform" href="#">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<span class="font-caption-bold text-[11px] mt-0.5 tracking-tight">Inicio</span>
+</a>
+<!-- Tab 2: Buscar -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface group active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="search">search</span>
+<span class="font-caption text-[11px] mt-0.5 tracking-tight">Buscar</span>
+</a>
+<!-- Tab 3: Listas (2) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface group active:scale-95 transition-transform" href="#">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]" data-icon="shopping_basket">shopping_basket</span>
+<span class="absolute -top-1 -right-1.5 w-4 h-4 rounded-full bg-primary-container text-on-primary font-caption-bold text-[10px] flex items-center justify-center">2</span>
+</div>
+<span class="font-caption text-[11px] mt-0.5 tracking-tight">Listas</span>
+</a>
+<!-- Tab 4: Ajustes -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-on-surface-variant hover:text-on-surface group active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[24px]" data-icon="settings">settings</span>
+<span class="font-caption text-[11px] mt-0.5 tracking-tight">Ajustes</span>
+</a>
+</nav>
+</div>
+</body></html>

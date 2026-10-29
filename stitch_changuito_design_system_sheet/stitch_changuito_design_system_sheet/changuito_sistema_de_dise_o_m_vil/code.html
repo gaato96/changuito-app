@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Changuito — Sistema de Diseño Móvil</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            bgWarm: '#FAFAF7',
+            surface: '#FFFFFF',
+            surfaceSubtle: '#F1F2EE',
+            borderWarm: '#E3E5DF',
+            textPrimary: '#161A17',
+            textSecondary: '#5B625D',
+            textMuted: '#8A918C',
+            changuito: {
+              DEFAULT: '#1F7A4D',
+              pressed: '#17603C',
+              tint: '#E3F2E9',
+            },
+            savings: {
+              text: '#15803D',
+              bg: '#DCFCE7',
+            },
+            promo: {
+              text: '#B45309',
+              bg: '#FEF3C7',
+            },
+            stale: {
+              text: '#C2410C',
+              bg: '#FFEDD5',
+            },
+            err: {
+              text: '#B91C1C',
+              bg: '#FEE2E2',
+            },
+            super: {
+              carrefour: '#4E6A8C',
+              changomas: '#B07D2B',
+              comodin: '#85587F',
+              vea: '#B4604A',
+              jumbo: '#5A5E9A',
+              anonima: '#7D6B5A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Tabular numerals for Argentine price stability */
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+    body {
+      background-color: #ECEEE9;
+      color: #161A17;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 24px 0;
+      display: flex;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mobile-frame {
+      width: 390px;
+      background: #FAFAF7;
+      min-height: 100vh;
+      border: 1px solid #D8DBD4;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .section-divider {
+      border-top: 1px dashed #D8DBD4;
+      margin: 28px 0;
+      position: relative;
+    }
+    .section-badge {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #1F7A4D;
+      background: #E3F2E9;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MOBILE CANVAS 390px -->
+  <main class="mobile-frame pb-28">
+
+    <!-- HEADER / BRAND IDENTIFIER -->
+    <header class="p-4 bg-white border-b border-[#E3E5DF]">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <!-- Logo Changuito -->
+          <div class="flex items-center gap-1.5 text-changuito font-display font-extrabold text-2xl tracking-tight">
+            <svg class="w-6 h-6 stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="20" r="1.5"></circle>
+              <circle cx="18" cy="20" r="1.5"></circle>
+              <path d="M2.5 3h3l2.6 11.5a1.5 1.5 0 0 0 1.5 1.2h9.8a1.5 1.5 0 0 0 1.5-1.1L22.5 7H6"></path>
+            </svg>
+            <span>changuito</span>
+          </div>
+        </div>
+        <span class="text-[11px] font-semibold tracking-wide uppercase px-2 py-1 rounded bg-[#F1F2EE] text-textSecondary">
+          Design System v1.0
+        </span>
+      </div>
+      <p class="text-[13px] text-textSecondary mt-2 leading-relaxed">
+        PWA móvil comunitaria para comparar precios de supermercados en Gran San Miguel de Tucumán. Foco en legibilidad rápida en pasillos y máximo ahorro en pesos.
+      </p>
+    </header>
+
+    <div class="px-4 pt-4">
+
+      <!-- SECTION: PERSONALITY & PRINCIPLES -->
+      <section>
+        <span class="section-badge">00. Principios Visuales</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary">Cálido, Claro y Confiable</h2>
+        <div class="mt-2.5 p-3 rounded-2xl bg-white border border-borderWarm space-y-2 text-[14px] text-textSecondary">
+          <div class="flex items-start gap-2">
+            <span class="text-changuito font-bold text-base leading-none">✓</span>
+            <span><strong>Voz vecina y de acá:</strong> Copete siempre en tuteo argentino («vos»), directo y transparente.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-changuito font-bold text-base leading-none">✓</span>
+            <span><strong>Sin logos comerciales:</strong> Identidad neutral con punto de color (10px) y nombre en texto.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-changuito font-bold text-base leading-none">✓</span>
+            <span><strong>El ahorro manda:</strong> Cifras grandes con números tabulares para no saltar entre góndolas.</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- SECTION: COLOR TOKENS -->
+      <section>
+        <span class="section-badge">01. Paleta de Color (Tokens)</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Color Primario & Semántica</h2>
+        
+        <!-- Brand & Neutral Swatches -->
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="p-2.5 rounded-xl bg-[#1F7A4D] text-white">
+            <p class="font-bold text-[13px]">Verde Changuito</p>
+            <p class="opacity-90 font-mono text-[11px]">#1F7A4D (Primary)</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-[#17603C] text-white">
+            <p class="font-bold text-[13px]">Primary Pressed</p>
+            <p class="opacity-90 font-mono text-[11px]">#17603C</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-[#E3F2E9] text-[#1F7A4D] border border-[#C5E4D1]">
+            <p class="font-bold text-[13px]">Primary Tint</p>
+            <p class="font-mono text-[11px]">#E3F2E9</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-[#FAFAF7] text-textPrimary border border-borderWarm">
+            <p class="font-bold text-[13px]">Background Warm</p>
+            <p class="text-textMuted font-mono text-[11px]">#FAFAF7</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-white text-textPrimary border border-borderWarm">
+            <p class="font-bold text-[13px]">Surface / Cards</p>
+            <p class="text-textMuted font-mono text-[11px]">#FFFFFF</p>
+          </div>
+          <div class="p-2.5 rounded-xl bg-[#F1F2EE] text-textPrimary border border-borderWarm">
+            <p class="font-bold text-[13px]">Subtle Surface</p>
+            <p class="text-textMuted font-mono text-[11px]">#F1F2EE</p>
+          </div>
+        </div>
+
+        <!-- Semantic States -->
+        <p class="text-[12px] font-semibold text-textSecondary uppercase tracking-wider mt-4 mb-2">Estados Semánticos</p>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="p-2.5 rounded-xl bg-savings-bg text-savings-text border border-[#BBF7D0]">
+            <p class="font-bold">Ahorro Prominente</p>
+            <span class="font-mono text-[10px]">#15803D / #DCFCE7</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-promo-bg text-promo-text border border-[#FDE68A]">
+            <p class="font-bold">Promo / Oferta</p>
+            <span class="font-mono text-[10px]">#B45309 / #FEF3C7</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-stale-bg text-stale-text border border-[#FED7AA]">
+            <p class="font-bold">Desactualizado (Stale)</p>
+            <span class="font-mono text-[10px]">#C2410C / #FFEDD5</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-err-bg text-err-text border border-[#FECACA]">
+            <p class="font-bold">Error / Alerta</p>
+            <span class="font-mono text-[10px]">#B91C1C / #FEE2E2</span>
+          </div>
+        </div>
+
+        <!-- Supermarkets Dots -->
+        <p class="text-[12px] font-semibold text-textSecondary uppercase tracking-wider mt-4 mb-2">Supermercados en Tucumán (Dots 10px)</p>
+        <div class="p-3 bg-white rounded-2xl border border-borderWarm space-y-2">
+          <div class="grid grid-cols-2 gap-y-2.5 gap-x-3 text-[13px] text-textPrimary">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#4E6A8C] shrink-0"></span>
+              <span class="font-medium">Carrefour</span>
+              <span class="text-[10px] text-textMuted font-mono ml-auto">#4E6A8C</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#B07D2B] shrink-0"></span>
+              <span class="font-medium">ChangoMás</span>
+              <span class="text-[10px] text-textMuted font-mono ml-auto">#B07D2B</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#85587F] shrink-0"></span>
+              <span class="font-medium">Comodín</span>
+              <span class="text-[10px] text-textMuted font-mono ml-auto">#85587F</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#B4604A] shrink-0"></span>
+              <span class="font-medium">Vea</span>
+              <span class="text-[10px] text-textMuted font-mono ml-auto">#B4604A</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#5A5E9A] shrink-0"></span>
+              <span class="font-medium">Jumbo</span>
+              <span class="text-[10px] text-textMuted font-mono ml-auto">#5A5E9A</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#7D6B5A] shrink-0"></span>
+              <span class="font-medium">La Anónima</span>
+              <span class="text-[10px] text-textMuted font-mono ml-auto">#7D6B5A</span>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-borderWarm flex items-center justify-between text-[13px]">
+            <div class="flex items-center gap-2 text-textMuted">
+              <span class="w-2.5 h-2.5 rounded-full border border-dashed border-textMuted"></span>
+              <span>Gómez Pardo</span>
+            </div>
+            <span class="text-[11px] font-medium bg-[#F1F2EE] text-textSecondary px-2 py-0.5 rounded-full">Próximamente</span>
+          </div>
+        </div>
+
+        <!-- Dark Mode Tokens Swatch Preview -->
+        <p class="text-[12px] font-semibold text-textSecondary uppercase tracking-wider mt-4 mb-2">Tokens Modo Oscuro (Muestra)</p>
+        <div class="p-3 bg-[#0F1412] text-[#EEF1EC] rounded-2xl border border-[#2C362F] flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3.5 h-3.5 rounded-full bg-[#4CC38A]"></span>
+            <span class="text-[12px] font-medium">Primario #4CC38A</span>
+          </div>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-[#14321F] text-[#4ADE80] font-semibold">
+            +$ 4.120 Ahorro
+          </span>
+          <span class="text-[10px] font-mono text-[#A9B2AB]">Bg #0F1412</span>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- SECTION: TYPOGRAPHY -->
+      <section>
+        <span class="section-badge">02. Tipografía & Cifras</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-1">Escala de Texto Ampliada</h2>
+        <p class="text-[13px] text-textSecondary mb-3">Diseñada para lectura cómoda a 60 cm en movimiento por el súper.</p>
+
+        <div class="p-3.5 bg-white rounded-2xl border border-borderWarm space-y-3.5">
+          <div class="pb-2.5 border-b border-borderWarm">
+            <div class="flex justify-between items-baseline">
+              <span class="text-[11px] font-mono text-textMuted">Display 32/38 • Bold</span>
+              <span class="text-[11px] text-changuito font-medium">Totales y Ahorro</span>
+            </div>
+            <p class="font-display font-bold text-[32px] leading-[38px] text-textPrimary tracking-tight">
+              $ 24.890,50
+            </p>
+          </div>
+
+          <div class="pb-2.5 border-b border-borderWarm">
+            <div class="flex justify-between items-baseline">
+              <span class="text-[11px] font-mono text-textMuted">H1 24/30 • Bold</span>
+              <span class="text-[11px] text-textSecondary">Títulos de pantalla</span>
+            </div>
+            <h1 class="font-display font-bold text-[24px] leading-[30px] text-textPrimary">
+              Tu lista más barata
+            </h1>
+          </div>
+
+          <div class="pb-2.5 border-b border-borderWarm">
+            <div class="flex justify-between items-baseline">
+              <span class="text-[11px] font-mono text-textMuted">H2 20/26 • Semibold</span>
+            </div>
+            <h2 class="font-display font-semibold text-[20px] leading-[26px] text-textPrimary">
+              Lácteos y Bebidas
+            </h2>
+          </div>
+
+          <div class="pb-2.5 border-b border-borderWarm">
+            <div class="flex justify-between items-baseline">
+              <span class="text-[11px] font-mono text-textMuted">Body 17/24 • Inter Regular</span>
+              <span class="text-[11px] text-changuito font-medium">Mayor a la media (17px)</span>
+            </div>
+            <p class="text-[17px] leading-[24px] text-textPrimary">
+              Armá tu changuito agregando los productos que consumís en la semana.
+            </p>
+          </div>
+
+          <div class="pb-2 border-b border-borderWarm">
+            <div class="flex justify-between items-baseline">
+              <span class="text-[11px] font-mono text-textMuted">Price Row 18 • Semibold (Tabular)</span>
+            </div>
+            <p class="font-sans font-semibold text-[18px] text-textPrimary tabular">
+              $ 1.299,90 <span class="text-[13px] font-normal text-textSecondary">($ 2.599,80 / kg)</span>
+            </p>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-baseline">
+              <span class="text-[11px] font-mono text-textMuted">Caption 13/18 • Mínimo del sistema</span>
+            </div>
+            <p class="text-[13px] leading-[18px] text-textMuted">
+              Precios tomados de SEPA y páginas web públicas de Tucumán.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 1: BUTTONS -->
+      <section>
+        <span class="section-badge">03. Componentes: Botones</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Jerarquía de Acciones</h2>
+        
+        <div class="p-4 bg-white rounded-2xl border border-borderWarm space-y-3">
+          <!-- Primary filled -->
+          <div>
+            <span class="text-[11px] text-textMuted block mb-1">Primario (48px alto, radio 12px)</span>
+            <button class="w-full h-12 bg-changuito active:bg-changuito-pressed text-white font-medium text-[16px] rounded-xl flex items-center justify-center gap-2 transition-colors">
+              <svg class="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"></path>
+              </svg>
+              <span>Comparar lista</span>
+            </button>
+          </div>
+
+          <!-- Secondary outlined -->
+          <div>
+            <span class="text-[11px] text-textMuted block mb-1">Secundario (Borde 1px)</span>
+            <button class="w-full h-12 bg-white active:bg-surfaceSubtle border border-borderWarm text-textPrimary font-medium text-[16px] rounded-xl flex items-center justify-center gap-2 transition-colors">
+              <svg class="w-5 h-5 stroke-[1.8] text-textSecondary" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Compartir lista con alguien</span>
+            </button>
+          </div>
+
+          <!-- Tertiary & Destructive -->
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <button class="h-11 bg-transparent active:bg-surfaceSubtle text-changuito font-medium text-[15px] rounded-xl flex items-center justify-center">
+              Ver más opciones
+            </button>
+            <button class="h-11 bg-transparent active:bg-err-bg text-err-text font-medium text-[15px] rounded-xl flex items-center justify-center">
+              Borrar lista
+            </button>
+          </div>
+
+          <!-- Icon buttons -->
+          <div class="pt-2 border-t border-borderWarm flex items-center justify-between">
+            <span class="text-[12px] text-textSecondary font-medium">Botones de icono (48x48px touch):</span>
+            <div class="flex items-center gap-2">
+              <button class="w-12 h-12 rounded-xl bg-surfaceSubtle flex items-center justify-center text-textPrimary active:bg-borderWarm">
+                <svg class="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </button>
+              <button class="w-12 h-12 rounded-xl bg-changuito-tint text-changuito flex items-center justify-center active:bg-changuito active:text-white">
+                <svg class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Bottom CTA preview -->
+        <div class="mt-3 p-3 bg-white rounded-2xl border border-borderWarm shadow-md">
+          <span class="text-[11px] text-textMuted uppercase font-semibold tracking-wider block mb-1">Barra flotante inferior (Sticky CTA)</span>
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <p class="text-[11px] text-textSecondary uppercase font-medium">Total más bajo</p>
+              <p class="text-[20px] font-bold text-textPrimary tabular leading-tight">$ 18.420,00</p>
+            </div>
+            <button class="h-12 px-5 bg-changuito text-white font-medium text-[15px] rounded-xl flex items-center gap-2 active:bg-changuito-pressed shadow-sm">
+              <span>Ver ahorro</span>
+              <svg class="w-4 h-4 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 2: SEARCH BAR -->
+      <section>
+        <span class="section-badge">04. Buscador Rápido</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Campo de Búsqueda</h2>
+        <div class="p-3 bg-white rounded-2xl border border-borderWarm">
+          <div class="relative flex items-center">
+            <span class="absolute left-4 text-textSecondary pointer-events-none">
+              <svg class="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input 
+              type="text" 
+              placeholder="Buscá un producto o marca" 
+              class="w-full h-12 pl-12 pr-4 bg-surfaceSubtle border border-borderWarm rounded-xl text-[16px] text-textPrimary placeholder-textMuted focus:outline-none focus:border-changuito focus:bg-white transition-all"
+            />
+          </div>
+          <p class="text-[12px] text-textSecondary mt-2 px-1">
+            Recomendado: «leche entera», «yerba playadito 1kg», «aceite girasol».
+          </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 3 & 4: CHIPS & SUPERMARKET TAGS -->
+      <section>
+        <span class="section-badge">05. Tags & Pastillas (Chips)</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Etiquetas Informativas</h2>
+        
+        <div class="p-3.5 bg-white rounded-2xl border border-borderWarm space-y-3">
+          <!-- Supermarket Tag Component -->
+          <div>
+            <p class="text-[12px] font-semibold text-textSecondary mb-2">Tags de Supermercado (Dot + Nombre)</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surfaceSubtle text-[13px] font-medium text-textPrimary border border-borderWarm">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#4E6A8C]"></span> Carrefour
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surfaceSubtle text-[13px] font-medium text-textPrimary border border-borderWarm">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#B07D2B]"></span> ChangoMás
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surfaceSubtle text-[13px] font-medium text-textPrimary border border-borderWarm">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]"></span> Vea
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[13px] font-medium text-textMuted border border-dashed border-borderWarm">
+                <span class="w-2.5 h-2.5 rounded-full border border-textMuted"></span> Gómez Pardo
+              </span>
+            </div>
+          </div>
+
+          <!-- Savings, Promo, Stale Chips -->
+          <div>
+            <p class="text-[12px] font-semibold text-textSecondary mb-2">Chips de Oferta, Ahorro y Cobertura</p>
+            <div class="flex flex-wrap gap-2">
+              <!-- Savings chip -->
+              <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-savings-bg text-savings-text font-bold text-[13px] tabular">
+                <svg class="w-3.5 h-3.5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Ahorrás $ 2.340
+              </span>
+
+              <!-- Promo chips -->
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-promo-bg text-promo-text font-semibold text-[13px]">
+                2da al 70%
+              </span>
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-promo-bg text-promo-text font-semibold text-[13px]">
+                3x2
+              </span>
+
+              <!-- Coverage chip -->
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surfaceSubtle text-textSecondary font-medium text-[12px] border border-borderWarm">
+                18 de 20 productos
+              </span>
+
+              <!-- Stale price warning -->
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-stale-bg text-stale-text font-medium text-[12px]">
+                <svg class="w-3.5 h-3.5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                Precios de hace 3 días
+              </span>
+
+              <!-- Sin dato chip -->
+              <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-transparent text-textMuted font-normal text-[12px] border border-dashed border-[#D4D7D1]">
+                Sin dato de stock
+              </span>
+            </div>
+          </div>
+
+          <!-- Category filter chips -->
+          <div class="pt-2 border-t border-borderWarm">
+            <p class="text-[12px] font-semibold text-textSecondary mb-2">Filtros de Categoría</p>
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1">
+              <span class="px-3.5 py-1.5 rounded-full bg-changuito text-white font-medium text-[13px] shrink-0">
+                Todos
+              </span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white text-textPrimary border border-borderWarm font-medium text-[13px] shrink-0">
+                Almacén
+              </span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white text-textPrimary border border-borderWarm font-medium text-[13px] shrink-0">
+                Lácteos
+              </span>
+              <span class="px-3.5 py-1.5 rounded-full bg-white text-textPrimary border border-borderWarm font-medium text-[13px] shrink-0">
+                Bebidas
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 5: PRICE ROW (CORE COMPONENT) -->
+      <section>
+        <span class="section-badge">06. Componente Núcleo</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-1">Filas de Comparativa de Precios</h2>
+        <p class="text-[13px] text-textSecondary mb-3">Muestra el súper a la izquierda y el precio destacado con desglose a la derecha.</p>
+
+        <div class="space-y-2.5">
+          <!-- Variant A: Cheapest (Winner) -->
+          <div class="p-3.5 bg-white rounded-2xl border-2 border-changuito relative overflow-hidden shadow-sm">
+            <div class="absolute top-0 right-0 bg-savings-bg text-savings-text px-2.5 py-0.5 rounded-bl-xl text-[11px] font-bold flex items-center gap-1">
+              <svg class="w-3 h-3 stroke-[3]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Más barato en Tucumán
+            </div>
+
+            <div class="flex items-start justify-between pt-1">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#B07D2B]"></span>
+                  <span class="font-bold text-[16px] text-textPrimary">ChangoMás</span>
+                </div>
+                <span class="text-[12px] text-textMuted mt-1 block">Actualizado hace 2 h</span>
+              </div>
+              <div class="text-right">
+                <div class="font-display font-bold text-[22px] leading-tight text-textPrimary tabular">
+                  $ 1.299,90
+                </div>
+                <div class="text-[12px] text-textSecondary tabular">
+                  $ 2.599,80 / kg
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Variant B: With promo chip -->
+          <div class="p-3.5 bg-white rounded-2xl border border-borderWarm">
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#4E6A8C]"></span>
+                  <span class="font-bold text-[16px] text-textPrimary">Carrefour</span>
+                </div>
+                <div class="mt-1">
+                  <span class="inline-block px-2 py-0.5 rounded-full bg-promo-bg text-promo-text text-[11px] font-semibold">
+                    2da al 70% con Mi Carrefour
+                  </span>
+                </div>
+                <span class="text-[12px] text-textMuted mt-1 block">Ayer 19:30</span>
+              </div>
+              <div class="text-right">
+                <div class="font-display font-bold text-[20px] leading-tight text-textPrimary tabular">
+                  $ 1.450,00
+                </div>
+                <div class="text-[12px] text-textSecondary tabular">
+                  $ 2.900,00 / kg
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Variant C: Stale warning variant -->
+          <div class="p-3.5 bg-white rounded-2xl border border-borderWarm">
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]"></span>
+                  <span class="font-bold text-[16px] text-textPrimary">Vea</span>
+                </div>
+                <span class="inline-flex items-center gap-1 text-[11px] text-stale-text bg-stale-bg px-2 py-0.5 rounded mt-1 font-medium">
+                  Precios de hace 3 días
+                </span>
+              </div>
+              <div class="text-right">
+                <div class="font-display font-bold text-[20px] leading-tight text-textPrimary tabular">
+                  $ 1.520,00
+                </div>
+                <div class="text-[12px] text-textSecondary tabular">
+                  $ 3.040,00 / kg
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Variant D: Sin dato -->
+          <div class="p-3.5 bg-white rounded-2xl border border-dashed border-[#D4D7D1]">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-textSecondary">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#85587F]"></span>
+                <span class="font-medium text-[15px]">Comodín</span>
+              </div>
+              <div class="text-right">
+                <span class="text-[13px] text-textMuted italic">Sin dato disponible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 6 & 7: PRODUCT CARD & QUANTITY STEPPER -->
+      <section>
+        <span class="section-badge">07. Catálogo & Cantidades</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Tarjeta de Producto y Stepper</h2>
+        
+        <!-- Product card -->
+        <div class="p-3.5 bg-white rounded-2xl border border-borderWarm">
+          <div class="flex gap-3">
+            <!-- 64px image placeholder -->
+            <div class="w-16 h-16 rounded-xl bg-surfaceSubtle border border-borderWarm flex items-center justify-center shrink-0 text-textMuted">
+              <svg class="w-8 h-8 stroke-[1.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            
+            <div class="flex-1">
+              <span class="text-[12px] text-textMuted uppercase font-semibold">La Serenísima</span>
+              <h3 class="font-medium text-[15px] text-textPrimary leading-tight line-clamp-2">
+                Leche entera clásica sachet 1 L
+              </h3>
+              <div class="mt-1.5 flex items-baseline justify-between">
+                <div class="text-[13px] text-changuito font-semibold">
+                  Desde <span class="tabular font-bold text-[15px]">$ 1.150</span>
+                </div>
+                <div class="text-[12px] text-textSecondary">
+                  en ChangoMás
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stepper integration -->
+          <div class="mt-3 pt-3 border-t border-borderWarm flex items-center justify-between">
+            <span class="text-[13px] text-textSecondary font-medium">Llevás en tu changuito:</span>
+            
+            <!-- Standard Stepper 48px target -->
+            <div class="flex items-center bg-surfaceSubtle rounded-xl border border-borderWarm p-0.5">
+              <button class="w-10 h-10 rounded-lg flex items-center justify-center text-textPrimary active:bg-white text-lg font-bold">
+                −
+              </button>
+              <span class="w-8 text-center font-bold text-[16px] text-textPrimary tabular">
+                2
+              </span>
+              <button class="w-10 h-10 rounded-lg flex items-center justify-center text-changuito active:bg-white text-lg font-bold">
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stepper by KG variant -->
+        <div class="mt-2.5 p-3 bg-white rounded-2xl border border-borderWarm flex items-center justify-between">
+          <div>
+            <span class="text-[11px] text-textMuted uppercase font-semibold block">Variante por Peso (0,25 kg)</span>
+            <span class="text-[14px] font-medium text-textPrimary">Queso cremoso trozado</span>
+          </div>
+
+          <div class="flex items-center bg-surfaceSubtle rounded-xl border border-borderWarm p-0.5">
+            <button class="w-10 h-10 rounded-lg flex items-center justify-center text-textPrimary active:bg-white text-lg font-bold">
+              −
+            </button>
+            <span class="px-2 text-center font-bold text-[15px] text-textPrimary tabular">
+              0,50 kg
+            </span>
+            <button class="w-10 h-10 rounded-lg flex items-center justify-center text-changuito active:bg-white text-lg font-bold">
+              +
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 8: LIST ITEM ROW WITH SAVINGS HINT -->
+      <section>
+        <span class="section-badge">08. Fila de Lista Activa</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Item de Lista con Sugerencia de Ahorro</h2>
+        
+        <div class="p-3.5 bg-white rounded-2xl border border-borderWarm space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-[#4E6A8C]"></span>
+                <span class="text-[12px] text-textSecondary font-medium">Carrefour</span>
+              </div>
+              <h4 class="font-medium text-[16px] text-textPrimary mt-0.5">Yerba Playadito con palo 1 kg</h4>
+              <p class="text-[16px] font-bold text-textPrimary tabular mt-0.5">$ 3.980,00</p>
+            </div>
+
+            <!-- Stepper -->
+            <div class="flex items-center bg-surfaceSubtle rounded-xl border border-borderWarm p-0.5">
+              <button class="w-9 h-9 rounded-lg flex items-center justify-center text-textPrimary active:bg-white text-base font-bold">− </button>
+              <span class="w-7 text-center font-bold text-[15px] text-textPrimary tabular">1</span>
+              <button class="w-9 h-9 rounded-lg flex items-center justify-center text-changuito active:bg-white text-base font-bold"> +</button>
+            </div>
+          </div>
+
+          <!-- Inline recommendation alert -->
+          <div class="p-2.5 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] flex items-center justify-between text-[12px]">
+            <div class="flex items-center gap-1.5 text-savings-text font-medium">
+              <svg class="w-4 h-4 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span>Hay una opción más barata en Vea</span>
+            </div>
+            <button class="text-changuito font-bold underline">Cambiar</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 9: ALERT BANNERS -->
+      <section>
+        <span class="section-badge">09. Avisos y Banners</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Estados del Sistema</h2>
+        
+        <div class="space-y-2.5">
+          <!-- Info banner -->
+          <div class="p-3 rounded-xl bg-changuito-tint text-[#17603C] border border-[#C5E4D1] flex items-start gap-2.5 text-[13px]">
+            <svg class="w-5 h-5 stroke-[2] shrink-0 text-changuito mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <div>
+              <strong>Precios en Gran San Miguel de Tucumán:</strong> Comparación en base a sucursales de Av. Belgrano, Yerba Buena y Centro.
+            </div>
+          </div>
+
+          <!-- Warning banner (stale) -->
+          <div class="p-3 rounded-xl bg-stale-bg text-stale-text border border-[#FED7AA] flex items-start gap-2.5 text-[13px]">
+            <svg class="w-5 h-5 stroke-[2] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <div>
+              <strong>Precios desactualizados:</strong> Algunos valores de Comodín son de hace 3 días. Podrían haber variado en caja.
+            </div>
+          </div>
+
+          <!-- Offline banner -->
+          <div class="p-3 rounded-xl bg-[#F3F4F6] text-textSecondary border border-borderWarm flex items-start gap-2.5 text-[13px]">
+            <svg class="w-5 h-5 stroke-[2] shrink-0 text-textMuted mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+              <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+              <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+              <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+              <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+              <circle cx="12" cy="20" r="1"></circle>
+            </svg>
+            <div>
+              <strong>Sin conexión:</strong> Mostrando precios guardados el 28/10 18:00. Podés seguir armando tu lista.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 11 & 12: BOTTOM SHEET & SEGMENTED TABS -->
+      <section>
+        <span class="section-badge">10. Hojas & Segmentos</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Pestañas y Modal Bottom Sheet</h2>
+        
+        <!-- Segmented Control -->
+        <div class="p-3 bg-white rounded-2xl border border-borderWarm">
+          <p class="text-[12px] font-semibold text-textSecondary mb-2">Pestañas Segmentadas (Estrategia de compra)</p>
+          <div class="grid grid-cols-2 p-1 bg-surfaceSubtle rounded-xl border border-borderWarm">
+            <button class="py-2.5 rounded-lg bg-white shadow-sm font-semibold text-[14px] text-textPrimary flex items-center justify-center gap-1.5">
+              <span>Un solo súper</span>
+              <span class="w-2 h-2 rounded-full bg-changuito"></span>
+            </button>
+            <button class="py-2.5 rounded-lg font-medium text-[14px] text-textSecondary flex items-center justify-center gap-1.5 active:text-textPrimary">
+              <span>Repartido en 2</span>
+              <span class="text-[11px] bg-savings-bg text-savings-text px-1.5 py-0.2 rounded font-bold">+$ 3.100</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Sheet Preview -->
+        <div class="mt-3 bg-white rounded-t-3xl border-t border-x border-borderWarm p-4 shadow-xl">
+          <!-- Grabber handle -->
+          <div class="w-12 h-1.5 bg-[#D4D7D1] rounded-full mx-auto mb-3"></div>
+          <div class="flex items-center justify-between pb-2 border-b border-borderWarm">
+            <h3 class="font-display font-bold text-[18px] text-textPrimary">Detalle del Ahorro</h3>
+            <span class="text-[13px] text-changuito font-bold">Comprando en ChangoMás</span>
+          </div>
+          <div class="py-3 space-y-2 text-[14px]">
+            <div class="flex justify-between text-textSecondary">
+              <span>Total en el súper más caro:</span>
+              <span class="tabular font-medium text-textPrimary">$ 26.420,00</span>
+            </div>
+            <div class="flex justify-between text-textSecondary">
+              <span>Total en ChangoMás:</span>
+              <span class="tabular font-medium text-textPrimary">$ 22.180,00</span>
+            </div>
+            <div class="flex justify-between pt-2 border-t border-borderWarm font-bold text-[16px] text-savings-text">
+              <span>Te ahorrás hoy:</span>
+              <span class="tabular text-[18px]">$ 4.240,00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 14: EMPTY STATE -->
+      <section>
+        <span class="section-badge">11. Estado Vacío</span>
+        <h2 class="font-display font-bold text-xl text-textPrimary mb-3">Empty State (Changuito Vacío)</h2>
+        
+        <div class="p-6 bg-white rounded-2xl border border-borderWarm text-center flex flex-col items-center">
+          <!-- Changuito Line Illustration -->
+          <div class="w-16 h-16 rounded-full bg-changuito-tint flex items-center justify-center text-changuito mb-3">
+            <svg class="w-8 h-8 stroke-[1.8]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="9" cy="20" r="1.5"></circle>
+              <circle cx="18" cy="20" r="1.5"></circle>
+              <path d="M2.5 3h3l2.6 11.5a1.5 1.5 0 0 0 1.5 1.2h9.8a1.5 1.5 0 0 0 1.5-1.1L22.5 7H6"></path>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-[18px] text-textPrimary">Tu changuito está vacío</h3>
+          <p class="text-[14px] text-textSecondary mt-1 max-w-[240px] leading-snug">
+            Agregá productos para comparar en qué súper de Tucumán te conviene comprar.
+          </p>
+          <button class="mt-4 px-5 h-11 bg-changuito text-white rounded-xl text-[15px] font-medium active:bg-changuito-pressed">
+            Empezá a buscar
+          </button>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- COMPONENT 13: LEGAL FOOTNOTE STYLE -->
+      <section>
+        <span class="section-badge">12. Pie Legal & Datos Públicos</span>
+        <div class="p-3 rounded-xl bg-surfaceSubtle border border-borderWarm">
+          <p class="text-[13px] leading-[18px] text-textMuted">
+            Precios tomados de las webs oficiales y de datos públicos (SEPA) el 29/10/2026. Pueden diferir en el local según stock y promociones bancarias vigentes.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- COMPONENT 10: BOTTOM NAVIGATION BAR (FIXED/STICKY MOBILE PATTERN) -->
+    <div class="sticky bottom-0 left-0 right-0 bg-white border-t border-borderWarm px-2 py-1 shadow-lg z-30">
+      <div class="text-[10px] text-center font-bold text-textMuted uppercase tracking-wider py-1 border-b border-borderWarm">
+        Barra de Navegación Inferior (4 pestañas)
+      </div>
+      <div class="grid grid-cols-4 items-center pt-1 pb-1">
+        <!-- Tab 1: Inicio (Active) -->
+        <button class="flex flex-col items-center justify-center py-1 text-changuito">
+          <svg class="w-6 h-6 stroke-[2.2]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span class="text-[11px] font-bold mt-0.5">Inicio</span>
+        </button>
+
+        <!-- Tab 2: Buscar -->
+        <button class="flex flex-col items-center justify-center py-1 text-textSecondary active:text-changuito">
+          <svg class="w-6 h-6 stroke-[1.8]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="text-[11px] font-medium mt-0.5">Buscar</span>
+        </button>
+
+        <!-- Tab 3: Listas -->
+        <button class="flex flex-col items-center justify-center py-1 text-textSecondary active:text-changuito relative">
+          <span class="absolute top-1 right-6 w-2 h-2 rounded-full bg-changuito"></span>
+          <svg class="w-6 h-6 stroke-[1.8]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <span class="text-[11px] font-medium mt-0.5">Listas</span>
+        </button>
+
+        <!-- Tab 4: Ajustes -->
+        <button class="flex flex-col items-center justify-center py-1 text-textSecondary active:text-changuito">
+          <svg class="w-6 h-6 stroke-[1.8]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span class="text-[11px] font-medium mt-0.5">Ajustes</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - ¿Dónde hacés las compras?</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f7faf5",
+            "inverse-primary": "#82d8a3",
+            "surface-tint": "#066c41",
+            "on-tertiary-fixed": "#111e19",
+            "on-tertiary": "#ffffff",
+            "outline": "#6f7a71",
+            "on-surface-variant": "#3f4941",
+            "surface-bright": "#f7faf5",
+            "primary-container": "#1f7a4d",
+            "on-primary-fixed": "#002110",
+            "surface-container-low": "#f1f4ef",
+            "surface-container": "#ecefe9",
+            "tertiary-fixed": "#d7e6dd",
+            "inverse-on-surface": "#eff2ec",
+            "secondary": "#006d30",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed-dim": "#bbcac1",
+            "outline-variant": "#bec9bf",
+            "on-primary-container": "#aeffca",
+            "primary": "#006038",
+            "secondary-fixed-dim": "#79db8d",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#82d8a3",
+            "primary-fixed": "#9ef5be",
+            "on-error": "#ffffff",
+            "background": "#f7faf5",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#005323",
+            "on-error-container": "#93000a",
+            "surface-container-high": "#e6e9e4",
+            "on-tertiary-container": "#e1f0e7",
+            "inverse-surface": "#2d312e",
+            "on-background": "#191d19",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e0e3de",
+            "surface-variant": "#e0e3de",
+            "on-surface": "#191d19",
+            "surface-dim": "#d8dbd6",
+            "on-secondary-container": "#007233",
+            "on-primary-fixed-variant": "#00522f",
+            "secondary-fixed": "#95f8a7",
+            "secondary-container": "#92f5a4",
+            "tertiary": "#48564f",
+            "on-secondary-fixed": "#00210a",
+            "tertiary-container": "#606e67",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem",
+            "margin-tablet": "1.5rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "caption": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "caption-bold": ["Inter"],
+            "price-lg": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "caption": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "body-md": ["15px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "body-lg": ["17px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "price-md": ["17px", {"lineHeight": "22px", "fontWeight": "700"}],
+            "body-md-bold": ["15px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-lg": ["24px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "caption-bold": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "price-lg": ["22px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "headline-md": ["20px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "display-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      background-color: #f7faf5;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Estilo sutil de scroll sin barra intrusiva */
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center">
+<!-- Mobile Viewport Shell (390px baseline / max-w-[480px]) -->
+<main class="w-full max-w-[480px] min-h-screen flex flex-col bg-surface relative pb-28">
+<!-- 1. Barra superior de navegación / Onboarding Header -->
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur-md px-margin h-14 flex items-center justify-between">
+<!-- Botón de retroceso táctil (48x48px hit area) -->
+<button aria-label="Volver al paso anterior" class="w-12 h-12 -ml-2 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Indicador de 3 pasos (Step Dots) -->
+<div aria-label="Paso 2 de 3" aria-valuemax="3" aria-valuemin="1" aria-valuenow="2" class="flex items-center gap-1.5" role="progressbar">
+<!-- Paso 1: Completado / Inactivo -->
+<span class="w-2 h-2 rounded-full bg-outline-variant/60"></span>
+<!-- Paso 2: Activo (Píldora elongada Verde Changuito) -->
+<span class="w-6 h-2 rounded-full bg-primary-container transition-all"></span>
+<!-- Paso 3: Inactivo -->
+<span class="w-2 h-2 rounded-full bg-outline-variant/40"></span>
+</div>
+<!-- Botón Saltar -->
+<button class="w-12 h-12 -mr-2 flex items-center justify-center font-body-md-bold text-body-md-bold text-on-surface-variant hover:text-primary active:opacity-70 transition-colors" type="button">
+        Saltar
+      </button>
+</header>
+<!-- Contenido Scrollable Principal -->
+<div class="px-margin flex-1 flex flex-col pt-space-sm">
+<!-- 2. Encabezado Editorial Calmo -->
+<section class="mt-space-xs mb-space-xl">
+<div class="flex items-center gap-1.5 mb-space-xs text-primary font-caption-bold text-caption-bold">
+<span class="material-symbols-outlined text-[16px]" data-icon="storefront">storefront</span>
+<span>PASO 2 DE 3 • ZONA HABITUAL</span>
+</div>
+<h1 class="font-display-mobile text-display-mobile text-on-background tracking-tight">
+          ¿Dónde hacés las compras?
+        </h1>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Lo usamos solo para sugerirte las sucursales más cercanas. No guardamos tu ubicación ni rastreamos tus movimientos.
+        </p>
+</section>
+<!-- 3. Acción rápida: Usar mi ubicación (GPS) -->
+<section class="mb-space-lg">
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-space-md flex items-center gap-space-md shadow-sm active:scale-[0.99] active:bg-surface-container-low transition-all" type="button">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center flex-shrink-0 text-primary-container">
+<span class="material-symbols-outlined text-[26px]" data-icon="my_location">my_location</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-body-md-bold text-body-md-bold text-on-surface flex items-center gap-1.5">
+<span>Usar mi ubicación</span>
+<span class="text-[11px] font-caption-bold text-primary-container bg-on-primary-container/25 px-1.5 py-0.5 rounded-full">Automático</span>
+</div>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+              Detección rápida por GPS de tu teléfono
+            </p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[22px] flex-shrink-0" data-icon="chevron_right">chevron_right</span>
+</button>
+</section>
+<!-- 4. Separador Tonal -->
+<div class="relative flex py-space-sm items-center mb-space-md">
+<div class="flex-grow border-t border-outline-variant/40"></div>
+<span class="flex-shrink mx-space-md font-caption text-caption text-outline">o elegí tu zona</span>
+<div class="flex-grow border-t border-outline-variant/40"></div>
+</div>
+<!-- 5. Selector y buscador manual de barrio / localidad -->
+<section class="flex flex-col gap-space-md">
+<!-- Input de búsqueda -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[22px] pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-12 pl-11 pr-10 bg-surface-container-lowest border border-outline-variant/50 rounded-xl font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all shadow-sm" placeholder="Buscá tu barrio..." type="search"/>
+<button aria-label="Borrar búsqueda" class="absolute right-1 w-10 h-10 flex items-center justify-center text-outline hover:text-on-surface active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+<!-- Lista de Municipios / Zonas -->
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<!-- LOCALIDAD: Yerba Buena (SELECCIONADA) -->
+<div class="bg-surface-container-lowest border-2 border-primary-container rounded-xl p-space-md shadow-sm transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<!-- Dot de color representativo de zona -->
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container inline-block"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Yerba Buena</span>
+</div>
+<!-- Checkmark activo de selección -->
+<div class="flex items-center gap-1.5 bg-primary-container/10 text-primary-container px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-caption-bold text-caption text-primary-container">Elegida</span>
+</div>
+</div>
+<!-- Chips de micro-zonas / avenidas principales en Yerba Buena -->
+<div class="mt-space-md pt-space-sm border-t border-outline-variant/30 flex flex-wrap gap-1.5">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-caption-bold bg-primary-container text-white">
+                Av. Aconquija
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-caption bg-surface-container-low text-on-surface-variant hover:bg-surface-container">
+                Av. Perón
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-caption bg-surface-container-low text-on-surface-variant hover:bg-surface-container">
+                Shopping Solar
+              </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-[12px] font-caption bg-surface-container-low text-on-surface-variant hover:bg-surface-container">
+                Marcos Paz
+              </span>
+</div>
+</div>
+<!-- LOCALIDAD: San Miguel de Tucumán (Con sub-barrios) -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-space-md transition-all hover:border-outline">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-[#4E6A8C] inline-block"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">San Miguel de Tucumán</span>
+</div>
+<span class="font-caption text-caption text-outline">5 barrios</span>
+</div>
+<!-- Chips de barrios específicos sugeridos -->
+<div class="flex flex-wrap gap-1.5">
+<button class="h-8 px-3 rounded-full bg-surface-container-low text-on-surface-variant font-caption text-caption hover:bg-surface-container active:scale-95 transition-all" type="button">
+                Centro
+              </button>
+<button class="h-8 px-3 rounded-full bg-surface-container-low text-on-surface-variant font-caption text-caption hover:bg-surface-container active:scale-95 transition-all" type="button">
+                Barrio Norte
+              </button>
+<button class="h-8 px-3 rounded-full bg-surface-container-low text-on-surface-variant font-caption text-caption hover:bg-surface-container active:scale-95 transition-all" type="button">
+                Barrio Sur
+              </button>
+<button class="h-8 px-3 rounded-full bg-surface-container-low text-on-surface-variant font-caption text-caption hover:bg-surface-container active:scale-95 transition-all" type="button">
+                Villa Luján
+              </button>
+<button class="h-8 px-3 rounded-full bg-surface-container-low text-on-surface-variant font-caption text-caption hover:bg-surface-container active:scale-95 transition-all" type="button">
+                Ciudadela
+              </button>
+</div>
+</div>
+<!-- LOCALIDAD: Tafí Viejo -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-space-md py-3.5 flex items-center justify-between hover:border-outline active:bg-surface-container-low transition-all" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A] inline-block"></span>
+<span class="font-body-md text-body-md text-on-surface">Tafí Viejo</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- LOCALIDAD: Banda del Río Salí -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-space-md py-3.5 flex items-center justify-between hover:border-outline active:bg-surface-container-low transition-all" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-outline inline-block"></span>
+<span class="font-body-md text-body-md text-on-surface">Banda del Río Salí</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- LOCALIDAD: Las Talitas -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-space-md py-3.5 flex items-center justify-between hover:border-outline active:bg-surface-container-low transition-all" type="button">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-outline inline-block"></span>
+<span class="font-body-md text-body-md text-on-surface">Las Talitas</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- 6. Nota al pie de cobertura -->
+<footer class="mt-space-lg mb-space-sm flex items-center justify-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-[18px]" data-icon="info">info</span>
+<span class="font-caption text-caption">Por ahora cubrimos el Gran San Miguel de Tucumán.</span>
+</footer>
+</div>
+<!-- 7. Barra de acción inferior fija (Sticky Thumb Navigation) -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto z-40 bg-surface/95 backdrop-blur-md px-margin py-3 border-t border-outline-variant/30">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between px-1 text-[12px] text-on-surface-variant font-caption">
+<span>Zona seleccionada:</span>
+<span class="font-caption-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span>
+            Yerba Buena, Tucumán
+          </span>
+</div>
+<!-- Botón primario de altura mínima 48px y radio 12px -->
+<button class="w-full h-12 bg-primary-container hover:bg-[#17603C] active:scale-[0.98] text-white font-headline-sm text-headline-sm rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all" type="button">
+<span>Continuar</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

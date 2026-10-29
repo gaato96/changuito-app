@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background text-on-background antialiased" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Bienvenido</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts for Plus Jakarta Sans and Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#ecefe9",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#606e67",
+            "on-tertiary-container": "#e1f0e7",
+            "primary-container": "#1f7a4d",
+            "surface-container-highest": "#e0e3de",
+            "outline-variant": "#bec9bf",
+            "on-surface-variant": "#3f4941",
+            "on-secondary-fixed": "#00210a",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-tertiary-fixed": "#111e19",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#eff2ec",
+            "primary-fixed-dim": "#82d8a3",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#00522f",
+            "background": "#f7faf5",
+            "surface-tint": "#066c41",
+            "secondary-fixed": "#95f8a7",
+            "on-secondary": "#ffffff",
+            "secondary": "#006d30",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#48564f",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2d312e",
+            "primary": "#006038",
+            "on-secondary-container": "#007233",
+            "on-background": "#191d19",
+            "outline": "#6f7a71",
+            "on-primary-fixed": "#002110",
+            "on-primary-container": "#aeffca",
+            "inverse-primary": "#82d8a3",
+            "error": "#ba1a1a",
+            "on-surface": "#191d19",
+            "surface-dim": "#d8dbd6",
+            "on-secondary-fixed-variant": "#005323",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#d7e6dd",
+            "secondary-fixed-dim": "#79db8d",
+            "surface-bright": "#f7faf5",
+            "surface-variant": "#e0e3de",
+            "surface-container-high": "#e6e9e4",
+            "primary-fixed": "#9ef5be",
+            "surface": "#f7faf5",
+            "surface-container-low": "#f1f4ef",
+            "secondary-container": "#92f5a4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1rem",
+            "margin": "1rem",
+            "space-xl": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "0.75rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "caption": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "body-md": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "caption-bold": ["Inter"],
+            "price-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "price-lg": ["22px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "caption": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "body-md-bold": ["15px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "body-md": ["15px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "display": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-md": ["20px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "headline-lg": ["24px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "caption-bold": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "price-md": ["17px", {"lineHeight": "22px", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      background-color: #FAFAF7;
+      touch-action: manipulation;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-full flex flex-col justify-between items-center text-on-surface">
+<!-- Mobile PWA Canvas Frame (Max 480px) -->
+<main class="w-full max-w-[480px] min-h-screen flex flex-col justify-between relative bg-[#FAFAF7]">
+<!-- Top Navigation / Header Area (Translating Shared Component TopAppBar rules) -->
+<header class="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-space-lg h-14 max-w-[480px] mx-auto right-0 bg-[#FAFAF7]/95 backdrop-blur-sm shadow-sm dark:shadow-none border-b border-outline-variant/30">
+<!-- Wordmark Logo & Leading Cart -->
+<div class="flex items-center space-x-1.5 active:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Changuito</span>
+</div>
+<!-- Right Header Group: Stepper indicator dots & Saltar action -->
+<div class="flex items-center space-x-3">
+<!-- 3 Step indicator dots -->
+<nav aria-label="Progreso de bienvenida" class="flex items-center space-x-1.5">
+<span aria-current="step" class="w-6 h-2 rounded-full bg-primary-container transition-all"></span>
+<span class="w-2 h-2 rounded-full bg-outline-variant/50 transition-all"></span>
+<span class="w-2 h-2 rounded-full bg-outline-variant/50 transition-all"></span>
+</nav>
+<!-- Trailing action: Saltar (Min 48px hit target) -->
+<button class="min-w-[48px] min-h-[48px] flex items-center justify-center font-body-md text-body-md text-[#5B625D] hover:text-on-surface active:opacity-80 transition-all px-2" type="button">
+          Saltar
+        </button>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<section class="flex-1 w-full px-space-lg pt-20 pb-28 flex flex-col items-center">
+<!-- Hero Illustration: Gentle warm card with shopping cart line aesthetic -->
+<div class="w-full max-w-[340px] mt-2 mb-6 flex flex-col items-center justify-center">
+<div class="relative w-40 h-40 rounded-full bg-surface-container-low flex items-center justify-center border border-[#E3E5DF]">
+<!-- Inner soft accent circle -->
+<div class="w-28 h-28 rounded-full bg-[#E3F2E9] flex items-center justify-center">
+<!-- Warm line cart representation -->
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[60px]" data-icon="shopping_cart">shopping_cart</span>
+<!-- Superimposed Price tag badge with check -->
+<span class="absolute -top-1 -right-2 bg-[#DCFCE7] text-[#15803D] border border-[#15803D]/20 rounded-full p-1 shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</span>
+</div>
+</div>
+<!-- Tiny floating decorative savings pill -->
+<div class="absolute -bottom-2 bg-surface-container-lowest border border-[#E3E5DF] shadow-sm px-2.5 py-1 rounded-full flex items-center space-x-1">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-caption-bold text-caption-bold text-primary">Precios de Tucumán</span>
+</div>
+</div>
+</div>
+<!-- Editorial Typography & Value Prop -->
+<div class="text-center w-full px-1 mb-6">
+<h1 class="font-headline-lg text-headline-lg font-bold text-[#161A17] tracking-tight mb-2">
+          Sabé dónde te conviene comprar
+        </h1>
+<p class="font-body-lg text-body-lg text-[#5B625D] leading-relaxed">
+          Compará precios de 6 supers de Tucumán, armá tu lista y mirá cuánto ahorrás, al peso.
+        </p>
+</div>
+<!-- 3 Compact Benefit Cards (Elevation 1: White, #E3E5DF subtle border, rounded-xl) -->
+<div class="w-full space-y-2.5 mb-7">
+<!-- Benefit 1 -->
+<div class="flex items-center p-3.5 bg-surface-container-lowest rounded-xl border border-[#E3E5DF] shadow-[0_1px_3px_rgba(22,26,23,0.04)]">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center mr-3 text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="update">update</span>
+</div>
+<span class="font-body-md-bold text-body-md-bold text-[#161A17]">
+            Precios actualizados todos los días
+          </span>
+</div>
+<!-- Benefit 2 -->
+<div class="flex items-center p-3.5 bg-surface-container-lowest rounded-xl border border-[#E3E5DF] shadow-[0_1px_3px_rgba(22,26,23,0.04)]">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center mr-3 text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="wifi_off">wifi_off</span>
+</div>
+<span class="font-body-md-bold text-body-md-bold text-[#161A17]">
+            Funciona sin internet en el super
+          </span>
+</div>
+<!-- Benefit 3 -->
+<div class="flex items-center p-3.5 bg-surface-container-lowest rounded-xl border border-[#E3E5DF] shadow-[0_1px_3px_rgba(22,26,23,0.04)]">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center mr-3 text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="lock_open">lock_open</span>
+</div>
+<span class="font-body-md-bold text-body-md-bold text-[#161A17]">
+            Gratis y sin cuenta
+          </span>
+</div>
+</div>
+<!-- Supermarket Chips Section (Solid 10px circular dots + text names) -->
+<div class="w-full">
+<p class="font-caption-bold text-caption-bold text-[#5B625D] text-center mb-3">
+          SUPERMERCADOS DISPONIBLES EN GRAN TUCUMÁN
+        </p>
+<div class="flex flex-wrap justify-center gap-2">
+<!-- Carrefour -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest border border-[#E3E5DF] px-3 py-1.5 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<span class="w-[10px] h-[10px] rounded-full flex-shrink-0" style="background-color: #4E6A8C;"></span>
+<span class="font-body-md-bold text-caption-bold text-[#161A17]">Carrefour</span>
+</div>
+<!-- ChangoMás -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest border border-[#E3E5DF] px-3 py-1.5 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<span class="w-[10px] h-[10px] rounded-full flex-shrink-0" style="background-color: #B07D2B;"></span>
+<span class="font-body-md-bold text-caption-bold text-[#161A17]">ChangoMás</span>
+</div>
+<!-- Comodín -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest border border-[#E3E5DF] px-3 py-1.5 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<span class="w-[10px] h-[10px] rounded-full flex-shrink-0" style="background-color: #85587F;"></span>
+<span class="font-body-md-bold text-caption-bold text-[#161A17]">Comodín</span>
+</div>
+<!-- Vea -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest border border-[#E3E5DF] px-3 py-1.5 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<span class="w-[10px] h-[10px] rounded-full flex-shrink-0" style="background-color: #B4604A;"></span>
+<span class="font-body-md-bold text-caption-bold text-[#161A17]">Vea</span>
+</div>
+<!-- Jumbo -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest border border-[#E3E5DF] px-3 py-1.5 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<span class="w-[10px] h-[10px] rounded-full flex-shrink-0" style="background-color: #5A5E9A;"></span>
+<span class="font-body-md-bold text-caption-bold text-[#161A17]">Jumbo</span>
+</div>
+<!-- La Anónima -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest border border-[#E3E5DF] px-3 py-1.5 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<span class="w-[10px] h-[10px] rounded-full flex-shrink-0" style="background-color: #7D6B5A;"></span>
+<span class="font-body-md-bold text-caption-bold text-[#161A17]">La Anónima</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Bar (Thumb reach area, strictly elevation 3 grounded container, NO bottom nav) -->
+<div class="fixed bottom-0 left-0 w-full z-40 bg-surface-container-lowest border-t border-[#E3E5DF] shadow-[0_-4px_16px_rgba(22,26,23,0.06)] px-space-lg py-3 max-w-[480px] mx-auto right-0">
+<button class="w-full h-12 bg-primary-container hover:bg-[#17603C] active:bg-[#17603C] text-on-primary font-headline-sm text-headline-sm font-bold rounded-xl flex items-center justify-center transition-colors shadow-sm" type="button">
+        Empezar
+      </button>
+</div>
+</main>
+</body></html>

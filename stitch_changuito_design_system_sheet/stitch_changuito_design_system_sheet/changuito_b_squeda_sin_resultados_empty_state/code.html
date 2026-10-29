@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es-AR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Changuito - Búsqueda</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "on-surface": "#191d19",
+            "primary-fixed": "#9ef5be",
+            "secondary-fixed": "#95f8a7",
+            "on-secondary-fixed-variant": "#005323",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#00522f",
+            "surface-container-low": "#f1f4ef",
+            "on-error-container": "#93000a",
+            "background": "#f7faf5",
+            "surface-bright": "#f7faf5",
+            "on-tertiary-container": "#e1f0e7",
+            "secondary": "#006d30",
+            "on-tertiary-fixed": "#111e19",
+            "outline": "#6f7a71",
+            "error": "#ba1a1a",
+            "secondary-container": "#92f5a4",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-primary-container": "#aeffca",
+            "on-secondary-fixed": "#00210a",
+            "surface": "#f7faf5",
+            "primary-container": "#1f7a4d",
+            "surface-container": "#ecefe9",
+            "on-secondary-container": "#007233",
+            "surface-dim": "#d8dbd6",
+            "on-surface-variant": "#3f4941",
+            "surface-variant": "#e0e3de",
+            "inverse-surface": "#2d312e",
+            "outline-variant": "#bec9bf",
+            "surface-tint": "#066c41",
+            "surface-container-high": "#e6e9e4",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#82d8a3",
+            "tertiary": "#48564f",
+            "tertiary-fixed": "#d7e6dd",
+            "tertiary-container": "#606e67",
+            "primary": "#006038",
+            "primary-fixed-dim": "#82d8a3",
+            "secondary-fixed-dim": "#79db8d",
+            "surface-container-highest": "#e0e3de",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#002110",
+            "inverse-on-surface": "#eff2ec",
+            "on-secondary": "#ffffff",
+            "on-background": "#191d19",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "caption-bold": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"],
+            "body-md": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "caption": ["Inter"]
+          },
+          "fontSize": {
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Native PWA bounce suppression & tap highlight removal */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased h-full flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Shell (390px constrained canvas, responsive up to 480px on desktop) -->
+<div class="w-full max-w-[480px] bg-background min-h-screen flex flex-col relative pb-24 shadow-sm">
+<!-- Top App Bar (Shared Components Anchor execution) -->
+<header class="sticky top-0 left-0 w-full z-40 bg-surface flex items-center justify-between px-space-lg h-14 shadow-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Volver" class="w-12 h-12 flex items-center justify-center -ml-2 rounded-full text-on-surface-variant hover:bg-surface-container active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<span class="font-headline-lg text-headline-sm font-bold text-primary tracking-tight">Changuito</span>
+</div>
+<button class="text-primary font-body-md-bold text-body-md hover:bg-surface-container px-space-sm py-space-xs rounded-lg active:opacity-80 transition-colors" type="button">
+        Saltar
+      </button>
+</header>
+<!-- Sticky Sub-Header: Search Field & Count -->
+<section class="px-margin pt-space-md pb-space-sm bg-surface">
+<!-- Search Input Container -->
+<div class="relative flex items-center w-full h-12 bg-surface-container-low rounded-xl border border-outline-variant/50 focus-within:border-primary-container focus-within:bg-surface-container-lowest focus-within:ring-1 focus-within:ring-primary-container transition-all">
+<div class="w-12 h-12 flex items-center justify-center shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</div>
+<input class="w-full h-full bg-transparent border-none p-0 pr-12 font-body-md text-body-md text-on-surface placeholder:text-outline focus:ring-0 focus:outline-none truncate" id="search-input" placeholder="Buscá marcas, lácteos, carnes..." type="text" value="fernet branka 2 litros sin azucar"/>
+<button aria-label="Borrar búsqueda" class="absolute right-0 top-0 w-12 h-12 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:opacity-70 transition-colors" id="clear-search-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Result Counter Meta -->
+<div class="flex items-center justify-between mt-space-sm px-1">
+<p class="font-caption text-caption text-on-surface-variant">
+          0 resultados para tu búsqueda
+        </p>
+<span class="inline-flex items-center gap-1 font-caption-bold text-caption text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+          San Miguel de Tucumán
+        </span>
+</div>
+</section>
+<!-- Main Empty State Canvas -->
+<main class="flex-1 px-margin flex flex-col justify-start">
+<!-- Tactile Empty Cart & Friendly Magnifier Illustration -->
+<div class="w-full flex justify-center pt-space-lg pb-space-md">
+<div class="relative w-32 h-32 flex items-center justify-center rounded-full bg-surface-container-low border border-outline-variant/30">
+<!-- Warm ambient backdrop aura -->
+<div class="absolute inset-2 rounded-full bg-primary-fixed/20 blur-md"></div>
+<svg aria-hidden="true" class="relative w-24 h-24 text-primary" fill="none" viewbox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+<!-- Shopping cart basket body -->
+<path d="M22 28H28.5L34 56H68L74 34H30" stroke="#006038" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.75"></path>
+<path d="M37 40H69" stroke="#9ef5be" stroke-dasharray="2 3" stroke-linecap="round" stroke-width="2"></path>
+<path d="M36 47H66" stroke="#9ef5be" stroke-dasharray="2 3" stroke-linecap="round" stroke-width="2"></path>
+<!-- Wheels -->
+<circle cx="37" cy="65" fill="#f7faf5" r="4.5" stroke="#006038" stroke-width="2.5"></circle>
+<circle cx="65" cy="65" fill="#f7faf5" r="4.5" stroke="#006038" stroke-width="2.5"></circle>
+<circle cx="37" cy="65" fill="#1f7a4d" r="1.5"></circle>
+<circle cx="65" cy="65" fill="#1f7a4d" r="1.5"></circle>
+<!-- Magnifying glass overlay (exploring/wondering) -->
+<g transform="translate(14, -4)">
+<circle cx="50" cy="40" fill="#ffffff" r="14" stroke="#1f7a4d" stroke-width="2.75"></circle>
+<path d="M60 50L71 61" stroke="#1f7a4d" stroke-linecap="round" stroke-width="3"></path>
+<!-- Wondering expression inside lens -->
+<path d="M47 38C47 35.8 48.6 34 50.8 34C52.8 34 54.2 35.4 54.2 37.2C54.2 40 50.8 41 50.8 42.5" stroke="#006038" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="50.8" cy="46" fill="#006038" r="1.2"></circle>
+</g>
+<!-- Friendly little spark hints -->
+<path d="M20 22L17 19" stroke="#6f7a71" stroke-linecap="round" stroke-width="2"></path>
+<path d="M78 20L81 18" stroke="#6f7a71" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Heading & Editorial Voseo Copy -->
+<div class="text-center px-space-md">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+          No encontramos eso
+        </h1>
+<p class="mt-space-xs font-body-md text-body-md text-on-surface-variant max-w-[300px] mx-auto leading-relaxed">
+          Probá con menos palabras o revisá cómo está escrito.
+        </p>
+</div>
+<!-- Suggestions Section / Bento Style Interactive Pills -->
+<div class="mt-space-xl">
+<div class="flex items-center gap-1.5 mb-space-sm px-1">
+<span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span>
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface">
+            Quizás quisiste buscar:
+          </h2>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Suggestion 1: Fernet Branca 750 ml -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-space-md flex items-center justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] hover:border-primary-container active:scale-[0.99] transition-all" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">liquor</span>
+</div>
+<div class="min-w-0 pr-2">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">
+                  Fernet Branca 750 ml
+                </p>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-caption-bold text-caption">
+                    desde $ 8.900
+                  </span>
+<span class="font-caption text-caption text-outline">Vea • Carrefour</span>
+</div>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant bg-surface-container-low shrink-0">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</div>
+</button>
+<!-- Suggestion 2: Fernet Branca 1 L -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-space-md flex items-center justify-between shadow-[0_1px_3px_rgba(22,26,23,0.04)] hover:border-primary-container active:scale-[0.99] transition-all" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[22px]">liquor</span>
+</div>
+<div class="min-w-0 pr-2">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">
+                  Fernet Branca 1 L
+                </p>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-caption-bold text-caption">
+                    desde $ 11.450
+                  </span>
+<span class="font-caption text-caption text-outline">Gómez Pardo</span>
+</div>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant bg-surface-container-low shrink-0">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</div>
+</button>
+<!-- Suggestion 3: Category Pill -->
+<button class="w-full text-left bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-space-md py-space-sm flex items-center justify-between hover:border-primary-container active:scale-[0.99] transition-all" type="button">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-outline text-[20px]">category</span>
+<div>
+<span class="font-caption text-caption text-outline block">Ver en categoría</span>
+<span class="font-body-md-bold text-body-md text-on-surface">Bebidas aperitivos y licores</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Neighborly Civic Solidarity / Crowdsourcing Bottom Note -->
+<section class="mt-space-xl mb-4">
+<div class="bg-surface-container-low border border-outline-variant/40 rounded-xl p-space-md flex flex-col gap-3">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 shrink-0">info</span>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+              Guardamos esta búsqueda (sin datos tuyos) para sumar productos al comparador vecinal.
+            </p>
+</div>
+<div class="border-t border-outline-variant/20 pt-2 flex justify-end">
+<button class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-lg text-primary font-body-md-bold text-caption hover:bg-surface-container active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">add_location_alt</span>
+              Avisar que falta este producto en el super
+            </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Navigation Bar (Design Tokens & Mandate Execution) -->
+<!-- Note: "Buscar" is ACTIVE with text-primary-container and specific indicator token -->
+<nav aria-label="Navegación principal" class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto z-50 h-16 bg-surface-container-lowest border-t border-outline-variant/30 px-space-md flex items-center justify-around shadow-[0_-4px_16px_rgba(22,26,23,0.06)]">
+<!-- Tab 1: Inicio -->
+<a class="flex flex-col items-center justify-center flex-1 h-full text-outline hover:text-on-surface active:opacity-80 transition-colors" href="#inicio">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-caption text-caption mt-0.5">Inicio</span>
+</a>
+<!-- Tab 2: Buscar (ACTIVE) -->
+<a aria-current="page" class="flex flex-col items-center justify-center flex-1 h-full text-primary-container font-body-md-bold active:opacity-80 transition-colors relative" href="#buscar">
+<!-- Visual active dot/pill -->
+<span class="absolute top-1 w-8 h-1 bg-primary-container rounded-full"></span>
+<span class="material-symbols-outlined text-[24px] text-primary-container" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-caption-bold text-caption mt-0.5 text-primary-container">Buscar</span>
+</a>
+<!-- Tab 3: Listas (with badge 2) -->
+<a class="flex flex-col items-center justify-center flex-1 h-full text-outline hover:text-on-surface active:opacity-80 transition-colors relative" href="#listas">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+<span class="absolute -top-1 -right-2 min-w-[18px] h-[18px] bg-primary text-on-primary text-[11px] font-bold rounded-full flex items-center justify-center px-1 border-2 border-surface-container-lowest">
+            2
+          </span>
+</div>
+<span class="font-caption text-caption mt-0.5">Listas</span>
+</a>
+<!-- Tab 4: Ajustes -->
+<a class="flex flex-col items-center justify-center flex-1 h-full text-outline hover:text-on-surface active:opacity-80 transition-colors" href="#ajustes">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="font-caption text-caption mt-0.5">Ajustes</span>
+</a>
+</nav>
+</div>
+<script>
+    // Micro-interaction: Clear button clears query and focuses search input
+    document.addEventListener('DOMContentLoaded', () => {
+      const clearBtn = document.getElementById('clear-search-btn');
+      const searchInput = document.getElementById('search-input');
+
+      if (clearBtn && searchInput) {
+        clearBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          searchInput.focus();
+        });
+      }
+    });
+  </script>
+</body></html>

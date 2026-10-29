@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito — Comparación de Lista: ¿Dónde conviene? (Un súper)</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#3f4941",
+            "primary-container": "#1f7a4d",
+            "outline-variant": "#bec9bf",
+            "on-secondary-fixed-variant": "#005323",
+            "surface-variant": "#e0e3de",
+            "error": "#ba1a1a",
+            "inverse-on-surface": "#eff2ec",
+            "on-secondary-container": "#007233",
+            "on-primary-fixed-variant": "#00522f",
+            "on-primary-container": "#aeffca",
+            "surface-container-high": "#e6e9e4",
+            "surface-dim": "#d8dbd6",
+            "surface-tint": "#066c41",
+            "on-error": "#ffffff",
+            "secondary-container": "#92f5a4",
+            "on-tertiary": "#ffffff",
+            "on-primary": "#ffffff",
+            "outline": "#6f7a71",
+            "tertiary-fixed-dim": "#bbcac1",
+            "background": "#f7faf5",
+            "secondary-fixed": "#95f8a7",
+            "tertiary-container": "#606e67",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-container": "#ecefe9",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#2d312e",
+            "surface-container-highest": "#e0e3de",
+            "on-tertiary-fixed": "#111e19",
+            "surface": "#f7faf5",
+            "surface-bright": "#f7faf5",
+            "primary": "#006038",
+            "surface-container-low": "#f1f4ef",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#00210a",
+            "secondary-fixed-dim": "#79db8d",
+            "inverse-primary": "#82d8a3",
+            "on-primary-fixed": "#002110",
+            "secondary": "#006d30",
+            "tertiary": "#48564f",
+            "primary-fixed-dim": "#82d8a3",
+            "primary-fixed": "#9ef5be",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "tertiary-fixed": "#d7e6dd",
+            "on-secondary": "#ffffff",
+            "on-background": "#191d19",
+            "error-container": "#ffdad6",
+            "on-surface": "#191d19"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "1rem",
+            "space-lg": "1rem",
+            "margin-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "display": [
+              "Plus Jakarta Sans"
+            ],
+            "caption": [
+              "Inter"
+            ],
+            "caption-bold": [
+              "Inter"
+            ],
+            "price-lg": [
+              "Inter"
+            ],
+            "body-md": [
+              "Inter"
+            ],
+            "headline-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "display-mobile": [
+              "Plus Jakarta Sans"
+            ],
+            "body-lg": [
+              "Inter"
+            ],
+            "price-md": [
+              "Inter"
+            ],
+            "headline-md": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "body-md-bold": [
+              "Inter"
+            ]
+          },
+          "fontSize": {
+            "display": [
+              "32px",
+              {
+                "lineHeight": "38px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "800"
+              }
+            ],
+            "caption": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "400"
+              }
+            ],
+            "caption-bold": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "600"
+              }
+            ],
+            "price-lg": [
+              "22px",
+              {
+                "lineHeight": "26px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-md": [
+              "15px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-sm": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "display-mobile": [
+              "28px",
+              {
+                "lineHeight": "34px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "800"
+              }
+            ],
+            "body-lg": [
+              "17px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "price-md": [
+              "17px",
+              {
+                "lineHeight": "22px",
+                "fontWeight": "700"
+              }
+            ],
+            "headline-md": [
+              "20px",
+              {
+                "lineHeight": "26px",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg": [
+              "24px",
+              {
+                "lineHeight": "30px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-md-bold": [
+              "15px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-full bg-surface text-on-surface antialiased flex flex-col items-center">
+<!-- Mobile Container Shell (Max 480px, ideal 390px) -->
+<div class="w-full max-w-[480px] min-h-full bg-surface flex flex-col relative shadow-sm pb-28">
+<!-- 1. Mobile Status Bar -->
+<header class="w-full pt-2 px-5 pb-1 flex items-center justify-between text-on-surface select-none z-50">
+<span class="font-caption-bold text-caption-bold text-on-surface">09:41</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="font-caption-bold text-[11px] leading-none text-on-surface">5G</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[17px] rotate-90" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- 2. Top App Bar (Task Sub-flow Header) -->
+<nav class="w-full px-margin h-14 flex items-center justify-between z-40 bg-surface">
+<div class="flex items-center gap-2">
+<button aria-label="Volver a Compra del mes" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline-sm text-headline-sm text-on-surface leading-tight tracking-tight">¿Dónde conviene?</h1>
+<span class="font-caption text-caption text-on-surface-variant">Compra del mes · 24 productos</span>
+</div>
+</div>
+<div class="flex items-center gap-0.5">
+<button aria-label="Compartir en WhatsApp" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="share">share</span>
+</button>
+<button aria-label="Más opciones" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:opacity-80 transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Stream -->
+<main class="w-full px-margin flex flex-col gap-4 pt-1">
+<!-- 3. Segmented Control / Tabs (Pill Style) -->
+<section class="w-full bg-surface-container-low p-1 rounded-xl flex items-center gap-1 border border-outline-variant/30">
+<button class="flex-1 py-2 rounded-lg bg-primary-container text-on-primary font-body-md-bold text-caption-bold shadow-sm text-center flex items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[17px]" data-icon="store">store</span>
+<span>Un súper</span>
+</button>
+<button class="flex-1 py-2 rounded-lg bg-transparent text-on-surface-variant hover:text-on-surface font-body-md text-caption text-center flex items-center justify-center gap-1.5 transition-all" type="button">
+<span class="material-symbols-outlined text-[17px]" data-icon="call_split">call_split</span>
+<span>Repartido en 2</span>
+</button>
+</section>
+<!-- 4. Hero Winner Card (High prominence, neighborly clarity) -->
+<section class="w-full bg-surface-container-lowest border-2 border-primary/20 rounded-2xl p-4 shadow-sm relative overflow-hidden bg-gradient-to-b from-[#eaf5ee] to-surface-container-lowest">
+<!-- Floating badge -->
+<div class="flex items-center justify-between mb-2.5">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/60 text-on-secondary-container font-caption-bold text-[12px]">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>TE CONVIENE COMPRAR ACÁ</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Relevado hoy</span>
+</div>
+<!-- Supermarket Brand & Headline Price -->
+<div class="flex items-baseline justify-between gap-2 mt-1">
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-full bg-[#f97316] inline-block shadow-xs"></span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">ChangoMás</h2>
+</div>
+</div>
+<div class="mt-1 flex items-baseline gap-1.5">
+<span class="font-display-mobile text-display-mobile text-primary tracking-tight font-extrabold">$ 186.430</span>
+<span class="font-caption text-caption text-on-surface-variant">total estimado</span>
+</div>
+<!-- Metric Chips -->
+<div class="flex flex-wrap items-center gap-1.5 mt-3">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-caption-bold text-caption">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="inventory_2">inventory_2</span>
+<span>Tiene 23 de 24 productos</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#dcfce7] text-[#15803d] font-caption-bold text-caption">
+<span class="material-symbols-outlined text-[16px]" data-icon="savings">savings</span>
+<span>Ahorrás hasta $ 27.870</span>
+</div>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-2.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary" data-icon="verified">verified</span>
+          Promociones por cantidad y combos ya aplicados
+        </p>
+<!-- Micro Comparison Stats Inside Winner Card -->
+<div class="mt-3.5 pt-3 border-t border-outline-variant/30 space-y-1.5">
+<div class="flex items-start gap-1.5 text-on-surface-variant">
+<span class="text-primary text-[11px] leading-tight mt-1">●</span>
+<p class="font-caption text-caption">Contra <strong class="text-on-surface font-caption-bold">Vea</strong> ahorrás <span class="font-caption-bold text-primary">$ 9.770</span> <span class="text-on-surface-variant/80">(en 21 productos en común)</span></p>
+</div>
+<div class="flex items-start gap-1.5 text-on-surface-variant">
+<span class="text-primary text-[11px] leading-tight mt-1">●</span>
+<p class="font-caption text-caption">Contra <strong class="text-on-surface font-caption-bold">Carrefour</strong> ahorrás <span class="font-caption-bold text-primary">$ 8.420</span> <span class="text-on-surface-variant/80">(en 22 productos en común)</span></p>
+</div>
+<div class="flex items-start gap-1.5 text-on-surface-variant">
+<span class="text-primary text-[11px] leading-tight mt-1">●</span>
+<p class="font-caption text-caption">Contra <strong class="text-on-surface font-caption-bold">Jumbo</strong> ahorrás <span class="font-caption-bold text-primary">$ 27.870</span> <span class="text-on-surface-variant/80">(en 20 productos en común)</span></p>
+</div>
+</div>
+</section>
+<!-- 5. Transparency Explainer Note -->
+<section class="w-full bg-surface-container-low border border-outline-variant/25 rounded-xl p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[19px] text-tertiary shrink-0 mt-0.5" data-icon="info">info</span>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+          El ahorro se calcula comparando únicamente los productos que tienen en stock ambos supermercados.
+        </p>
+</section>
+<!-- 6. Section "Ranking de supermercados" -->
+<section class="w-full flex flex-col gap-2.5 mt-1">
+<div class="flex items-baseline justify-between px-0.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Ranking de supermercados</h3>
+<span class="font-caption text-caption text-on-surface-variant">6 bocas relevadas</span>
+</div>
+<div class="flex flex-col gap-2">
+<!-- Row 1: ChangoMás -->
+<article class="w-full bg-surface-container-lowest border-2 border-primary/40 rounded-xl p-3 shadow-xs flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary text-on-primary font-caption-bold text-caption flex items-center justify-center">1</span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#f97316]"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">ChangoMás</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] font-caption-bold text-[12px]">Mejor opción</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-0.5">
+<div class="flex-1">
+<div class="flex items-center justify-between font-caption text-[12px] text-on-surface-variant mb-1">
+<span>Stock disponible</span>
+<span class="font-caption-bold text-on-surface">23 de 24</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 95.8%;"></div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md text-primary block leading-none">$ 186.430</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Total lista</span>
+</div>
+</div>
+</article>
+<!-- Row 2: Comodín -->
+<article class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 shadow-xs flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-caption-bold text-caption flex items-center justify-center">2</span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#0284c7]"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Comodín</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Pagás $ 4.690 más (+2,5%)</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-0.5">
+<div class="flex-1">
+<div class="flex items-center justify-between font-caption text-[12px] text-on-surface-variant mb-1">
+<span>Stock disponible</span>
+<span class="font-caption-bold text-on-surface">23 de 24</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 95.8%;"></div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md text-on-surface block leading-none">$ 191.120</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Total lista</span>
+</div>
+</div>
+</article>
+<!-- Row 3: Carrefour -->
+<article class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 shadow-xs flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-caption-bold text-caption flex items-center justify-center">3</span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#2563eb]"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Carrefour</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Pagás $ 8.420 más</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-0.5">
+<div class="flex-1">
+<div class="flex items-center justify-between font-caption text-[12px] text-on-surface-variant mb-1">
+<span>Stock disponible</span>
+<span class="font-caption-bold text-on-surface">22 de 24</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container/85 rounded-full" style="width: 91.6%;"></div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md text-on-surface block leading-none">$ 194.850</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Total lista</span>
+</div>
+</div>
+</article>
+<!-- Row 4: Supermercados Vea -->
+<article class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 shadow-xs flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-caption-bold text-caption flex items-center justify-center">4</span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#dc2626]"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Vea (Yerba Buena)</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Pagás $ 9.770 más</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-0.5">
+<div class="flex-1">
+<div class="flex items-center justify-between font-caption text-[12px] text-on-surface-variant mb-1">
+<span>Stock disponible</span>
+<span class="font-caption-bold text-on-surface">21 de 24</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container/75 rounded-full" style="width: 87.5%;"></div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md text-on-surface block leading-none">$ 196.200</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Total lista</span>
+</div>
+</div>
+</article>
+<!-- Row 5: Jumbo -->
+<article class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 shadow-xs flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-caption-bold text-caption flex items-center justify-center">5</span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#65a30d]"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Jumbo</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Pagás $ 27.870 más</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-0.5">
+<div class="flex-1">
+<div class="flex items-center justify-between font-caption text-[12px] text-on-surface-variant mb-1">
+<span>Stock disponible</span>
+<span class="font-caption-bold text-on-surface">20 de 24</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container/60 rounded-full" style="width: 83.3%;"></div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md text-on-surface block leading-none">$ 214.300</span>
+<span class="font-caption text-[11px] text-on-surface-variant">Total lista</span>
+</div>
+</div>
+</article>
+<!-- Row 6: La Anónima -->
+<article class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3 shadow-xs flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface-variant font-caption-bold text-caption flex items-center justify-center">6</span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#ef4444]"></span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">La Anónima</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-[#fef3c7] text-[#92400e] font-caption-bold text-[11px]">
+                Faltan 6 prod.
+              </span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-0.5">
+<div class="flex-1">
+<div class="flex items-center justify-between font-caption text-[12px] text-on-surface-variant mb-1">
+<span>Stock disponible</span>
+<span class="font-caption-bold text-on-surface">18 de 24</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-amber-500 rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="font-price-md text-price-md text-on-surface-variant block leading-none">$ 189.900</span>
+<span class="font-caption text-[10px] text-amber-700">Precios de hace 3 días</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- 7. Missing items section ("Faltan en ChangoMás") -->
+<section class="w-full bg-surface-container-low border border-outline-variant/40 rounded-xl p-3.5 flex flex-col gap-2">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[19px] text-tertiary" data-icon="search_off">search_off</span>
+<h4 class="font-body-md-bold text-body-md-bold text-on-surface">Faltan en ChangoMás (1 producto)</h4>
+</div>
+<div class="bg-surface-container-lowest border border-dashed border-outline-variant/60 rounded-lg p-2.5 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-outline mt-0.5" data-icon="remove_shopping_cart">remove_shopping_cart</span>
+<div class="flex-1">
+<p class="font-body-md-bold text-caption-bold text-on-surface">
+              Sin dato de stock: Queso cremoso Punta del Agua x kg
+            </p>
+<p class="font-caption text-caption text-on-surface-variant mt-1 leading-snug">
+              Podés conseguirlo en <span class="text-on-surface font-caption-bold">Vea ($ 7.890/kg)</span> o cambiar por otra marca en tu lista antes de salir.
+            </p>
+</div>
+</div>
+</section>
+<!-- 8. Navigation Card (Detail drill-down) -->
+<aside class="w-full">
+<button class="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-xl p-3.5 flex items-center justify-between gap-3 text-left hover:bg-surface-container-low transition-colors shadow-xs group" type="button">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="format_list_bulleted">format_list_bulleted</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md-bold text-body-md text-on-surface">Ver detalle comparado producto por producto</span>
+<span class="font-caption text-caption text-on-surface-variant">Precios individuales en las 6 sucursales</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant group-hover:translate-x-0.5 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</aside>
+<!-- 9. Legal disclaimer / Data footer -->
+<footer class="w-full text-center pt-2 pb-2">
+<p class="font-caption text-[11px] text-on-surface-variant/80 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="history_toggle_off">history_toggle_off</span>
+          Precios SEPA relevados hoy en bocas de Gran San Miguel de Tucumán.
+        </p>
+</footer>
+</main>
+<!-- 10. Sticky Bottom Bar with Primary CTA -->
+<div class="fixed bottom-0 left-0 right-0 w-full max-w-[480px] mx-auto z-50 bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/25 px-margin py-3 shadow-[0_-4px_16px_rgba(22,26,23,0.08)]">
+<button class="w-full h-13 py-3 px-4 rounded-xl bg-primary-container hover:bg-[#17603c] active:opacity-90 text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="shopping_bag">shopping_bag</span>
+<span>Ir a comprar a ChangoMás →</span>
+</button>
+<p class="text-center font-caption text-[11px] text-on-surface-variant mt-1.5">
+        Inicia modo compras asistido dentro de la sucursal
+      </p>
+</div>
+</div>
+</body></html>

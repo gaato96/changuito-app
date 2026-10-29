@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.example
+phase0/out/
+.tmp/
+*.zip
+.next/
+.vercel/

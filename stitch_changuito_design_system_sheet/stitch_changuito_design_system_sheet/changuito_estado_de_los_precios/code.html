@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Estado de los precios - Changuito</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#82d8a3",
+            "surface-bright": "#f7faf5",
+            "surface-container-low": "#f1f4ef",
+            "on-primary-fixed": "#002110",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "surface-variant": "#e0e3de",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#d7e6dd",
+            "inverse-surface": "#2d312e",
+            "surface-container": "#ecefe9",
+            "surface-dim": "#d8dbd6",
+            "inverse-primary": "#82d8a3",
+            "on-tertiary-fixed": "#111e19",
+            "primary-container": "#1f7a4d",
+            "on-surface": "#191d19",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#e0e3de",
+            "on-background": "#191d19",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#606e67",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#00522f",
+            "secondary-fixed": "#95f8a7",
+            "background": "#f7faf5",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f7faf5",
+            "surface-container-high": "#e6e9e4",
+            "on-surface-variant": "#3f4941",
+            "on-secondary-fixed": "#00210a",
+            "tertiary-fixed-dim": "#bbcac1",
+            "tertiary": "#48564f",
+            "secondary-fixed-dim": "#79db8d",
+            "on-secondary-container": "#007233",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-tint": "#066c41",
+            "outline": "#6f7a71",
+            "primary": "#006038",
+            "inverse-on-surface": "#eff2ec",
+            "secondary-container": "#92f5a4",
+            "on-primary-container": "#aeffca",
+            "secondary": "#006d30",
+            "on-secondary-fixed-variant": "#005323",
+            "outline-variant": "#bec9bf",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#e1f0e7",
+            "primary-fixed": "#9ef5be"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.25rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1rem",
+            "margin": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xl": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "0.75rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "price-md": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "caption-bold": ["Inter"],
+            "body-lg": ["Inter"],
+            "price-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "caption": ["Inter"],
+            "body-md-bold": ["Inter"]
+          },
+          "fontSize": {
+            "price-md": ["17px", {"lineHeight": "22px", "fontWeight": "700"}],
+            "display-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-lg": ["24px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "display": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "headline-md": ["20px", {"lineHeight": "26px", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "caption-bold": ["13px", {"lineHeight": "18px", "fontWeight": "600"}],
+            "body-lg": ["17px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "price-lg": ["22px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "caption": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "body-md-bold": ["15px", {"lineHeight": "20px", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Shell (Max 480px) -->
+<div class="w-full max-w-[480px] min-h-screen bg-surface flex flex-col relative pb-12 shadow-sm">
+<!-- 1. Mobile Status Bar (Simulated Native iOS/Android) -->
+<header class="w-full pt-3 px-6 pb-2 flex items-center justify-between text-on-surface z-50">
+<span class="text-[14px] font-semibold tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[17px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[17px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[19px]" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- 2. Top App Bar (Task-focused sub-page: Clean, tactile Back Action & Context) -->
+<nav aria-label="Navegación principal" class="sticky top-0 bg-surface/95 backdrop-blur-md px-margin py-2.5 flex items-center justify-between z-40 transition-shadow">
+<button aria-label="Volver a la pantalla anterior" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight text-center">
+        Estado de los precios
+      </h1>
+<div class="flex items-center gap-1 bg-surface-container-high px-2.5 py-1 rounded-full text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-caption-bold text-caption-bold">Tucumán</span>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="px-margin flex flex-col gap-4 mt-1">
+<!-- 3. Cabecera introductoria -->
+<section class="flex flex-col gap-2 pt-1">
+<div class="inline-flex items-center gap-2 self-start bg-secondary-container/50 text-on-secondary-container px-3 py-1 rounded-full border border-secondary-container">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-caption-bold text-caption-bold">Precios relevados para Gran Tucumán</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Actualizamos los precios todos los días. Si una fuente se atrasa, te avisamos para que no tengas sorpresas en la caja.
+        </p>
+</section>
+<!-- 4. Info Card de regla de transparencia (Editorial Warmth & Trust) -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/40 shadow-[0_1px_3px_rgba(22,26,23,0.04)] relative overflow-hidden">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 text-primary mt-0.5">
+<span class="material-symbols-outlined text-[22px]" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex flex-col gap-1">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface leading-snug">
+              Regla de las 72 horas
+            </h2>
+<p class="font-caption-bold text-caption-bold text-primary leading-snug">
+              Los precios con más de 72 horas no se usan para comparar listas.
+            </p>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed pt-0.5">
+              Garantizamos que cualquier cálculo de ahorro use información verificada y reciente para proteger tu changuito.
+            </p>
+</div>
+</div>
+</section>
+<!-- Resumen rápido en números (Bento mini metric) -->
+<section class="grid grid-cols-3 gap-2 py-0.5">
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm text-primary">5</span>
+<span class="font-caption text-caption text-on-surface-variant">Al día hoy</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm text-[#B4604A]">1</span>
+<span class="font-caption text-caption text-on-surface-variant">Con demora</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm text-error">1</span>
+<span class="font-caption text-caption text-on-surface-variant">Pausada</span>
+</div>
+</section>
+<!-- 5. Lista de tarjetas por supermercado -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between px-0.5 pt-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cadenas monitoreadas</h2>
+<span class="font-caption text-caption text-on-surface-variant">7 fuentes activas</span>
+</div>
+<!-- Tarjeta: ChangoMás -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/40 shadow-[0_1px_3px_rgba(22,26,23,0.04)] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-[#E87722] shrink-0"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">ChangoMás</h3>
+</div>
+<span class="inline-flex items-center gap-1 bg-[#DCFCE7] text-[#15803D] font-caption-bold text-caption-bold px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Al día
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-y-1.5 gap-x-2 pt-1 border-t border-surface-container-high text-on-surface-variant">
+<div>
+<span class="font-caption text-caption block text-tertiary">Última actualización</span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Hoy 08:30</span>
+</div>
+<div>
+<span class="font-caption text-caption block text-tertiary">Frecuencia</span>
+<span class="font-body-md text-body-md text-on-surface">2 veces por día</span>
+</div>
+<div class="col-span-2 flex items-center justify-between text-tertiary pt-1">
+<span class="font-caption text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="cloud_sync">cloud_sync</span>
+                Web oficial y catálogo local
+              </span>
+<span class="font-caption text-caption text-on-surface/75">Av. Jujuy 2600</span>
+</div>
+</div>
+</article>
+<!-- Tarjeta: Vea -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/40 shadow-[0_1px_3px_rgba(22,26,23,0.04)] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-[#D9381E] shrink-0"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Vea</h3>
+</div>
+<span class="inline-flex items-center gap-1 bg-[#DCFCE7] text-[#15803D] font-caption-bold text-caption-bold px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Al día
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-y-1.5 gap-x-2 pt-1 border-t border-surface-container-high text-on-surface-variant">
+<div>
+<span class="font-caption text-caption block text-tertiary">Última actualización</span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Hoy 07:45</span>
+</div>
+<div>
+<span class="font-caption text-caption block text-tertiary">Frecuencia</span>
+<span class="font-body-md text-body-md text-on-surface">2 veces por día</span>
+</div>
+<div class="col-span-2 flex items-center justify-between text-tertiary pt-1">
+<span class="font-caption text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="database">database</span>
+                Datos públicos SEPA + Web
+              </span>
+<span class="font-caption text-caption text-on-surface/75">Yerba Buena (Aconquija)</span>
+</div>
+</div>
+</article>
+<!-- Tarjeta: Carrefour -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/40 shadow-[0_1px_3px_rgba(22,26,23,0.04)] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-[#1A5B9B] shrink-0"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Carrefour</h3>
+</div>
+<span class="inline-flex items-center gap-1 bg-[#DCFCE7] text-[#15803D] font-caption-bold text-caption-bold px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Al día
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-y-1.5 gap-x-2 pt-1 border-t border-surface-container-high text-on-surface-variant">
+<div>
+<span class="font-caption text-caption block text-tertiary">Última actualización</span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Hoy 06:15</span>
+</div>
+<div>
+<span class="font-caption text-caption block text-tertiary">Frecuencia</span>
+<span class="font-body-md text-body-md text-on-surface">1 vez por día</span>
+</div>
+<div class="col-span-2 flex items-center justify-between text-tertiary pt-1">
+<span class="font-caption text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="api">api</span>
+                Web oficial + API pública
+              </span>
+<span class="font-caption text-caption text-on-surface/75">24 de Septiembre</span>
+</div>
+</div>
+</article>
+<!-- Tarjeta: Comodín -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/40 shadow-[0_1px_3px_rgba(22,26,23,0.04)] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-[#C94D1A] shrink-0"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Comodín</h3>
+</div>
+<span class="inline-flex items-center gap-1 bg-[#DCFCE7] text-[#15803D] font-caption-bold text-caption-bold px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Al día
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-y-1.5 gap-x-2 pt-1 border-t border-surface-container-high text-on-surface-variant">
+<div>
+<span class="font-caption text-caption block text-tertiary">Última actualización</span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Ayer 20:00</span>
+</div>
+<div>
+<span class="font-caption text-caption block text-tertiary">Frecuencia</span>
+<span class="font-body-md text-body-md text-on-surface">1 vez por día</span>
+</div>
+<div class="col-span-2 flex items-center justify-between text-tertiary pt-1">
+<span class="font-caption text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="database">database</span>
+                Datos públicos SEPA
+              </span>
+<span class="font-caption text-caption text-on-surface/75">Av. Roca 3450</span>
+</div>
+</div>
+</article>
+<!-- Tarjeta: Jumbo -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/40 shadow-[0_1px_3px_rgba(22,26,23,0.04)] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-[#008444] shrink-0"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Jumbo</h3>
+</div>
+<span class="inline-flex items-center gap-1 bg-[#DCFCE7] text-[#15803D] font-caption-bold text-caption-bold px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Al día
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-y-1.5 gap-x-2 pt-1 border-t border-surface-container-high text-on-surface-variant">
+<div>
+<span class="font-caption text-caption block text-tertiary">Última actualización</span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Hoy 09:10</span>
+</div>
+<div>
+<span class="font-caption text-caption block text-tertiary">Frecuencia</span>
+<span class="font-body-md text-body-md text-on-surface">2 veces por día</span>
+</div>
+<div class="col-span-2 flex items-center justify-between text-tertiary pt-1">
+<span class="font-caption text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="cloud_sync">cloud_sync</span>
+                Web oficial
+              </span>
+<span class="font-caption text-caption text-on-surface/75">Portal Tucumán</span>
+</div>
+</div>
+</article>
+<!-- Tarjeta: La Anónima (Aviso de 3 días) -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-[#F59E0B]/40 bg-[#FFFDF7] shadow-[0_1px_3px_rgba(22,26,23,0.04)] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-[#4E6A8C] shrink-0"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">La Anónima</h3>
+</div>
+<span class="inline-flex items-center gap-1 bg-[#FEF3C7] text-[#B45309] font-caption-bold text-caption-bold px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]" data-icon="warning">warning</span>
+              Hace 3 días
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-y-1.5 gap-x-2 pt-1 border-t border-outline-variant/20 text-on-surface-variant">
+<div>
+<span class="font-caption text-caption block text-tertiary">Última actualización</span>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Hace 3 días (26 oct)</span>
+</div>
+<div>
+<span class="font-caption text-caption block text-tertiary">Frecuencia</span>
+<span class="font-body-md text-body-md text-on-surface">Irregular</span>
+</div>
+<div class="col-span-2 bg-[#FFFBEB] p-2.5 rounded-xl border border-[#FDE68A] text-[#92400E]">
+<p class="font-caption text-caption leading-relaxed">
+<strong class="font-caption-bold">Aviso preventivo:</strong> Se utiliza solo de referencia; excluida de alertas de ahorro hasta nueva sincronización.
+              </p>
+</div>
+<div class="col-span-2 flex items-center justify-between text-tertiary pt-0.5">
+<span class="font-caption text-caption flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="database">database</span>
+                Datos públicos SEPA
+              </span>
+<span class="font-caption text-caption text-on-surface/75">Gran San Miguel</span>
+</div>
+</div>
+</article>
+<!-- Tarjeta: Luque o Distribuidora (Sin actualizar / Rojo) -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 border border-error/30 bg-[#FFF8F7] shadow-[0_1px_3px_rgba(22,26,23,0.04)] flex flex-col gap-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-2">
+<span aria-hidden="true" class="w-2.5 h-2.5 rounded-full bg-error shrink-0"></span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Supermercado Luque</h3>
+<span class="font-caption text-caption text-on-surface-variant">Distribuidora / Mayorista</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container font-caption-bold text-caption-bold px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[15px]" data-icon="cancel">cancel</span>
+              Sin actualizar
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-y-1.5 gap-x-2 pt-1 border-t border-outline-variant/20 text-on-surface-variant">
+<div>
+<span class="font-caption text-caption block text-tertiary">Última actualización</span>
+<span class="font-body-md-bold text-body-md-bold text-error">Hace 5 días</span>
+</div>
+<div>
+<span class="font-caption text-caption block text-tertiary">Fuente</span>
+<span class="font-body-md text-body-md text-on-surface">Relevamiento SEPA</span>
+</div>
+<div class="col-span-2 bg-[#FEE2E2]/60 p-2.5 rounded-xl border border-[#FECACA] text-[#991B1B]">
+<p class="font-caption text-caption leading-relaxed flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] shrink-0" data-icon="pause_circle">pause_circle</span>
+<span><strong>Precios congelados.</strong> No computa en comparativas para no alterar tu changuito real.</span>
+</p>
+</div>
+</div>
+</article>
+</section>
+<!-- 6. Sección "Próximamente" (Cadenas locales en análisis) -->
+<section class="bg-surface-container rounded-2xl p-4 flex flex-col gap-3 mt-2 border border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-tertiary" data-icon="storefront">storefront</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Próximamente en relevamiento</h2>
+</div>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+          Cadenas tradicionales tucumanas que aún no publican sus listas de precios en internet de forma automatizada ni en SEPA:
+        </p>
+<!-- Chips Atenuados estilo pills -->
+<div class="flex flex-wrap gap-2 pt-1">
+<div class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-3 py-1.5 rounded-full border border-outline-variant/40 text-on-surface">
+<span class="font-body-md-bold text-body-md-bold text-[14px]">Gómez Pardo</span>
+<span class="font-caption text-caption text-[11px] bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded-md">Sin web pública</span>
+</div>
+<div class="inline-flex items-center bg-surface-container-lowest px-3 py-1.5 rounded-full border border-outline-variant/40 text-on-surface">
+<span class="font-body-md text-body-md text-[14px]">Aledo</span>
+</div>
+<div class="inline-flex items-center bg-surface-container-lowest px-3 py-1.5 rounded-full border border-outline-variant/40 text-on-surface">
+<span class="font-body-md text-body-md text-[14px]">El Marqués</span>
+</div>
+<div class="inline-flex items-center bg-surface-container-lowest px-3 py-1.5 rounded-full border border-outline-variant/40 text-on-surface">
+<span class="font-body-md text-body-md text-[14px]">Capo</span>
+</div>
+</div>
+<!-- Nota Comunitaria -->
+<div class="bg-surface-container-lowest/80 rounded-xl p-3 border border-outline-variant/30 flex items-start gap-2.5 mt-1">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0 mt-0.5" data-icon="receipt_long">receipt_long</span>
+<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
+            Estamos trabajando en relevamiento colaborativo por <strong>foto de ticket</strong> para sumarlas a Changuito con ayuda de la comunidad vecina.
+          </p>
+</div>
+</section>
+<!-- 7. Enlaces y acciones secundarias inferiores -->
+<section class="flex flex-col gap-2.5 pt-3 pb-6">
+<button class="w-full min-h-[48px] px-4 rounded-xl bg-surface-container-lowest border border-outline-variant/60 text-on-surface font-body-md-bold text-body-md-bold flex items-center justify-between hover:bg-surface-container active:scale-[0.99] transition-all" type="button">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="info">info</span>
+<span>¿Cómo funciona SEPA y los datos abiertos?</span>
+</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full min-h-[48px] px-4 rounded-xl bg-transparent text-primary hover:bg-primary/5 active:bg-primary/10 font-body-md-bold text-body-md-bold flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="flag">flag</span>
+<span>Reportar precio desactualizado</span>
+</button>
+<!-- Pie de página de transparencia comunitaria -->
+<p class="text-center font-caption text-caption text-tertiary pt-2">
+          Changuito · Iniciativa ciudadana para Gran Tucumán
+        </p>
+</section>
+</main>
+</div>
+</body></html>

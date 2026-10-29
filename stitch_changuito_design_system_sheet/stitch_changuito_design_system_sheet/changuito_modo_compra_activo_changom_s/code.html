@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Modo Compra Activo</title>
+<!-- Material Symbols Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans & Inter Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config verbatím from design system -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#2d312e",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#005323",
+            "surface-bright": "#f7faf5",
+            "secondary-fixed-dim": "#79db8d",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#95f8a7",
+            "surface": "#f7faf5",
+            "on-primary-fixed": "#002110",
+            "on-tertiary-fixed": "#111e19",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#eff2ec",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#82d8a3",
+            "on-primary-fixed-variant": "#00522f",
+            "primary": "#006038",
+            "surface-tint": "#066c41",
+            "surface-container-low": "#f1f4ef",
+            "on-secondary-container": "#007233",
+            "surface-container-high": "#e6e9e4",
+            "surface-container-highest": "#e0e3de",
+            "surface-container": "#ecefe9",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#aeffca",
+            "on-tertiary-container": "#e1f0e7",
+            "secondary": "#006d30",
+            "tertiary-fixed": "#d7e6dd",
+            "tertiary-container": "#606e67",
+            "inverse-primary": "#82d8a3",
+            "on-surface": "#191d19",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#1f7a4d",
+            "tertiary": "#48564f",
+            "outline-variant": "#bec9bf",
+            "background": "#f7faf5",
+            "primary-fixed": "#9ef5be",
+            "on-background": "#191d19",
+            "surface-variant": "#e0e3de",
+            "secondary-container": "#92f5a4",
+            "on-surface-variant": "#3f4941",
+            "outline": "#6f7a71",
+            "on-secondary-fixed": "#00210a",
+            "error-container": "#ffdad6",
+            "surface-dim": "#d8dbd6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "caption-bold": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "caption": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md-bold": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    /* Safe viewport styling for high mobility */
+    body {
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .tap-zone {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="h-full bg-background text-on-surface antialiased flex justify-center">
+<!-- Mobile Screen Container (390px base frame, capped at 480px on desktop) -->
+<div class="relative w-full max-w-[480px] min-h-screen bg-surface flex flex-col shadow-xl select-none pb-44">
+<!-- TOP BAR (Sticky Navigation for in-store shopping) -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-150">
+<div class="flex items-center justify-between px-margin h-14">
+<!-- Exit button -->
+<button aria-label="Cerrar modo compra" class="tap-zone -ml-2 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95 transition-transform rounded-full" type="button">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+<!-- Brand & Store Info -->
+<div class="flex flex-col items-center justify-center flex-1 px-2 text-center">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#f97316] ring-2 ring-orange-100 flex-shrink-0"></span>
+<h1 class="font-headline-md text-headline-sm text-on-surface tracking-tight font-bold">ChangoMás</h1>
+</div>
+<p class="font-caption text-caption text-on-surface-variant truncate max-w-[190px]">
+            Av. Jujuy 2600 · 9 de 23 cargados (39%)
+          </p>
+</div>
+<!-- Keep Awake screen toggle -->
+<button aria-label="Pantalla siempre encendida" class="tap-zone -mr-2 flex items-center justify-center rounded-full text-primary hover:bg-surface-container active:scale-95 transition-all" id="screen-awake-btn" type="button">
+<div class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1.5 rounded-full border border-outline-variant/40">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+<span class="font-caption-bold text-caption text-primary">Activa</span>
+</div>
+</button>
+</div>
+<!-- Linear Walking Progress Bar -->
+<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="39" class="w-full h-1.5 bg-surface-container overflow-hidden" role="progressbar">
+<div class="h-full bg-primary transition-all duration-300 rounded-r-full" style="width: 39%;"></div>
+</div>
+</header>
+<!-- MAIN WALKING ORDER CONTENT -->
+<main class="flex-1 px-margin pt-3 space-y-5">
+<!-- Store Route Hint Pill -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl px-3.5 py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">route</span>
+<span class="font-caption-bold text-caption text-on-surface">Recorrido por góndolas optimizado</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Tucumán</span>
+</div>
+<!-- SECTOR 1: Verdulería (Sector 1 - Entrada) -->
+<section class="space-y-2">
+<div class="sticky top-14 z-30 bg-surface/95 backdrop-blur-sm py-1.5 flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">nutrition</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Verdulería (Sector 1 - Entrada)</h2>
+</div>
+<span class="font-caption-bold text-caption text-primary px-2 py-0.5 rounded-full bg-secondary-container/40">2/2 listos</span>
+</div>
+<!-- Checked item 1 -->
+<article class="bg-surface-container-low/70 border border-outline-variant/30 rounded-xl p-3 flex items-center justify-between gap-3 opacity-75 transition-all">
+<div class="flex items-center gap-3 min-w-0">
+<button aria-label="Desmarcar Cebolla común" class="tap-zone w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface-variant line-through truncate font-medium">Cebolla común × 1 kg</p>
+<p class="font-caption text-caption text-outline">Pesado en balanza</p>
+</div>
+</div>
+<span class="font-price-md text-body-md text-outline line-through whitespace-nowrap">$ 1.100</span>
+</article>
+<!-- Checked item 2 -->
+<article class="bg-surface-container-low/70 border border-outline-variant/30 rounded-xl p-3 flex items-center justify-between gap-3 opacity-75 transition-all">
+<div class="flex items-center gap-3 min-w-0">
+<button aria-label="Desmarcar Papa negra" class="tap-zone w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface-variant line-through truncate font-medium">Papa negra × 2 kg</p>
+<p class="font-caption text-caption text-outline">Bolsa seleccionada</p>
+</div>
+</div>
+<span class="font-price-md text-body-md text-outline line-through whitespace-nowrap">$ 2.300</span>
+</article>
+</section>
+<!-- SECTOR 2: Panadería (Sector 2) -->
+<section class="space-y-2">
+<div class="sticky top-14 z-30 bg-surface/95 backdrop-blur-sm py-1.5 flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">bakery_dining</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Panadería (Sector 2)</h2>
+</div>
+<span class="font-caption-bold text-caption text-primary px-2 py-0.5 rounded-full bg-secondary-container/40">1/1 listo</span>
+</div>
+<!-- Checked item -->
+<article class="bg-surface-container-low/70 border border-outline-variant/30 rounded-xl p-3 flex items-center justify-between gap-3 opacity-75">
+<div class="flex items-center gap-3 min-w-0">
+<button aria-label="Desmarcar Pan francés mignon" class="tap-zone w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface-variant line-through truncate font-medium">Pan francés mignon × 1 kg</p>
+<p class="font-caption text-caption text-outline">Balanza panadería</p>
+</div>
+</div>
+<span class="font-price-md text-body-md text-outline line-through whitespace-nowrap">$ 2.100</span>
+</article>
+</section>
+<!-- SECTOR 3: Almacén (Sector 3 - Pasillos 4 y 5) -->
+<section class="space-y-2.5">
+<div class="sticky top-14 z-30 bg-surface/95 backdrop-blur-sm py-1.5 flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">inventory_2</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Almacén (Pasillos 4 y 5)</h2>
+</div>
+<span class="font-caption-bold text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">1 de 5</span>
+</div>
+<!-- Unchecked 1: Aceite -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Aceite de girasol Natura" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Aceite de girasol Natura 1,5 L</h3>
+<div class="flex items-center gap-2">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: × 2</span>
+<span class="font-caption text-caption text-on-surface-variant">Pasillo 4 · Estante 3</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 6.498</span>
+<span class="font-caption text-caption text-on-surface-variant">$ 3.249 c/u</span>
+</div>
+</div>
+</article>
+<!-- Unchecked 2: Arroz -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Arroz Lucchetti" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Arroz Lucchetti 1 kg</h3>
+<div class="flex items-center gap-2">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: × 1</span>
+<span class="font-caption text-caption text-on-surface-variant">Pasillo 4 · Arroces</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 2.150</span>
+</div>
+</div>
+</article>
+<!-- Unchecked 3: Yerba Playadito -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Yerba Playadito" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Yerba Playadito 1 kg</h3>
+<div class="flex items-center gap-2">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: × 2</span>
+<span class="font-caption text-caption text-on-surface-variant">Pasillo 5 · Cabecera</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 8.380</span>
+<span class="font-caption text-caption text-on-surface-variant">$ 4.190 c/u</span>
+</div>
+</div>
+</article>
+<!-- Unchecked 4: Fideos con PROMO CHIP -->
+<article class="bg-surface-container-lowest border-2 border-primary/20 rounded-xl p-3.5 shadow-sm active:border-primary transition-all relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Fideos Matarazzo" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1.5">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Fideos Matarazzo 500 g</h3>
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: × 3</span>
+<!-- Amber Promo Chip -->
+<span class="inline-flex items-center gap-1 font-caption-bold text-[12px] bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded-full font-semibold">
+<span class="material-symbols-outlined text-[14px]">sell</span>
+                    2da al 70% — ya aplicado
+                  </span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 4.350</span>
+<span class="font-caption text-caption text-on-surface-variant line-through">$ 5.850</span>
+</div>
+</div>
+</article>
+<!-- Checked item at bottom of Sector 3 -->
+<article class="bg-surface-container-low/70 border border-outline-variant/30 rounded-xl p-3 flex items-center justify-between gap-3 opacity-75">
+<div class="flex items-center gap-3 min-w-0">
+<button aria-label="Desmarcar Puré de tomate De la Huerta" class="tap-zone w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface-variant line-through truncate font-medium">Puré de tomate De la Huerta 520 g × 2</p>
+<p class="font-caption text-caption text-outline">Pasillo 4</p>
+</div>
+</div>
+<span class="font-price-md text-body-md text-outline line-through whitespace-nowrap">$ 1.840</span>
+</article>
+</section>
+<!-- SECTOR 4: Lácteos y Refrigerados (Sector 4 - Mural frío) -->
+<section class="space-y-2.5">
+<div class="sticky top-14 z-30 bg-surface/95 backdrop-blur-sm py-1.5 flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">ac_unit</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Lácteos y Frío (Mural)</h2>
+</div>
+<span class="font-caption-bold text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">1 de 3</span>
+</div>
+<!-- Unchecked 1: Leche -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Leche entera La Serenísima" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Leche entera La Serenísima 1 L</h3>
+<div class="flex items-center gap-2">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: × 3</span>
+<span class="font-caption text-caption text-on-surface-variant">Sachet refrigerado</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 3.450</span>
+<span class="font-caption text-caption text-on-surface-variant">$ 1.150 c/u</span>
+</div>
+</div>
+</article>
+<!-- Unchecked 2: Manteca -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Manteca La Serenísima" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Manteca La Serenísima 200 g</h3>
+<div class="flex items-center gap-2">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: × 1</span>
+<span class="font-caption text-caption text-on-surface-variant">Estante mantecas</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 2.190</span>
+</div>
+</div>
+</article>
+<!-- Checked item: Casancrem -->
+<article class="bg-surface-container-low/70 border border-outline-variant/30 rounded-xl p-3 flex items-center justify-between gap-3 opacity-75">
+<div class="flex items-center gap-3 min-w-0">
+<button aria-label="Desmarcar Queso untable Casancrem" class="tap-zone w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface-variant line-through truncate font-medium">Queso untable Casancrem 290 g × 1</p>
+<p class="font-caption text-caption text-outline">Pote tradicional</p>
+</div>
+</div>
+<span class="font-price-md text-body-md text-outline line-through whitespace-nowrap">$ 3.120</span>
+</article>
+</section>
+<!-- SECTOR 5: Carnicería (Sector 5 - Mostrador fondo) -->
+<section class="space-y-2.5">
+<div class="sticky top-14 z-30 bg-surface/95 backdrop-blur-sm py-1.5 flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">set_meal</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Carnicería (Mostrador fondo)</h2>
+</div>
+<span class="font-caption-bold text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">0 de 2</span>
+</div>
+<!-- Unchecked 1: Nalga con chip por kg -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Nalga corte vacuno" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Nalga corte vacuno</h3>
+<div class="flex items-center gap-1.5">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: 1,5 kg</span>
+<span class="font-caption-bold text-[12px] bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded-full">Por kg</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 18.735</span>
+<span class="font-caption text-caption text-on-surface-variant">$ 12.490 / kg</span>
+</div>
+</div>
+</article>
+<!-- Unchecked 2: Pollo -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Pollo fresco entero" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Pollo fresco entero</h3>
+<div class="flex items-center gap-2">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: 3,0 kg</span>
+<span class="font-caption text-caption text-on-surface-variant">Bandeja sellada</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 8.550</span>
+<span class="font-caption text-caption text-on-surface-variant">$ 2.850 / kg</span>
+</div>
+</div>
+</article>
+</section>
+<!-- SECTOR 6: Limpieza y Perfumería (Sector 6 - Pasillos 8 y 9) -->
+<section class="space-y-2.5">
+<div class="sticky top-14 z-30 bg-surface/95 backdrop-blur-sm py-1.5 flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">cleaning_services</span>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Limpieza (Pasillos 8 y 9)</h2>
+</div>
+<span class="font-caption-bold text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">1 de 2</span>
+</div>
+<!-- Unchecked: Lavandina -->
+<article class="bg-surface-container-lowest border border-outline-variant/40 rounded-xl p-3.5 shadow-sm active:border-primary transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 flex-1 min-w-0">
+<button aria-label="Cargar al changuito: Lavandina Ayudín" class="tap-zone w-9 h-9 rounded-full border-2 border-outline hover:border-primary active:scale-90 bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform" type="button">
+</button>
+<div class="min-w-0 space-y-1">
+<h3 class="font-headline-sm text-body-lg font-bold text-on-surface leading-tight">Lavandina Ayudín 1 L</h3>
+<div class="flex items-center gap-2">
+<span class="font-caption-bold text-caption bg-surface-container px-2 py-0.5 rounded-md text-on-surface">Cant: × 2</span>
+<span class="font-caption text-caption text-on-surface-variant">Pasillo 8</span>
+</div>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-primary block font-bold">$ 2.200</span>
+<span class="font-caption text-caption text-on-surface-variant">$ 1.100 c/u</span>
+</div>
+</div>
+</article>
+<!-- Checked item: Magistral -->
+<article class="bg-surface-container-low/70 border border-outline-variant/30 rounded-xl p-3 flex items-center justify-between gap-3 opacity-75">
+<div class="flex items-center gap-3 min-w-0">
+<button aria-label="Desmarcar Detergente Magistral" class="tap-zone w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 text-on-primary" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</button>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface-variant line-through truncate font-medium">Detergente Magistral 500 ml × 1</p>
+<p class="font-caption text-caption text-outline">Pasillo 9</p>
+</div>
+</div>
+<span class="font-price-md text-body-md text-outline line-through whitespace-nowrap">$ 2.450</span>
+</article>
+</section>
+<!-- AT THE END OF LIST: SIN STOCK / NO ESTÁ EN CHANGOMÁS -->
+<section class="pt-2 pb-6 space-y-2">
+<div class="flex items-center gap-2 text-on-surface-variant px-1">
+<span class="material-symbols-outlined text-[18px]">info</span>
+<h2 class="font-caption-bold text-caption text-on-surface-variant font-semibold">No está en ChangoMás (1 producto)</h2>
+</div>
+<article class="border border-dashed border-outline-variant/80 bg-surface-container-low/60 rounded-xl p-3.5 space-y-2.5">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-outline flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">remove_shopping_cart</span>
+</div>
+<div>
+<h3 class="font-body-md-bold text-body-md text-on-surface font-semibold">Queso cremoso Punta del Agua × 1 kg</h3>
+<p class="font-caption text-caption text-outline mt-0.5 leading-snug">Sin stock relevado en esta sucursal (podés buscar sustituto).</p>
+</div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-end">
+<button class="tap-zone inline-flex items-center gap-1.5 px-3 py-1.5 text-primary bg-surface-container-lowest border border-outline-variant/40 rounded-lg font-caption-bold text-caption shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+              Ver sustitutos en góndola
+            </button>
+</div>
+</article>
+</section>
+</main>
+<!-- STICKY BOTTOM BAR (TUCUMÁN IN-STORE HIGH CONTRAST WALKING BAR) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none px-0">
+<div class="w-full max-w-[480px] bg-surface-container-lowest/98 backdrop-blur-md border-t border-outline-variant/40 shadow-[0_-8px_24px_rgba(25,29,25,0.12)] p-margin pointer-events-auto rounded-t-2xl">
+<!-- Live Total Counters -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<div>
+<span class="font-caption text-caption text-on-surface-variant block">En el changuito</span>
+<span class="font-headline-md text-headline-sm text-primary font-bold tracking-tight">$ 71.240</span>
+</div>
+<div class="text-right">
+<span class="font-caption text-caption text-on-surface-variant block">Total lista estimado</span>
+<span class="font-body-md-bold text-body-md text-on-surface font-semibold">$ 186.430</span>
+</div>
+</div>
+<!-- Touch Actions for Walking Hand -->
+<div class="pt-3 grid grid-cols-12 gap-2.5 items-center">
+<!-- Quick secondary action -->
+<button class="col-span-4 tap-zone h-12 px-3 border border-outline-variant/60 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container font-caption-bold text-caption flex items-center justify-center text-center active:scale-95 transition-transform" type="button">
+            Pausar
+          </button>
+<!-- Primary prominent finish button -->
+<button class="col-span-8 tap-zone h-12 px-4 rounded-xl bg-primary hover:bg-[#17603C] text-on-primary font-headline-sm text-body-lg font-bold flex items-center justify-center gap-2 shadow-md active:scale-98 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">shopping_cart_checkout</span>
+<span>¡Terminar y revisar!</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Vanilla Script for Responsive Haptic and Toggle Interaction -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Screen awake toggle simulation
+      const awakeBtn = document.getElementById('screen-awake-btn');
+      let isAwake = true;
+
+      awakeBtn.addEventListener('click', () => {
+        isAwake = !isAwake;
+        const icon = awakeBtn.querySelector('.material-symbols-outlined');
+        const text = awakeBtn.querySelector('span:last-child');
+        
+        if (isAwake) {
+          awakeBtn.classList.remove('opacity-50');
+          text.textContent = 'Activa';
+          icon.textContent = 'wb_sunny';
+        } else {
+          awakeBtn.classList.add('opacity-50');
+          text.textContent = 'Normal';
+          icon.textContent = 'brightness_low';
+        }
+      });
+
+      // Quick checkbox item toggle micro-interaction
+      const checkButtons = document.querySelectorAll('main article button');
+      checkButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          // Subtle tap vibration if device supports navigator.vibrate
+          if ('vibrate' in navigator) {
+            navigator.vibrate(30);
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

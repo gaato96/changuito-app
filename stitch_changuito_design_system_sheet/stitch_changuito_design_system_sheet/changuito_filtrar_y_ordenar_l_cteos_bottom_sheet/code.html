@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Filtrar y ordenar Lácteos</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00522f",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#007233",
+            "on-error": "#ffffff",
+            "surface-dim": "#d8dbd6",
+            "inverse-primary": "#82d8a3",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-tint": "#066c41",
+            "on-secondary": "#ffffff",
+            "tertiary": "#48564f",
+            "on-primary-container": "#aeffca",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "inverse-surface": "#2d312e",
+            "primary": "#006038",
+            "outline": "#6f7a71",
+            "surface": "#f7faf5",
+            "surface-variant": "#e0e3de",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e0e3de",
+            "surface-container-high": "#e6e9e4",
+            "on-surface": "#191d19",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-secondary-fixed": "#00210a",
+            "primary-fixed": "#9ef5be",
+            "on-surface-variant": "#3f4941",
+            "surface-bright": "#f7faf5",
+            "on-secondary-fixed-variant": "#005323",
+            "on-primary": "#ffffff",
+            "outline-variant": "#bec9bf",
+            "primary-fixed-dim": "#82d8a3",
+            "secondary-container": "#92f5a4",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#79db8d",
+            "tertiary-container": "#606e67",
+            "tertiary-fixed": "#d7e6dd",
+            "background": "#f7faf5",
+            "surface-container-low": "#f1f4ef",
+            "primary-container": "#1f7a4d",
+            "secondary": "#006d30",
+            "on-tertiary-fixed": "#111e19",
+            "secondary-fixed": "#95f8a7",
+            "surface-container": "#ecefe9",
+            "inverse-on-surface": "#eff2ec",
+            "on-primary-fixed": "#002110",
+            "on-background": "#191d19"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "0.75rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-tablet": "1.5rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem",
+            "space-lg": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md-bold": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "caption": ["Inter"],
+            "price-md": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "caption-bold": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Custom scrollbar subtle treatment */
+    .sheet-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sheet-scroll::-webkit-scrollbar-thumb {
+      background-color: #bec9bf;
+      border-radius: 9999px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased h-full flex justify-center selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- Desktop wrapper shell max-w-[480px] -->
+<div class="relative w-full max-w-[480px] h-full overflow-hidden bg-surface flex flex-col shadow-2xl">
+<!-- UNDERLYING SCREEN: Category Listing "Lácteos" (Dimmed Backdrop Context) -->
+<!-- TopAppBar from Shared Components Specification -->
+<header class="fixed top-0 left-0 w-full z-10 flex items-center justify-between px-space-lg h-14 max-w-[480px] mx-auto right-0 bg-surface border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-headline-md font-headline-lg font-bold text-primary tracking-tight">Changuito</span>
+</div>
+<button class="text-body-md font-body-md text-on-surface-variant hover:bg-surface-container active:opacity-80 px-2 py-1 rounded transition-colors" type="button">
+        Saltar
+      </button>
+</header>
+<!-- Underlying Content Canvas -->
+<main class="flex-1 pt-16 px-margin pb-20 overflow-y-auto space-y-4">
+<!-- Breadcrumb & Area Badge -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="font-body-md text-body-md font-medium">Categorías</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-body-md-bold text-body-md-bold text-primary">Lácteos</span>
+</div>
+<span class="font-caption-bold text-caption-bold bg-surface-container-high px-2 py-0.5 rounded-full text-on-surface-variant">
+          Tucumán Capital
+        </span>
+</div>
+<!-- Category Heading -->
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Lácteos y Frescos</h1>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">87 productos comparados en 6 supermercados</p>
+</div>
+<!-- Mock Product Cards (Visible under blur/backdrop) -->
+<div class="space-y-3">
+<!-- Mock Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/40 flex gap-3 shadow-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-outline">
+<span class="material-symbols-outlined text-2xl">local_drink</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<div>
+<h4 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Leche Entera Clásica 1L</h4>
+<p class="font-caption text-caption text-on-surface-variant">La Serenísima • Sachet</p>
+</div>
+<span class="font-caption-bold text-caption bg-[#DCFCE7] text-[#15803D] px-2 py-0.5 rounded-full">Ahorro</span>
+</div>
+<div class="mt-2 flex items-baseline justify-between">
+<div>
+<span class="font-price-md text-price-md text-primary">$1.150</span>
+<span class="font-caption text-caption text-outline ml-1">en ChangoMás</span>
+</div>
+<span class="font-caption text-caption line-through text-outline">$1.490</span>
+</div>
+</div>
+</div>
+<!-- Mock Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/40 flex gap-3 shadow-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-outline">
+<span class="material-symbols-outlined text-2xl">egg</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<div>
+<h4 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Yogur Firme Vainilla 190g</h4>
+<p class="font-caption text-caption text-on-surface-variant">Sancor • Pote individual</p>
+</div>
+<span class="font-caption-bold text-caption bg-[#DCFCE7] text-[#15803D] px-2 py-0.5 rounded-full">2x1</span>
+</div>
+<div class="mt-2 flex items-baseline justify-between">
+<div>
+<span class="font-price-md text-price-md text-primary">$680</span>
+<span class="font-caption text-caption text-outline ml-1">en Vea</span>
+</div>
+<span class="font-caption text-caption line-through text-outline">$940</span>
+</div>
+</div>
+</div>
+<!-- Mock Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/40 flex gap-3 shadow-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-outline">
+<span class="material-symbols-outlined text-2xl">lunch_dining</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-start justify-between gap-1">
+<div>
+<h4 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Queso Cremoso Tradicional</h4>
+<p class="font-caption text-caption text-on-surface-variant">Ilolay • Porción fraccionada kg</p>
+</div>
+</div>
+<div class="mt-2 flex items-baseline justify-between">
+<div>
+<span class="font-price-md text-price-md text-on-surface">$5.490</span>
+<span class="font-caption text-caption text-outline ml-1">en Carrefour</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BACKDROP DIMMER / OVERLAY -->
+<div aria-hidden="true" class="absolute inset-0 bg-inverse-surface/60 backdrop-blur-[2px] z-40 transition-opacity duration-200"></div>
+<!-- BOTTOM SHEET CONTAINER -->
+<div class="absolute inset-x-0 bottom-0 z-50 rounded-t-[28px] bg-surface-container-lowest shadow-2xl flex flex-col max-h-[777px] border-t border-outline-variant/30 animate-in slide-in-from-bottom duration-300">
+<!-- SHEET DRAG HANDLE & HEADER -->
+<div class="pt-3 pb-2 px-margin border-b border-surface-variant flex-shrink-0">
+<!-- Grabber bar pill -->
+<div aria-hidden="true" class="w-12 h-1.5 bg-outline-variant rounded-full mx-auto mb-3"></div>
+<!-- Sheet Header Bar -->
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Filtrar y ordenar</h2>
+<span class="bg-secondary-container/60 text-on-secondary-fixed font-caption-bold text-caption px-2 py-0.5 rounded-full">
+              Lácteos
+            </span>
+</div>
+<!-- Close button -->
+<button aria-label="Cerrar filtros" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- SCROLLABLE CONTENT BODY -->
+<div class="sheet-scroll flex-1 overflow-y-auto px-margin py-4 space-y-6">
+<!-- 1. ORDENAR POR SECTION -->
+<section aria-labelledby="heading-sort">
+<div class="flex items-center justify-between mb-2.5">
+<h3 class="font-headline-sm text-[16px] text-on-surface font-semibold flex items-center gap-1.5" id="heading-sort">
+<span class="material-symbols-outlined text-primary text-[19px]">swap_vert</span>
+              Ordenar por
+            </h3>
+<span class="font-caption text-caption text-on-surface-variant">Recomendado</span>
+</div>
+<div aria-label="Criterio de orden" class="space-y-1.5" role="radiogroup">
+<!-- Option 1: Unselected -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<span class="font-body-md text-body-md text-on-surface">Precio más bajo</span>
+<input class="h-5 w-5 text-primary border-outline focus:ring-primary focus:ring-offset-0" name="sort_order" type="radio" value="price_asc"/>
+</label>
+<!-- Option 2: SELECTED (Precio por kg/L más bajo) -->
+<label class="flex items-center justify-between p-3 rounded-xl border-2 border-primary-container bg-surface-container-low transition-colors cursor-pointer shadow-xs">
+<div class="flex flex-col">
+<span class="font-body-md-bold text-body-md-bold text-primary">Precio por kg / litro más bajo</span>
+<span class="font-caption text-caption text-on-surface-variant">Ideal para comparar marcas y tamaños reales</span>
+</div>
+<div class="relative flex items-center justify-center ml-2">
+<input checked="" class="h-5 w-5 text-primary-container border-primary-container focus:ring-primary-container focus:ring-offset-0" name="sort_order" type="radio" value="unit_price"/>
+</div>
+</label>
+<!-- Option 3: Unselected -->
+<label class="flex items-center justify-between p-3 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container-low transition-colors cursor-pointer">
+<span class="font-body-md text-body-md text-on-surface">Nombre A–Z</span>
+<input class="h-5 w-5 text-primary border-outline focus:ring-primary focus:ring-offset-0" name="sort_order" type="radio" value="name_asc"/>
+</label>
+</div>
+</section>
+<!-- Divider Line -->
+<hr class="border-t border-surface-variant"/>
+<!-- 2. MARCAS SECTION -->
+<section aria-labelledby="heading-brands">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-headline-sm text-[16px] text-on-surface font-semibold flex items-center gap-1.5" id="heading-brands">
+<span class="material-symbols-outlined text-primary text-[19px]">sell</span>
+              Marca
+            </h3>
+<span class="font-caption-bold text-caption-bold text-primary bg-surface-container-low px-2 py-0.5 rounded-full">
+              2 seleccionadas
+            </span>
+</div>
+<div class="space-y-2">
+<!-- Brand Item 1 (Checked) -->
+<label class="flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<input checked="" class="rounded text-primary-container focus:ring-primary border-outline h-5 w-5 rounded-md" type="checkbox"/>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">La Serenísima</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">48</span>
+</label>
+<!-- Brand Item 2 (Checked) -->
+<label class="flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<input checked="" class="rounded text-primary-container focus:ring-primary border-outline h-5 w-5 rounded-md" type="checkbox"/>
+<span class="font-body-md-bold text-body-md-bold text-on-surface">Sancor</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">41</span>
+</label>
+<!-- Brand Item 3 (Unchecked) -->
+<label class="flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="rounded text-primary-container focus:ring-primary border-outline h-5 w-5 rounded-md" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Ilolay</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">22</span>
+</label>
+<!-- Brand Item 4 (Unchecked) -->
+<label class="flex items-center justify-between p-2.5 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="rounded text-primary-container focus:ring-primary border-outline h-5 w-5 rounded-md" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface">Tregar</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">19</span>
+</label>
+<!-- Expand Brands Action -->
+<button class="mt-1 inline-flex items-center gap-1 font-body-md-bold text-caption-bold text-primary hover:underline pt-1" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+              Ver todas (14 marcas más)
+            </button>
+</div>
+</section>
+<!-- Divider Line -->
+<hr class="border-t border-surface-variant"/>
+<!-- 3. SUPERMERCADOS SECTION -->
+<section aria-labelledby="heading-markets">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="font-headline-sm text-[16px] text-on-surface font-semibold flex items-center gap-1.5" id="heading-markets">
+<span class="material-symbols-outlined text-primary text-[19px]">storefront</span>
+              Supermercados en Tucumán
+            </h3>
+<button class="font-caption-bold text-caption text-primary hover:underline" type="button">
+              Todos (6)
+            </button>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mb-3">
+            Mostrando precios de tus sucursales elegidas en Gran San Miguel:
+          </p>
+<!-- Toggle chips grid -->
+<div aria-label="Supermercados activos" class="grid grid-cols-2 gap-2" role="group">
+<!-- ChangoMás -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl border border-primary bg-surface-container-low text-primary text-left transition-all shadow-xs" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#1F7A4D] flex-shrink-0" title="ChangoMás"></span>
+<span class="font-body-md-bold text-caption-bold text-on-surface truncate">ChangoMás</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+</button>
+<!-- Vea -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl border border-primary bg-surface-container-low text-primary text-left transition-all shadow-xs" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A] flex-shrink-0" title="Vea"></span>
+<span class="font-body-md-bold text-caption-bold text-on-surface truncate">Vea</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+</button>
+<!-- Carrefour -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl border border-primary bg-surface-container-low text-primary text-left transition-all shadow-xs" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#4E6A8C] flex-shrink-0" title="Carrefour"></span>
+<span class="font-body-md-bold text-caption-bold text-on-surface truncate">Carrefour</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+</button>
+<!-- Comodín -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl border border-primary bg-surface-container-low text-primary text-left transition-all shadow-xs" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#D97706] flex-shrink-0" title="Comodín"></span>
+<span class="font-body-md-bold text-caption-bold text-on-surface truncate">Comodín</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+</button>
+<!-- La Anónima -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl border border-primary bg-surface-container-low text-primary text-left transition-all shadow-xs" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#DC2626] flex-shrink-0" title="La Anónima"></span>
+<span class="font-body-md-bold text-caption-bold text-on-surface truncate">La Anónima</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+</button>
+<!-- Jumbo -->
+<button class="flex items-center justify-between px-3 py-2.5 rounded-xl border border-primary bg-surface-container-low text-primary text-left transition-all shadow-xs" type="button">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#059669] flex-shrink-0" title="Jumbo"></span>
+<span class="font-body-md-bold text-caption-bold text-on-surface truncate">Jumbo</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+</button>
+</div>
+</section>
+<!-- Divider Line -->
+<hr class="border-t border-surface-variant"/>
+<!-- 4. PROMOCIONES SECTION -->
+<section aria-labelledby="heading-promos" class="pb-2">
+<div class="flex items-center justify-between">
+<div class="pr-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">percent</span>
+<h3 class="font-headline-sm text-[16px] text-on-surface font-semibold" id="heading-promos">
+                  Solo con promociones
+                </h3>
+</div>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5">
+                Ver solo productos con 2da unidad al 70%, 3x2 o reintegros bancarios activos hoy
+              </p>
+</div>
+<!-- iOS Style Active Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-7 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant/40 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</section>
+</div>
+<!-- STICKY FOOTER ACTIONS -->
+<div class="p-margin bg-surface-container-lowest border-t border-outline-variant/30 flex items-center gap-3 shadow-[0_-4px_16px_rgba(22,26,23,0.06)] flex-shrink-0 pb-6">
+<!-- Clear Action -->
+<button class="font-body-md-bold text-body-md text-on-surface-variant hover:text-on-surface px-4 py-3.5 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" type="button">
+          Limpiar
+        </button>
+<!-- Apply CTA -->
+<button class="flex-1 bg-primary-container hover:bg-[#17603c] active:bg-[#124d30] text-on-primary font-headline-sm text-[16px] font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all active:scale-[0.99]" type="button">
+<span>Ver 87 productos</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

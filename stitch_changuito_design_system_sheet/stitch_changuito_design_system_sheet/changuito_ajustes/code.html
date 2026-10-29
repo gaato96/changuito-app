@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Ajustes — Changuito Tucumán</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#191d19",
+            "primary-container": "#1f7a4d",
+            "surface-container": "#ecefe9",
+            "outline-variant": "#bec9bf",
+            "secondary-fixed-dim": "#79db8d",
+            "inverse-surface": "#2d312e",
+            "surface-variant": "#e0e3de",
+            "on-secondary": "#ffffff",
+            "error": "#ba1a1a",
+            "background": "#f7faf5",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-secondary-container": "#007233",
+            "tertiary": "#48564f",
+            "on-secondary-fixed-variant": "#005323",
+            "surface": "#f7faf5",
+            "primary-fixed": "#9ef5be",
+            "surface-tint": "#066c41",
+            "surface-bright": "#f7faf5",
+            "on-tertiary-fixed": "#111e19",
+            "inverse-on-surface": "#eff2ec",
+            "outline": "#6f7a71",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#e0e3de",
+            "tertiary-container": "#606e67",
+            "secondary-fixed": "#95f8a7",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#92f5a4",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#aeffca",
+            "secondary": "#006d30",
+            "primary-fixed-dim": "#82d8a3",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-primary-fixed": "#002110",
+            "on-background": "#191d19",
+            "inverse-primary": "#82d8a3",
+            "tertiary-fixed": "#d7e6dd",
+            "on-surface-variant": "#3f4941",
+            "surface-container-low": "#f1f4ef",
+            "on-tertiary-container": "#e1f0e7",
+            "surface-container-high": "#e6e9e4",
+            "tertiary-fixed-dim": "#bbcac1",
+            "primary": "#006038",
+            "on-secondary-fixed": "#00210a",
+            "surface-dim": "#d8dbd6",
+            "on-primary-fixed-variant": "#00522f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": [
+              "Plus Jakarta Sans"
+            ],
+            "body-md": [
+              "Inter"
+            ],
+            "display": [
+              "Plus Jakarta Sans"
+            ],
+            "display-mobile": [
+              "Plus Jakarta Sans"
+            ],
+            "price-md": [
+              "Inter"
+            ],
+            "caption": [
+              "Inter"
+            ],
+            "headline-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "price-lg": [
+              "Inter"
+            ],
+            "body-lg": [
+              "Inter"
+            ],
+            "body-md-bold": [
+              "Inter"
+            ],
+            "caption-bold": [
+              "Inter"
+            ],
+            "headline-sm": [
+              "Plus Jakarta Sans"
+            ]
+          },
+          "fontSize": {
+            "headline-md": [
+              "20px",
+              {
+                "lineHeight": "26px",
+                "fontWeight": "600"
+              }
+            ],
+            "body-md": [
+              "15px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "display": [
+              "32px",
+              {
+                "lineHeight": "38px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "800"
+              }
+            ],
+            "display-mobile": [
+              "28px",
+              {
+                "lineHeight": "34px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "800"
+              }
+            ],
+            "price-md": [
+              "17px",
+              {
+                "lineHeight": "22px",
+                "fontWeight": "700"
+              }
+            ],
+            "caption": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-lg": [
+              "24px",
+              {
+                "lineHeight": "30px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "700"
+              }
+            ],
+            "price-lg": [
+              "22px",
+              {
+                "lineHeight": "26px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-lg": [
+              "17px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "body-md-bold": [
+              "15px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "600"
+              }
+            ],
+            "caption-bold": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-sm": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbar for a clean app feel */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen antialiased flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Shell (Max-width 480px, optimized for 390px viewport) -->
+<div class="w-full max-w-[480px] min-h-screen bg-surface flex flex-col relative shadow-xl pb-28">
+<!-- Mobile OS Status Bar -->
+<header class="w-full pt-3 px-6 pb-2 flex items-center justify-between text-on-surface select-none z-50">
+<span class="text-caption-bold font-caption-bold text-on-surface tracking-tight">09:41</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</header>
+<!-- Top App Bar (Shared Components JSON Anchor aligned) -->
+<div class="w-full px-space-lg pt-1 pb-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary tracking-tight">Changuito</span>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-caption-bold font-caption-bold bg-surface-container-high text-primary">
+        Tucumán
+      </span>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 px-space-lg space-y-6">
+<!-- Header Section -->
+<section class="pt-1 pb-1">
+<h1 class="text-display-mobile font-display-mobile text-on-surface tracking-tight">Ajustes</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1.5 leading-snug">
+          Configurá tu zona, sucursales y preferencias guardadas en este dispositivo.
+        </p>
+</section>
+<!-- GROUP 1: MIS SUCURSALES -->
+<section>
+<div class="px-1 mb-2 flex items-center justify-between">
+<h2 class="text-caption-bold font-caption-bold text-on-surface-variant tracking-wider uppercase text-[11px]">
+            Mis sucursales
+          </h2>
+<span class="text-caption font-caption text-primary">Yerba Buena</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Row 1: Vea -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full shrink-0 bg-[#B4604A]"></span>
+<div class="truncate">
+<p class="text-body-md-bold font-body-md-bold text-on-surface truncate">Vea</p>
+<p class="text-caption font-caption text-on-surface-variant truncate">Yerba Buena (Av. Aconquija)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline shrink-0 ml-2" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Row 2: La Anónima -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full shrink-0 bg-[#4E6A8C]"></span>
+<div class="truncate">
+<p class="text-body-md-bold font-body-md-bold text-on-surface truncate">La Anónima</p>
+<p class="text-caption font-caption text-on-surface-variant truncate">Zona Norte</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline shrink-0 ml-2" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Row 3: Jumbo -->
+<div class="w-full px-4 py-3.5 flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-3 min-w-0">
+<span class="w-2.5 h-2.5 rounded-full shrink-0 bg-[#1F7A4D]"></span>
+<div class="truncate">
+<p class="text-body-md-bold font-body-md-bold text-on-surface truncate">Jumbo</p>
+<p class="text-caption font-caption text-on-surface-variant truncate">Yerba Buena (Shopping Portas)</p>
+</div>
+</div>
+<span class="text-caption font-caption text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full shrink-0 text-[12px]">
+              Única sucursal
+            </span>
+</div>
+<!-- Row 4: Cambiar mi zona -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+</div>
+<span class="text-body-md-bold font-body-md-bold text-primary">Cambiar mi zona</span>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="text-caption font-caption text-on-surface-variant">Yerba Buena</span>
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+<!-- GROUP 2: PREFERENCIAS -->
+<section>
+<div class="px-1 mb-2">
+<h2 class="text-caption-bold font-caption-bold text-on-surface-variant tracking-wider uppercase text-[11px]">
+            Preferencias
+          </h2>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Row 1: Aspecto visual (Segmented Control) -->
+<div class="p-4 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-body-md-bold font-body-md-bold text-on-surface">Aspecto visual</p>
+<p class="text-caption font-caption text-on-surface-variant">Modo de pantalla para ahorrar batería</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="palette">palette</span>
+</div>
+<!-- Segmented Control Pill -->
+<div class="bg-surface-container p-1 rounded-xl flex items-center text-center">
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container-lowest text-primary text-caption-bold font-caption-bold shadow-sm transition-all duration-150 flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="light_mode">light_mode</span>
+                Claro
+              </button>
+<button class="flex-1 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface text-caption font-caption transition-all duration-150 flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="dark_mode">dark_mode</span>
+                Oscuro
+              </button>
+<button class="flex-1 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface text-caption font-caption transition-all duration-150 flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="brightness_auto">brightness_auto</span>
+                Auto
+              </button>
+</div>
+</div>
+<!-- Row 2: Ahorro mínimo para dividir changuito -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="min-w-0 pr-2">
+<p class="text-body-md-bold font-body-md-bold text-on-surface truncate">Ahorro para dividir en 2 súper</p>
+<p class="text-caption font-caption text-on-surface-variant truncate">Te avisamos cuando dividir supere este valor</p>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="text-caption-bold font-caption-bold text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-md">$ 1.000 o 3%</span>
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+</div>
+</section>
+<!-- GROUP 3: SUPERMERCADOS -->
+<section>
+<div class="px-1 mb-2">
+<h2 class="text-caption-bold font-caption-bold text-on-surface-variant tracking-wider uppercase text-[11px]">
+            Supermercados
+          </h2>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Row 1: Súpers incluidos -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div>
+<p class="text-body-md-bold font-body-md-bold text-on-surface">Súpers incluidos en Tucumán</p>
+<p class="text-caption font-caption text-on-surface-variant">Carrefour, Vea, ChangoMás, Jumbo, Luque</p>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="text-caption-bold font-caption-bold text-primary bg-[#DCFCE7] text-[#15803D] px-2.5 py-0.5 rounded-full text-[12px]">
+                6 cadenas
+              </span>
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+<!-- Row 2: Próximamente en relevamiento -->
+<div class="w-full px-4 py-3.5 flex items-center justify-between bg-surface-container-lowest">
+<div class="min-w-0 pr-2">
+<div class="flex items-center gap-2">
+<p class="text-body-md-bold font-body-md-bold text-on-surface">Próximamente en relevamiento</p>
+</div>
+<p class="text-caption font-caption text-on-surface-variant truncate">Gómez Pardo, Aledo, El Marqués, Capo</p>
+</div>
+<span class="text-caption-bold font-caption-bold text-tertiary bg-surface-container px-2 py-0.5 rounded-full text-[11px] shrink-0 whitespace-nowrap">
+              En preparación
+            </span>
+</div>
+</div>
+</section>
+<!-- GROUP 4: INFORMACIÓN Y TRANSPARENCIA -->
+<section>
+<div class="px-1 mb-2">
+<h2 class="text-caption-bold font-caption-bold text-on-surface-variant tracking-wider uppercase text-[11px]">
+            Información y transparencia
+          </h2>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Row 1: Estado precios -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+</div>
+<span class="text-body-md font-body-md text-on-surface">Estado de los precios</span>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="text-caption font-caption text-on-surface-variant">Hoy 08:30</span>
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</button>
+<!-- Row 2: Fuentes y licencias SEPA -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+</div>
+<span class="text-body-md font-body-md text-on-surface">Fuentes y licencias (SEPA)</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Row 3: Aviso legal y defensa del consumidor -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="gavel">gavel</span>
+</div>
+<span class="text-body-md font-body-md text-on-surface">Aviso legal y consumidor</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Row 4: Acerca de Changuito -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="info">info</span>
+</div>
+<span class="text-body-md font-body-md text-on-surface">Acerca de Changuito</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- GROUP 5: DATOS Y DISPOSITIVO -->
+<section>
+<div class="px-1 mb-2">
+<h2 class="text-caption-bold font-caption-bold text-on-surface-variant tracking-wider uppercase text-[11px]">
+            Datos y dispositivo
+          </h2>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Row 1: Instalar la app -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors duration-150 active:bg-surface-container" type="button">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-xl bg-primary-fixed/50 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="install_mobile">install_mobile</span>
+</div>
+<div class="truncate">
+<p class="text-body-md-bold font-body-md-bold text-on-surface truncate">Instalar en la pantalla de inicio</p>
+<p class="text-caption font-caption text-on-surface-variant truncate">Accedé más rápido sin abrir el navegador</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px] shrink-0" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Row 2: Borrar datos locales (Destructive) -->
+<button class="w-full px-4 py-3.5 flex items-center justify-between text-left hover:bg-error-container/20 transition-colors duration-150 active:bg-error-container/40" type="button">
+<div class="flex items-center gap-3 min-w-0 pr-2">
+<div class="w-8 h-8 rounded-xl bg-error-container flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="delete_outline">delete_outline</span>
+</div>
+<div class="truncate">
+<p class="text-body-md-bold font-body-md-bold text-error truncate">Borrar datos de este teléfono</p>
+<p class="text-caption font-caption text-on-surface-variant truncate">Elimina listas y sucursales en caché</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-error/60 text-[20px] shrink-0" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- App Signature Footer -->
+<footer class="pt-4 pb-6 text-center space-y-1 select-none">
+<div class="inline-flex items-center gap-1.5 text-caption-bold font-caption-bold text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Changuito v1.0 · Hecho en Tucumán</span>
+</div>
+<p class="text-caption font-caption text-on-surface-variant">
+          Gratis, sin publicidad y sin registrar cuentas.
+        </p>
+<p class="text-caption font-caption text-outline text-[12px] flex items-center justify-center gap-1 pt-0.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="lock">lock</span>
+          Tus datos nunca salen de tu teléfono.
+        </p>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (Persistent Mobile PWA, 64px, safe area aware) -->
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-[480px] mx-auto bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(22,26,23,0.06)] border-t border-outline-variant/30 px-3 pt-2 pb-5 z-50 flex items-center justify-around">
+<!-- Tab 1: Inicio -->
+<button class="flex flex-col items-center justify-center w-16 py-1 text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="storefront">storefront</span>
+<span class="text-caption font-caption text-[11px] mt-0.5">Inicio</span>
+</button>
+<!-- Tab 2: Buscar -->
+<button class="flex flex-col items-center justify-center w-16 py-1 text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="search">search</span>
+<span class="text-caption font-caption text-[11px] mt-0.5">Buscar</span>
+</button>
+<!-- Tab 3: Listas (With Badge) -->
+<button class="flex flex-col items-center justify-center w-16 py-1 text-on-surface-variant hover:text-on-surface transition-colors relative active:scale-95" type="button">
+<div class="relative inline-flex">
+<span class="material-symbols-outlined text-[22px]" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span class="absolute -top-1 -right-2 bg-primary text-on-primary text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center border-2 border-surface-container-lowest">
+            2
+          </span>
+</div>
+<span class="text-caption font-caption text-[11px] mt-0.5">Listas</span>
+</button>
+<!-- Tab 4: Ajustes (ACTIVE) -->
+<button class="flex flex-col items-center justify-center w-16 py-1 text-primary active:scale-95" type="button">
+<div class="w-12 h-7 rounded-full bg-primary-fixed/60 flex items-center justify-center text-primary mb-0.5 transition-all">
+<span class="material-symbols-outlined text-[22px] fill-icon" data-icon="settings" style="font-variation-settings: 'FILL' 1;">settings</span>
+</div>
+<span class="text-caption-bold font-caption-bold text-[11px] text-primary">Ajustes</span>
+</button>
+</nav>
+</div>
+</body></html>

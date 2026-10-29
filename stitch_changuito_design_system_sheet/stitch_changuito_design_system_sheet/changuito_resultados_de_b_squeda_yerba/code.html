@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background text-on-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Comparador de Precios en Tucumán</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with CDN & Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "on-surface": "#191d19",
+            "primary-fixed": "#9ef5be",
+            "secondary-fixed": "#95f8a7",
+            "on-secondary-fixed-variant": "#005323",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#00522f",
+            "surface-container-low": "#f1f4ef",
+            "on-error-container": "#93000a",
+            "background": "#f7faf5",
+            "surface-bright": "#f7faf5",
+            "on-tertiary-container": "#e1f0e7",
+            "secondary": "#006d30",
+            "on-tertiary-fixed": "#111e19",
+            "outline": "#6f7a71",
+            "error": "#ba1a1a",
+            "secondary-container": "#92f5a4",
+            "tertiary-fixed-dim": "#bbcac1",
+            "on-primary-container": "#aeffca",
+            "on-secondary-fixed": "#00210a",
+            "surface": "#f7faf5",
+            "primary-container": "#1f7a4d",
+            "surface-container": "#ecefe9",
+            "on-secondary-container": "#007233",
+            "surface-dim": "#d8dbd6",
+            "on-surface-variant": "#3f4941",
+            "surface-variant": "#e0e3de",
+            "inverse-surface": "#2d312e",
+            "outline-variant": "#bec9bf",
+            "surface-tint": "#066c41",
+            "surface-container-high": "#e6e9e4",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#82d8a3",
+            "tertiary": "#48564f",
+            "tertiary-fixed": "#d7e6dd",
+            "tertiary-container": "#606e67",
+            "primary": "#006038",
+            "primary-fixed-dim": "#82d8a3",
+            "secondary-fixed-dim": "#79db8d",
+            "surface-container-highest": "#e0e3de",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#002110",
+            "inverse-on-surface": "#eff2ec",
+            "on-secondary": "#ffffff",
+            "on-background": "#191d19",
+            "on-tertiary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-md": "0.75rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "caption-bold": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"],
+            "body-md": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "caption": ["Inter"]
+          },
+          "fontSize": {
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+    }
+    /* Hide scrollbars for pill overflow while keeping tactile pan */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen font-body-md text-on-surface antialiased flex flex-col justify-between">
+<!-- Mobile Shell Wrapper (Constrained 390px-480px) -->
+<div class="w-full max-w-[480px] mx-auto min-h-screen bg-background relative flex flex-col pb-24 shadow-sm">
+<!-- Top App Bar Component (Source of Truth mapped) -->
+<header class="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-space-lg h-14 max-w-[480px] mx-auto right-0 bg-surface text-primary shadow-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-headline-md font-headline-lg font-bold text-primary tracking-tight">Changuito</span>
+</div>
+<button aria-label="Saltar navegación" class="text-on-surface-variant font-body-md text-body-md hover:bg-surface-container transition-colors duration-150 active:opacity-80 px-2 py-1 rounded">
+        Saltar
+      </button>
+</header>
+<!-- Header Spacer -->
+<div class="h-14"></div>
+<!-- Sticky Subheader & Search Container -->
+<section class="sticky top-14 z-30 bg-surface/95 backdrop-blur-md px-margin pt-3 pb-2 border-b border-outline-variant/20 shadow-xs">
+<!-- Search Input Container -->
+<div class="relative flex items-center w-full">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</div>
+<input aria-label="Buscar producto o marca" class="w-full h-12 pl-10 pr-11 bg-surface-container text-on-surface font-body-md text-body-md rounded-xl border border-transparent focus:border-primary focus:bg-surface-container-lowest focus:outline-none transition-all shadow-none" placeholder="Buscá producto o marca..." type="text" value="yerba"/>
+<!-- Clear "X" action -->
+<button aria-label="Borrar búsqueda" class="absolute right-1.5 w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-on-surface rounded-full transition-colors active:opacity-70">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Result Count & Location Badge -->
+<div class="flex items-center justify-between mt-2.5 px-0.5">
+<div class="flex items-center gap-1.5">
+<span class="text-caption font-caption text-on-surface-variant">128 resultados en Gran Tucumán</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-caption-bold text-caption-bold">
+<span class="material-symbols-outlined text-secondary" data-icon="location_on" style="font-size: 14px;">location_on</span>
+<span>Zona: Yerba Buena</span>
+</div>
+</div>
+<!-- Horizontal Scrollable Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-2.5 pb-1 -mx-margin px-margin">
+<!-- 1. Active sort pill -->
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant border border-secondary font-caption-bold text-caption-bold shrink-0 active:scale-95 transition-transform">
+<span>Ordenar: Precio por kg</span>
+<span class="material-symbols-outlined" data-icon="arrow_drop_down" style="font-size: 16px;">arrow_drop_down</span>
+</button>
+<!-- 2. Filter pill Marca -->
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant border border-outline-variant/30 font-caption font-caption shrink-0 hover:bg-surface-container-high transition-colors active:scale-95">
+<span>Marca</span>
+<span class="material-symbols-outlined" data-icon="arrow_drop_down" style="font-size: 16px;">arrow_drop_down</span>
+</button>
+<!-- 3. Filter pill Tamaño -->
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant border border-outline-variant/30 font-caption font-caption shrink-0 hover:bg-surface-container-high transition-colors active:scale-95">
+<span>Tamaño</span>
+<span class="material-symbols-outlined" data-icon="arrow_drop_down" style="font-size: 16px;">arrow_drop_down</span>
+</button>
+<!-- 4. Toggle pill Con promo -->
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface border border-outline-variant/30 font-caption-bold text-caption-bold shrink-0 hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-primary" data-icon="local_offer" style="font-size: 16px;">local_offer</span>
+<span>Con promo</span>
+</button>
+<!-- 5. Filter pill Supermercado -->
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant border border-outline-variant/30 font-caption font-caption shrink-0 hover:bg-surface-container-high transition-colors active:scale-95">
+<span>Supermercado</span>
+<span class="material-symbols-outlined" data-icon="arrow_drop_down" style="font-size: 16px;">arrow_drop_down</span>
+</button>
+</div>
+</section>
+<!-- Main Content: Vertical Product Cards List -->
+<main class="flex-1 px-margin pt-3 pb-6 flex flex-col gap-3.5">
+<!-- Card 1: Best price highlight (Playadito 1 kg) -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-3.5 flex flex-col gap-3 shadow-xs relative overflow-hidden">
+<div class="flex items-start gap-3">
+<!-- Thumbnail with brand banner -->
+<div class="relative w-16 h-16 rounded-lg bg-surface-container-low shrink-0 flex items-center justify-center border border-outline-variant/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean studio product package of Argentine yerba mate Playadito in warm yellow and red packaging resting on a minimalist surface with subtle soft shadows under bright commercial studio lighting representing authentic grocery stock." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxtumBUlPdWpMB4y2GbsxmxTqgdb3D5g5ikWggq_7FKdXZrjMsJreRonRRGhnFGE6PljGPUP8pPXVhillClF8hUWGL4yuMFJnsgbc0UYy8EM9SMu_aYNIJeV1nARFHMTiH6BoVI9NU0dAmQ1cKQkYt2IxManWP5Id3IOc9-NNT6no1xlywWZa4vxtABzUY57Vg1T6IVJQ3Xn_HAB_dMZejvfaIQXBQ06AIo0UT2Lw"/>
+<span class="absolute bottom-0 inset-x-0 bg-amber-500/90 text-white text-[9px] font-bold text-center py-0.5 leading-none">1 KG</span>
+</div>
+<!-- Product Details -->
+<div class="flex-1 min-w-0 pr-8">
+<span class="text-caption font-caption text-on-surface-variant block leading-tight">Playadito · Tradicional</span>
+<h2 class="text-body-md-bold font-body-md-bold text-on-surface leading-snug mt-0.5 truncate">
+              Yerba mate Playadito con palo 1 kg
+            </h2>
+<p class="text-caption font-caption text-on-surface-variant mt-0.5">$ 4.890 / kg</p>
+</div>
+<!-- Quick Action Add Button (min 48x48 touch boundary) -->
+<button aria-label="Agregar Yerba mate Playadito con palo 1 kg a lista" class="absolute top-2.5 right-2.5 w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-secondary-fixed text-primary active:scale-90 transition-all border border-outline-variant/40" title="Agregar a lista">
+<span class="material-symbols-outlined font-bold" data-icon="add">add</span>
+</button>
+</div>
+<!-- Pricing & Store Badge Row -->
+<div class="pt-2 border-t border-outline-variant/20 flex flex-wrap items-end justify-between gap-1">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-price-lg font-price-lg text-on-surface font-bold tracking-tight">$ 4.890</span>
+</div>
+<!-- Lowest price indicator chip -->
+<div class="inline-flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span class="text-caption-bold font-caption-bold text-primary">en Comodín · el más barato</span>
+</div>
+</div>
+<!-- Supermarket availability chip with indicator dots -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/30 text-caption font-caption text-on-surface">
+<span class="font-caption-bold text-caption-bold">6 supers</span>
+<div class="flex items-center gap-1 ml-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0055A5]" title="Carrefour"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#008542]" title="ChangoMás"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E31B23]" title="Comodín"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]" title="Vea"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E20613]" title="Jumbo"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F39200]" title="La Anónima"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: Promo highlight (Taragüí 1 kg) -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-3.5 flex flex-col gap-3 shadow-xs relative overflow-hidden">
+<div class="flex items-start gap-3">
+<!-- Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-surface-container-low shrink-0 flex items-center justify-center border border-outline-variant/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Argentine Yerba Mate Taragüí blue and red packet package photographed in an authentic grocery catalog setup with crisp clean background and uniform soft diffuse lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWA92GRXHVZOooc2io7TGqY-JobSKLx_Ay2TKKLfY0gn1zEkacKonMDso4qy8-VOkp8y3W0Rzo-I7oQROPRwQ4tUmhSUYuJLr2SXOZLOPkO6V1gPVFNM8mFHaxkxv7kP4np_8rOlShVzuEW_jteow960pAidUQM_9AiY7KJp6WHhb9f4aKtqGzpX7451-sx9IWPTtB6jrPQ5eAyk85KCVF_ny05FMhZZ_oaXbs_Xw"/>
+<span class="absolute bottom-0 inset-x-0 bg-blue-600/90 text-white text-[9px] font-bold text-center py-0.5 leading-none">1 KG</span>
+</div>
+<!-- Product Details -->
+<div class="flex-1 min-w-0 pr-8">
+<div class="flex items-center gap-2">
+<span class="text-caption font-caption text-on-surface-variant block leading-tight">Taragüí · Sin TACC</span>
+<!-- Promo chip in warm badge -->
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-amber-100 text-amber-900 border border-amber-200">
+                2da al 50%
+              </span>
+</div>
+<h2 class="text-body-md-bold font-body-md-bold text-on-surface leading-snug mt-0.5 truncate">
+              Yerba mate Taragüí 4 Flex 1 kg
+            </h2>
+<p class="text-caption font-caption text-on-surface-variant mt-0.5">$ 5.120 / kg</p>
+</div>
+<!-- Add Button -->
+<button aria-label="Agregar Yerba mate Taragüí 4 Flex 1 kg a lista" class="absolute top-2.5 right-2.5 w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-secondary-fixed text-primary active:scale-90 transition-all border border-outline-variant/40" title="Agregar a lista">
+<span class="material-symbols-outlined font-bold" data-icon="add">add</span>
+</button>
+</div>
+<!-- Pricing & Branch Breakdown -->
+<div class="pt-2 border-t border-outline-variant/20 flex flex-wrap items-end justify-between gap-1">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-price-lg font-price-lg text-on-surface font-bold tracking-tight">$ 5.120</span>
+</div>
+<p class="text-caption font-caption text-on-surface-variant mt-0.5">
+              en <span class="font-semibold text-on-surface">Vea</span> <span class="text-secondary font-medium">(con promo $ 3.840 c/u)</span>
+</p>
+</div>
+<!-- Availability chip -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/30 text-caption font-caption text-on-surface">
+<span class="font-caption-bold text-caption-bold">6 supers</span>
+<div class="flex items-center gap-1 ml-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0055A5]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#008542]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E31B23]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E20613]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F39200]"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Alternative pack & unit comparison (Mañanita 500 g) -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-3.5 flex flex-col gap-3 shadow-xs relative overflow-hidden">
+<div class="flex items-start gap-3">
+<!-- Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-surface-container-low shrink-0 flex items-center justify-center border border-outline-variant/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Pack of Argentine yerba mate Mañanita 500 grams with yellow package aesthetics positioned inside modern supermarket light-box environment emphasizing price-comparison clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuYHFgY4gyGEkaHFFpuafwWOqa-Ag0zgU04lJ2fSohhioIZbI0JoNtB-WH8RkWWdCguenUo4eTlEvGKU2SYpnMqo34jPN6yyAIa3gDUcpS_SgskNTsI18uIcxV6j7O6lqo9MCF-jWPZaCF75DLkpBO2QzobtroEsE9jN5N3tNvtdSFjO7PLEQpDUyvOYiX6A4iExVRSU9DIgS88oBp0wMMCMwM3uohF4_ZJJEZjr4"/>
+<span class="absolute bottom-0 inset-x-0 bg-stone-700/90 text-white text-[9px] font-bold text-center py-0.5 leading-none">500 G</span>
+</div>
+<!-- Product Details -->
+<div class="flex-1 min-w-0 pr-8">
+<span class="text-caption font-caption text-on-surface-variant block leading-tight">Mañanita · Suave</span>
+<h2 class="text-body-md-bold font-body-md-bold text-on-surface leading-snug mt-0.5 truncate">
+              Yerba mate Mañanita 500 g
+            </h2>
+<!-- Demonstrating why kg sort matters -->
+<p class="text-caption font-caption text-error font-medium mt-0.5">$ 5.300 / kg</p>
+</div>
+<!-- Add Button -->
+<button aria-label="Agregar Yerba mate Mañanita 500 g a lista" class="absolute top-2.5 right-2.5 w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-secondary-fixed text-primary active:scale-90 transition-all border border-outline-variant/40" title="Agregar a lista">
+<span class="material-symbols-outlined font-bold" data-icon="add">add</span>
+</button>
+</div>
+<!-- Pricing & Store Badge Row -->
+<div class="pt-2 border-t border-outline-variant/20 flex flex-wrap items-end justify-between gap-1">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-price-lg font-price-lg text-on-surface font-bold tracking-tight">$ 2.650</span>
+</div>
+<div class="inline-flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-primary inline-block"></span>
+<span class="text-caption-bold font-caption-bold text-primary">en ChangoMás · el más barato</span>
+</div>
+</div>
+<!-- Supermarket availability chip (4 stores) -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/30 text-caption font-caption text-on-surface">
+<span class="font-caption-bold text-caption-bold">4 supers</span>
+<div class="flex items-center gap-1 ml-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#008542]" title="ChangoMás"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#0055A5]" title="Carrefour"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]" title="Vea"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E31B23]" title="Comodín"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4: Premium / Limited distribution (La Merced de Campo 500 g) -->
+<article class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-3.5 flex flex-col gap-3 shadow-xs relative overflow-hidden">
+<div class="flex items-start gap-3">
+<!-- Thumbnail -->
+<div class="relative w-16 h-16 rounded-lg bg-surface-container-low shrink-0 flex items-center justify-center border border-outline-variant/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Premium Argentine yerba mate La Merced De Campo 500 grams carton box in earthy rustic tones staged on neutral background with soft studio shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWTKeXD8L9CGmoUYk9ZoU8uQD-Dlh6ZqQwkfpXLxH6VXYSXItAU3_arVFgm9HmAZ_ltxs90dShWAcGJ-LzuyFui3VsbECrGlZpBcHFzqXMpe7NiYterP72GG1ceO9mm7-Uz9A6b9dqcT9tUUFDlZ5ktbHvtDL2MDWIMXPKV9dKmaVyLB0tKWQ87RFL2NHwW0ay5M45SOgvba-_5AFcabk8gABBVZXVoDR7Fj4G5tw"/>
+<span class="absolute bottom-0 inset-x-0 bg-stone-800/90 text-white text-[9px] font-bold text-center py-0.5 leading-none">500 G</span>
+</div>
+<!-- Product Details -->
+<div class="flex-1 min-w-0 pr-8">
+<span class="text-caption font-caption text-on-surface-variant block leading-tight">La Merced · Selección Especial</span>
+<h2 class="text-body-md-bold font-body-md-bold text-on-surface leading-snug mt-0.5 truncate">
+              Yerba mate La Merced De Campo 500 g
+            </h2>
+<p class="text-caption font-caption text-on-surface-variant mt-0.5">$ 7.980 / kg</p>
+</div>
+<!-- Add Button -->
+<button aria-label="Agregar Yerba mate La Merced De Campo 500 g a lista" class="absolute top-2.5 right-2.5 w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-secondary-fixed text-primary active:scale-90 transition-all border border-outline-variant/40" title="Agregar a lista">
+<span class="material-symbols-outlined font-bold" data-icon="add">add</span>
+</button>
+</div>
+<!-- Pricing & Store Badge Row -->
+<div class="pt-2 border-t border-outline-variant/20 flex flex-wrap items-end justify-between gap-1">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="text-price-lg font-price-lg text-on-surface font-bold tracking-tight">$ 3.990</span>
+</div>
+<p class="text-caption font-caption text-on-surface-variant mt-0.5">
+              en <span class="font-semibold text-on-surface">Jumbo Portal Tucumán</span>
+</p>
+</div>
+<!-- Supermarket availability chip (3 stores) -->
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/30 text-caption font-caption text-on-surface">
+<span class="font-caption-bold text-caption-bold">3 supers</span>
+<div class="flex items-center gap-1 ml-0.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#008542]" title="ChangoMás"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#E20613]" title="Jumbo"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#B4604A]" title="Vea"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Neighborhood solidarity advice callout banner -->
+<section class="mt-1 p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl shrink-0" data-icon="tips_and_updates">tips_and_updates</span>
+<div class="min-w-0">
+<p class="text-caption-bold font-caption-bold text-on-surface">Voz Vecina de Tucumán</p>
+<p class="text-caption font-caption text-on-surface-variant leading-snug">
+            Comprando el paquete de 1 kg de Playadito ahorrás hasta un 38% respecto al envase de 500 g.
+          </p>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Navigation Bar (4 destinations, "Buscar" ACTIVE) -->
+<nav aria-label="Navegación principal" class="fixed bottom-0 left-0 w-full z-40 bg-surface-container-lowest border-t border-outline-variant/30 max-w-[480px] mx-auto right-0 shadow-[0_-4px_16px_rgba(22,26,23,0.06)]">
+<div class="grid grid-cols-4 h-16 items-center px-2">
+<!-- 1. Inicio -->
+<a aria-label="Inicio" class="flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 group active:scale-95" href="#">
+<span class="material-symbols-outlined group-hover:scale-105 transition-transform" data-icon="home">home</span>
+<span class="text-[11px] font-caption font-medium tracking-tight">Inicio</span>
+</a>
+<!-- 2. Buscar (ACTIVE with indicator and Verde Changuito color) -->
+<a aria-current="page" aria-label="Buscar" class="flex flex-col items-center justify-center gap-0.5 text-primary py-1 relative active:scale-95" href="#">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined font-bold" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="absolute -top-1 -right-1 w-1.5 h-1.5 bg-primary rounded-full"></span>
+</div>
+<span class="text-[11px] font-caption-bold font-bold tracking-tight">Buscar</span>
+</a>
+<!-- 3. Listas (With badge count 2) -->
+<a aria-label="Listas de compra" class="flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 relative active:scale-95" href="#">
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span class="absolute -top-1.5 -right-2 px-1.5 py-0.2 bg-primary text-white text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center leading-none">
+              2
+            </span>
+</div>
+<span class="text-[11px] font-caption font-medium tracking-tight">Listas</span>
+</a>
+<!-- 4. Ajustes -->
+<a aria-label="Ajustes" class="flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 group active:scale-95" href="#">
+<span class="material-symbols-outlined group-hover:scale-105 transition-transform" data-icon="settings">settings</span>
+<span class="text-[11px] font-caption font-medium tracking-tight">Ajustes</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Asado del domingo · Changuito Tucumán</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#005323",
+            "inverse-on-surface": "#eff2ec",
+            "outline": "#6f7a71",
+            "surface": "#f7faf5",
+            "primary-container": "#1f7a4d",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#111e19",
+            "secondary-fixed-dim": "#79db8d",
+            "secondary-fixed": "#95f8a7",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#e0e3de",
+            "surface-container-low": "#f1f4ef",
+            "primary": "#006038",
+            "outline-variant": "#bec9bf",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#e1f0e7",
+            "tertiary-fixed": "#d7e6dd",
+            "tertiary": "#48564f",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "inverse-surface": "#2d312e",
+            "surface-container": "#ecefe9",
+            "surface-container-high": "#e6e9e4",
+            "on-primary-fixed-variant": "#00522f",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#002110",
+            "on-surface-variant": "#3f4941",
+            "on-background": "#191d19",
+            "tertiary-fixed-dim": "#bbcac1",
+            "inverse-primary": "#82d8a3",
+            "on-primary-container": "#aeffca",
+            "on-error-container": "#93000a",
+            "secondary-container": "#92f5a4",
+            "surface-tint": "#066c41",
+            "on-secondary-fixed": "#00210a",
+            "surface-bright": "#f7faf5",
+            "primary-fixed": "#9ef5be",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#606e67",
+            "background": "#f7faf5",
+            "on-surface": "#191d19",
+            "primary-fixed-dim": "#82d8a3",
+            "surface-dim": "#d8dbd6",
+            "on-secondary-container": "#007233",
+            "surface-variant": "#e0e3de",
+            "secondary": "#006d30"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xl": "1.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "price-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "caption-bold": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "caption": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "price-md": ["Inter"]
+          },
+          "fontSize": {
+            "price-lg": ["22px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "caption-bold": ["13px", { "lineHeight": "18px", "fontWeight": "600" }],
+            "body-md-bold": ["15px", { "lineHeight": "20px", "fontWeight": "600" }],
+            "display": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "price-md": ["17px", { "lineHeight": "22px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background-color: #f7faf5;
+      color: #191d19;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-full flex justify-center bg-surface">
+<!-- Mobile Viewport Shell (390px baseline, max 480px) -->
+<main class="w-full max-w-[480px] bg-background min-h-screen flex flex-col relative pb-36 shadow-sm border-x border-outline-variant/30">
+<!-- Top Sticky Ambient Header -->
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur-md px-margin py-3 border-b border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[19px]" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md tracking-tight font-extrabold text-primary leading-tight">changuito</span>
+</div>
+</div>
+<!-- Geolocation Chip -->
+<div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="location_on" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-caption-bold text-caption-bold text-on-surface-variant">Gran Tucumán</span>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="px-margin pt-3 space-y-4">
+<!-- Incoming Shared Notification Banner -->
+<div class="rounded-xl bg-secondary-fixed/30 border border-secondary-fixed-dim/40 px-3.5 py-2.5 flex items-center space-x-3">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px]" data-icon="link">link</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-caption-bold text-caption-bold text-on-secondary-fixed-variant leading-none">Te compartieron una lista</p>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 truncate">Recibida por enlace de WhatsApp</p>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="share">share</span>
+</div>
+<!-- Hero Summary Card -->
+<section class="rounded-xl bg-surface-container-lowest p-4 border border-outline-variant/40 shadow-sm relative overflow-hidden">
+<!-- Accent top light bar -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-start justify-between gap-2 pt-0.5">
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Asado del domingo</h1>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="update">update</span>
+              Precios relevados hoy en San Miguel de Tucumán
+            </p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-caption-bold text-caption-bold shrink-0 border border-outline-variant/30">
+            9 productos
+          </span>
+</div>
+<!-- Featured Best Price Banner -->
+<div class="mt-3.5 p-3 rounded-lg bg-surface-container-low border border-primary/20 flex flex-col space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Mejor opción hoy</span>
+<span class="px-2 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] font-caption-bold text-caption-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Ahorrás acá
+            </span>
+</div>
+<div class="flex items-baseline justify-between">
+<div class="flex items-center space-x-2">
+<!-- Supermarket Dot Indicator (Vea) -->
+<span class="w-2.5 h-2.5 rounded-full bg-[#b4604a] shrink-0 inline-block shadow-xs"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Vea</span>
+</div>
+<span class="font-price-lg text-price-lg text-primary font-bold tracking-tight">$ 98.450</span>
+</div>
+<!-- Price context references -->
+<div class="pt-2 border-t border-outline-variant/20 flex items-center justify-between text-on-surface-variant font-caption text-caption">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#1e5aa0] shrink-0"></span>
+              ChangoMás <strong class="font-medium text-on-surface">$ 102.300</strong>
+</span>
+<span class="text-outline-variant">|</span>
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#4e6a8c] shrink-0"></span>
+              Carrefour <strong class="font-medium text-on-surface">$ 105.800</strong>
+</span>
+</div>
+</div>
+<!-- Neighbor voice note -->
+<div class="mt-3 flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="savings">savings</span>
+<span class="font-caption text-caption">Te ahorrás hasta <strong>$ 7.350</strong> comprando en la sucursal recomendada.</span>
+</div>
+</section>
+<!-- Products Read-Only Clean List -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Detalle de la lista</h2>
+<span class="font-caption text-caption text-on-surface-variant">Modo lectura</span>
+</div>
+<div class="space-y-2">
+<!-- Item 1: Vacío especial -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="kebab_dining">kebab_dining</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Vacío especial</p>
+<p class="font-caption text-caption text-on-surface-variant">Carnicería · 2 kg</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">2 kg</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 27.600</p>
+</div>
+</div>
+<!-- Item 2: Chorizo parrillero -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="restaurant">restaurant</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Chorizo parrillero</p>
+<p class="font-caption text-caption text-on-surface-variant">Embutidos · 1 kg</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">1 kg</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 8.400</p>
+</div>
+</div>
+<!-- Item 3: Carbón vegetal -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Carbón vegetal 4 kg</p>
+<p class="font-caption text-caption text-on-surface-variant">Fuego y leña · 1 bolsa</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">1 bolsa</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 4.100</p>
+</div>
+</div>
+<!-- Item 4: Coca-Cola -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="sports_bar">sports_bar</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Coca-Cola Sabor Original 2,25 L</p>
+<p class="font-caption text-caption text-on-surface-variant">Bebidas · 3 botellas</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">3 u.</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 10.950</p>
+</div>
+</div>
+<!-- Item 5: Pan francés mignon -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Pan francés mignon</p>
+<p class="font-caption text-caption text-on-surface-variant">Panadería · 1 kg</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">1 kg</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 2.300</p>
+</div>
+</div>
+<!-- Item 6: Vino tinto Malbec -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="wine_bar">wine_bar</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Vino tinto Malbec 750 ml</p>
+<p class="font-caption text-caption text-on-surface-variant">Bodega · 2 botellas</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">2 u.</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 11.200</p>
+</div>
+</div>
+<!-- Item 7: Limón para asado -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="nutrition">nutrition</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Limón tucumano de estación</p>
+<p class="font-caption text-caption text-on-surface-variant">Verdulería · 1 kg</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">1 kg</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 1.200</p>
+</div>
+</div>
+<!-- Item 8: Sal parrillera -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="grain">grain</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Sal parrillera fina / gruesa 500 g</p>
+<p class="font-caption text-caption text-on-surface-variant">Almacén · 1 paquete</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">1 u.</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 950</p>
+</div>
+</div>
+<!-- Item 9: Queso provoleta -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="egg_alt">egg_alt</span>
+</div>
+<div class="min-w-0">
+<p class="font-body-md-bold text-body-md-bold text-on-surface truncate">Queso provoleta parrillera</p>
+<p class="font-caption text-caption text-on-surface-variant">Lácteos y quesos · 500 g</p>
+</div>
+</div>
+<div class="text-right shrink-0 pl-2">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-low font-caption-bold text-caption-bold text-on-surface">500 g</span>
+<p class="font-caption text-caption text-outline mt-0.5 font-medium">~$ 6.800</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Callout Card -->
+<section class="rounded-xl bg-surface-container/60 border border-outline-variant/40 p-3.5 flex items-start space-x-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/50 flex items-center justify-center shrink-0 text-primary mt-0.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified_user">verified_user</span>
+</div>
+<div class="text-on-surface-variant">
+<p class="font-caption-bold text-caption-bold text-on-surface">Changuito es 100% gratis</p>
+<p class="font-caption text-caption text-on-surface-variant mt-0.5 leading-relaxed">
+            Sin registro y sin publicidad invasiva. Fijate dónde te conviene comprar hoy y ahorrá en el súper de tu barrio.
+          </p>
+</div>
+</section>
+</div>
+<!-- Sticky Bottom Action Footer -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto z-40 bg-surface-container-lowest/95 backdrop-blur-md px-margin py-3 border-t border-outline-variant/30 shadow-[0_-4px_16px_rgba(22,26,23,0.06)]">
+<div class="flex flex-col space-y-2">
+<!-- Primary Action Button -->
+<button class="w-full h-12 bg-primary-container hover:bg-[#17603c] active:bg-[#124e31] text-on-primary rounded-xl font-headline-sm text-headline-sm font-semibold flex items-center justify-center space-x-2 transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="bookmark_add">bookmark_add</span>
+<span>Guardar en mis listas</span>
+</button>
+<!-- Secondary Action Button -->
+<button class="w-full h-11 bg-surface hover:bg-surface-container text-on-surface rounded-xl border border-outline-variant/40 font-body-md-bold text-body-md-bold flex items-center justify-center space-x-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="compare_arrows">compare_arrows</span>
+<span>Solo comparar dónde comprar</span>
+</button>
+</div>
+<div class="mt-2 text-center">
+<p class="font-caption text-caption text-outline text-[11px]">Gran San Miguel de Tucumán · Yerba Buena · Tafí Viejo · B.R.S.</p>
+</div>
+</div>
+</main>
+</body></html>

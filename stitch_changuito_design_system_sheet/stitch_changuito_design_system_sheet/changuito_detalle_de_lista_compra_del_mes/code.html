@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Changuito - Compra del mes</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f7faf5",
+            "on-primary": "#ffffff",
+            "on-tertiary-container": "#e1f0e7",
+            "inverse-on-surface": "#eff2ec",
+            "surface-container-highest": "#e0e3de",
+            "secondary-fixed": "#95f8a7",
+            "on-error-container": "#93000a",
+            "on-primary-fixed-variant": "#00522f",
+            "on-surface": "#191d19",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#2d312e",
+            "tertiary": "#48564f",
+            "primary-fixed": "#9ef5be",
+            "surface-container": "#ecefe9",
+            "on-background": "#191d19",
+            "error": "#ba1a1a",
+            "background": "#f7faf5",
+            "on-primary-container": "#aeffca",
+            "tertiary-fixed": "#d7e6dd",
+            "tertiary-fixed-dim": "#bbcac1",
+            "primary": "#006038",
+            "secondary-fixed-dim": "#79db8d",
+            "primary-container": "#1f7a4d",
+            "surface-tint": "#066c41",
+            "on-tertiary-fixed-variant": "#3c4a43",
+            "outline-variant": "#bec9bf",
+            "primary-fixed-dim": "#82d8a3",
+            "on-secondary-fixed-variant": "#005323",
+            "inverse-primary": "#82d8a3",
+            "on-primary-fixed": "#002110",
+            "on-secondary-fixed": "#00210a",
+            "secondary-container": "#92f5a4",
+            "on-secondary-container": "#007233",
+            "on-surface-variant": "#3f4941",
+            "surface-dim": "#d8dbd6",
+            "surface-container-high": "#e6e9e4",
+            "error-container": "#ffdad6",
+            "tertiary-container": "#606e67",
+            "on-error": "#ffffff",
+            "outline": "#6f7a71",
+            "surface-bright": "#f7faf5",
+            "on-tertiary": "#ffffff",
+            "secondary": "#006d30",
+            "on-tertiary-fixed": "#111e19",
+            "surface-variant": "#e0e3de",
+            "surface-container-low": "#f1f4ef"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "margin-tablet": "1.5rem",
+            "space-lg": "1rem",
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem"
+          },
+          fontFamily: {
+            "price-md": ["Inter"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "caption": ["Inter"],
+            "caption-bold": ["Inter"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "price-lg": ["Inter"],
+            "body-md-bold": ["Inter"],
+            "display": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "price-md": ["17px", { lineHeight: "22px", fontWeight: "700" }],
+            "headline-md": ["20px", { lineHeight: "26px", fontWeight: "600" }],
+            "body-lg": ["17px", { lineHeight: "24px", fontWeight: "400" }],
+            "caption": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+            "caption-bold": ["13px", { lineHeight: "18px", fontWeight: "600" }],
+            "display-mobile": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "price-lg": ["22px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-md-bold": ["15px", { lineHeight: "20px", fontWeight: "600" }],
+            "display": ["32px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+            "headline-lg": ["24px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "body-md": ["15px", { lineHeight: "20px", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Hide scrollbars for crisp native feel */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#EEF1EB] min-h-full flex justify-center text-on-surface antialiased font-body-md select-none">
+<!-- Mobile Viewport Shell (390px Baseline, capped at 480px) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative shadow-2xl border-x border-outline-variant/30">
+<!-- 1. System Status Bar (iOS style) -->
+<header class="w-full h-11 px-6 flex items-center justify-between z-50 bg-surface select-none pt-1">
+<span class="font-body-md-bold text-body-md-bold tracking-tight text-on-surface">09:41</span>
+<div class="flex items-center space-x-2 text-on-surface">
+<span class="text-[11px] font-caption-bold tracking-wider">5G</span>
+<span class="material-symbols-outlined text-[17px] leading-none" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[19px] leading-none" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- 2. Sticky Top Navigation Bar -->
+<div class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant/20 px-space-lg py-2 flex items-center justify-between">
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Volver a Mis Listas" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 cursor-pointer group">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface truncate tracking-tight">Compra del mes</h1>
+<span class="material-symbols-outlined text-outline text-[17px] group-hover:text-primary transition-colors" data-icon="edit">edit</span>
+</div>
+<span class="font-caption text-caption text-outline truncate">Principal · Editada hoy</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<!-- WhatsApp Share Button -->
+<button aria-label="Compartir por WhatsApp" class="w-10 h-10 rounded-full flex items-center justify-center text-[#1E7E34] hover:bg-secondary-fixed/40 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="share">share</span>
+</button>
+<!-- Overflow Menu -->
+<button aria-label="Más opciones" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Main Content Container with bottom padding for Sticky Bar + Nav -->
+<main class="flex-1 px-4 pt-3 pb-36 space-y-4">
+<!-- 3. Summary Strip / Hero Card -->
+<section class="bg-surface-container-lowest rounded-xl p-3.5 border border-outline-variant/30 shadow-[0_1px_3px_rgba(22,26,23,0.05)] flex items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="bg-surface-container-high px-2.5 py-1 rounded-full text-caption-bold font-caption-bold text-on-surface-variant whitespace-nowrap">
+            24 productos
+          </span>
+<div class="h-7 w-[1px] bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-caption font-caption text-on-surface-variant">Mejor opción:</span>
+<span class="flex items-center gap-1 text-caption-bold font-caption-bold text-on-surface">
+<span class="w-2.5 h-2.5 rounded-full bg-[#1F7A4D] inline-block"></span>
+                ChangoMás
+              </span>
+<span class="text-caption-bold font-price-md text-primary font-bold">$ 186.430</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="bg-[#DCFCE7] text-[#15803D] px-1.5 py-0.2 rounded font-caption-bold text-[11px] leading-tight">
+                Ahorrás $ 8.420
+              </span>
+<span class="text-[11px] text-outline">vs promedio</span>
+</div>
+</div>
+</div>
+<button aria-label="Ver desglose detallado" class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-container text-on-surface-variant hover:text-primary transition-colors flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</section>
+<!-- 4. Inline "Agregar producto" Input -->
+<div class="relative flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-xl" data-icon="search">search</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container-low text-on-surface placeholder:text-outline font-body-md text-body-md rounded-xl border border-transparent focus:border-primary focus:bg-surface-container-lowest focus:ring-0 outline-none transition-all" placeholder="+ Agregar producto a la lista..." type="text"/>
+</div>
+<button aria-label="Escanear código de barras" class="w-12 h-12 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center text-primary-container shadow-sm active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="barcode_scanner">barcode_scanner</span>
+</button>
+</div>
+<!-- 5. Product List Grouped by Categories -->
+<!-- Group 1: ALMACÉN (12) -->
+<section class="space-y-2.5 pt-1">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-caption-bold text-outline tracking-wider uppercase">ALMACÉN</span>
+<span class="bg-surface-container px-2 py-0.5 rounded-full text-[11px] font-caption-bold text-on-surface-variant">12</span>
+</div>
+<span class="text-caption text-outline">San Miguel de Tucumán</span>
+</div>
+<div class="space-y-2">
+<!-- Item 1: Aceite Natura -->
+<article class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-surface-container-low flex items-center justify-center overflow-hidden flex-shrink-0 border border-outline-variant/20">
+<img alt="Aceite de girasol Natura 1,5 L" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WUslkjPJw6DavvNCIPSrLS2CdG-jlZGQzyAjUxSvOohujEToIa376NgFzr7TWD3LVVkCG8vNDaRdk1eEi261hozVcgEJExrvhIyCcQz1TuqdveHYWUKcAfFKZ8j9VBLJsgaPYp9P7lUxx675NUekbMGwm37zRrNNc-0N5WnC2CUn3_ajjMdf2_DG7F3AEQHP7tW5O7XCLUpt091XiQIU1zREysqDjfNt30MEnJ0NEs"/>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Aceite de girasol Natura 1,5 L</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#1F7A4D] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                    desde <span class="font-caption-bold text-on-surface">$ 3.249</span> en ChangoMás
+                  </p>
+</div>
+</div>
+</div>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container active:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-caption-bold text-caption text-on-surface">2</span>
+<button aria-label="Sumar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container active:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Item 2: Arroz Lucchetti + Recommendation Callout -->
+<div class="space-y-1.5">
+<article class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-[#F8F5EE] flex items-center justify-center flex-shrink-0 border border-outline-variant/20 text-tertiary">
+<span class="material-symbols-outlined text-2xl text-[#8C7A5B]" data-icon="grain">grain</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Arroz Lucchetti 1 kg</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#1F7A4D] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                      desde <span class="font-caption-bold text-on-surface">$ 2.150</span> en ChangoMás
+                    </p>
+</div>
+</div>
+</div>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container active:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-caption-bold text-caption text-on-surface">1</span>
+<button aria-label="Sumar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container active:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Inline Amber Savings Suggestion Card -->
+<div class="mx-1 bg-[#FFFBEB] rounded-xl p-2.5 border border-[#FDE68A] flex items-center justify-between gap-2.5 shadow-sm">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[#D97706] text-[19px] mt-0.5 flex-shrink-0" data-icon="lightbulb">lightbulb</span>
+<p class="font-caption text-[12px] leading-[17px] text-[#78350F]">
+                  Hay una opción más barata en <span class="font-caption-bold">Vea</span>: Arroz Gallo Oro 1 kg <span class="font-caption-bold text-[#92400E]">$ 1.890</span>
+</p>
+</div>
+<button class="bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#92400E] px-2.5 py-1 rounded-lg font-caption-bold text-[12px] transition-colors whitespace-nowrap" type="button">
+                Ver
+              </button>
+</div>
+</div>
+<!-- Item 3: Yerba Playadito (with missing data note) -->
+<article class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-[#F2F7F2] flex items-center justify-center flex-shrink-0 border border-outline-variant/20">
+<span class="material-symbols-outlined text-2xl text-[#3A6B42]" data-icon="local_cafe">local_cafe</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Yerba Playadito 1 kg</h2>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#4E6A8C] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                    desde <span class="font-caption-bold text-on-surface">$ 4.190</span> en Carrefour
+                  </p>
+</div>
+<div class="mt-1">
+<span class="inline-flex items-center gap-1 bg-surface-container text-outline text-[11px] font-caption px-1.5 py-0.2 rounded">
+<span class="material-symbols-outlined text-[12px]" data-icon="info">info</span>
+                    Sin dato en 2 supers
+                  </span>
+</div>
+</div>
+</div>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container active:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-caption-bold text-caption text-on-surface">2</span>
+<button aria-label="Sumar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container active:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Item 4: Fideos Matarazzo with Swipe-to-Delete Interaction Revealed -->
+<div class="relative overflow-hidden rounded-xl bg-error">
+<!-- Background Delete Action -->
+<div class="absolute inset-y-0 right-0 w-24 bg-[#BA1A1A] flex flex-col items-center justify-center text-on-error gap-0.5 cursor-pointer">
+<span class="material-symbols-outlined text-2xl" data-icon="delete">delete</span>
+<span class="font-caption-bold text-[11px]">Eliminar</span>
+</div>
+<!-- Foreground Card (Offset by swipe) -->
+<div class="bg-surface-container-lowest p-3 border border-outline-variant/30 flex items-center justify-between relative transform -translate-x-20 transition-transform shadow-[0_2px_8px_rgba(0,0,0,0.06)] rounded-xl">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-[#FAF5EE] flex items-center justify-center flex-shrink-0 border border-outline-variant/20">
+<span class="material-symbols-outlined text-2xl text-[#C08432]" data-icon="restaurant">restaurant</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Fideos Matarazzo 500 g</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#1F7A4D] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                      desde <span class="font-caption-bold text-on-surface">$ 1.450</span> en ChangoMás
+                    </p>
+</div>
+</div>
+</div>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-caption-bold text-caption text-on-surface">3</span>
+<button aria-label="Sumar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Group 2: CARNICERÍA Y FRESCOS (5) -->
+<section class="space-y-2.5 pt-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-caption-bold text-outline tracking-wider uppercase">CARNICERÍA Y FRESCOS</span>
+<span class="bg-surface-container px-2 py-0.5 rounded-full text-[11px] font-caption-bold text-on-surface-variant">5</span>
+</div>
+<span class="text-caption text-outline">Por peso y fraccionado</span>
+</div>
+<div class="space-y-2">
+<!-- Item 5: Nalga -->
+<article class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-[#FEE2E2] flex items-center justify-center flex-shrink-0 border border-outline-variant/20">
+<span class="material-symbols-outlined text-2xl text-[#991B1B]" data-icon="lunch_dining">lunch_dining</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface">Nalga</h2>
+<span class="bg-secondary-fixed/50 text-on-secondary-fixed-variant text-[10px] font-caption-bold px-1.5 py-0.2 rounded-full">Fresco</span>
+<span class="bg-surface-container text-on-surface-variant text-[10px] font-caption px-1.5 py-0.2 rounded-full">Por kg</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#B4604A] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                    desde <span class="font-caption-bold text-on-surface">$ 11.990 / kg</span> en Vea
+                  </p>
+</div>
+</div>
+</div>
+<!-- Weight Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar 250 gramos" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="px-1 text-center font-caption-bold text-caption text-on-surface whitespace-nowrap">1,5 kg</span>
+<button aria-label="Sumar 250 gramos" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Item 6: Pollo fresco x kg + Callout -->
+<div class="space-y-1.5">
+<article class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-[#FEF3C7] flex items-center justify-center flex-shrink-0 border border-outline-variant/20">
+<span class="material-symbols-outlined text-2xl text-[#B45309]" data-icon="egg">egg</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Pollo fresco x kg</h2>
+<span class="bg-surface-container text-on-surface-variant text-[10px] font-caption px-1.5 py-0.2 rounded-full">Por kg</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#E08734] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                      desde <span class="font-caption-bold text-on-surface">$ 2.850 / kg</span> en Comodín
+                    </p>
+</div>
+</div>
+</div>
+<!-- Weight Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar 500 gramos" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="px-1 text-center font-caption-bold text-caption text-on-surface whitespace-nowrap">3,0 kg</span>
+<button aria-label="Sumar 500 gramos" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Recommendation Callout -->
+<div class="mx-1 bg-[#FFFBEB] rounded-xl p-2.5 border border-[#FDE68A] flex items-center justify-between gap-2.5 shadow-sm">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[#D97706] text-[19px] mt-0.5 flex-shrink-0" data-icon="lightbulb">lightbulb</span>
+<p class="font-caption text-[12px] leading-[17px] text-[#78350F]">
+                  Hay una opción más barata en <span class="font-caption-bold">Vea</span>: Pollo congelado x kg <span class="font-caption-bold text-[#92400E]">$ 2.490</span>
+</p>
+</div>
+<button class="bg-[#FEF3C7] hover:bg-[#FDE68A] text-[#92400E] px-2.5 py-1 rounded-lg font-caption-bold text-[12px] transition-colors whitespace-nowrap" type="button">
+                Ver
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Group 3: LÁCTEOS (4) -->
+<section class="space-y-2.5 pt-2">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-caption-bold text-outline tracking-wider uppercase">LÁCTEOS</span>
+<span class="bg-surface-container px-2 py-0.5 rounded-full text-[11px] font-caption-bold text-on-surface-variant">4</span>
+</div>
+<span class="text-caption text-outline">Refrigerados</span>
+</div>
+<div class="space-y-2">
+<!-- Item 7: Leche La Serenísima -->
+<article class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-[#EFF6FF] flex items-center justify-center flex-shrink-0 border border-outline-variant/20">
+<span class="material-symbols-outlined text-2xl text-[#2563EB]" data-icon="water_bottle">water_bottle</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Leche entera La Serenísima 1 L</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#1F7A4D] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                    desde <span class="font-caption-bold text-on-surface">$ 1.150</span> en ChangoMás
+                  </p>
+</div>
+</div>
+</div>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-caption-bold text-caption text-on-surface">3</span>
+<button aria-label="Sumar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</article>
+<!-- Item 8: Manteca La Serenísima -->
+<article class="bg-surface-container-lowest rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-12 h-12 rounded-lg bg-[#FEFCE8] flex items-center justify-center flex-shrink-0 border border-outline-variant/20">
+<span class="material-symbols-outlined text-2xl text-[#CA8A04]" data-icon="layers">layers</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-body-md-bold text-body-md-bold text-on-surface truncate">Manteca La Serenísima extra 200 g</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-[#4E6A8C] flex-shrink-0"></span>
+<p class="font-caption text-caption text-on-surface-variant truncate">
+                    desde <span class="font-caption-bold text-on-surface">$ 2.190</span> en Carrefour
+                  </p>
+</div>
+</div>
+</div>
+<!-- Stepper -->
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/30 flex-shrink-0 ml-2">
+<button aria-label="Restar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-6 text-center font-caption-bold text-caption text-on-surface">1</span>
+<button aria-label="Sumar unidad" class="w-7 h-7 flex items-center justify-center rounded text-on-surface font-caption-bold hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- 6. Sticky Floating Bottom Comparison CTA -->
+<div class="fixed bottom-16 left-0 right-0 max-w-[390px] mx-auto px-4 pb-2 z-40">
+<div class="bg-surface-container-lowest/95 backdrop-blur-md rounded-2xl p-3 border border-outline-variant/40 shadow-[0_4px_20px_rgba(22,26,23,0.12)] flex items-center justify-between gap-3">
+<div class="flex flex-col pl-1">
+<span class="text-caption font-caption text-outline">24 productos</span>
+<div class="flex items-baseline gap-1">
+<span class="text-[11px] font-caption text-on-surface-variant">Total est.:</span>
+<span class="font-price-md text-price-md font-bold text-on-surface">$ 186.430</span>
+</div>
+</div>
+<button class="h-12 px-5 bg-primary-container hover:bg-[#17603C] active:scale-[0.98] text-on-primary font-headline-sm text-body-md-bold font-semibold rounded-xl flex items-center gap-2 shadow-sm transition-all whitespace-nowrap" type="button">
+<span>Comparar supers</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- 7. Fixed Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto h-16 bg-surface-container-lowest border-t border-outline-variant/30 px-3 flex items-center justify-around z-50 select-none pb-safe">
+<!-- Inicio -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-outline hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[23px]" data-icon="storefront">storefront</span>
+<span class="font-caption text-[11px] mt-0.5">Inicio</span>
+</a>
+<!-- Buscar -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-outline hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[23px]" data-icon="search">search</span>
+<span class="font-caption text-[11px] mt-0.5">Buscar</span>
+</a>
+<!-- Listas (Active Destination) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-primary-container relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined fill-icon text-[24px]" data-icon="checklist">checklist</span>
+<span class="absolute -top-1.5 -right-2.5 bg-primary-container text-on-primary font-caption-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-surface-container-lowest">
+            3
+          </span>
+</div>
+<span class="font-caption-bold text-[11px] mt-0.5 font-bold">Listas</span>
+</a>
+<!-- Ajustes -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 text-outline hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[23px]" data-icon="settings">settings</span>
+<span class="font-caption text-[11px] mt-0.5">Ajustes</span>
+</a>
+</nav>
+</div>
+</body></html>

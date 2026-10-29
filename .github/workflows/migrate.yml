@@ -1,0 +1,20 @@
+# Aplica las migraciones pendientes de supabase/migrations y recarga category_map. Se corre a mano.
+name: migrate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: node scripts/migrate.ts
