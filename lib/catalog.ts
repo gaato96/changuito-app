@@ -81,3 +81,12 @@ export function toPrice(r: Record<string, unknown>): Price {
 }
 
 export const LEGAL = 'Precios tomados de las webs oficiales y de datos públicos (SEPA). Pueden diferir en el local.';
+
+/** Entrada de lista para un fresco genérico (id negativo; ver lib/data.ts genericToPrice). */
+export function genericTarget(g: { id: number; slug: string; name: string; unit: 'kg' | 'unidad'; category_id: number }) {
+  return {
+    productId: -g.id, slug: g.slug, name: g.name, brand: null, imageUrl: null,
+    size: g.unit === 'kg' ? 'por kg' : 'por unidad', soldByWeight: g.unit === 'kg', categoryId: g.category_id,
+  };
+}
+

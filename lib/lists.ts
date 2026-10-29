@@ -4,6 +4,7 @@ import { openDB, type IDBPDatabase } from 'idb';
 import { useCallback, useEffect, useState } from 'react';
 import { supabase } from './supabase';
 import { toPrice } from './catalog';
+import { genericPrices, genericToPrice } from './data';
 import type { Price } from './pricing';
 
 export type ListEntry = {
@@ -15,9 +16,10 @@ export type ListEntry = {
   size: string;
   soldByWeight: boolean;
   categoryId: number | null;
+  slug?: string;               // solo frescos genéricos (productId negativo)
 };
 
-export type ShoppingList = { id: string; name: string; items: ListEntry[]; createdAt: number; updatedAt: number };
+export type ShoppingList = { id: string; name: string; items: ListEntry[]; createdAt: number; updatedAt: number; checked?: number[] };
 
 type CachedPrices = { productId: number; prices: Price[]; fetchedAt: number };
 
@@ -90,6 +92,20 @@ export async function setQty(id: string, productId: number, qty: number) {
   await save({ ...l, items });
 }
 
+/** Modo compra: tachar o destachar un producto. */
+export async function toggleChecked(id: string, productId: number) {
+  const l = await getList(id);
+  if (!l) return;
+  const set = new Set(l.checked ?? []);
+  if (set.has(productId)) set.delete(productId); else set.add(productId);
+  await save({ ...l, checked: [...set] });
+}
+
+export async function clearChecked(id: string) {
+  const l = await getList(id);
+  if (l) await save({ ...l, checked: [] });
+}
+
 const round = (v: number) => Math.round(v * 100) / 100;
 
 /** Listas reactivas: se actualizan cuando cambian en esta u otra pantalla. */
@@ -123,9 +139,16 @@ export async function loadPrices(productIds: number[]): Promise<{ prices: Price[
   const d = await db();
   if (!productIds.length) return { prices: [], offline: false, fetchedAt: null };
   try {
-    const { data, error } = await supabase.rpc('prices_for', { ids: productIds });
+    // Los genéricos de frescos van con id negativo (ver genericToPrice)
+    const products = productIds.filter(id => id > 0), generics = productIds.filter(id => id < 0).map(id => -id);
+    const [{ data, error }, gp, units] = await Promise.all([
+      products.length ? supabase.rpc('prices_for', { ids: products }) : Promise.resolve({ data: [], error: null }),
+      genericPrices(generics),
+      generics.length ? supabase.from('fresh_generics').select('id, unit').in('id', generics) : Promise.resolve({ data: [] }),
+    ]);
     if (error) throw error;
-    const prices: Price[] = (data ?? []).map(toPrice);
+    const unitOf = new Map(((units.data ?? []) as { id: number; unit: 'kg' | 'unidad' }[]).map(u => [Number(u.id), u.unit]));
+    const prices: Price[] = [...(data ?? []).map(toPrice), ...gp.map(g => genericToPrice(g, unitOf.get(g.genericId) ?? 'kg'))];
     const now = Date.now();
     const tx = d.transaction('prices', 'readwrite');
     for (const id of productIds) await tx.store.put({ productId: id, prices: prices.filter(p => p.productId === id), fetchedAt: now } satisfies CachedPrices);

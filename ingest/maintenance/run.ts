@@ -4,6 +4,7 @@
 import { writeFileSync } from 'node:fs';
 import { connect } from '../shared/db.ts';
 import { finishRun, refreshProductCards, startRun } from '../shared/store.ts';
+import { suggestFrescos } from '../frescos/suggest.ts';
 
 const HISTORY_DAYS = 60;
 const SIZE_ALERT_MB = 400;
@@ -20,6 +21,9 @@ try {
     where h.valid_from < now() - make_interval(days => ${HISTORY_DAYS})
       and exists (select 1 from price_history n where n.zone_id = h.zone_id and n.product_id = h.product_id and n.valid_from > h.valid_from)`;
   stats.historyDeleted = deleted.count;
+
+  // Productos nuevos generan sugerencias de equivalencias de frescos para revisar en el panel
+  stats.frescos = await suggestFrescos(sql);
 
   // Los precios de más de 72 h dejan de contar: el resumen por producto se recalcula a diario aunque no haya ingesta
   await refreshProductCards(sql);

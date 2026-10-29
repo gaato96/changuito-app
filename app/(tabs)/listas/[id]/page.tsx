@@ -16,7 +16,7 @@ function ItemRow({ listId, it, prices }: { listId: string; it: ListEntry; prices
   const missing = CHAIN_IDS.length - new Set(fresh.map(p => p.chainId)).size;
   return (
     <li className="flex items-center gap-3 py-3">
-      <Link href={`/producto/${it.productId}`} className="flex min-w-0 flex-1 items-center gap-3">
+      <Link href={it.productId < 0 ? `/fresco/${it.slug}` : `/producto/${it.productId}`} className="flex min-w-0 flex-1 items-center gap-3">
         <ProductThumb src={it.imageUrl} alt={it.name} size={52} icon={categoryById(it.categoryId)?.icon} />
         <div className="min-w-0">
           <p className="line-clamp-2 text-[15px] font-semibold leading-5">{it.name}</p>

@@ -58,7 +58,8 @@ async function simulateAll(client: VtexClient, targets: Target[]): Promise<Map<s
   const suspects = batches.flatMap(b => {
     const count = new Map<string, number>();
     for (const t of b) count.set(brandKey(t.brand, t.sku), (count.get(brandKey(t.brand, t.sku)) ?? 0) + 1);
-    return b.filter(t => count.get(brandKey(t.brand, t.sku))! > 1 && price(t).promo.kind !== 'none');
+    // Los descuentos directos (%) son por producto; solo las promos por cantidad pueden venir "combinadas"
+    return b.filter(t => count.get(brandKey(t.brand, t.sku))! > 1 && ['nth_pct', 'nxm'].includes(price(t).promo.kind));
   });
   if (suspects.length) {
     const again = isolatedBatches(suspects, 100, 1);

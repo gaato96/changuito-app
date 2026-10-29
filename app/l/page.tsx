@@ -7,6 +7,7 @@ import { decodeList } from '@/lib/share';
 import { createList, type ListEntry } from '@/lib/lists';
 import { supabase } from '@/lib/supabase';
 import { sizeText } from '@/lib/catalog';
+import { genericTarget } from '@/lib/catalog';
 import { EmptyState, Icon } from '@/components/ui';
 
 export default function SharedListPage() {
@@ -17,15 +18,17 @@ export default function SharedListPage() {
     const decoded = decodeList(location.hash);
     if (!decoded || !decoded.items.length) { setState('invalid'); return; }
     const ids = decoded.items.map(i => i.productId);
-    supabase.from('products').select('id, name, brand, image_url, size_value, size_unit, kind, category_id').in('id', ids).then(({ data }) => {
-      const byId = new Map((data ?? []).map(p => [Number(p.id), p]));
-      const items = decoded.items.filter(i => byId.has(i.productId)).map(i => {
-        const p = byId.get(i.productId)!;
-        return {
-          productId: i.productId, qty: i.qty, name: p.name, brand: p.brand, imageUrl: p.image_url,
-          size: sizeText(p.size_value === null ? null : Number(p.size_value), p.size_unit), soldByWeight: p.kind === 'weighed', categoryId: p.category_id,
-        };
+    Promise.all([
+      supabase.from('products').select('id, name, brand, image_url, size_value, size_unit, kind, category_id').in('id', ids.filter(i => i > 0)),
+      supabase.from('fresh_generics').select('id, slug, name, unit, category_id').in('id', ids.filter(i => i < 0).map(i => -i)),
+    ]).then(([{ data }, { data: gens }]) => {
+      const byId = new Map<number, ListEntry>();
+      for (const p of data ?? []) byId.set(Number(p.id), {
+        productId: Number(p.id), qty: 0, name: p.name, brand: p.brand, imageUrl: p.image_url,
+        size: sizeText(p.size_value === null ? null : Number(p.size_value), p.size_unit), soldByWeight: p.kind === 'weighed', categoryId: p.category_id,
       });
+      for (const g of gens ?? []) byId.set(-Number(g.id), { ...genericTarget(g as never), qty: 0 });
+      const items = decoded.items.filter(i => byId.has(i.productId)).map(i => ({ ...byId.get(i.productId)!, qty: i.qty }));
       setState({ name: decoded.name, items });
     });
   }, []);

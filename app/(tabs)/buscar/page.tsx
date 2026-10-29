@@ -1,7 +1,8 @@
 'use client';
 // Búsqueda con autocompletado: tolerante a errores y acentos (función search_products en la base).
 import { useEffect, useRef, useState } from 'react';
-import { searchProducts, type ProductCard } from '@/lib/data';
+import { searchGenerics, searchProducts, type GenericCard, type ProductCard } from '@/lib/data';
+import { GenericRow } from '@/components/generic-row';
 import { supabase } from '@/lib/supabase';
 import { ProductRow } from '@/components/product-card';
 import { EmptyState, Icon } from '@/components/ui';
@@ -19,6 +20,7 @@ function writeRecent(list: string[]) {
 export default function SearchPage() {
   const [q, setQ] = useState('');
   const [results, setResults] = useState<ProductCard[] | null>(null);
+  const [generics, setGenerics] = useState<GenericCard[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [recent, setRecent] = useState<string[]>([]);
@@ -39,9 +41,9 @@ export default function SearchPage() {
     const id = ++seq.current;
     const t = setTimeout(async () => {
       try {
-        const r = await searchProducts({ q: term, limit: 40 });
+        const [r, g] = await Promise.all([searchProducts({ q: term, limit: 40 }), searchGenerics(term, 5).catch(() => [])]);
         if (id !== seq.current) return;
-        setResults(r); setError(false);
+        setResults(r); setGenerics(g); setError(false);
         // Registro anónimo de búsquedas (sin IP ni datos personales) para mejorar el catálogo
         supabase.from('search_log').insert({ term_norm: term.toLowerCase().slice(0, 80), results: r.length }).then(() => {});
         const next = [term, ...readRecent().filter(x => x.toLowerCase() !== term.toLowerCase())];
@@ -100,11 +102,18 @@ export default function SearchPage() {
         {loading && results === null && <p className="mt-6 text-center text-ink2">Buscando…</p>}
         {error && <p className="mt-6 rounded-[12px] bg-warn-bg p-3 text-[15px] text-warn">No pudimos buscar. Revisá tu conexión.</p>}
 
-        {results && results.length === 0 && !loading && (
+        {results && generics.length > 0 && (
+          <section className="mt-3">
+            <h2 className="text-[13px] font-semibold tracking-wide text-ink2 uppercase">Frescos por kilo</h2>
+            <div className="divide-y divide-line">{generics.map(g => <GenericRow key={g.id} g={g} />)}</div>
+          </section>
+        )}
+        {results && results.length === 0 && generics.length === 0 && !loading && (
           <EmptyState icon="search_off" title="No encontramos eso" text="Probá con menos palabras o revisá cómo está escrito." />
         )}
         {results && results.length > 0 && (
           <>
+            {generics.length > 0 && <h2 className="mt-4 text-[13px] font-semibold tracking-wide text-ink2 uppercase">Productos</h2>}
             <p className="mt-3 text-[13px] text-muted">{results.length === 40 ? 'Más de 40 resultados' : `${results.length} resultados`}</p>
             <div className="divide-y divide-line">{results.map(p => <ProductRow key={p.id} p={p} />)}</div>
           </>

@@ -70,3 +70,45 @@ export async function chainFreshness(): Promise<Map<number, string>> {
   const { data } = await supabase.rpc('chain_freshness');
   return new Map((data ?? []).map((r: { chain_id: number; last_captured: string }) => [Number(r.chain_id), r.last_captured]));
 }
+
+// ---------------------------------------------------------------- frescos (genéricos comparados por kg)
+
+export type GenericCard = {
+  id: number; slug: string; name: string; unit: 'kg' | 'unidad'; category_id: number;
+  min_price: number; min_chain_id: number; chains_count: number;
+};
+
+export type GenericPrice = { genericId: number; chainId: number; price: number; productId: number; productName: string; capturedAt: string };
+
+export async function searchGenerics(q: string | null, limit = 10): Promise<GenericCard[]> {
+  const { data, error } = await supabase.rpc('search_generics', { q: q?.trim() || null, lim: limit });
+  if (error) throw new Error(error.message);
+  return (data ?? []).map((r: GenericCard) => ({ ...r, id: Number(r.id), min_price: Number(r.min_price) }));
+}
+
+export async function getGeneric(slug: string): Promise<{ id: number; slug: string; name: string; unit: 'kg' | 'unidad'; category_id: number } | null> {
+  const { data } = await supabase.from('fresh_generics').select('id, slug, name, unit, category_id').eq('slug', slug).maybeSingle();
+  return data as never;
+}
+
+export async function genericPrices(ids: number[]): Promise<GenericPrice[]> {
+  if (!ids.length) return [];
+  const { data, error } = await supabase.rpc('generic_prices', { ids });
+  if (error) throw new Error(error.message);
+  return (data ?? []).map((r: Record<string, unknown>) => ({
+    genericId: Number(r.generic_id), chainId: Number(r.chain_id), price: Number(r.price),
+    productId: Number(r.product_id), productName: String(r.product_name), capturedAt: String(r.captured_at),
+  }));
+}
+
+/**
+ * En las listas, un genérico se guarda con productId negativo (-id del genérico) y se compara como un producto
+ * vendido por kg (o por unidad) con el precio más bajo de sus equivalencias aprobadas en cada super.
+ */
+export function genericToPrice(g: GenericPrice, unit: 'kg' | 'unidad'): Price {
+  return {
+    productId: -g.genericId, chainId: g.chainId, price: g.price, listPrice: g.price, unitPrice: unit === 'kg' ? g.price : null,
+    unitLabel: unit === 'kg' ? 'kg' : 'u', soldByWeight: unit === 'kg', promoKind: 'none', promoMinQty: null, promoValue: null,
+    promoText: null, loyalty: null, capturedAt: g.capturedAt,
+  };
+}

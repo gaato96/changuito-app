@@ -59,6 +59,13 @@ export default function Home() {
         </div>
       </section>
 
+      <Link href="/frescos" className="mt-6 block rounded-[16px] border border-[#BBE5C9] bg-primary-tint p-4">
+        <span className="flex items-center gap-1.5 text-[13px] font-semibold text-primary"><Icon name="scale" size={18} />Frescos por kilo</span>
+        <span className="mt-1 block font-head text-[20px] font-semibold leading-[26px]">Compará carne, verdura y fiambre al peso</span>
+        <span className="mt-1 block text-[15px] leading-5 text-ink2">Llevamos todo a precio por kilo para que compares sin engaños.</span>
+        <span className="mt-3 flex items-center gap-1 font-semibold text-primary">Ver frescos <Icon name="arrow_forward" size={18} /></span>
+      </Link>
+
       <LegalNote className="mt-8 pb-4" />
     </div>
   );

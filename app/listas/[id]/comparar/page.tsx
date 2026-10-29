@@ -253,6 +253,13 @@ export default function ComparePage({ params }: { params: Promise<{ id: string }
         )}
         <LegalNote />
       </main>
+      {cmp && cmp.items > 0 && cmp.singles[0].coverage > 0 && (
+        <div className="sticky bottom-0 z-20 border-t border-line bg-card px-4 pt-3 pb-[calc(12px+env(safe-area-inset-bottom))]">
+          <Link href={`/listas/${id}/compra?super=${tab === 'one' || !cmp.bestPair?.worthIt ? cmp.singles[0].chainId : cmp.bestPair.chains[0]}`} className="btn btn-primary w-full">
+            <Icon name="shopping_bag" />Ir a comprar a {chainById(tab === 'one' || !cmp.bestPair?.worthIt ? cmp.singles[0].chainId : cmp.bestPair.chains[0]).name}
+          </Link>
+        </div>
+      )}
     </>
   );
 }

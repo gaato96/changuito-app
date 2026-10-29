@@ -1,0 +1,162 @@
+slug;nombre;unidad;categoria;incluye;excluye
+tomate-redondo;Tomate redondo;kg;verduleria;tomate redondo|tomate x kg|tomate por kg;perita|cherry|pure|salsa|lata|triturad|deshidrat|seco
+tomate-perita;Tomate perita;kg;verduleria;tomate perita;pure|salsa|lata|triturad|cubetead|pelad|arcor|seco
+tomate-cherry;Tomate cherry;kg;verduleria;tomate cherry;salsa|lata|seco
+papa;Papa;kg;verduleria;papa negra|papa blanca|papa x kg|papa por kg|papa lavada|papa cepillada;frita|pure|chips|congelad|baston|noisette|rejilla|mccain|lays|dulce
+batata;Batata;kg;verduleria;batata;dulce|chips|frita|congelad
+cebolla;Cebolla;kg;verduleria;cebolla;verdeo|morada|colorada|polvo|deshidrat|frita|aros|salsa|sopa|crema|caramel
+cebolla-morada;Cebolla morada;kg;verduleria;cebolla morada|cebolla colorada;polvo|deshidrat
+cebolla-de-verdeo;Cebolla de verdeo;unidad;verduleria;verdeo;deshidrat|polvo
+ajo;Ajo;kg;verduleria;ajo x kg|ajo blanco|ajo colorado|cabeza de ajo|ajo en cabeza;polvo|deshidrat|picado|pasta|salsa|sal de ajo|aceite|frasco|molido|granulado|aderezo|crema
+zanahoria;Zanahoria;kg;verduleria;zanahoria;rallada|congelad|jugo|baby|torta|pure
+zapallo-anco;Zapallo anco;kg;verduleria;anco|calabaza;congelad|pure|cubos|dulce
+zapallo-redondo;Zapallo redondo;kg;verduleria;zapallo redondo|zapallo plomo|zapallo criollo;congelad
+zapallito;Zapallito verde;kg;verduleria;zapallito;congelad|relleno
+zucchini;Zucchini;kg;verduleria;zucchini|zuccini;congelad
+berenjena;Berenjena;kg;verduleria;berenjena;escabeche|conserva|frasco|congelad|milanesa
+morron-rojo;Morrón rojo;kg;verduleria;morron rojo|pimiento rojo;asado|conserva|frasco|lata|tiras|congelad|molido|polvo
+morron-verde;Morrón verde;kg;verduleria;morron verde|pimiento verde;conserva|frasco|lata|congelad
+morron-amarillo;Morrón amarillo;kg;verduleria;morron amarillo|pimiento amarillo;conserva|frasco
+lechuga-criolla;Lechuga criolla;unidad;verduleria;lechuga criolla;
+lechuga-mantecosa;Lechuga mantecosa;unidad;verduleria;lechuga mantecosa;
+lechuga-capuchina;Lechuga capuchina;unidad;verduleria;lechuga capuchina|lechuga francesa;
+lechuga-morada;Lechuga morada;unidad;verduleria;lechuga morada;
+rucula;Rúcula;unidad;verduleria;rucula;
+espinaca;Espinaca;unidad;verduleria;espinaca;congelad|pasta|tarta|canelon|raviol|nugget|bocadit|medallon|soufle|tapa
+acelga;Acelga;unidad;verduleria;acelga;congelad|tarta|pastel|medallon|bocadit|raviol|canelon
+repollo-blanco;Repollo blanco;kg;verduleria;repollo blanco|repollo x kg;colorado|morado|chucrut
+repollo-colorado;Repollo colorado;kg;verduleria;repollo colorado|repollo morado;
+brocoli;Brócoli;kg;verduleria;brocoli;congelad|bocadit|medallon|pure|crema|sopa
+coliflor;Coliflor;kg;verduleria;coliflor;congelad
+choclo;Choclo;unidad;verduleria;choclo;lata|cremoso|grano|congelad|humita|pure|harina|polenta|crema
+pepino;Pepino;kg;verduleria;pepino;pickle|encurtid|escabeche|frasco
+remolacha;Remolacha;kg;verduleria;remolacha;lata|frasco|conserva|rallada
+apio;Apio;unidad;verduleria;apio;sal de apio|semilla|deshidrat
+puerro;Puerro;unidad;verduleria;puerro;sopa|deshidrat
+perejil;Perejil;unidad;verduleria;perejil;deshidrat|seco|frasco|condimento|aderezo
+albahaca;Albahaca;unidad;verduleria;albahaca;deshidrat|seco|frasco|pesto|salsa|condimento
+champinon;Champiñón;kg;verduleria;champinon|champignon|hongo fresco;lata|frasco|conserva|deshidrat|seco|salsa|crema|sopa
+chaucha;Chaucha;kg;verduleria;chaucha;congelad|lata|conserva
+palta;Palta;kg;verduleria;palta;guacamole|aderezo|salsa|pulpa
+banana;Banana;kg;verduleria;banana ecuador|banana bolivia|banana x kg|banana por kg|banana platano;chips|deshidrat|yogur|licuado|jugo|bocadit|torta|budin|dulce|helado|cereal|barra|alfajor|bananita|pure|galletit|snack|chocolate|sabor
+manzana-roja;Manzana roja;kg;verduleria;manzana roja|manzana red|manzana deliciosa|manzana gala|manzana x kg;jugo|pure|compota|dulce|deshidrat|chips|torta|sidra|vinagre|sabor|jabon|shampoo|caramel
+manzana-verde;Manzana verde;kg;verduleria;manzana verde|manzana granny;jugo|sabor|caramel|chicle
+pera;Pera;kg;verduleria;pera x kg|pera williams|pera packham;jugo|lata|almibar|conserva|sabor|compota
+naranja;Naranja;kg;verduleria;naranja x kg|naranja jugo x kg|naranja ombligo|naranja valencia|naranja de jugo;sabor|mermelada|dulce|gaseosa|bebida|polvo|caramel|torta|licor|agua|helado|galletit|alfajor
+mandarina;Mandarina;kg;verduleria;mandarina;jugo|sabor|polvo|gaseosa|bebida|caramel|agua|helado
+limon;Limón;kg;verduleria;limon x kg|limon por kg|limon fresco|limon eureka|limon criollo;jugo|sabor|polvo|bebida|agua
+pomelo;Pomelo;kg;verduleria;pomelo;jugo|sabor|polvo|gaseosa|bebida|agua
+frutilla;Frutilla;kg;verduleria;frutilla x kg|frutilla bandeja|frutilla fresca;yogur|mermelada|dulce|helado|sabor|jugo|polvo|gelatina|postre|congelad
+uva;Uva;kg;verduleria;uva blanca|uva negra|uva rosada|uva x kg|uva red globe;jugo|pasa|vino|sabor|vinagre|mermelada|dulce|agua|bebida|semilla|aceite
+durazno;Durazno;kg;verduleria;durazno x kg|durazno fresco;lata|almibar|conserva|jugo|sabor|mermelada|dulce|yogur|bebida|agua|deshidrat|orejon
+kiwi;Kiwi;kg;verduleria;kiwi;sabor|jugo|bebida|agua
+anana;Ananá;unidad;verduleria;anana fresco|anana x un|anana unidad;lata|almibar|rodaja|conserva|jugo|sabor|bebida
+melon;Melón;kg;verduleria;melon;sabor|jugo|bebida|agua|licor
+sandia;Sandía;kg;verduleria;sandia;sabor|jugo|bebida|agua|chicle|caramel
+ciruela;Ciruela;kg;verduleria;ciruela;pasa|seca|desecad|mermelada|dulce|lata|conserva|jugo|sabor|tisana
+mango;Mango;kg;verduleria;mango;sabor|jugo|bebida|agua|pulpa|helado|salsa|yogur
+arandano;Arándano;kg;verduleria;arandano;deshidrat|seco|sabor|jugo|bebida|mermelada|yogur|cereal|barra|congelad|dulce
+huevo-blanco-12;Huevos blancos x 12;unidad;lacteos;huevo blanco 12|huevos blancos 12|huevo blanco x 12|huevos blancos x12|huevos blancos x 12;pascua|chocolate|codorniz|liquido|polvo
+huevo-color-12;Huevos color x 12;unidad;lacteos;huevo color 12|huevos color 12|huevo color x 12|huevos de color x12|huevos color x 12;pascua|chocolate|codorniz|liquido
+huevo-30;Huevos x 30 (maple);unidad;lacteos;maple 30|huevos x 30|huevo x 30|huevos blancos x 30|huevos 30;pascua|chocolate|codorniz
+nalga;Nalga;kg;carnes;nalga;milanesa|milane|tapa de nalga|tapa nalga|rebozad|hamburguesa|congelad
+tapa-de-nalga;Tapa de nalga;kg;carnes;tapa de nalga|tapa nalga;
+cuadrada;Cuadrada;kg;carnes;cuadrada;milanesa|rebozad|congelad
+bola-de-lomo;Bola de lomo;kg;carnes;bola de lomo|bola lomo;milanesa
+peceto;Peceto;kg;carnes;peceto;milanesa|vitel|cocido|fetead
+lomo;Lomo vacuno;kg;carnes;lomo vacuno|lomo x kg|lomo novillo|lomo de novillo;cerdo|bola|lomito|ahumado|cocido|feteado|pescado|merluza|atun
+cuadril;Cuadril;kg;carnes;cuadril;milanesa|colita
+colita-de-cuadril;Colita de cuadril;kg;carnes;colita de cuadril|colita cuadril;
+bife-de-chorizo;Bife de chorizo;kg;carnes;bife de chorizo|bife angosto;
+ojo-de-bife;Ojo de bife;kg;carnes;ojo de bife|bife ancho;
+entrecot;Entrecot;kg;carnes;entrecot;
+asado;Asado de tira;kg;carnes;asado de tira|asado tira|asado x kg|asado banderita|asado novillo;cerdo|pollo|condimento|salsa|carbon|chimichurri
+vacio;Vacío;kg;carnes;vacio x kg|vacio novillo|vacio vacuno|vacio de novillo|corte vacio;cerdo|envasad|bolsa|maquina
+matambre;Matambre vacuno;kg;carnes;matambre vacuno|matambre x kg|matambre novillo|matambre de novillo;cerdo|pollo|arrollado|relleno|cocido
+matambre-de-cerdo;Matambre de cerdo;kg;carnes;matambre de cerdo|matambrito de cerdo|matambrito;arrollado|relleno|cocido
+falda;Falda;kg;carnes;falda;
+osobuco;Osobuco;kg;carnes;osobuco|ossobuco;raviol|sorrentino|salsa|pasta|canelon|congelad
+paleta-vacuna;Paleta vacuna;kg;carnes;paleta vacuna|paleta novillo|paleta x kg;cerdo|cocida|fetead|sandwichera|jamon
+roast-beef;Roast beef;kg;carnes;roast beef|rost beef|roastbeef;
+tortuguita;Tortuguita;kg;carnes;tortuguita;
+carnaza;Carnaza;kg;carnes;carnaza;
+carne-picada-comun;Carne picada común;kg;carnes;carne picada comun|picada comun|carne picada x kg;especial|premium|magra|pollo|cerdo|congelad|hamburguesa
+carne-picada-especial;Carne picada especial;kg;carnes;picada especial|picada magra|picada premium;pollo|cerdo
+milanesa-de-nalga;Milanesa de nalga;kg;carnes;milanesa de nalga|milanesa nalga;soja|pollo|congelad
+milanesa-de-carne;Milanesa de carne;kg;carnes;milanesa de carne|milanesa vacuna|milanesa de peceto|milanesa de cuadrada|milanesa novillo;soja|pollo|merluza|pescado|congelad|berenjena|calabaza|espinaca
+higado;Hígado vacuno;kg;carnes;higado vacuno|higado x kg|higado de novillo;pollo|pate|cerdo|aceite|bacalao
+mondongo;Mondongo;kg;carnes;mondongo;lata
+chinchulin;Chinchulín;kg;carnes;chinchulin;
+molleja;Molleja;kg;carnes;molleja;pollo
+rinon;Riñón;kg;carnes;rinon;pollo
+lengua;Lengua vacuna;kg;carnes;lengua vacuna|lengua x kg|lengua de novillo;escabeche|vinagreta
+chorizo;Chorizo parrillero;kg;carnes;chorizo parrillero|chorizo puro cerdo|chorizo de cerdo|chorizo x kg|chorizo bombon;colorado|seco|cantimpalo|pamplona|salame|riojano|espanol
+morcilla;Morcilla;kg;carnes;morcilla;
+salchicha-parrillera;Salchicha parrillera;kg;carnes;salchicha parrillera;viena
+pollo-entero;Pollo entero;kg;carnes;pollo entero|pollo fresco|pollo x kg;relleno|rostizado|caldo|sopa|pate|nugget|hamburguesa|medallon|bocadit|suprema|pechuga|muslo|ala|pata
+pechuga-de-pollo;Pechuga de pollo;kg;carnes;pechuga de pollo|pechuga pollo;pavo|ahumad|fetead|cocid|horneada|rebozad|nugget|congelad|sabor|caldo
+suprema;Suprema de pollo;kg;carnes;suprema;rebozad|milanesa|congelad|rellena|sabor|napolitana|crispy|crocante
+pata-muslo;Pata y muslo de pollo;kg;carnes;pata y muslo|pata muslo|cuarto trasero;congelad|rebozad|ahumad
+muslo-de-pollo;Muslo de pollo;kg;carnes;muslo de pollo|muslo pollo;pata y muslo|pata muslo|congelad
+alitas-de-pollo;Alitas de pollo;kg;carnes;alita de pollo|alitas de pollo|ala de pollo|alas de pollo;congelad|rebozad|picante|bbq
+milanesa-de-pollo;Milanesa de pollo;kg;carnes;milanesa de pollo|milanesa pollo;congelad|soja
+higado-de-pollo;Hígado de pollo;kg;carnes;higado de pollo|higaditos de pollo;pate
+carre-de-cerdo;Carré de cerdo;kg;carnes;carre de cerdo|carre cerdo;ahumado|cocido|fetead|salsa
+bondiola-fresca;Bondiola de cerdo (fresca);kg;carnes;bondiola de cerdo|bondiola fresca;feteada|curada|cocida|ahumada|sandwich|fetas
+costilla-de-cerdo;Costilla de cerdo;kg;carnes;costilla de cerdo|costillita de cerdo|costilla cerdo;ahumad|bbq|salsa|condimento
+pechito-de-cerdo;Pechito de cerdo;kg;carnes;pechito de cerdo|pechito cerdo;ahumad
+paleta-de-cerdo;Paleta de cerdo;kg;carnes;paleta de cerdo|paleta cerdo;cocida|fetead|sandwichera|jamon|curada
+solomillo-de-cerdo;Solomillo de cerdo;kg;carnes;solomillo de cerdo|solomillo cerdo;
+pernil-de-cerdo;Pernil de cerdo;kg;carnes;pernil;cocido|horneado|fetead
+merluza-filet;Filet de merluza;kg;carnes;filet de merluza|filete de merluza|merluza filet;rebozad|empanad|medallon|hamburguesa|bocadit|nugget|crocante|lata|apanad|milanesa|bastoncito
+merluza-rebozada;Merluza rebozada;kg;carnes;merluza rebozada|filet rebozado|filet de merluza rebozado|merluza apanada;
+salmon;Salmón;kg;carnes;salmon rosado|salmon fresco|salmon filet|filet de salmon;ahumado|lata|aceite|natural|conserva|pate|sandwich|sabor
+pejerrey;Pejerrey;kg;carnes;pejerrey;
+langostino;Langostinos;kg;carnes;langostino;rebozad|empanad|cazuela|salsa
+calamar;Calamar;kg;carnes;calamar|rabas;rebozad|tinta|salsa|lata
+jamon-cocido;Jamón cocido feteado;kg;fiambreria;jamon cocido;crudo|serrano|pizza|tarta|sandwich|empanada|croqueta|bocadit|cubos|cubeteado|tostado|milanesa|hojaldre|queso y jamon|jamon y queso|pan|natural|premium|calidad superior|extra
+jamon-cocido-natural;Jamón cocido natural;kg;fiambreria;jamon cocido natural|jamon natural|jamon cocido premium|jamon cocido calidad superior|jamon cocido extra;
+jamon-crudo;Jamón crudo feteado;kg;fiambreria;jamon crudo;cocido|pizza|tarta|sandwich|empanada|bocadit|hueso|entero
+jamon-serrano;Jamón serrano;kg;fiambreria;jamon serrano;
+paleta-cocida;Paleta cocida (sandwichera);kg;fiambreria;paleta cocida|paleta sandwichera|fiambre de paleta;
+queso-de-maquina;Queso de máquina;kg;fiambreria;queso de maquina|queso maquina|tybo|queso barra|queso en barra|queso para sandwich;rallado|crema|untable|pizza|mozzarella|cremoso|azul|reggianito|sardo|provolone|pategras|holanda|cheddar|danbo|fontina|gouda|light|cuartirolo|port salut
+queso-cremoso;Queso cremoso;kg;lacteos;queso cremoso;untable|crema|light|dulce de leche|helado|postre|yogur|flan|chocolate|cuchar
+queso-cuartirolo;Queso cuartirolo;kg;lacteos;cuartirolo;
+queso-port-salut;Queso port salut;kg;lacteos;port salut|por salut;light|fetead|untable
+queso-danbo;Queso danbo;kg;lacteos;danbo;fetead|untable
+queso-pategras;Queso pategrás;kg;lacteos;pategras|pate gras|patagras;fetead|untable
+queso-holanda;Queso holanda;kg;lacteos;queso holanda|edam;fetead|untable
+queso-gouda;Queso gouda;kg;lacteos;gouda;fetead|untable
+queso-fontina;Queso fontina;kg;lacteos;fontina;fetead
+queso-mozzarella;Muzzarella;kg;lacteos;mozzarella|muzzarella|muzarella|mozarella;pizza|empanada|tarta|bocadit|palito|bastoncit|sticks|rebozad|congelad|fetead|rallad|frita|salsa|sandwich
+queso-reggianito;Queso reggianito;kg;lacteos;reggianito|regianito;rallado|rallad|hebras
+queso-sardo;Queso sardo;kg;lacteos;sardo;rallado|rallad
+queso-provolone;Queso provolone;kg;lacteos;provolone|provoleta;rallado|rallad|condimento|pizza
+queso-azul;Queso azul;kg;lacteos;queso azul|roquefort;rallado|aderezo|salsa|untable|crema|dip
+ricota;Ricota;kg;lacteos;ricota|ricotta;raviol|sorrentino|canelon|tarta|torta|pasta|empanad|pastel|cheesecake|pascualina|budin
+salame-milan;Salame tipo milán;kg;fiambreria;salame milan|salame tipo milan;
+salame-picado-grueso;Salame picado grueso;kg;fiambreria;picado grueso;
+salame-picado-fino;Salame picado fino;kg;fiambreria;picado fino;
+salamin;Salamín;kg;fiambreria;salamin|salamines|salamincito;pizza|bocadit|sandwich|tarta
+mortadela;Mortadela;kg;fiambreria;mortadela;sandwich|pizza|bocadit|tarta
+bondiola-curada;Bondiola curada;kg;fiambreria;bondiola feteada|bondiola curada;fresca|pizza|sandwich|tarta|braseada
+lomito-ahumado;Lomito ahumado;kg;fiambreria;lomito ahumado|lomito canadiense|lomo ahumado;sandwich|pizza|tarta|empanad
+pastron;Pastrón;kg;fiambreria;pastron|pastrami;
+panceta;Panceta ahumada;kg;fiambreria;panceta|bacon;pizza|tarta|sabor|papas|chips|snack|aderezo|salsa|hamburguesa|sandwich|bocadit|croqueta|condimento
+leberwurst;Leberwurst;kg;fiambreria;leberwurst|leberwust;
+queso-de-cerdo;Queso de cerdo;kg;fiambreria;queso de cerdo;
+matambre-arrollado;Matambre arrollado;kg;fiambreria;matambre arrollado|matambre relleno|arrollado de matambre;pollo|cerdo
+arrollado-de-pollo;Arrollado de pollo;kg;fiambreria;arrollado de pollo|pollo arrollado;
+pechuga-de-pavo;Pechuga de pavo feteada;kg;fiambreria;pechuga de pavo|pavo feteado|pavita;congelad|rebozad|hamburguesa|medallon|nugget|fresca|entera
+aceitunas-verdes;Aceitunas verdes (granel);kg;fiambreria;aceituna verde x kg|aceitunas verdes x kg|aceitunas verdes granel;frasco|lata|doypack|pouch|sachet|pasta|aderezo|pate
+aceitunas-negras;Aceitunas negras (granel);kg;fiambreria;aceituna negra x kg|aceitunas negras x kg|aceitunas negras granel;frasco|lata|doypack|pouch|sachet|pasta|pate
+pan-frances;Pan francés;kg;panaderia;pan frances|flauta|baguette|mignon|felipe;lactal|hamburguesa|pancho|rallado|congelad|precocid|ajo|queso|salvado|integral|tostad|chips|molde|semillas|arabe|pita|dulce
+pan-integral;Pan integral (panadería);kg;panaderia;pan integral x kg|pan de salvado x kg|pan integral elaboracion propia;lactal|molde|bimbo|fargo|rodajas
+facturas;Facturas;kg;panaderia;facturas x kg|factura x kg|facturas surtidas|medialunas x kg;congelad|precocid|para hornear|bimbo|fargo|paquete
+medialunas;Medialunas;unidad;panaderia;medialuna;congelad|precocid|para hornear|paquete|bimbo|fargo|chocolate
+prepizza;Prepizza;unidad;panaderia;prepizza|pre pizza;congelad|mezcla|harina
+tapa-empanada;Tapas de empanada;unidad;panaderia;tapa de empanada|tapas de empanada|tapas para empanada|tapas empanada;congelad|tarta|pascualina|hojaldre
+tapa-pascualina;Tapas de pascualina;unidad;panaderia;tapa de pascualina|tapas de pascualina|tapas para tarta|tapa de tarta|tapas de tarta;empanada|congelad
+grisines;Grisines;kg;panaderia;grisin;
+bizcochos-de-grasa;Bizcochos de grasa (panadería);kg;panaderia;bizcocho de grasa x kg|bizcochos de grasa x kg|bizcochitos de grasa x kg;don satur|9 de oro|paquete|azucarad
+chipa;Chipá;kg;panaderia;chipa|chipacito;congelad|premezcla|mezcla|harina|para hornear|polvo

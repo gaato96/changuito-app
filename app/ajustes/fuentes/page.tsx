@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { TopBar } from '@/components/nav';
 
 export const metadata: Metadata = { title: 'Fuentes y aviso legal' };
+export const dynamic = 'force-dynamic';
 
 export default function SourcesPage() {
   const today = new Date().toLocaleDateString('es-AR', { timeZone: 'America/Argentina/Tucuman' });

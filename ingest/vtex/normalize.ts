@@ -2,7 +2,7 @@
 import type { SimItem, VtexProduct } from './client.ts';
 import type { PriceRecord, ProductRecord } from '../shared/store.ts';
 import { ean13, isInternalEan } from '../shared/text.ts';
-import { parseSizeFromName, reconcileSize, type Size } from '../shared/units.ts';
+import { parseSizeFromName, reconcileSize } from '../shared/units.ts';
 import { classifyFromTotals, isMiCarrefour, NO_PROMO } from '../shared/promos.ts';
 
 export type CatalogItem = ProductRecord & { catalogPrice: number; teasers: string[]; knownUnitPrice: number | null };
@@ -17,7 +17,7 @@ export function fromCatalog(p: VtexProduct, base: string, resolveCategory: (path
   const e = ean13(it.ean);
   const weighed = it.measurementUnit === 'kg';
   const knownUnitPrice = p.pricePerUnit?.[0] ? Number(p.pricePerUnit[0]) : null;
-  const size = weighed ? null : reconcileSize(sizeFrom(p) ?? parseSizeFromName(p.productName), offer.Price, knownUnitPrice);
+  const size = weighed ? null : reconcileSize(parseSizeFromName(p.productName), offer.Price, knownUnitPrice);
   const path = p.categories?.[0] ?? null;
   return {
     sku: it.itemId,
@@ -38,18 +38,8 @@ export function fromCatalog(p: VtexProduct, base: string, resolveCategory: (path
   };
 }
 
-/** ChangoMás trae el talle en los campos "Gramaje" (ej. consumo 1, medida LT). */
-function sizeFrom(p: VtexProduct): Size | null {
-  const qty = Number((p['Gramaje de unidad de consumo']?.[0] ?? '').replace(',', '.'));
-  const unit = (p['Gramaje de unidad de medida']?.[0] ?? '').toUpperCase();
-  if (!(qty > 0)) return null;
-  if (unit === 'LT') return { value: qty * 1000, unit: 'ml' };
-  if (unit === 'KG') return { value: qty * 1000, unit: 'g' };
-  if (unit === 'GR' || unit === 'GRM') return { value: qty, unit: 'g' };
-  if (unit === 'ML' || unit === 'CC' || unit === 'CM3') return { value: qty, unit: 'ml' };
-  if (unit === 'UN') return { value: qty, unit: 'u' };
-  return null;
-}
+// Ojo: los campos "Gramaje" de ChangoMás NO son el talle del paquete sino la unidad de referencia del precio
+// por unidad ("1 KG", "1 LT"). Usarlos como talle hacía que un jamón de 150 g figurara como 1 kg. El talle sale del nombre.
 
 /**
  * Precio y promo a partir de las simulaciones con cantidad 2 y 3.

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import { PwaSetup } from '@/components/pwa';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['600', '700', '800'], variable: '--font-jakarta', display: 'swap' });
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
   description: 'Compará precios de supermercados de Tucumán, armá tu lista y mirá cuánto ahorrás.',
   applicationName: 'Changuito',
   appleWebApp: { capable: true, title: 'Changuito', statusBarStyle: 'default' },
+  formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
@@ -34,7 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="min-h-dvh antialiased">
-        <div className="mx-auto min-h-dvh w-full max-w-[480px] bg-bg">{children}</div>
+        <div className="mx-auto min-h-dvh w-full max-w-[480px] bg-bg">
+          <PwaSetup />
+          {children}
+        </div>
       </body>
     </html>
   );
