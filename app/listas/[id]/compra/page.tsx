@@ -46,6 +46,7 @@ export default function ShoppingModePage({ params }: { params: Promise<{ id: str
         <TopBar title="Modo compra" subtitle={list.name} />
         <main className="space-y-3 px-4 py-4">
           <h1 className="font-head text-[24px] font-bold">¿En qué super estás?</h1>
+          <p className="text-[15px] leading-5 text-ink2">Tu lista se ordena por sector del local (verdulería, almacén, lácteos…) y vas tachando lo que metés al changuito. Funciona sin internet.</p>
           {cmp.singles.map((s, i) => (
             <button key={s.chainId} onClick={() => setChainId(s.chainId)} disabled={!s.coverage}
               className="card flex w-full items-center gap-3 p-4 text-left disabled:opacity-50" style={{ borderLeft: `4px solid var(--chain-${chainById(s.chainId).slug})` }}>

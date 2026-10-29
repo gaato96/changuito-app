@@ -74,6 +74,12 @@ export default function ListPage({ params }: { params: Promise<{ id: string }> }
       )}
 
       <div className="px-4 pb-24">
+        {list.items.length > 0 && list.items.length < 4 && (
+          <p className="mt-4 flex gap-2 rounded-[12px] bg-primary-tint p-3 text-[15px] leading-5 text-ink">
+            <Icon name="lightbulb" className="text-primary" />
+            <span>Sumá todo lo que vas a comprar y después tocá <b>Comparar supers</b> para ver dónde te sale más barata la lista.</span>
+          </p>
+        )}
         <Link href="/buscar" className="mt-4 flex h-12 items-center gap-3 rounded-[12px] border border-dashed border-line px-4 font-semibold text-primary">
           <Icon name="add" /> Agregar producto
         </Link>
@@ -100,6 +106,7 @@ export default function ListPage({ params }: { params: Promise<{ id: string }> }
 
       {list.items.length > 0 && (
         <div className="fixed inset-x-0 bottom-[calc(64px+env(safe-area-inset-bottom))] z-20 mx-auto flex max-w-[480px] items-center gap-3 border-t border-line bg-card px-4 py-3">
+          <Link href={`/listas/${id}/compra`} className="btn btn-outline px-3" aria-label="Modo compra"><Icon name="shopping_cart_checkout" /></Link>
           <span className="num flex-1 text-[15px] text-ink2">{list.items.length} productos</span>
           <Link href={`/listas/${id}/comparar`} className="btn btn-primary"><Icon name="compare_arrows" />Comparar supers</Link>
         </div>

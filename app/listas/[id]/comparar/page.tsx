@@ -258,6 +258,7 @@ export default function ComparePage({ params }: { params: Promise<{ id: string }
           <Link href={`/listas/${id}/compra?super=${tab === 'one' || !cmp.bestPair?.worthIt ? cmp.singles[0].chainId : cmp.bestPair.chains[0]}`} className="btn btn-primary w-full">
             <Icon name="shopping_bag" />Ir a comprar a {chainById(tab === 'one' || !cmp.bestPair?.worthIt ? cmp.singles[0].chainId : cmp.bestPair.chains[0]).name}
           </Link>
+          <p className="mt-1.5 text-center text-[13px] text-ink2">Modo compra: la lista ordenada por sector del local, para ir tachando.</p>
         </div>
       )}
     </>

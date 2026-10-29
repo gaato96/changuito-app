@@ -1,12 +1,30 @@
 'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { ONBOARDED_KEY } from '@/lib/catalog';
 import { useLists } from '@/lib/lists';
+import { HowItWorks } from './how-it-works';
 import { Icon } from './ui';
 
 /** "Mis listas" en el inicio: tarjetas horizontales y acceso a crear una nueva. */
 export function HomeLists() {
   const lists = useLists();
+  const router = useRouter();
+  // La primera vez se muestra la bienvenida
+  useEffect(() => {
+    try { if (!localStorage.getItem(ONBOARDED_KEY)) router.replace('/bienvenida'); } catch { /* sin almacenamiento */ }
+  }, [router]);
   if (lists === null) return <div className="mt-8 h-[150px]" />;
+  // Sin listas todavía: guía de uso en lugar de las tarjetas
+  if (lists.length === 0) return (
+    <section className="card mt-8 p-4">
+      <h2 className="font-head text-[20px] font-semibold leading-[26px]">¿Cómo funciona?</h2>
+      <p className="mb-4 text-[15px] text-ink2">Armá tu lista una vez y te decimos dónde conviene comprarla.</p>
+      <HowItWorks compact />
+      <Link href="/buscar" className="btn btn-primary mt-5 w-full"><Icon name="add" />Armar mi primera lista</Link>
+    </section>
+  );
   return (
     <section className="mt-8">
       <div className="flex items-center justify-between">

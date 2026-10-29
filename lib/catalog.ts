@@ -90,3 +90,6 @@ export function genericTarget(g: { id: number; slug: string; name: string; unit:
   };
 }
 
+
+/** localStorage: ya vio la bienvenida */
+export const ONBOARDED_KEY = 'changuito:bienvenida';

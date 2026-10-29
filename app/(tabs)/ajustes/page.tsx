@@ -40,6 +40,7 @@ export default function SettingsPage() {
       <section>
         <h2 className="mb-2 text-[13px] font-semibold tracking-wide text-ink2 uppercase">Información</h2>
         <ul className="card divide-y divide-line overflow-hidden">
+          <Row href="/bienvenida" icon="help" label="Cómo funciona" hint="Los pasos para usar Changuito e instalarlo" />
           <Row href="/ajustes/fuentes" icon="gavel" label="Fuentes y aviso legal" />
         </ul>
       </section>
