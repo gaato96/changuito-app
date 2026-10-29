@@ -117,3 +117,13 @@ export function reconcileSize(size: Size | null, price: number, knownUnitPrice: 
   }
   return size;
 }
+
+/**
+ * Recipientes y objetos que se miden en litros o gramos pero no son contenido ("Fuentón 17 L", "Olla 24 cm 5 L"):
+ * su precio por litro no sirve para comparar, así que no se les asigna talle.
+ */
+const CONTAINER = /\b(fuenton|palangana|cesto|tacho|balde|bowl|recipiente|contenedor|organizador|canasto|termo|jarra|vaso|taza|olla|cacerola|sarten|tupper|hermetic|pava|botella termica|conservadora|heladera|bidon vacio|regadera|maceta)/;
+
+export function isContainer(name: string): boolean {
+  return CONTAINER.test(norm(name));
+}

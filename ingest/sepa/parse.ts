@@ -2,7 +2,7 @@
 import { parse } from 'csv-parse';
 import type { Readable } from 'node:stream';
 import { norm, ean13, isInternalEan } from '../shared/text.ts';
-import { parseSepaSize, sizeFromReference, type Size } from '../shared/units.ts';
+import { isContainer, parseSepaSize, sizeFromReference, type Size } from '../shared/units.ts';
 
 /** Localidades del Gran SMT tal como aparecen en SEPA (comparadas sin acentos ni mayúsculas). */
 const GRAN_SMT = ['san miguel de tucuman', 'ciudad de tucuman', 'tucuman', 'yerba buena', 'tafi viejo', 'banda del rio sali',
@@ -78,7 +78,7 @@ export function toRow(r: Record<string, string>): SepaRow | null {
   // Pesables: sin EAN universal y presentación de 1 kg (el precio informado es por kg)
   const weighed = !ean && /^(kg|kgr|kilo)$/.test(presUnit) && presQty === 1;
   const refPrice = money(r.productos_precio_referencia);
-  const size = weighed ? null
+  const size = weighed || isContainer(name) ? null
     : parseSepaSize(name, sizeFromReference(listPrice, refPrice ?? 0, Number(r.productos_cantidad_referencia), r.productos_unidad_medida_referencia ?? ''));
   return {
     storeKey: storeKey(r.id_comercio, r.id_bandera, r.id_sucursal), idProducto: r.id_producto, ean, name,

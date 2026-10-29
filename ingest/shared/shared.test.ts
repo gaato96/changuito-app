@@ -126,3 +126,11 @@ test('nombres de SEPA para mostrar', async () => {
   assert.equal(prettySepaName('TAPA DE NALGA E/V**, FB MEATS, 1 kgr'), 'Tapa de nalga e/v, fb meats, 1 kgr');
   assert.equal(prettySepaName('yerba mate PLAYADITO Sin palo PAQ-500-gr.'), 'Yerba mate PLAYADITO Sin palo');
 });
+
+test('recipientes sin precio por litro', async () => {
+  const { isContainer } = await import('./units.ts');
+  assert.ok(isContainer('Fuentón heraldplast 17 lts'));
+  assert.ok(isContainer('Cesto de residuos Carrefour Home a pedal 22 lts'));
+  assert.ok(!isContainer('Detergente Magistral Limón 750 ml'));
+  assert.ok(!isContainer('Lavandina Ayudín 2 L'));
+});

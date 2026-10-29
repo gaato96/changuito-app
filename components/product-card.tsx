@@ -14,7 +14,7 @@ export function toTarget(p: Pick<ProductCard, 'id' | 'name' | 'brand' | 'image_u
   };
 }
 
-export function ProductRow({ p }: { p: ProductCard }) {
+export function ProductRow({ p, unitFirst }: { p: ProductCard; unitFirst?: boolean }) {
   const [adding, setAdding] = useState(false);
   const weighed = p.kind === 'weighed';
   const cat = categoryById(p.category_id);
@@ -28,12 +28,15 @@ export function ProductRow({ p }: { p: ProductCard }) {
             <p className="mt-0.5 text-[13px] leading-[18px] text-ink2">
               {[p.brand, sizeText(p.size_value, p.size_unit)].filter(Boolean).join(' · ')}
             </p>
+            {unitFirst && !weighed && p.min_unit_price && (
+              <p className="num mt-1 text-[17px] font-bold text-primary">{money(p.min_unit_price, true)} / {unitLabel(p.unit_label)}</p>
+            )}
             <p className="mt-1 flex flex-wrap items-baseline gap-x-2">
-              <span className="num text-[17px] font-bold">{money(p.min_price)}{weighed ? ' /kg' : ''}</span>
+              <span className={`num font-bold ${unitFirst && !weighed && p.min_unit_price ? 'text-[15px]' : 'text-[17px]'}`}>{money(p.min_price)}{weighed ? ' /kg' : ''}</span>
               <span className="text-[13px] text-ink2">en {chainById(p.min_chain_id).name}</span>
             </p>
             <p className="mt-1 flex flex-wrap gap-1.5">
-              {!weighed && p.min_unit_price && <span className="num text-[13px] text-muted">{money(p.min_unit_price, true)} / {unitLabel(p.unit_label)}</span>}
+              {!weighed && p.min_unit_price && !unitFirst && <span className="num text-[13px] text-muted">{money(p.min_unit_price, true)} / {unitLabel(p.unit_label)}</span>}
               <Chip>{p.chains_count === 1 ? 'En 1 super' : `En ${p.chains_count} supers`}</Chip>
               {p.has_promo && <Chip tone="promo" icon="sell">Promo</Chip>}
             </p>

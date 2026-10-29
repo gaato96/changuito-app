@@ -6,19 +6,26 @@ import type { Price } from './pricing';
 export type ProductCard = {
   id: number; name: string; brand: string | null; image_url: string | null; size_value: number | null; size_unit: string | null;
   category_id: number | null; kind: 'packaged' | 'weighed'; min_price: number; min_chain_id: number; min_unit_price: number | null;
-  unit_label: 'kg' | 'l' | 'u' | null; chains_count: number; has_promo: boolean;
+  unit_label: 'kg' | 'l' | 'u' | null; chains_count: number; has_promo: boolean; chain_ids: number[]; max_price: number | null;
 };
 
-export type Product = Omit<ProductCard, 'min_price' | 'min_chain_id' | 'min_unit_price' | 'unit_label' | 'chains_count' | 'has_promo'> & { ean: string | null };
+export type Product = Omit<ProductCard, 'min_price' | 'min_chain_id' | 'min_unit_price' | 'unit_label' | 'chains_count' | 'has_promo' | 'chain_ids' | 'max_price'> & { ean: string | null };
 
 export type HistoryPoint = { chainId: number; at: string; price: number };
 
-export type Sort = 'relevance' | 'price' | 'unit_price';
+export type Sort = 'relevance' | 'price' | 'unit_price' | 'coverage';
 
-export async function searchProducts(opts: { q?: string; categoryId?: number; brand?: string; sort?: Sort; limit?: number; offset?: number }): Promise<ProductCard[]> {
+export type Filters = { sort: Sort; chainId: number | null; brand: string | null; categoryId: number | null; promoOnly: boolean; minChains: number };
+export const DEFAULT_FILTERS: Filters = { sort: 'relevance', chainId: null, brand: null, categoryId: null, promoOnly: false, minChains: 1 };
+
+export async function searchProducts(opts: {
+  q?: string; categoryId?: number | null; brand?: string | null; sort?: Sort; limit?: number; offset?: number;
+  chainId?: number | null; promoOnly?: boolean; minChains?: number;
+}): Promise<ProductCard[]> {
   const { data, error } = await supabase.rpc('search_products', {
     q: opts.q?.trim() || null, cat: opts.categoryId ?? null, brand_filter: opts.brand || null,
     sort: opts.sort ?? 'relevance', lim: opts.limit ?? 30, off: opts.offset ?? 0,
+    chain: opts.chainId ?? null, promo_only: opts.promoOnly ?? false, min_chains: opts.minChains ?? 1,
   });
   if (error) throw new Error(error.message);
   return (data ?? []).map(normCard);
@@ -27,11 +34,13 @@ export async function searchProducts(opts: { q?: string; categoryId?: number; br
 const normCard = (r: Record<string, unknown>): ProductCard => ({
   ...(r as ProductCard), id: Number(r.id), min_price: Number(r.min_price),
   min_unit_price: r.min_unit_price === null ? null : Number(r.min_unit_price),
+  max_price: r.max_price === null || r.max_price === undefined ? null : Number(r.max_price),
+  chain_ids: ((r.chain_ids as number[] | null) ?? []).map(Number),
   size_value: r.size_value === null ? null : Number(r.size_value),
 });
 
-export async function categoryBrands(categoryId: number): Promise<{ brand: string; n: number }[]> {
-  const { data } = await supabase.rpc('category_brands', { cat: categoryId });
+export async function searchBrands(q: string | null, categoryId: number | null): Promise<{ brand: string; n: number }[]> {
+  const { data } = await supabase.rpc('search_brands', { q: q?.trim() || null, cat: categoryId });
   return (data ?? []).map((r: { brand: string; n: number }) => ({ brand: r.brand, n: Number(r.n) }));
 }
 

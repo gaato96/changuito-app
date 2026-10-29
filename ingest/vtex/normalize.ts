@@ -2,7 +2,7 @@
 import type { SimItem, VtexProduct } from './client.ts';
 import type { PriceRecord, ProductRecord } from '../shared/store.ts';
 import { ean13, isInternalEan } from '../shared/text.ts';
-import { parseSizeFromName, reconcileSize } from '../shared/units.ts';
+import { isContainer, parseSizeFromName, reconcileSize } from '../shared/units.ts';
 import { classifyFromTotals, isMiCarrefour, NO_PROMO } from '../shared/promos.ts';
 
 export type CatalogItem = ProductRecord & { catalogPrice: number; teasers: string[]; knownUnitPrice: number | null };
@@ -17,7 +17,7 @@ export function fromCatalog(p: VtexProduct, base: string, resolveCategory: (path
   const e = ean13(it.ean);
   const weighed = it.measurementUnit === 'kg';
   const knownUnitPrice = p.pricePerUnit?.[0] ? Number(p.pricePerUnit[0]) : null;
-  const size = weighed ? null : reconcileSize(parseSizeFromName(p.productName), offer.Price, knownUnitPrice);
+  const size = weighed || isContainer(p.productName) ? null : reconcileSize(parseSizeFromName(p.productName), offer.Price, knownUnitPrice);
   const path = p.categories?.[0] ?? null;
   return {
     sku: it.itemId,
