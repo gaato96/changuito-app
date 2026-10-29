@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { PwaSetup } from '@/components/pwa';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], weight: ['600', '700', '800'], variable: '--font-jakarta', display: 'swap' });
@@ -40,6 +41,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <PwaSetup />
           {children}
         </div>
+        {/* Medición sin cookies (PLAN.md §1.4.13); solo funciona publicada en Vercel */}
+        <Analytics />
       </body>
     </html>
   );

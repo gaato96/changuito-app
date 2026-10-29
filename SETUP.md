@@ -51,6 +51,8 @@ Si algo falla, GitHub te manda un mail.
 
 Desde ese momento, cada vez que se suba código a `main`, Vercel publica la versión nueva sola.
 
+7. En el proyecto de Vercel, abrí la pestaña **Analytics** y tocá **Enable**. Es la medición de visitas sin cookies del plan (gratis en Hobby).
+
 ---
 
 ## 3. Configurar el ingreso al panel admin (magic link)

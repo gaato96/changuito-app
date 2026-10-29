@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ago, categoryById, CHAINS, chainById, isStale, money, sizeText, unitLabel } from '@/lib/catalog';
-import { getHistory, getProduct, getProductPrices } from '@/lib/data';
+import { cheaperAlternatives, getHistory, getProduct, getProductPrices } from '@/lib/data';
+import Link from 'next/link';
 import { costFor, promoSuggestion, type Price } from '@/lib/pricing';
 import { TopBar } from '@/components/nav';
 import { ChainTag, Chip, Icon, LegalNote, NoData, ProductThumb } from '@/components/ui';
@@ -26,7 +27,7 @@ function PromoChip({ p }: { p: Price }) {
 export default async function ProductPage({ params }: Props) {
   const id = Number((await params).id);
   if (!Number.isFinite(id)) notFound();
-  const [product, prices, history] = await Promise.all([getProduct(id), getProductPrices(id), getHistory(id)]);
+  const [product, prices, history, alternatives] = await Promise.all([getProduct(id), getProductPrices(id), getHistory(id), cheaperAlternatives(id).catch(() => [])]);
   if (!product) notFound();
 
   const now = new Date();
@@ -146,6 +147,21 @@ export default async function ProductPage({ params }: Props) {
           <h2 className="font-head text-[20px] font-semibold leading-[26px]">Historial de 60 días</h2>
           <div className="mt-3"><HistoryChart points={history} now={now} /></div>
         </section>
+
+        {alternatives.length > 0 && (() => {
+          const a = [...alternatives].sort((x, y) => y.savingPct - x.savingPct)[0];
+          return (
+            <Link href={`/producto/${a.productId}`} className="card flex items-center gap-3 p-4">
+              <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-save-bg text-save"><Icon name="swap_horiz" /></span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[13px] font-semibold tracking-wide text-save uppercase">Alternativa más barata</span>
+                <span className="block font-semibold leading-5">{a.name}</span>
+                <span className="num block text-[13px] text-ink2">En {chainById(a.chainId).name} cuesta {money(a.price)} ({money(a.unitPrice, true)} / {unitLabel(a.unitLabel)}), {a.savingPct}% menos por {unitLabel(a.unitLabel)}</span>
+              </span>
+              <Icon name="chevron_right" className="text-muted" />
+            </Link>
+          );
+        })()}
 
         <LegalNote className="pt-2" />
       </main>

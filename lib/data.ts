@@ -112,3 +112,14 @@ export function genericToPrice(g: GenericPrice, unit: 'kg' | 'unidad'): Price {
     promoText: null, loyalty: null, capturedAt: g.capturedAt,
   };
 }
+
+export type Alternative = { chainId: number; productId: number; name: string; price: number; unitPrice: number; unitLabel: string; savingPct: number };
+
+/** Productos parecidos más baratos por kg/L en el mismo super (solo aviso). */
+export async function cheaperAlternatives(productId: number): Promise<Alternative[]> {
+  const { data } = await supabase.rpc('cheaper_alternatives', { pid: productId });
+  return (data ?? []).map((r: Record<string, unknown>) => ({
+    chainId: Number(r.chain_id), productId: Number(r.product_id), name: String(r.name), price: Number(r.price),
+    unitPrice: Number(r.unit_price), unitLabel: String(r.unit_label), savingPct: Number(r.saving_pct),
+  }));
+}

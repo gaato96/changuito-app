@@ -3,7 +3,12 @@
 PWA gratuita para comparar precios de supermercados del Gran San Miguel de Tucumán, armar listas de compras y saber en qué super conviene comprar y cuánto se ahorra exactamente.
 
 - **Fecha del plan:** 16/10/2026 (actualizado el 29/10/2026 con los resultados de la Fase 0, ver `phase0/INFORME_FASE0.md`)
-- **Estado:** Fase 0 terminada. Diseño mobile hecho en Stitch (`stitch_changuito_design_system_sheet/`) y admin en `design/admin/`. Próximo paso: Fase 1.
+- **Estado (29/10/2026):**
+  - Fases 0 a 4 programadas.
+  - Datos en Supabase, cargándose a diario por GitHub Actions.
+  - App lista para publicar en Vercel; los pasos están en `SETUP.md`.
+  - Pendientes del dueño: aprobar las equivalencias de frescos en `/admin`, publicar en Vercel y probar en Android y iPhone.
+  - Diseño mobile en Stitch (`stitch_changuito_design_system_sheet/`) y admin en `design/admin/`.
 - **Restricción principal:** costo cero. Todo corre en planes gratuitos.
 
 ---
