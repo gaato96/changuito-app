@@ -1,3 +1,4 @@
+# Requiere el secreto DATABASE_URL (Settings → Secrets and variables → Actions).
 # Precios de Carrefour, ChangoMás y Comodín (webs VTEX, región Tucumán).
 # 09:00 ART: catálogo completo + precios. 18:00 ART: solo precios de productos conocidos.
 name: ingest-vtex

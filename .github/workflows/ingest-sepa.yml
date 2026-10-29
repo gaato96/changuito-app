@@ -1,3 +1,4 @@
+# Requiere el secreto DATABASE_URL (Settings → Secrets and variables → Actions).
 # Precios de Vea, Jumbo y La Anónima desde SEPA (datos oficiales, CC-BY 4.0).
 # CKAN publica el archivo diario cerca de las 16:20; se consulta 2 veces y se procesa solo si hay uno nuevo.
 name: ingest-sepa

@@ -1,3 +1,4 @@
+# Requiere el secreto DATABASE_URL (Settings → Secrets and variables → Actions).
 # Mantenimiento diario: historial > 60 días, tamaño de la base, frescos y keep-alive del cron (PLAN.md §7).
 name: maintenance
 

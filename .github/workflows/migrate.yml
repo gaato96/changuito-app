@@ -1,3 +1,4 @@
+# Requiere el secreto DATABASE_URL (Settings → Secrets and variables → Actions).
 # Aplica las migraciones pendientes de supabase/migrations y recarga category_map. Se corre a mano.
 name: migrate
 
