@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { ean13, norm } from './text.ts';
 import { parseSizeFromName, reconcileSize, sizeFromReference, unitPrice } from './units.ts';
-import { classifyFromTotals, costFor, parseSepaPromo } from './promos.ts';
+import { classifyFromTotals, parseSepaPromo } from './promos.ts';
 import { makeCategoryResolver, makeKeywordClassifier, loadCategoryConfig, topLevelPaths } from './categories.ts';
 
 test('norm y ean13', () => {
@@ -70,13 +70,6 @@ test('promos de SEPA', () => {
   assert.equal(parseSepaPromo('', 1000, null).promo.kind, 'none');
 });
 
-test('costo con promo', () => {
-  assert.equal(costFor(3, 1000, 1000, { kind: 'nth_pct', minQty: 2, value: 70, text: null }), 2300);
-  assert.equal(costFor(4, 1000, 1000, { kind: 'nxm', minQty: 3, value: 2, text: null }), 3000);
-  assert.equal(costFor(1, 1000, 1000, { kind: 'qty_price', minQty: 2, value: 800, text: null }), 1000);
-  assert.equal(costFor(2, 1000, 1000, { kind: 'qty_price', minQty: 2, value: 800, text: null }), 1600);
-});
-
 test('categorías', () => {
   const cfg = loadCategoryConfig();
   const cm = makeCategoryResolver(cfg.map.changomas);
@@ -90,6 +83,7 @@ test('categorías', () => {
   assert.equal(kw('TAPA DE NALGA NOVILLITO BJA-1-Kg'), 'carnes');
   assert.equal(kw('Jamon cocido paladini sob. x kg. feteado'), 'fiambreria');
   assert.equal(kw('PURE DE TOMATE, VIGENTE, 520 gr'), 'almacen');
+  assert.equal(kw('Aceite FRITOLIM Manteca x126cc'), 'almacen');
 });
 
 test('lotes de simulación por marca', async () => {
@@ -124,4 +118,11 @@ test('talles de SEPA con litros escritos como cc', async () => {
   assert.deepEqual(parseSepaSize('beb.hierb.TERMA Serrano CERO 1.35cc BOT-1350-ml.', null), { value: 1350, unit: 'ml' });
   assert.deepEqual(parseSepaSize('Poett Desinf. Flores de Primavera 1.8ml BOT-1800-ml.', null), { value: 1800, unit: 'ml' });
   assert.equal(unitPrice(3240, { value: 1, unit: 'g' }), null);
+});
+
+test('nombres de SEPA para mostrar', async () => {
+  const { prettySepaName } = await import('./text.ts');
+  assert.equal(prettySepaName('Leche entera uat Tregar BRK-1000-ml.'), 'Leche entera uat Tregar');
+  assert.equal(prettySepaName('TAPA DE NALGA E/V**, FB MEATS, 1 kgr'), 'Tapa de nalga e/v, fb meats, 1 kgr');
+  assert.equal(prettySepaName('yerba mate PLAYADITO Sin palo PAQ-500-gr.'), 'Yerba mate PLAYADITO Sin palo');
 });

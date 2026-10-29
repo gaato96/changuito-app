@@ -29,12 +29,20 @@ export function topLevelPaths(chainMap: Record<string, string>): string[] {
   return Object.keys(chainMap).filter(p => p.split('/').filter(Boolean).length === 1);
 }
 
-/** Clasifica por palabras clave del nombre (para productos de SEPA sin match de EAN en las webs). */
+/**
+ * Clasifica por palabras clave del nombre (para productos de SEPA sin match de EAN en las webs).
+ * Gana la palabra que aparece primero ("Aceite Fritolim Manteca" es almacén, no lácteos); a igual posición, la más larga.
+ */
 export function makeKeywordClassifier(keywords: Record<string, string[]>) {
-  const list = Object.entries(keywords).flatMap(([slug, words]) => words.map(w => [norm(w), slug] as const))
-    .sort((a, b) => b[0].length - a[0].length);
+  const list = Object.entries(keywords).flatMap(([slug, words]) => words.map(w => [norm(w), slug] as const));
   return (name: string): string | null => {
     const n = ` ${norm(name)} `;
-    return list.find(([w]) => n.includes(w.startsWith(' ') || w.endsWith(' ') ? w : ` ${w}`))?.[1] ?? null;
+    let best: { pos: number; len: number; slug: string } | null = null;
+    for (const [w, slug] of list) {
+      const pos = n.indexOf(w.startsWith(' ') || w.endsWith(' ') ? w : ` ${w}`);
+      if (pos < 0) continue;
+      if (!best || pos < best.pos || (pos === best.pos && w.length > best.len)) best = { pos, len: w.length, slug };
+    }
+    return best?.slug ?? null;
   };
 }

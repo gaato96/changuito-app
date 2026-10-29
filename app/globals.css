@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* Tokens del sistema de diseño de Stitch (stitch_changuito_design_system_sheet/.../changuito/DESIGN.md) */
+:root {
+  --bg: #FAFAF7;
+  --card: #FFFFFF;
+  --subtle: #F1F2EE;
+  --line: #E3E5DF;
+  --ink: #161A17;
+  --ink2: #5B625D;
+  --muted: #8A918C;
+  --primary: #1F7A4D;
+  --primary-press: #17603C;
+  --primary-tint: #E3F2E9;
+  --on-primary: #FFFFFF;
+  --save: #15803D;
+  --save-bg: #DCFCE7;
+  --promo: #B45309;
+  --promo-bg: #FEF3C7;
+  --warn: #C2410C;
+  --warn-bg: #FFEDD5;
+  --err: #B91C1C;
+  --err-bg: #FEE2E2;
+  /* Colores propios de cada cadena (puntos de 10 px, sin logos). Se usan desde style, por eso van fuera de @theme */
+  --chain-carrefour: #4E6A8C;
+  --chain-changomas: #B07D2B;
+  --chain-comodin: #85587F;
+  --chain-vea: #B4604A;
+  --chain-jumbo: #5A5E9A;
+  --chain-la-anonima: #7D6B5A;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1412; --card: #182019; --subtle: #212A23; --line: #2C362F;
+    --ink: #EEF1EC; --ink2: #A9B2AB; --muted: #7E8780;
+    --primary: #4CC38A; --primary-press: #3BA874; --primary-tint: #173326; --on-primary: #0F1412;
+    --save: #4ADE80; --save-bg: #14321F; --promo: #FBBF24; --promo-bg: #3A2A0A;
+    --warn: #FB923C; --warn-bg: #3A1E0C; --err: #F87171; --err-bg: #3B1414;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1412; --card: #182019; --subtle: #212A23; --line: #2C362F;
+  --ink: #EEF1EC; --ink2: #A9B2AB; --muted: #7E8780;
+  --primary: #4CC38A; --primary-press: #3BA874; --primary-tint: #173326; --on-primary: #0F1412;
+  --save: #4ADE80; --save-bg: #14321F; --promo: #FBBF24; --promo-bg: #3A2A0A;
+  --warn: #FB923C; --warn-bg: #3A1E0C; --err: #F87171; --err-bg: #3B1414;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink2: var(--ink2);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-press: var(--primary-press);
+  --color-primary-tint: var(--primary-tint);
+  --color-on-primary: var(--on-primary);
+  --color-save: var(--save);
+  --color-save-bg: var(--save-bg);
+  --color-promo: var(--promo);
+  --color-promo-bg: var(--promo-bg);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-err: var(--err);
+  --color-err-bg: var(--err-bg);
+  --font-head: var(--font-jakarta), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --radius-card: 16px;
+  --radius-ctl: 12px;
+}
+
+html { background: var(--bg); }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 24px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Precios y números: siempre cifras tabulares */
+.num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 1px 3px rgba(22, 26, 23, .04); }
+.chip { display: inline-flex; align-items: center; gap: 4px; border-radius: 9999px; padding: 2px 10px; font-size: 13px; line-height: 20px; font-weight: 600; white-space: nowrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 12px; font-weight: 600; font-size: 17px; transition: background-color .15s; }
+.btn-primary { background: var(--primary); color: var(--on-primary); }
+.btn-primary:active { background: var(--primary-press); }
+.btn-outline { background: var(--card); border: 1px solid var(--line); color: var(--ink); }
+.btn-ghost { color: var(--primary); }
+.dot { width: 10px; height: 10px; border-radius: 9999px; display: inline-block; flex: none; }
+
+.icon {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal; font-style: normal; font-size: 24px; line-height: 1;
+  display: inline-block; white-space: nowrap; direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+.icon-fill { font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+.pb-nav { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }

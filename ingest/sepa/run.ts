@@ -7,9 +7,10 @@ import { createWriteStream, mkdirSync, statSync } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { Readable } from 'node:stream';
 import { connect } from '../shared/db.ts';
-import { categoryIds, finishRun, markMissingUnavailable, startRun, upsertPrices, upsertProducts, type ProductRecord } from '../shared/store.ts';
+import { categoryIds, finishRun, markMissingUnavailable, refreshProductCards, startRun, upsertPrices, upsertProducts, type ProductRecord } from '../shared/store.ts';
 import { loadCategoryConfig, makeKeywordClassifier } from '../shared/categories.ts';
 import { parseSepaPromo } from '../shared/promos.ts';
+import { prettySepaName } from '../shared/text.ts';
 import type { Entry } from 'yauzl';
 import { entries, openBuffer, openFile, openStream, readAll } from './zip.ts';
 import { csvParser, pickSucursales, readRecords, toRow, type SepaRow, type Sucursal } from './parse.ts';
@@ -142,7 +143,7 @@ try {
     if (!chosen.length) { failures.push(`${chain.slug}: sin productos`); continue; }
 
     const records: ProductRecord[] = chosen.map(r => ({
-      sku: r.idProducto, ean: r.ean, name: r.name, brand: r.brand, size: r.size,
+      sku: r.idProducto, ean: r.ean, name: prettySepaName(r.name), brand: r.brand, size: r.size,
       categorySlug: classify(r.name), imageUrl: null, weighed: r.weighed, externalPath: null, url: null,
       measurementUnit: r.weighed ? 'kg' : 'un', unitMultiplier: null,
     }));
@@ -165,6 +166,7 @@ try {
     log(`${chain.slug}: ${stores.length} sucursales, ${chosen.length} productos, ${divergent} con precio distinto entre sucursales`);
   }
   stats.chains = perChain;
+  if (written) await refreshProductCards(sql);
   if (failures.length) {
     stats.failures = failures;
     await finishRun(sql, runId, 'failed', { read: rows.length, written, stats, error: failures.join('; ') });

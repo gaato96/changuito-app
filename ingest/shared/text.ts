@@ -25,3 +25,16 @@ export function ean13(raw: string | null | undefined): string | null {
 export function isInternalEan(e: string): boolean {
   return e.startsWith('2');
 }
+
+/**
+ * Nombre para mostrar a partir de SEPA: saca el código de presentación de Cencosud ("BRK-1000-ml.")
+ * y pasa a minúsculas los nombres escritos todo en mayúsculas ("TAPA DE NALGA E/V**, FB MEATS, 1 kgr").
+ */
+export function prettySepaName(raw: string): string {
+  let s = raw.replace(/\s+[A-Za-z/]{2,4}-[\d.,]+-\s*[A-Za-z]+\.?\s*$/, '').replace(/\*+/g, '').replace(/\s+,/g, ',').trim();
+  const letters = s.replace(/[^A-Za-zÁÉÍÓÚÑáéíóúñ]/g, '');
+  const upper = letters.replace(/[^A-ZÁÉÍÓÚÑ]/g, '').length;
+  if (letters && upper / letters.length > 0.8) s = s.toLowerCase();
+  s = s.replace(/\s+/g, ' ');
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}

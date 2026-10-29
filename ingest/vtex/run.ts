@@ -6,7 +6,7 @@
 import { parseArgs } from 'node:util';
 import { connect, type Sql } from '../shared/db.ts';
 import { loadCategoryConfig, makeCategoryResolver, topLevelPaths } from '../shared/categories.ts';
-import { categoryIds, finishRun, markMissingUnavailable, startRun, upsertPrices, upsertProducts, type PriceRecord } from '../shared/store.ts';
+import { categoryIds, finishRun, markMissingUnavailable, refreshProductCards, startRun, upsertPrices, upsertProducts, type PriceRecord } from '../shared/store.ts';
 import { norm } from '../shared/text.ts';
 import { brandKey, isolatedBatches, VtexClient, type CategoryNode, type SimItem } from './client.ts';
 import { fromCatalog, fromSimulation, type CatalogItem } from './normalize.ts';
@@ -209,6 +209,7 @@ try {
     const seen = [...new Set(rows.map(r => r.productId))];
     // Con --max-categories el recorrido es parcial: no se puede inferir qué dejó de venderse
     if (!args['max-categories']) stats.markedUnavailable = await markMissingUnavailable(sql, zone.id, seen);
+    await refreshProductCards(sql);
     await finishRun(sql, runId, 'ok', { read: targets.length, written, stats });
     log(`listo: ${written} precios escritos`, JSON.stringify(stats));
   }

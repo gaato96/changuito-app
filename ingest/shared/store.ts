@@ -44,6 +44,11 @@ export async function finishRun(sql: Sql, id: number, status: 'ok' | 'failed' | 
     where id = ${id}`;
 }
 
+/** Recalcula el resumen por producto que usa la app (vista materializada product_cards). */
+export async function refreshProductCards(sql: Sql) {
+  await sql`select refresh_product_cards()`;
+}
+
 export async function categoryIds(sql: Sql): Promise<Map<string, number>> {
   return new Map((await sql<{ id: number; slug: string }[]>`select id, slug from categories`).map(c => [c.slug, c.id]));
 }

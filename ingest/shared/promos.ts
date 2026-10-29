@@ -75,22 +75,4 @@ function cleanLegend(s: string): string {
   return s.replace(/\s*-\s*Vigencia:.*$/i, '').replace(/\s*-\s*Stock:.*$/i, '').trim();
 }
 
-/** Costo de llevar q unidades con la promo aplicada (mismo cálculo que hará la app). */
-export function costFor(q: number, unitPrice: number, list: number, promo: Promo): number {
-  switch (promo.kind) {
-    case 'nth_pct': {
-      const n = promo.minQty!, groups = Math.floor(q / n);
-      return round2(q * list - groups * list * (promo.value! / 100));
-    }
-    case 'nxm': {
-      const n = promo.minQty!, m = promo.value!, groups = Math.floor(q / n);
-      return round2(groups * m * list + (q - groups * n) * list);
-    }
-    case 'qty_price':
-      return round2(q >= promo.minQty! ? q * promo.value! : q * list);
-    default:
-      return round2(q * unitPrice);
-  }
-}
-
 const round2 = (v: number) => Math.round(v * 100) / 100;

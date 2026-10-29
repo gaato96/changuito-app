@@ -3,7 +3,7 @@
 // Termina con error si algo requiere atención: GitHub le manda un mail al dueño del repo.
 import { writeFileSync } from 'node:fs';
 import { connect } from '../shared/db.ts';
-import { finishRun, startRun } from '../shared/store.ts';
+import { finishRun, refreshProductCards, startRun } from '../shared/store.ts';
 
 const HISTORY_DAYS = 60;
 const SIZE_ALERT_MB = 400;
@@ -20,6 +20,9 @@ try {
     where h.valid_from < now() - make_interval(days => ${HISTORY_DAYS})
       and exists (select 1 from price_history n where n.zone_id = h.zone_id and n.product_id = h.product_id and n.valid_from > h.valid_from)`;
   stats.historyDeleted = deleted.count;
+
+  // Los precios de más de 72 h dejan de contar: el resumen por producto se recalcula a diario aunque no haya ingesta
+  await refreshProductCards(sql);
 
   const [{ bytes }] = await sql<{ bytes: string }[]>`select pg_database_size(current_database()) as bytes`;
   const mb = Math.round(Number(bytes) / 1024 / 1024);
