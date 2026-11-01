@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-11-01T13:56:04.399Z",
+  "historyDeleted": 0,
+  "frescos": {
+    "generics": 161,
+    "suggested": 810
+  },
+  "dbSizeMb": 91,
+  "freshness": {
+    "carrefour": "2026-10-31T23:57:12.828Z",
+    "changomas": "2026-10-31T23:57:12.749Z",
+    "comodin": "2026-10-31T00:25:04.761Z",
+    "jumbo": "2026-10-31T20:26:12.969Z",
+    "la-anonima": "2026-10-31T20:26:12.969Z",
+    "vea": "2026-10-31T20:26:12.969Z"
+  },
+  "products": 23864,
+  "availablePrices": 40031,
+  "lastRuns": [
+    {
+      "source": "sepa",
+      "chain": null,
+      "status": "skipped",
+      "at": "2026-11-01T01:54:25.544Z"
+    },
+    {
+      "source": "vtex",
+      "chain": "carrefour",
+      "status": "ok",
+      "at": "2026-10-31T23:57:12.771Z"
+    },
+    {
+      "source": "vtex",
+      "chain": "changomas",
+      "status": "ok",
+      "at": "2026-10-31T23:57:12.652Z"
+    },
+    {
+      "source": "vtex",
+      "chain": "comodin",
+      "status": "ok",
+      "at": "2026-10-31T23:57:15.730Z"
+    }
+  ],
+  "problems": []
+}
